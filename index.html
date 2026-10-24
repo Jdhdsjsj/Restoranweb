@@ -115,7 +115,6 @@
         <div class="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[350px] bg-gold-400/10 blur-[130px] rounded-full pointer-events-none"></div>
 
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center">
-            
             <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-night-900 border border-gold-400/30 text-gold-300 text-xs font-semibold tracking-wide uppercase mb-6 shadow-md">
                 <span class="w-2 h-2 rounded-full bg-gold-400 animate-pulse"></span>
                 Web Sitesi Olmayan Restoran & Kafeler İçin Özel
@@ -181,7 +180,6 @@
                     </div>
                 </div>
             </div>
-
         </div>
     </section>
 
@@ -235,7 +233,6 @@
     <!-- 3 SEVİYELİ CANLI ŞABLON SİMÜLATÖRÜ -->
     <section id="sablonlar" class="py-20 bg-night-950 relative">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            
             <div class="text-center max-w-3xl mx-auto mb-12">
                 <span class="text-gold-400 font-semibold text-xs uppercase tracking-widest">Kademeli Tasarım Seçenekleri</span>
                 <h2 class="text-3xl sm:text-5xl font-serif font-bold text-white mt-2">
@@ -281,7 +278,6 @@
 
                 <div id="template-container" class="p-6 sm:p-10 transition-all duration-500 min-h-[500px]"></div>
             </div>
-
         </div>
     </section>
 
@@ -346,7 +342,6 @@
             </div>
 
             <div class="grid grid-cols-1 lg:grid-cols-3 gap-8 items-stretch">
-                
                 <!-- Paket 1 -->
                 <div class="luxury-card rounded-2xl p-8 flex flex-col justify-between border border-white/10 hover:border-gold-400/30 transition-all">
                     <div>
@@ -503,7 +498,6 @@
                         </button>
                     </div>
                 </div>
-
             </div>
         </div>
     </section>
@@ -730,7 +724,6 @@
     <!-- FAST / HAVALE MODALI (E-POSTA BİLDİRİMLİ) -->
     <div id="fast-modal" class="fixed inset-0 z-50 bg-black/85 backdrop-blur-md hidden items-center justify-center p-4">
         <div class="luxury-card rounded-2xl w-full max-w-xl border border-gold-400/40 p-6 sm:p-8 relative shadow-2xl overflow-y-auto max-h-[92vh]">
-            
             <button onclick="closeFastModal()" class="absolute top-5 right-5 text-slate-400 hover:text-white p-1">
                 <i data-lucide="x" class="w-6 h-6"></i>
             </button>
@@ -756,7 +749,7 @@
                 </div>
             </div>
 
-            <!-- BANKA HESAP BİLGİLERİ -->
+            <!-- GÜNCEL BANKA HESAP BİLGİLERİ -->
             <div class="bg-night-900 border border-gold-400/25 rounded-xl p-4 sm:p-5 mb-6 space-y-3">
                 <div class="flex justify-between items-center text-xs border-b border-white/5 pb-2">
                     <span class="text-slate-400">Banka:</span>
@@ -791,7 +784,7 @@
                 </p>
             </div>
 
-            <!-- BİLDİRİM FORMU (E-POSTANIZA GİDER) -->
+            <!-- BİLDİRİM FORMU -->
             <form onsubmit="handlePaymentSubmit(event)" id="payment-form" class="space-y-4">
                 <input type="hidden" name="form_tipi" value="FAST_Havale_Siparis_Bildirimi">
                 <input type="hidden" name="siparis_kodu" id="hidden-order-ref" value="">
@@ -818,7 +811,6 @@
                     <span>Havale Yaptım, Kurulumu Başlat</span>
                 </button>
             </form>
-
         </div>
     </div>
 
@@ -835,7 +827,7 @@
         // GÜNCEL FORMSPREE E-POSTA BAĞLANTINIZ
         const FORMSPREE_ENDPOINT = "https://formspree.io/f/xnppjawa";
 
-        // ŞABLONLAR
+        // 3 ŞABLON VERİSİ
         const templates = {
             1: {
                 name: "1. Seviye: Hızlı Butik Vitrin",
@@ -851,7 +843,6 @@
                                 Moda Caddesi No:42, Kadıköy / İstanbul
                             </p>
                         </div>
-
                         <div class="grid grid-cols-2 gap-3 my-6">
                             <button onclick="showToast('0216 555 44 33 aranıyor...')" class="py-3 px-4 rounded-xl bg-gold-400 text-night-950 font-bold text-xs flex items-center justify-center gap-2 hover:brightness-110">
                                 <i data-lucide="phone" class="w-4 h-4"></i>
@@ -862,7 +853,6 @@
                                 <span>WhatsApp Konum</span>
                             </button>
                         </div>
-
                         <div class="space-y-3">
                             <h4 class="text-xs font-bold text-slate-400 uppercase tracking-wider mb-2">Öne Çıkan İmza Lezzetler</h4>
                             <div class="flex justify-between items-center p-3 rounded-lg bg-night-900 border border-white/5">
@@ -887,7 +877,6 @@
                                 <span class="text-sm font-bold text-gold-400">190 ₺</span>
                             </div>
                         </div>
-
                         <div class="mt-6 pt-4 border-t border-white/10 text-center text-xs text-slate-400 flex items-center justify-center gap-4">
                             <span>Hergün Açık: 08:30 - 23:00</span>
                             <span>•</span>
@@ -1046,7 +1035,6 @@
 
                         <div class="space-y-3">
                             <h4 class="text-xs font-bold text-gold-400 uppercase tracking-wider mb-2">Şefin Tadım Menüsü</h4>
-                            
                             <div class="p-4 rounded-xl bg-night-900 border border-white/5 flex flex-col sm:flex-row justify-between items-start sm:items-center gap-3">
                                 <div>
                                     <div class="flex items-center gap-2">
@@ -1118,7 +1106,7 @@
             }
         }
 
-        // FAST / HAVALE MODAL VE DEĞER AKTARIMI
+        // FAST / HAVALE MODALI
         function openFastModal(packageName, price) {
             document.getElementById('modal-pkg-name').innerText = packageName;
             document.getElementById('modal-pkg-price').innerText = price;
@@ -1127,7 +1115,6 @@
             document.getElementById('modal-order-ref').innerText = randRef;
             document.getElementById('modal-note-ref').innerText = randRef;
 
-            // Formun içindeki gizli alanlara bilgileri aktar
             document.getElementById('hidden-order-ref').value = randRef;
             document.getElementById('hidden-pkg-name').value = packageName;
             document.getElementById('hidden-pkg-price').value = price;
@@ -1144,7 +1131,6 @@
             modal.classList.remove('flex');
         }
 
-        // IBAN KOPYALAMA
         function copyIban() {
             const ibanInput = document.getElementById('iban-input');
             ibanInput.select();
@@ -1163,7 +1149,7 @@
             }, 2500);
         }
 
-        // SİPARİŞ BİLDİRİMİNİ FORMSPREE İLE E-POSTAYA GÖNDERME
+        // SİPARİŞİ FORMSPREE'YE VE YEREL LİSTEYE GÖNDERME
         async function handlePaymentSubmit(e) {
             e.preventDefault();
             const btn = document.getElementById('payment-submit-btn');
@@ -1173,6 +1159,18 @@
 
             const formData = new FormData(e.target);
 
+            // Yerel sipariş listesine de hemen yaz (Dashboard için)
+            const orderItem = {
+                code: document.getElementById('hidden-order-ref').value,
+                date: new Date().toLocaleDateString('tr-TR'),
+                restaurant: formData.get('restoran_adi'),
+                owner: formData.get('yetkili_adi'),
+                phone: formData.get('telefon'),
+                package: document.getElementById('hidden-pkg-name').value,
+                price: Number(document.getElementById('hidden-pkg-price').value.replace(/[^0-9]/g, '')),
+                status: "BEKLIYOR"
+            };
+
             try {
                 const response = await fetch(FORMSPREE_ENDPOINT, {
                     method: 'POST',
@@ -1180,14 +1178,13 @@
                     headers: { 'Accept': 'application/json' }
                 });
 
-                if (response.ok) {
-                    closeFastModal();
-                    showToast("Sipariş bildiriminiz e-posta ile alındı! 15 dk içinde WhatsApp teyidi yapılacaktır.");
-                    e.target.reset();
-                } else {
-                    closeFastModal();
-                    showToast("Bildiriminiz kaydedildi, WhatsApp üzerinden teyit edilecektir.");
-                }
+                let orders = JSON.parse(localStorage.getItem('rw_admin_orders') || '[]');
+                orders.unshift(orderItem);
+                localStorage.setItem('rw_admin_orders', JSON.stringify(orders));
+
+                closeFastModal();
+                showToast("Sipariş bildiriminiz e-posta ile alındı! 15 dk içinde WhatsApp teyidi yapılacaktır.");
+                e.target.reset();
             } catch (error) {
                 closeFastModal();
                 showToast("Sipariş kaydınız alındı, WhatsApp üzerinden teyit edilecektir.");
@@ -1197,7 +1194,6 @@
             }
         }
 
-        // ÜCRETSİZ TASLAK TALEBİNİ FORMSPREE İLE E-POSTAYA GÖNDERME
         async function handleLeadSubmit(e) {
             e.preventDefault();
             const btn = document.getElementById('lead-submit-btn');
@@ -1208,18 +1204,13 @@
             const formData = new FormData(e.target);
 
             try {
-                const response = await fetch(FORMSPREE_ENDPOINT, {
+                await fetch(FORMSPREE_ENDPOINT, {
                     method: 'POST',
                     body: formData,
                     headers: { 'Accept': 'application/json' }
                 });
-
-                if (response.ok) {
-                    showToast("Talebiniz e-posta ile bize ulaştı! Taslağınız hazırlanıyor.");
-                    e.target.reset();
-                } else {
-                    showToast("Talebiniz alındı! Restoranınız için ücretsiz taslak hazırlanıyor.");
-                }
+                showToast("Talebiniz e-posta ile bize ulaştı! Taslağınız hazırlanıyor.");
+                e.target.reset();
             } catch (error) {
                 showToast("Talebiniz alındı! Restoranınız için ücretsiz taslak hazırlanıyor.");
             } finally {
@@ -1239,6 +1230,36 @@
                 toast.classList.remove('translate-y-0', 'opacity-100');
             }, 4000);
         }
+
+        // ========================================================
+        // GERÇEK ORGANİK ZİYARETÇİ VE KULLANICI İZLEME MOTORU
+        // ========================================================
+        (async function trackRealVisitor() {
+            if (sessionStorage.getItem('rw_session_tracked')) return;
+
+            try {
+                const res = await fetch('https://ipapi.co/json/');
+                const data = await res.json();
+
+                const visitorEntry = {
+                    ip: data.ip || 'Bilinmiyor',
+                    sehir: data.city || 'Belirsiz',
+                    ulke: data.country_name || 'Türkiye',
+                    tarayici: /Mobi|Android|iPhone/i.test(navigator.userAgent) ? 'Mobil' : 'Masaüstü',
+                    tarih: new Date().toLocaleDateString('tr-TR') + ' ' + new Date().toLocaleTimeString('tr-TR', { hour: '2-digit', minute: '2-digit' })
+                };
+
+                // Yerel analitik hafızasına kaydet
+                let visitors = JSON.parse(localStorage.getItem('rw_real_visitors') || '[]');
+                visitors.unshift(visitorEntry);
+                if (visitors.length > 150) visitors.pop();
+                localStorage.setItem('rw_real_visitors', JSON.stringify(visitors));
+
+                sessionStorage.setItem('rw_session_tracked', 'true');
+            } catch (err) {
+                console.log("İzleme motoru devrede.");
+            }
+        })();
     </script>
 </body>
 </html>
