@@ -162,20 +162,26 @@
                 </div>
             </div>
 
-            <!-- 2. TEKİL ZİYARETÇİ BİLGİLERİ TABLOSU -->
+            <!-- 2. TEKİL ZİYARETÇİ BİLGİLERİ TABLOSU (SİLME YETKİSİ İLE) -->
             <div class="bg-night-900 border border-white/10 rounded-2xl overflow-hidden shadow-xl">
                 <div class="p-5 border-b border-white/10 flex flex-col sm:flex-row sm:items-center justify-between gap-3">
                     <div>
                         <h2 class="text-base font-bold text-white flex items-center gap-2">
                             <i data-lucide="eye" class="w-4 h-4 text-gold-400"></i>
-                            <span>Tekil Ziyaretçiler (Aynı Cihaz Tekrar Yazılmaz)</span>
+                            <span>Tekil Ziyaretçiler & Cihazlar</span>
                         </h2>
-                        <p class="text-xs text-slate-400">Siteye giren her benzersiz cihaz ve IP adresi sadece 1 defa listelenir.</p>
+                        <p class="text-xs text-slate-400">İstemediğiniz cihaz loglarını veya test girişlerini buradan tek tıkla silebilirsiniz.</p>
                     </div>
-                    <button onclick="renderVisitors()" class="text-xs text-gold-400 hover:underline flex items-center gap-1 self-start sm:self-auto">
-                        <i data-lucide="rotate-cw" class="w-3.5 h-3.5"></i>
-                        <span>Listeyi Yenile</span>
-                    </button>
+                    <div class="flex items-center gap-3">
+                        <button onclick="clearAllVisitors()" class="text-xs text-rose-400 hover:text-rose-300 flex items-center gap-1">
+                            <i data-lucide="trash" class="w-3.5 h-3.5"></i>
+                            <span>Tüm Cihazları Temizle</span>
+                        </button>
+                        <button onclick="renderVisitors()" class="text-xs text-gold-400 hover:underline flex items-center gap-1">
+                            <i data-lucide="rotate-cw" class="w-3.5 h-3.5"></i>
+                            <span>Yenile</span>
+                        </button>
+                    </div>
                 </div>
 
                 <div class="overflow-x-auto">
@@ -186,6 +192,7 @@
                                 <th class="py-3.5 px-4 font-semibold">Konum (Şehir / Ülke)</th>
                                 <th class="py-3.5 px-4 font-semibold">Cihaz Türü</th>
                                 <th class="py-3.5 px-4 font-semibold">IP Adresi</th>
+                                <th class="py-3.5 px-4 font-semibold text-right">İşlem</th>
                             </tr>
                         </thead>
                         <tbody id="visitors-tbody" class="divide-y divide-white/5 text-slate-300">
@@ -198,15 +205,15 @@
                 </div>
             </div>
 
-            <!-- 3. KAYITLI RESTORAN & KULLANICI HESAPLARI TABLOSU -->
+            <!-- 3. KAYITLI RESTORAN & KULLANICI HESAPLARI TABLOSU (SİLME YETKİSİ İLE) -->
             <div class="bg-night-900 border border-white/10 rounded-2xl overflow-hidden shadow-xl">
                 <div class="p-5 border-b border-white/10 flex justify-between items-center">
                     <div>
                         <h2 class="text-base font-bold text-white flex items-center gap-2">
                             <i data-lucide="user-check" class="w-4 h-4 text-blue-400"></i>
-                            <span>Siteden Kayıt Olan Müşteriler / Restoranlar</span>
+                            <span>Kayıt Olan Müşteriler / Restoranlar</span>
                         </h2>
-                        <p class="text-xs text-slate-400">Sitenizdeki "Kayıt Ol" formunu dolduran restoran sahiplerinin hesap bilgileri.</p>
+                        <p class="text-xs text-slate-400">Sitenizden hesap oluşturan işletmeler. İstediğiniz kullanıcıyı silebilirsiniz.</p>
                     </div>
                 </div>
 
@@ -219,6 +226,7 @@
                                 <th class="py-3.5 px-4 font-semibold">Yetkili Kişi</th>
                                 <th class="py-3.5 px-4 font-semibold">WhatsApp Numarası</th>
                                 <th class="py-3.5 px-4 font-semibold">E-Posta</th>
+                                <th class="py-3.5 px-4 font-semibold text-right">İşlem</th>
                             </tr>
                         </thead>
                         <tbody id="users-tbody" class="divide-y divide-white/5 text-slate-300">
@@ -451,7 +459,9 @@
             lucide.createIcons();
         }
 
-        // 1. ZİYARETÇİ LİSTESİ (TEKİL)
+        // ==========================================
+        // 1. ZİYARETÇİ / CİHAZ YÖNETİMİ & SİLME
+        // ==========================================
         function renderVisitors() {
             const visitors = JSON.parse(localStorage.getItem(STORAGE_KEY_VISITORS) || '[]');
             const tbody = document.getElementById('visitors-tbody');
@@ -466,7 +476,7 @@
             }
             empty.classList.add('hidden');
 
-            visitors.forEach(v => {
+            visitors.forEach((v, index) => {
                 const tr = document.createElement('tr');
                 tr.className = "hover:bg-white/[0.02] transition-colors";
                 tr.innerHTML = `
@@ -477,13 +487,36 @@
                     </td>
                     <td class="py-3 px-4">${v.tarayici}</td>
                     <td class="py-3 px-4 font-mono text-[11px] text-slate-500">${v.ip}</td>
+                    <td class="py-3 px-4 text-right">
+                        <button onclick="deleteVisitor('${v.deviceId || index}', '${v.ip}')" class="p-1.5 rounded-lg bg-night-850 hover:bg-rose-500 hover:text-white border border-white/10 text-slate-400 transition-colors" title="Bu Cihazı Sil">
+                            <i data-lucide="trash-2" class="w-3.5 h-3.5"></i>
+                        </button>
+                    </td>
                 `;
                 tbody.appendChild(tr);
             });
             lucide.createIcons();
         }
 
-        // 2. KAYITLI ÜYELER / RESTORANLAR
+        function deleteVisitor(deviceId, ip) {
+            if (confirm(`${ip} IP adresli bu cihaz kaydını silmek istediğinize emin misiniz?`)) {
+                let visitors = JSON.parse(localStorage.getItem(STORAGE_KEY_VISITORS) || '[]');
+                visitors = visitors.filter(v => (v.deviceId ? v.deviceId !== deviceId : v.ip !== ip));
+                localStorage.setItem(STORAGE_KEY_VISITORS, JSON.stringify(visitors));
+                renderVisitors();
+            }
+        }
+
+        function clearAllVisitors() {
+            if (confirm("Tüm ziyaretçi ve cihaz geçmişini tamamen temizlemek istediğinize emin misiniz?")) {
+                localStorage.removeItem(STORAGE_KEY_VISITORS);
+                renderVisitors();
+            }
+        }
+
+        // ==========================================
+        // 2. KAYITLI KULLANICI / RESTORAN SİLME
+        // ==========================================
         function renderUsers() {
             const users = JSON.parse(localStorage.getItem(STORAGE_KEY_USERS) || '[]');
             const tbody = document.getElementById('users-tbody');
@@ -498,10 +531,10 @@
             }
             empty.classList.add('hidden');
 
-            users.forEach(u => {
+            users.forEach((u) => {
                 const tr = document.createElement('tr');
                 tr.className = "hover:bg-white/[0.02] transition-colors";
-                const cleanPhone = u.phone.replace(/[^0-9]/g, '');
+                const cleanPhone = (u.phone || '').replace(/[^0-9]/g, '');
                 const waLink = `https://wa.me/90${cleanPhone.startsWith('0') ? cleanPhone.substring(1) : cleanPhone}`;
 
                 tr.innerHTML = `
@@ -518,13 +551,36 @@
                         </a>
                     </td>
                     <td class="py-3 px-4 font-mono text-slate-400">${u.email}</td>
+                    <td class="py-3 px-4 text-right">
+                        <button onclick="deleteUser('${u.email}', '${u.restaurant}')" class="p-1.5 rounded-lg bg-night-850 hover:bg-rose-500 hover:text-white border border-white/10 text-slate-400 transition-colors" title="Hesabı Sil">
+                            <i data-lucide="trash-2" class="w-3.5 h-3.5"></i>
+                        </button>
+                    </td>
                 `;
                 tbody.appendChild(tr);
             });
             lucide.createIcons();
         }
 
+        function deleteUser(email, restaurant) {
+            if (confirm(`${restaurant} (${email}) hesabını kalıcı olarak silmek istediğinize emin misiniz?`)) {
+                let users = JSON.parse(localStorage.getItem(STORAGE_KEY_USERS) || '[]');
+                users = users.filter(u => u.email !== email);
+                localStorage.setItem(STORAGE_KEY_USERS, JSON.stringify(users));
+
+                // Eğer silinen kullanıcı şu an giriş yapmışsa oturumunu da kapat
+                const currentUser = JSON.parse(localStorage.getItem('rw_current_user') || 'null');
+                if (currentUser && currentUser.email === email) {
+                    localStorage.removeItem('rw_current_user');
+                }
+
+                renderUsers();
+            }
+        }
+
+        // ==========================================
         // 3. STAT METRİKLERİ
+        // ==========================================
         function renderStats() {
             const orders = getOrders();
             let totalRevenue = 0;
@@ -541,7 +597,9 @@
             document.getElementById('stat-pending').innerText = pendingCount;
         }
 
+        // ==========================================
         // 4. SİPARİŞ LİSTESİ
+        // ==========================================
         function renderOrders() {
             const filter = document.getElementById('filter-status').value;
             const orders = getOrders();
