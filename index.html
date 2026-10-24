@@ -1,0 +1,1415 @@
+<!DOCTYPE html>
+<html lang="tr" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Restoranweb | Restoran & Kafeler İçin Prestijli Tanıtım Web Siteleri</title>
+  
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <!-- Google Fonts: Plus Jakarta Sans & Cormorant Garamond -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,600&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['"Plus Jakarta Sans"', 'sans-serif'],
+            serif: ['"Cormorant Garamond"', 'serif'],
+          },
+          colors: {
+            night: {
+              950: '#04070B',
+              900: '#070A10',
+              850: '#0B0F18',
+              800: '#101724',
+              700: '#192337',
+              600: '#23304A',
+            },
+            champagne: {
+              100: '#FAF3E0',
+              200: '#F5E7B2',
+              300: '#EBD485',
+              400: '#DFC25E',
+              500: '#D4AF37', /* Ana Şampanya Altını */
+              600: '#B89224',
+              700: '#947217',
+              800: '#6E520D',
+              900: '#4A3606'
+            }
+          },
+          boxShadow: {
+            'gold-glow': '0 0 35px -5px rgba(212, 175, 55, 0.28)',
+            'gold-soft': '0 4px 25px -2px rgba(212, 175, 55, 0.15)',
+            'dark-card': '0 20px 40px -15px rgba(0, 0, 0, 0.7)'
+          }
+        }
+      }
+    }
+  </script>
+
+  <style>
+    /* Özel Şampanya Altın Kaydırma Çubuğu */
+    ::-webkit-scrollbar { width: 8px; height: 8px; }
+    ::-webkit-scrollbar-track { background: #070A10; }
+    ::-webkit-scrollbar-thumb { background: #23304A; border-radius: 9999px; border: 1px solid rgba(212, 175, 55, 0.2); }
+    ::-webkit-scrollbar-thumb:hover { background: #D4AF37; }
+
+    .gold-gradient-text {
+      background: linear-gradient(135deg, #FFF6DC 0%, #E6CA65 45%, #D4AF37 70%, #99741B 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .gold-border-gradient {
+      border-image: linear-gradient(to bottom right, rgba(212,175,55,0.6), rgba(212,175,55,0.08), rgba(212,175,55,0.3)) 1;
+    }
+
+    .glass-panel {
+      background: rgba(11, 15, 24, 0.75);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      border: 1px solid rgba(212, 175, 55, 0.15);
+    }
+
+    .glass-panel-hover:hover {
+      border-color: rgba(212, 175, 55, 0.4);
+      box-shadow: 0 0 25px rgba(212, 175, 55, 0.15);
+    }
+
+    .hero-glow-bg {
+      background: radial-gradient(circle at 50% 20%, rgba(212, 175, 55, 0.12) 0%, rgba(7, 10, 16, 0.95) 70%, #070A10 100%);
+    }
+
+    .gold-pulse-dot {
+      box-shadow: 0 0 0 0 rgba(212, 175, 55, 0.7);
+      animation: gold-pulse 2s infinite;
+    }
+    @keyframes gold-pulse {
+      0% { box-shadow: 0 0 0 0 rgba(212, 175, 55, 0.7); }
+      70% { box-shadow: 0 0 0 10px rgba(212, 175, 55, 0); }
+      100% { box-shadow: 0 0 0 0 rgba(212, 175, 55, 0); }
+    }
+  </style>
+</head>
+<body class="bg-night-900 text-slate-200 font-sans antialiased selection:bg-champagne-500 selection:text-night-950">
+
+  <!-- ==================== TOAST BİLDİRİM KONTEYNERİ ==================== -->
+  <div id="toast-container" class="fixed top-6 right-6 z-50 flex flex-col gap-3 pointer-events-none"></div>
+
+  <!-- ==================== ÜST PRESTİJ BİLGİ ŞERİDİ ==================== -->
+  <div class="bg-gradient-to-r from-night-950 via-night-850 to-night-950 border-b border-champagne-500/20 py-2.5 px-4 text-center text-xs">
+    <div class="max-w-7xl mx-auto flex items-center justify-center gap-2 sm:gap-3 flex-wrap">
+      <span class="w-2 h-2 rounded-full bg-champagne-400 gold-pulse-dot"></span>
+      <span class="text-champagne-200 font-medium">Web Sitesi Olmayan Restoran &amp; Kafelere Özel:</span>
+      <span class="text-slate-300 font-semibold">48 Saatte Anahtar Teslim Tanıtım Web Sitesi</span>
+      <span class="text-champagne-500/40 hidden sm:inline">•</span>
+      <span class="text-champagne-300 font-bold hidden sm:inline"><i class="fa-solid fa-bolt mr-1"></i> FAST / Havale ile Anında Başlangıç</span>
+    </div>
+  </div>
+
+  <!-- ==================== LÜKS NAVBAR ==================== -->
+  <header class="sticky top-0 z-40 bg-night-900/90 backdrop-blur-xl border-b border-white/5 shadow-2xl">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex items-center justify-between h-20">
+        
+        <!-- Logo -->
+        <a href="#" class="flex items-center gap-3.5 group">
+          <div class="w-11 h-11 rounded-xl bg-gradient-to-br from-champagne-400 via-champagne-500 to-champagne-700 flex items-center justify-center text-night-950 font-black shadow-gold-soft group-hover:scale-105 transition-all duration-300">
+            <i class="fa-solid fa-utensils text-lg"></i>
+          </div>
+          <div>
+            <div class="flex items-center gap-1.5">
+              <span class="text-2xl font-bold tracking-tight text-white font-serif">Restoran<span class="gold-gradient-text">web</span></span>
+              <span class="px-1.5 py-0.5 rounded text-[9px] font-extrabold uppercase bg-champagne-500/20 text-champagne-300 border border-champagne-500/30">Studio</span>
+            </div>
+            <p class="text-[10px] text-slate-400 tracking-widest font-semibold uppercase">Prestijli Restoran Vitrinleri</p>
+          </div>
+        </a>
+
+        <!-- Masaüstü Menü -->
+        <nav class="hidden lg:flex items-center gap-8 text-xs font-semibold tracking-wide uppercase text-slate-300">
+          <a href="#sablonlar" class="hover:text-champagne-300 transition-colors flex items-center gap-2">
+            <span class="w-1.5 h-1.5 rounded-full bg-champagne-400"></span>
+            Şablon Kademeleri (1-2-3)
+          </a>
+          <a href="#neden-tanitim" class="hover:text-champagne-300 transition-colors">Neden Tanıtım Sitesi?</a>
+          <a href="#neler-dahil" class="hover:text-champagne-300 transition-colors">Neler Dahil?</a>
+          <a href="#fiyatlar" class="hover:text-champagne-300 transition-colors">Paketler &amp; Fiyatlar</a>
+          <a href="#fast-rehberi" class="hover:text-champagne-300 transition-colors">FAST ile Öde</a>
+        </nav>
+
+        <!-- Sağ Aksiyon Butonları -->
+        <div class="flex items-center gap-3">
+          <button onclick="openFastPaymentModal('Standart Bistro & Menü', 5850)" class="hidden sm:inline-flex items-center gap-2 px-4 py-2.5 rounded-xl border border-champagne-500/40 bg-champagne-500/10 hover:bg-champagne-500/20 text-champagne-200 text-xs font-bold transition-all">
+            <i class="fa-solid fa-money-bill-transfer text-champagne-400"></i>
+            <span>FAST / Havale ile Başlat</span>
+          </button>
+          <a href="#ucretsiz-taslak" class="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl bg-gradient-to-r from-champagne-500 via-champagne-400 to-champagne-600 hover:brightness-110 text-night-950 text-xs font-extrabold shadow-gold-soft transition-all hover:-translate-y-0.5">
+            <i class="fa-solid fa-wand-magic-sparkles"></i>
+            <span>Ücretsiz Taslak Al</span>
+          </a>
+          <!-- Mobil Hamburger -->
+          <button onclick="toggleMobileMenu()" class="lg:hidden p-2.5 rounded-xl bg-night-800 border border-white/10 text-slate-300 hover:text-champagne-300">
+            <i class="fa-solid fa-bars text-lg"></i>
+          </button>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- Mobil Açılır Menü -->
+    <div id="mobile-menu" class="hidden lg:hidden border-b border-white/10 bg-night-950 px-6 py-5 flex-col gap-3 text-xs font-bold uppercase tracking-wider text-slate-300">
+      <a href="#sablonlar" onclick="toggleMobileMenu()" class="py-2.5 border-b border-white/5 hover:text-champagne-300">3 Şablon Kademesi</a>
+      <a href="#neden-tanitim" onclick="toggleMobileMenu()" class="py-2.5 border-b border-white/5 hover:text-champagne-300">Neden Tanıtım Sitesi?</a>
+      <a href="#neler-dahil" onclick="toggleMobileMenu()" class="py-2.5 border-b border-white/5 hover:text-champagne-300">Neler Dahil?</a>
+      <a href="#fiyatlar" onclick="toggleMobileMenu()" class="py-2.5 border-b border-white/5 hover:text-champagne-300">Paketler &amp; FAST Havale</a>
+      <a href="#ucretsiz-taslak" onclick="toggleMobileMenu()" class="py-2.5 text-champagne-400">Ücretsiz Önizleme İste</a>
+    </div>
+  </header>
+
+  <!-- ==================== HERO BÖLÜMÜ (LÜKS GECE & ŞAMPANYA) ==================== -->
+  <section class="relative pt-16 pb-24 md:pt-24 md:pb-32 hero-glow-bg overflow-hidden border-b border-white/5">
+    
+    <!-- İnce Arka Plan Işıkları -->
+    <div class="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[350px] bg-champagne-500/10 blur-[130px] rounded-full pointer-events-none"></div>
+
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+      
+      <!-- Lüks Rozet -->
+      <div class="flex justify-center mb-6">
+        <div class="inline-flex items-center gap-2.5 px-4 py-2 rounded-full glass-panel border border-champagne-500/30 shadow-lg">
+          <span class="w-2 h-2 rounded-full bg-champagne-400 gold-pulse-dot"></span>
+          <span class="text-xs font-semibold text-champagne-200">Michelin Hissiyatında B2B Vitrin Tasarımları</span>
+          <span class="text-champagne-500/40">•</span>
+          <span class="text-xs font-extrabold text-white">0% Komisyon, Sıfır POS Karmaşası</span>
+        </div>
+      </div>
+
+      <!-- Ana Başlık -->
+      <div class="text-center max-w-4xl mx-auto">
+        <h1 class="text-3xl sm:text-5xl lg:text-6xl font-bold tracking-tight text-white leading-[1.18] font-serif">
+          İşletmenizi Tanıtan, Masaları Dolduran <br />
+          <span class="gold-gradient-text italic font-serif font-normal">
+            Lüks &amp; Prestijli Web Vitrininiz
+          </span>
+        </h1>
+
+        <p class="mt-6 text-sm sm:text-base text-slate-300 leading-relaxed max-w-2xl mx-auto font-light">
+          Yemek sipariş platformlarının %30+ komisyon kesintileri veya karmaşık sanal POS evraklarıyla uğraşmayın. 
+          Menünüzü, atmosferinizi ve imza lezzetlerinizi sergileyen; <strong>tek tıkla WhatsApp ve telefonla masa rezervasyonu</strong> getiren web sitenizi 48 saatte kuralım.
+        </p>
+
+        <!-- Güven Rozetleri -->
+        <div class="mt-8 flex flex-wrap items-center justify-center gap-3 text-xs font-semibold text-slate-300">
+          <span class="px-4 py-2 rounded-full glass-panel border border-champagne-500/20 text-champagne-200 flex items-center gap-2">
+            <i class="fa-solid fa-bolt text-champagne-400"></i> FAST &amp; Havale ile Anında Sipariş
+          </span>
+          <span class="px-4 py-2 rounded-full glass-panel border border-white/10 text-slate-200 flex items-center gap-2">
+            <i class="fa-solid fa-location-dot text-champagne-400"></i> Google Haritalar Zirvesi
+          </span>
+          <span class="px-4 py-2 rounded-full glass-panel border border-champagne-500/20 text-champagne-200 flex items-center gap-2">
+            <i class="fa-brands fa-whatsapp text-emerald-400"></i> Doğrudan Müşteri Hattı
+          </span>
+        </div>
+
+        <!-- Aksiyon Butonları -->
+        <div class="mt-10 flex flex-col sm:flex-row items-center justify-center gap-4">
+          <a href="#sablonlar" class="w-full sm:w-auto px-8 py-4 rounded-xl bg-gradient-to-r from-champagne-500 via-champagne-400 to-champagne-600 hover:brightness-110 text-night-950 font-extrabold text-xs uppercase tracking-wider shadow-gold-glow transition-all hover:-translate-y-0.5 flex items-center justify-center gap-2.5">
+            <i class="fa-solid fa-desktop"></i>
+            <span>3 Kademeli Şablonu Canlı Dene</span>
+          </a>
+          <button onclick="openFastPaymentModal('Standart Bistro & Menü', 5850)" class="w-full sm:w-auto px-8 py-4 rounded-xl glass-panel border border-champagne-500/40 hover:border-champagne-400 text-champagne-200 font-extrabold text-xs uppercase tracking-wider transition-all hover:bg-champagne-500/10 flex items-center justify-center gap-2.5">
+            <i class="fa-solid fa-money-bill-transfer text-champagne-400"></i>
+            <span>FAST / Havale ile Hemen Başla</span>
+          </button>
+        </div>
+
+        <!-- 4'lü İstatistik & Garanti Barı -->
+        <div class="mt-14 grid grid-cols-2 sm:grid-cols-4 gap-4 text-center">
+          <div class="glass-panel p-5 rounded-2xl border border-white/5">
+            <p class="text-2xl font-black text-champagne-300 font-serif">48 Saat</p>
+            <p class="text-[11px] font-semibold text-slate-400 mt-1 uppercase tracking-wider">Anahtar Teslim</p>
+          </div>
+          <div class="glass-panel p-5 rounded-2xl border border-white/5">
+            <p class="text-2xl font-black text-white font-serif">%0</p>
+            <p class="text-[11px] font-semibold text-slate-400 mt-1 uppercase tracking-wider">Ciro Komisyonu</p>
+          </div>
+          <div class="glass-panel p-5 rounded-2xl border border-white/5">
+            <p class="text-2xl font-black text-champagne-300 font-serif">.com / .net</p>
+            <p class="text-[11px] font-semibold text-slate-400 mt-1 uppercase tracking-wider">Alan Adı &amp; SSL Dahil</p>
+          </div>
+          <div class="glass-panel p-5 rounded-2xl border border-white/5">
+            <p class="text-2xl font-black text-emerald-400 font-serif">FAST</p>
+            <p class="text-[11px] font-semibold text-slate-400 mt-1 uppercase tracking-wider">7/24 Komisyonsuz Havale</p>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ==================== 3 KADEMELİ ŞABLON SİMÜLATÖRÜ ==================== -->
+  <section id="sablonlar" class="py-24 bg-night-950 relative border-b border-white/5">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <!-- Bölüm Başlığı -->
+      <div class="text-center max-w-3xl mx-auto mb-14">
+        <span class="px-3.5 py-1.5 rounded-full text-[10px] font-black uppercase tracking-widest bg-champagne-500/10 text-champagne-300 border border-champagne-500/20">
+          İhtiyaca Göre Kademeli Mimari
+        </span>
+        <h2 class="text-3xl sm:text-4xl font-bold text-white mt-4 font-serif">
+          3 Farklı Şablon: Basitten Ultra Kapsamlı Gurmeye
+        </h2>
+        <p class="text-slate-400 mt-2 text-xs sm:text-sm max-w-2xl mx-auto font-light">
+          Her restoranın ihtiyacı farklıdır. Butik bir kafe için tek sayfa hızlı vitrin yeterliyken, çok katlı veya çok şubeli bir et restoranı için VIP rezervasyon ve sanal turlu amiral gemisi sunuyoruz.
+        </p>
+      </div>
+
+      <!-- Şablon Seçici Sekmeler (1 - 2 - 3) -->
+      <div class="flex justify-center mb-8">
+        <div class="glass-panel p-1.5 rounded-2xl border border-champagne-500/20 inline-flex flex-wrap justify-center gap-2 max-w-3xl w-full">
+          
+          <button onclick="switchTemplate(1)" id="tab-btn-1" class="flex-1 min-w-[200px] py-3.5 px-4 rounded-xl text-xs font-bold transition-all flex items-center justify-center gap-2 bg-gradient-to-r from-champagne-500 to-champagne-600 text-night-950 shadow-gold-soft">
+            <span class="w-6 h-6 rounded-lg bg-night-950/20 text-night-950 flex items-center justify-center text-xs font-black">1</span>
+            <span>Basit: Hızlı Butik Vitrin</span>
+          </button>
+
+          <button onclick="switchTemplate(2)" id="tab-btn-2" class="flex-1 min-w-[200px] py-3.5 px-4 rounded-xl text-xs font-bold text-slate-300 hover:text-champagne-300 hover:bg-white/5 transition-all flex items-center justify-center gap-2">
+            <span class="w-6 h-6 rounded-lg bg-white/10 text-slate-300 flex items-center justify-center text-xs font-black">2</span>
+            <span>Standart: Menü &amp; Bistro</span>
+          </button>
+
+          <button onclick="switchTemplate(3)" id="tab-btn-3" class="flex-1 min-w-[200px] py-3.5 px-4 rounded-xl text-xs font-bold text-slate-300 hover:text-champagne-300 hover:bg-white/5 transition-all flex items-center justify-center gap-2">
+            <span class="w-6 h-6 rounded-lg bg-white/10 text-slate-300 flex items-center justify-center text-xs font-black">3</span>
+            <span>Ultra Kapsamlı: Gurme &amp; Şubeli</span>
+          </button>
+
+        </div>
+      </div>
+
+      <!-- Şablon Seviye Özeti Rozeti -->
+      <div id="template-level-badge" class="max-w-4xl mx-auto mb-6 p-4 rounded-2xl glass-panel border border-champagne-500/30 text-xs sm:text-sm text-slate-300 flex flex-col sm:flex-row items-center justify-between gap-3">
+        <div class="flex items-center gap-3">
+          <div id="badge-icon-wrap" class="w-9 h-9 rounded-xl bg-champagne-500 text-night-950 flex items-center justify-center font-black">1</div>
+          <div>
+            <strong id="badge-title" class="text-white font-bold">1. Seviye: Hızlı Vitrin (Butik Kafe &amp; Büfe)</strong>
+            <p id="badge-desc" class="text-slate-400 text-xs mt-0.5">Tek sayfalık minimal tasarım, çalışma saatleri, konum, hızlı telefon araması ve 4 imza lezzet.</p>
+          </div>
+        </div>
+        <span id="badge-matched-plan" class="px-3.5 py-1 rounded-full bg-champagne-500/10 border border-champagne-500/40 font-extrabold text-champagne-300 text-xs whitespace-nowrap">
+          Eşleşen Paket: Başlangıç Vitrin (₺3.450)
+        </span>
+      </div>
+
+      <!-- Lüks Tarayıcı Çerçevesi (Simülatör) -->
+      <div class="max-w-5xl mx-auto bg-night-900 rounded-3xl p-3 sm:p-5 shadow-2xl border border-champagne-500/30">
+        
+        <!-- Tarayıcı Üst Barı -->
+        <div class="bg-night-950 rounded-2xl px-4 py-3 mb-3 flex items-center justify-between text-xs text-slate-400 border border-white/5">
+          <div class="flex items-center gap-2">
+            <span class="w-3 h-3 rounded-full bg-rose-500/80 inline-block"></span>
+            <span class="w-3 h-3 rounded-full bg-amber-500/80 inline-block"></span>
+            <span class="w-3 h-3 rounded-full bg-emerald-500/80 inline-block"></span>
+            <span class="ml-2 font-mono text-[11px] text-champagne-200 hidden sm:inline" id="mock-browser-url">https://www.monacoffeebakery.com</span>
+          </div>
+          <div class="flex items-center gap-3">
+            <span class="text-emerald-400 font-semibold flex items-center gap-1.5 text-[11px]">
+              <i class="fa-solid fa-lock text-[10px]"></i> SSL Güvenli
+            </span>
+            <span class="text-champagne-300 font-bold text-[10px] bg-champagne-500/10 px-2.5 py-1 rounded-md border border-champagne-500/30 uppercase tracking-wider">
+              Canlı Önizleme
+            </span>
+          </div>
+        </div>
+
+        <!-- İÇERİK KONTROL ALANI (DİNAMİK JAVASCRIPT GÖVDE) -->
+        <div id="simulator-canvas" class="bg-night-950 rounded-2xl overflow-hidden min-h-[580px] text-slate-200 border border-white/5 transition-all duration-300">
+          <!-- JS tarafından enjekte edilir -->
+        </div>
+      </div>
+
+      <!-- Simülatör Altı FAST Butonları -->
+      <div class="mt-8 text-center flex flex-col sm:flex-row items-center justify-center gap-3">
+        <button onclick="pickCurrentSimulatorPlan()" class="w-full sm:w-auto px-6 py-3.5 rounded-xl bg-gradient-to-r from-champagne-500 to-champagne-600 hover:brightness-110 text-night-950 font-extrabold text-xs uppercase tracking-wider shadow-gold-soft transition-all inline-flex items-center justify-center gap-2">
+          <i class="fa-solid fa-money-bill-transfer"></i>
+          <span id="btn-pick-simulator-text">Bu Şablonu FAST / Havale ile Başlat</span>
+        </button>
+        <a href="#ucretsiz-taslak" class="w-full sm:w-auto px-6 py-3.5 rounded-xl glass-panel border border-white/10 hover:border-champagne-500/40 text-slate-300 text-xs font-bold transition-all inline-flex items-center justify-center gap-2">
+          <i class="fa-solid fa-wand-magic-sparkles text-champagne-400"></i>
+          <span>Önce Ücretsiz Taslağını Gör</span>
+        </a>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ==================== NEDEN TANITIM SİTESİ? ==================== -->
+  <section id="neden-tanitim" class="py-24 bg-night-900 border-b border-white/5">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <div class="text-center max-w-3xl mx-auto mb-16">
+        <span class="px-3.5 py-1.5 rounded-full text-[10px] font-black uppercase tracking-widest bg-champagne-500/10 text-champagne-300 border border-champagne-500/20">
+          Akıllı İşletme Modeli
+        </span>
+        <h2 class="text-3xl sm:text-4xl font-bold text-white mt-4 font-serif">
+          Neden Ödeme Almayan Tanıtım Sitesi?
+        </h2>
+        <p class="text-slate-400 mt-2 text-xs sm:text-sm font-light">
+          Restoran ve kafe müşterilerinin %90'ı internete girdiğinde siteden yemek siparişi ödemek istemez; <strong>menüyü ve fiyatları incelemek, atmosferi görmek ve masayı ayırtmak</strong> ister.
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+        
+        <div class="glass-panel p-7 rounded-3xl border border-white/5 glass-panel-hover transition duration-300">
+          <div class="w-12 h-12 rounded-2xl bg-champagne-500/10 text-champagne-400 border border-champagne-500/20 flex items-center justify-center text-xl mb-5">
+            <i class="fa-solid fa-hand-holding-dollar"></i>
+          </div>
+          <h3 class="text-base font-bold text-white font-serif">%0 Komisyon, Net Kazanç</h3>
+          <p class="text-slate-400 text-xs mt-2.5 leading-relaxed font-light">
+            Yemek sipariş uygulamalarına cironuzun %30'unu kaptırmazsınız. Müşteri mekanınıza gelir, hesabı kasada doğrudan öder.
+          </p>
+        </div>
+
+        <div class="glass-panel p-7 rounded-3xl border border-white/5 glass-panel-hover transition duration-300">
+          <div class="w-12 h-12 rounded-2xl bg-champagne-500/10 text-champagne-400 border border-champagne-500/20 flex items-center justify-center text-xl mb-5">
+            <i class="fa-solid fa-file-shield"></i>
+          </div>
+          <h3 class="text-base font-bold text-white font-serif">Sanal POS Derdi Yok</h3>
+          <p class="text-slate-400 text-xs mt-2.5 leading-relaxed font-light">
+            Banka evrakları, şirket vergi dairesi onayları veya bloke edilen bakiyelerle vakit kaybetmezsiniz. Sistem anında çalışır.
+          </p>
+        </div>
+
+        <div class="glass-panel p-7 rounded-3xl border border-white/5 glass-panel-hover transition duration-300">
+          <div class="w-12 h-12 rounded-2xl bg-champagne-500/10 text-champagne-400 border border-champagne-500/20 flex items-center justify-center text-xl mb-5">
+            <i class="fa-solid fa-location-arrow"></i>
+          </div>
+          <h3 class="text-base font-bold text-white font-serif">Google Haritalar Gücü</h3>
+          <p class="text-slate-400 text-xs mt-2.5 leading-relaxed font-light">
+            Google Haritalar profilinize resmi web sitenizi bağladığınızda "yakınımdaki mekanlar" aramalarında rakiplerinizi geride bırakırsınız.
+          </p>
+        </div>
+
+        <div class="glass-panel p-7 rounded-3xl border border-white/5 glass-panel-hover transition duration-300">
+          <div class="w-12 h-12 rounded-2xl bg-champagne-500/10 text-champagne-400 border border-champagne-500/20 flex items-center justify-center text-xl mb-5">
+            <i class="fa-brands fa-whatsapp"></i>
+          </div>
+          <h3 class="text-base font-bold text-white font-serif">Doğrudan WhatsApp İletişimi</h3>
+          <p class="text-slate-400 text-xs mt-2.5 leading-relaxed font-light">
+            Aracı olmadan müşteri tek tıkla işletmenizi telefonla arar veya doğrudan WhatsApp hattınızdan rezervasyon yaptırır.
+          </p>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ==================== NELER DAHİL? ==================== -->
+  <section id="neler-dahil" class="py-24 bg-night-950 border-b border-white/5">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <div class="text-center max-w-3xl mx-auto mb-16">
+        <span class="px-3.5 py-1.5 rounded-full text-[10px] font-black uppercase tracking-widest bg-champagne-500/10 text-champagne-300 border border-champagne-500/20">
+          Eksiksiz Hizmet Standardı
+        </span>
+        <h2 class="text-3xl sm:text-4xl font-bold text-white mt-4 font-serif">
+          Web Sitenizle Birlikte Neler Geliyor?
+        </h2>
+        <p class="text-slate-400 mt-2 text-xs sm:text-sm font-light">
+          Hiçbir teknik bilgiye ihtiyacınız yok. Fotoğraflarınızı ve menü listenizi bize gönderin; her şeyi anahtar teslim hazırlayıp teslim edelim.
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+        
+        <div class="glass-panel p-6 rounded-3xl border border-white/5 flex items-start gap-4">
+          <div class="w-10 h-10 rounded-xl bg-champagne-500 text-night-950 flex-shrink-0 flex items-center justify-center font-bold text-base shadow-gold-soft">
+            <i class="fa-solid fa-book-open"></i>
+          </div>
+          <div>
+            <h4 class="font-bold text-white text-sm font-serif">Fotoğraflı Dijital Menü</h4>
+            <p class="text-xs text-slate-400 mt-1.5 leading-relaxed font-light">İştah kabartan yüksek çözünürlüklü fotoğraflar, porsiyon gramajı ve güncel fiyatlar.</p>
+          </div>
+        </div>
+
+        <div class="glass-panel p-6 rounded-3xl border border-white/5 flex items-start gap-4">
+          <div class="w-10 h-10 rounded-xl bg-champagne-500 text-night-950 flex-shrink-0 flex items-center justify-center font-bold text-base shadow-gold-soft">
+            <i class="fa-solid fa-globe"></i>
+          </div>
+          <div>
+            <h4 class="font-bold text-white text-sm font-serif">.com Domain &amp; SSL Dahil</h4>
+            <p class="text-xs text-slate-400 mt-1.5 leading-relaxed font-light">İşletmenizin adına özel www.isletmeniz.com alan adı tescili ve ömür boyu SSL güvenlik sertifikası.</p>
+          </div>
+        </div>
+
+        <div class="glass-panel p-6 rounded-3xl border border-white/5 flex items-start gap-4">
+          <div class="w-10 h-10 rounded-xl bg-champagne-500 text-night-950 flex-shrink-0 flex items-center justify-center font-bold text-base shadow-gold-soft">
+            <i class="fa-solid fa-calendar-check"></i>
+          </div>
+          <div>
+            <h4 class="font-bold text-white text-sm font-serif">Akıllı Masa Rezervasyonu</h4>
+            <p class="text-xs text-slate-400 mt-1.5 leading-relaxed font-light">Müşterinin kişi sayısı, saat ve tarihini otomatik doldurarak WhatsApp hattınıza ileten akıllı form.</p>
+          </div>
+        </div>
+
+        <div class="glass-panel p-6 rounded-3xl border border-white/5 flex items-start gap-4">
+          <div class="w-10 h-10 rounded-xl bg-champagne-500 text-night-950 flex-shrink-0 flex items-center justify-center font-bold text-base shadow-gold-soft">
+            <i class="fa-solid fa-mobile-screen"></i>
+          </div>
+          <div>
+            <h4 class="font-bold text-white text-sm font-serif">%100 Mobil Arayüz Hızı</h4>
+            <p class="text-xs text-slate-400 mt-1.5 leading-relaxed font-light">Telefonlarda ışık hızında açılan, kasma veya donma yapmayan modern mobil arayüz mimarisi.</p>
+          </div>
+        </div>
+
+        <div class="glass-panel p-6 rounded-3xl border border-white/5 flex items-start gap-4">
+          <div class="w-10 h-10 rounded-xl bg-champagne-500 text-night-950 flex-shrink-0 flex items-center justify-center font-bold text-base shadow-gold-soft">
+            <i class="fa-solid fa-qrcode"></i>
+          </div>
+          <div>
+            <h4 class="font-bold text-white text-sm font-serif">Baskıya Hazır Masa QR Tasarımı</h4>
+            <p class="text-xs text-slate-400 mt-1.5 leading-relaxed font-light">Masalarınıza koyabileceğiniz şık, logolu ve yüksek çözünürlüklü QR menü masa kartlığı hediyesi.</p>
+          </div>
+        </div>
+
+        <div class="glass-panel p-6 rounded-3xl border border-white/5 flex items-start gap-4">
+          <div class="w-10 h-10 rounded-xl bg-champagne-500 text-night-950 flex-shrink-0 flex items-center justify-center font-bold text-base shadow-gold-soft">
+            <i class="fa-solid fa-headset"></i>
+          </div>
+          <div>
+            <h4 class="font-bold text-white text-sm font-serif">Hızlı Menü &amp; Fiyat Güncelleme</h4>
+            <p class="text-xs text-slate-400 mt-1.5 leading-relaxed font-light">Fiyatlarınız mı değişti? Bize WhatsApp'tan bildirmeniz yeterli; menünüz aynı gün güncellenir.</p>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ==================== FİYAT PAKETLERİ (SADECE FAST / HAVALE İLE) ==================== -->
+  <section id="fiyatlar" class="py-24 bg-night-900 border-b border-white/5">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <div class="text-center max-w-3xl mx-auto mb-16">
+        <span class="px-3.5 py-1.5 rounded-full text-[10px] font-black uppercase tracking-widest bg-champagne-500/10 text-champagne-300 border border-champagne-500/20">
+          Tek Seferlik Sabit Kurulum
+        </span>
+        <h2 class="text-3xl sm:text-4xl font-bold text-white mt-4 font-serif">
+          Şeffaf Paketler, Doğrudan FAST / Havale ile Başlangıç
+        </h2>
+        <p class="text-slate-400 mt-2 text-xs sm:text-sm font-light">
+          Aylık cironuzdan veya siparişlerinizden tek kuruş komisyon almıyoruz. Paketini seçin, IBAN'a FAST ile ödeyin, 48 saatte siteniz yayına açılsın.
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 lg:grid-cols-3 gap-8 items-stretch max-w-6xl mx-auto">
+        
+        <!-- PAKET 1: Başlangıç Vitrin (1. Şablon) -->
+        <div class="glass-panel rounded-3xl p-8 border border-white/10 flex flex-col justify-between hover:border-champagne-500/40 transition">
+          <div>
+            <div class="flex items-center justify-between mb-4">
+              <span class="px-3 py-1 rounded-full bg-white/5 text-slate-300 text-xs font-bold border border-white/10">1. Şablon Uyumlu</span>
+              <span class="text-xs text-champagne-400 font-semibold">Butik Kafe &amp; Fırın</span>
+            </div>
+            <h3 class="text-xl font-bold text-white font-serif">Başlangıç Vitrin</h3>
+            <p class="text-xs text-slate-400 mt-1 font-light">Tek sayfa sade tanıtım ve imza lezzetlerini sergilemek isteyen işletmeler.</p>
+            
+            <div class="my-6">
+              <span class="text-4xl font-black text-white font-serif">₺3.450</span>
+              <span class="text-xs font-medium text-slate-400 block mt-1">Tek Seferlik Kurulum (FAST / Havale)</span>
+            </div>
+
+            <ul class="space-y-3 text-xs text-slate-300 font-light">
+              <li class="flex items-center gap-2">
+                <i class="fa-solid fa-check text-champagne-400"></i> Tek Sayfa Hızlı Vitrin Tasarımı
+              </li>
+              <li class="flex items-center gap-2">
+                <i class="fa-solid fa-check text-champagne-400"></i> Temel İmza Menü (15 Ürüne Kadar)
+              </li>
+              <li class="flex items-center gap-2">
+                <i class="fa-solid fa-check text-champagne-400"></i> Tek Tıkla Arama &amp; WhatsApp Butonu
+              </li>
+              <li class="flex items-center gap-2">
+                <i class="fa-solid fa-check text-champagne-400"></i> Google Haritalar Konum &amp; Çalışma Saati
+              </li>
+              <li class="flex items-center gap-2">
+                <i class="fa-solid fa-check text-champagne-400"></i> 1 Yıllık .com Alan Adı &amp; Hosting Dahil
+              </li>
+            </ul>
+          </div>
+
+          <div class="mt-8 pt-6 border-t border-white/5">
+            <button onclick="openFastPaymentModal('Başlangıç Vitrin', 3450)" class="w-full py-3.5 rounded-xl glass-panel border border-champagne-500/30 hover:border-champagne-400 text-champagne-200 font-bold text-xs uppercase tracking-wider transition hover:bg-champagne-500/10 flex items-center justify-center gap-2">
+              <i class="fa-solid fa-money-bill-transfer text-champagne-400"></i>
+              <span>FAST ile Bu Paketi Al</span>
+            </button>
+          </div>
+        </div>
+
+        <!-- PAKET 2: Standart Bistro & Menü (2. Şablon - EN ÇOK TERCİH EDİLEN) -->
+        <div class="relative glass-panel rounded-3xl p-8 border-2 border-champagne-500 shadow-gold-glow flex flex-col justify-between scale-105 z-10 bg-night-850/90">
+          <div class="absolute -top-3.5 left-1/2 -translate-x-1/2 px-4 py-1 rounded-full bg-gradient-to-r from-champagne-400 to-champagne-600 text-night-950 font-black text-[10px] uppercase tracking-widest shadow-md">
+            🔥 En Çok Tercih Edilen
+          </div>
+
+          <div>
+            <div class="flex items-center justify-between mb-4">
+              <span class="px-3 py-1 rounded-full bg-champagne-500/20 text-champagne-300 text-xs font-black border border-champagne-500/30">2. Şablon Uyumlu</span>
+              <span class="text-xs text-champagne-400 font-bold">Orta Segment Restoran</span>
+            </div>
+            <h3 class="text-xl font-bold text-white font-serif">Standart Bistro &amp; Menü</h3>
+            <p class="text-xs text-slate-300 mt-1 font-light">Kategorili menü, fotoğraf galerisi ve masa rezervasyonu isteyen restoranlar.</p>
+            
+            <div class="my-6">
+              <span class="text-4xl sm:text-5xl font-black text-champagne-300 font-serif">₺5.850</span>
+              <span class="text-xs font-medium text-slate-400 block mt-1">Tek Seferlik Kurulum (Her Şey Dahil)</span>
+            </div>
+
+            <ul class="space-y-3 text-xs text-slate-200">
+              <li class="flex items-center gap-2 font-bold text-white">
+                <i class="fa-solid fa-star text-champagne-400"></i> Kategori Sekmeli Menü (50+ Ürün)
+              </li>
+              <li class="flex items-center gap-2">
+                <i class="fa-solid fa-check text-champagne-400"></i> Hızlı Masa Rezervasyonu Modülü
+              </li>
+              <li class="flex items-center gap-2">
+                <i class="fa-solid fa-check text-champagne-400"></i> Instagram Galeri &amp; Mekan Fotoğrafları
+              </li>
+              <li class="flex items-center gap-2">
+                <i class="fa-solid fa-check text-champagne-400"></i> Google İşletmem (My Business) SEO
+              </li>
+              <li class="flex items-center gap-2">
+                <i class="fa-solid fa-check text-champagne-400"></i> Baskıya Hazır Masa QR Kartı Hediyesi
+              </li>
+              <li class="flex items-center gap-2">
+                <i class="fa-solid fa-check text-champagne-400"></i> 48 Saatte Hızlı Teslimat Garantisi
+              </li>
+            </ul>
+          </div>
+
+          <div class="mt-8 pt-6 border-t border-white/5">
+            <button onclick="openFastPaymentModal('Standart Bistro & Menü', 5850)" class="w-full py-4 rounded-xl bg-gradient-to-r from-champagne-500 via-champagne-400 to-champagne-600 hover:brightness-110 text-night-950 font-black text-xs uppercase tracking-wider shadow-gold-soft transition-all hover:scale-102 flex items-center justify-center gap-2">
+              <i class="fa-solid fa-bolt"></i>
+              <span>FAST ile Hemen Başlat</span>
+            </button>
+          </div>
+        </div>
+
+        <!-- PAKET 3: Ultra Gurme & Şubeli (3. Şablon) -->
+        <div class="glass-panel rounded-3xl p-8 border border-white/10 flex flex-col justify-between hover:border-champagne-500/40 transition">
+          <div>
+            <div class="flex items-center justify-between mb-4">
+              <span class="px-3 py-1 rounded-full bg-white/5 text-slate-300 text-xs font-bold border border-white/10">3. Şablon Uyumlu</span>
+              <span class="text-xs text-champagne-400 font-semibold">Fine Dining &amp; Lüks</span>
+            </div>
+            <h3 class="text-xl font-bold text-white font-serif">Ultra Gurme &amp; Şubeli</h3>
+            <p class="text-xs text-slate-400 mt-1 font-light">Şef hikayesi, çoklu şube, VIP salon rezervasyonu ve 360° sanal tur alanı.</p>
+            
+            <div class="my-6">
+              <span class="text-4xl font-black text-white font-serif">₺9.800</span>
+              <span class="text-xs font-medium text-slate-400 block mt-1">Tek Seferlik Kurulum (Özel Tasarım)</span>
+            </div>
+
+            <ul class="space-y-3 text-xs text-slate-300 font-light">
+              <li class="flex items-center gap-2">
+                <i class="fa-solid fa-check text-champagne-400"></i> Çoklu Şube Yönetimi (Kadıköy / Nişantaşı vb.)
+              </li>
+              <li class="flex items-center gap-2">
+                <i class="fa-solid fa-check text-champagne-400"></i> Alerjen Etiketli &amp; Şef Tavsiyeli Gurme Menü
+              </li>
+              <li class="flex items-center gap-2">
+                <i class="fa-solid fa-check text-champagne-400"></i> VIP Salon &amp; Özel Etkinlik Rezervasyon Alanı
+              </li>
+              <li class="flex items-center gap-2">
+                <i class="fa-solid fa-check text-champagne-400"></i> 360° Sanal Tur &amp; Video Ambiyans
+              </li>
+              <li class="flex items-center gap-2">
+                <i class="fa-solid fa-check text-champagne-400"></i> 1 Yıl Boyunca Öncelikli Ücretsiz Menü Revizesi
+              </li>
+            </ul>
+          </div>
+
+          <div class="mt-8 pt-6 border-t border-white/5">
+            <button onclick="openFastPaymentModal('Ultra Gurme & Şubeli', 9800)" class="w-full py-3.5 rounded-xl glass-panel border border-champagne-500/30 hover:border-champagne-400 text-champagne-200 font-bold text-xs uppercase tracking-wider transition hover:bg-champagne-500/10 flex items-center justify-center gap-2">
+              <i class="fa-solid fa-money-bill-transfer text-champagne-400"></i>
+              <span>FAST ile Bu Paketi Al</span>
+            </button>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ==================== FAST / HAVALE NASIL ÇALIŞIR? ==================== -->
+  <section id="fast-rehberi" class="py-20 bg-night-950 border-b border-white/5">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <div class="glass-panel p-8 sm:p-12 rounded-3xl border border-champagne-500/30 relative overflow-hidden">
+        
+        <div class="text-center max-w-2xl mx-auto mb-10">
+          <span class="px-3.5 py-1.5 rounded-full text-[10px] font-black uppercase tracking-widest bg-champagne-500/10 text-champagne-300 border border-champagne-500/20">
+            Neden FAST / Havale?
+          </span>
+          <h3 class="text-2xl sm:text-3xl font-bold text-white mt-3 font-serif">3 Adımda Kolay &amp; Güvenli Başlangıç</h3>
+          <p class="text-xs sm:text-sm text-slate-400 mt-2 font-light">Kredi kartı bilgilerini paylaşmadan, 7/24 bankanızın resmi mobil şubesinden anında FAST ile ödeme yapabilirsiniz.</p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+          
+          <div class="p-5 rounded-2xl bg-night-900 border border-white/5 text-center">
+            <div class="w-10 h-10 mx-auto rounded-xl bg-champagne-500 text-night-950 font-black text-base flex items-center justify-center mb-3">1</div>
+            <h5 class="text-sm font-bold text-white font-serif">Paketi Seçin &amp; Kod Alın</h5>
+            <p class="text-xs text-slate-400 mt-1.5 font-light">Paket butonuna tıkladığınızda size özel bir sipariş takip kodu (Örn: RW-84920) üretilir.</p>
+          </div>
+
+          <div class="p-5 rounded-2xl bg-night-900 border border-white/5 text-center">
+            <div class="w-10 h-10 mx-auto rounded-xl bg-champagne-500 text-night-950 font-black text-base flex items-center justify-center mb-3">2</div>
+            <h5 class="text-sm font-bold text-white font-serif">IBAN'a FAST ile Gönderin</h5>
+            <p class="text-xs text-slate-400 mt-1.5 font-light">Banka hesabımıza FAST yaparken açıklama kısmına sipariş kodunuzu yazmanız yeterlidir.</p>
+          </div>
+
+          <div class="p-5 rounded-2xl bg-night-900 border border-white/5 text-center">
+            <div class="w-10 h-10 mx-auto rounded-xl bg-champagne-500 text-night-950 font-black text-base flex items-center justify-center mb-3">3</div>
+            <h5 class="text-sm font-bold text-white font-serif">48 Saatte Siteniz Yayında</h5>
+            <p class="text-xs text-slate-400 mt-1.5 font-light">Ödemeniz anında eşleşir, WhatsApp üzerinden menü detaylarınız alınıp siteniz kurulur.</p>
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ==================== ÜCRETSİZ TASLAK İSTEME FORMU ==================== -->
+  <section id="ucretsiz-taslak" class="py-24 bg-night-900 border-b border-white/5">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <div class="glass-panel border border-champagne-500/30 rounded-3xl p-6 sm:p-12 shadow-dark-card relative overflow-hidden">
+        
+        <div class="text-center max-w-xl mx-auto mb-10">
+          <span class="px-3.5 py-1.5 rounded-full text-[10px] font-black uppercase tracking-widest bg-champagne-500/10 text-champagne-300 border border-champagne-500/20">
+            Önce Taslağı Görün
+          </span>
+          <h2 class="text-2xl sm:text-4xl font-bold text-white mt-3 font-serif">
+            İşletmeniz İçin Ücretsiz Önizleme Taslağı İsteyin
+          </h2>
+          <p class="text-slate-400 mt-2 text-xs sm:text-sm font-light">
+            İşletme adınızı ve Instagram hesabınızı bırakın; ekibimiz restoranınızın konseptine özel web sitesi taslağını ücretsiz hazırlayıp 24 saat içinde WhatsApp'tan göndersin.
+          </p>
+        </div>
+
+        <form onsubmit="handleDraftSubmit(event)" class="space-y-4 max-w-xl mx-auto">
+          
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+            <div>
+              <label class="block text-xs font-semibold text-slate-300 mb-1">Restoran / Kafe Adınız *</label>
+              <input type="text" id="draft-business-name" required placeholder="Örn: Mona Artisan Bakery" class="w-full px-4 py-3 rounded-xl bg-night-950 border border-white/10 text-sm text-white placeholder-slate-500 focus:outline-none focus:border-champagne-400 transition font-light">
+            </div>
+            <div>
+              <label class="block text-xs font-semibold text-slate-300 mb-1">İşletme Türü *</label>
+              <select id="draft-business-type" class="w-full px-4 py-3 rounded-xl bg-night-950 border border-white/10 text-sm text-white focus:outline-none focus:border-champagne-400 transition font-light">
+                <option value="Kafe & Fırın (Bakery)">Kafe &amp; Fırın (Bakery)</option>
+                <option value="Ocakbaşı & Restoran">Ocakbaşı &amp; Et Restoranı</option>
+                <option value="Bistro & Dünya Mutfağı">Bistro &amp; Dünya Mutfağı</option>
+                <option value="Burger & Sokak Lezzeti">Burger &amp; Sokak Lezzeti</option>
+                <option value="Fine Dining & Şubeli">Fine Dining &amp; Şubeli</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+            <div>
+              <label class="block text-xs font-semibold text-slate-300 mb-1">Yetkili Telefonu (WhatsApp) *</label>
+              <input type="tel" id="draft-phone" required placeholder="05XX XXX XX XX" class="w-full px-4 py-3 rounded-xl bg-night-950 border border-white/10 text-sm text-white placeholder-slate-500 focus:outline-none focus:border-champagne-400 transition font-light">
+            </div>
+            <div>
+              <label class="block text-xs font-semibold text-slate-300 mb-1">Instagram Hesabınız (Varsa)</label>
+              <input type="text" id="draft-instagram" placeholder="@isletmeniz" class="w-full px-4 py-3 rounded-xl bg-night-950 border border-white/10 text-sm text-white placeholder-slate-500 focus:outline-none focus:border-champagne-400 transition font-light">
+            </div>
+          </div>
+
+          <div>
+            <label class="block text-xs font-semibold text-slate-300 mb-1">İlgilendiğiniz Şablon Seviyesi</label>
+            <select id="draft-template-level" class="w-full px-4 py-3 rounded-xl bg-night-950 border border-white/10 text-sm text-white focus:outline-none focus:border-champagne-400 transition font-light">
+              <option value="2. Seviye: Standart Bistro & Menü (Popüler)">2. Seviye: Standart Bistro &amp; Menü (Kategorili Menü &amp; Rezervasyon)</option>
+              <option value="1. Seviye: Hızlı Butik Vitrin">1. Seviye: Hızlı Butik Vitrin (Tek Sayfa Sade)</option>
+              <option value="3. Seviye: Ultra Gurme & Şubeli">3. Seviye: Ultra Gurme &amp; Şubeli (Fine Dining &amp; VIP)</option>
+            </select>
+          </div>
+
+          <button type="submit" class="w-full py-4 rounded-xl bg-gradient-to-r from-champagne-500 via-champagne-400 to-champagne-600 hover:brightness-110 text-night-950 font-black text-xs uppercase tracking-wider shadow-gold-soft transition-all duration-200 hover:-translate-y-0.5 flex items-center justify-center gap-2">
+            <i class="fa-solid fa-paper-plane"></i>
+            <span>Ücretsiz Önizleme Taslağımı WhatsApp'tan Gönderin</span>
+          </button>
+
+          <p class="text-[11px] text-center text-slate-400 mt-2 font-light">
+            Kredi kartı veya ön ödeme gerekmez. Taslağı beğenip onaylarsanız FAST ile ödeme yapıp yayına alabilirsiniz.
+          </p>
+
+        </form>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ==================== FOOTER ==================== -->
+  <footer class="bg-night-950 py-12 text-slate-400 text-xs border-t border-white/5">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row items-center justify-between gap-6">
+      
+      <div class="flex items-center gap-3">
+        <div class="w-8 h-8 rounded-xl bg-champagne-500 text-night-950 flex items-center justify-center font-bold">
+          <i class="fa-solid fa-utensils text-sm"></i>
+        </div>
+        <span class="text-white font-bold text-sm font-serif">Restoran<span class="gold-gradient-text">web</span></span>
+        <span>• &copy; 2026 Restoran ve Kafe Vitrin Web Siteleri</span>
+      </div>
+
+      <div class="flex flex-wrap items-center gap-6 font-medium">
+        <a href="#sablonlar" class="hover:text-champagne-300 transition">Şablonlar (1-2-3)</a>
+        <a href="#neden-tanitim" class="hover:text-champagne-300 transition">Neden Tanıtım Sitesi?</a>
+        <a href="#neler-dahil" class="hover:text-champagne-300 transition">Neler Dahil?</a>
+        <a href="#fiyatlar" class="hover:text-champagne-300 transition">Paketler &amp; FAST</a>
+        <a href="#ucretsiz-taslak" class="hover:text-champagne-300 transition">Ücretsiz Taslak</a>
+      </div>
+
+      <div class="flex items-center gap-4 text-base text-slate-400">
+        <a href="#" class="hover:text-champagne-300"><i class="fa-brands fa-instagram"></i></a>
+        <a href="#" class="hover:text-champagne-300"><i class="fa-brands fa-whatsapp"></i></a>
+        <a href="#" class="hover:text-champagne-300"><i class="fa-brands fa-google"></i></a>
+      </div>
+
+    </div>
+  </footer>
+
+  <!-- ==================== FAST / HAVALE SİPARİŞ TAMAMLAMA MODALI ==================== -->
+  <div id="fast-payment-modal" class="fixed inset-0 z-50 flex items-center justify-center bg-black/80 backdrop-blur-md hidden p-4 overflow-y-auto">
+    <div class="glass-panel bg-night-900 border border-champagne-500/40 rounded-3xl max-w-xl w-full p-6 sm:p-8 shadow-2xl relative my-8">
+      
+      <!-- Kapat Butonu -->
+      <button onclick="closeFastPaymentModal()" class="absolute top-5 right-5 w-8 h-8 rounded-full bg-white/5 hover:bg-white/10 text-slate-400 hover:text-white flex items-center justify-center transition">
+        <i class="fa-solid fa-xmark text-sm"></i>
+      </button>
+
+      <!-- Modal Başlığı -->
+      <div class="flex items-center gap-3 mb-6">
+        <div class="w-12 h-12 rounded-2xl bg-champagne-500/10 text-champagne-400 border border-champagne-500/30 flex items-center justify-center text-xl">
+          <i class="fa-solid fa-money-bill-transfer"></i>
+        </div>
+        <div>
+          <span class="text-[10px] font-black uppercase tracking-wider text-champagne-400">FAST / Havale Sipariş &amp; Ödeme</span>
+          <h3 class="text-xl font-bold text-white font-serif" id="modal-package-title">Standart Bistro &amp; Menü Paketi</h3>
+        </div>
+      </div>
+
+      <!-- Sipariş Referans Kodu & Tutar Kutusu -->
+      <div class="grid grid-cols-2 gap-3 p-4 rounded-2xl bg-night-950 border border-champagne-500/20 mb-6">
+        <div>
+          <span class="text-[10px] text-slate-400 uppercase tracking-wider font-semibold block">Sipariş / Referans Kodu</span>
+          <span class="text-base sm:text-lg font-black text-champagne-300 font-mono" id="modal-order-code">RW-84920</span>
+        </div>
+        <div class="text-right">
+          <span class="text-[10px] text-slate-400 uppercase tracking-wider font-semibold block">Ödenecek Tutar</span>
+          <span class="text-base sm:text-lg font-black text-white font-serif" id="modal-order-amount">₺5.850</span>
+        </div>
+      </div>
+
+      <!-- FAST / Havale IBAN Bilgileri Kutusu -->
+      <div class="p-4 rounded-2xl bg-night-850 border border-white/5 space-y-3 mb-6">
+        <div class="flex items-center justify-between">
+          <span class="text-xs text-slate-400 font-medium">Banka Adı:</span>
+          <span class="text-xs font-bold text-white flex items-center gap-1.5">
+            <i class="fa-solid fa-building-columns text-champagne-400"></i> Garanti BBVA / FAST 7-24
+          </span>
+        </div>
+
+        <div class="flex items-center justify-between">
+          <span class="text-xs text-slate-400 font-medium">Alıcı (Hesap Sahibi):</span>
+          <span class="text-xs font-bold text-white">Restoranweb Medya ve Yazılım Hizmetleri</span>
+        </div>
+
+        <div class="pt-2 border-t border-white/5">
+          <label class="block text-[11px] text-slate-400 mb-1">IBAN Numarası (Tek Tıkla Kopyala):</label>
+          <div class="flex items-center gap-2">
+            <input type="text" readonly id="iban-input" value="TR42 0006 2000 1234 5678 9012 34" class="w-full bg-night-950 px-3 py-2 rounded-xl text-xs font-mono font-bold text-champagne-200 border border-white/10 select-all focus:outline-none">
+            <button onclick="copyIbanToClipboard()" class="px-3.5 py-2 rounded-xl bg-champagne-500/20 hover:bg-champagne-500/30 text-champagne-300 text-xs font-bold transition flex items-center gap-1 whitespace-nowrap border border-champagne-500/30">
+              <i class="fa-regular fa-copy"></i>
+              <span id="copy-btn-text">Kopyala</span>
+            </button>
+          </div>
+        </div>
+
+        <!-- Önemli Uyarı -->
+        <div class="p-3 rounded-xl bg-amber-500/10 border border-amber-500/20 text-[11px] text-amber-200 flex items-start gap-2">
+          <i class="fa-solid fa-triangle-exclamation text-amber-400 mt-0.5"></i>
+          <span>Lütfen bankanızın FAST açıklama kısmına <strong>yalnızca sipariş kodunuzu (<span class="modal-order-code-inline font-mono">RW-84920</span>)</strong> yazınız.</span>
+        </div>
+      </div>
+
+      <!-- Havale Yaptım, Bildir Formu -->
+      <form onsubmit="handleFastNotifySubmit(event)" class="space-y-3">
+        <h4 class="text-xs font-bold uppercase tracking-wider text-slate-300">Ödeme Bildirim Formu</h4>
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+          <div>
+            <label class="block text-[11px] text-slate-400 mb-1">Yetkili Ad Soyad *</label>
+            <input type="text" id="notify-name" required placeholder="Adınız Soyadınız" class="w-full bg-night-950 px-3 py-2.5 rounded-xl text-xs text-white border border-white/10 focus:outline-none focus:border-champagne-400">
+          </div>
+          <div>
+            <label class="block text-[11px] text-slate-400 mb-1">Restoran / İşletme Adı *</label>
+            <input type="text" id="notify-business" required placeholder="Örn: Mona Kafe" class="w-full bg-night-950 px-3 py-2.5 rounded-xl text-xs text-white border border-white/10 focus:outline-none focus:border-champagne-400">
+          </div>
+        </div>
+
+        <div>
+          <label class="block text-[11px] text-slate-400 mb-1">WhatsApp Numaranız (Siteniz buraya teslim edilecek) *</label>
+          <input type="tel" id="notify-phone" required placeholder="05XX XXX XX XX" class="w-full bg-night-950 px-3 py-2.5 rounded-xl text-xs text-white border border-white/10 focus:outline-none focus:border-champagne-400">
+        </div>
+
+        <button type="submit" class="w-full py-3.5 rounded-xl bg-gradient-to-r from-champagne-500 via-champagne-400 to-champagne-600 hover:brightness-110 text-night-950 font-black text-xs uppercase tracking-wider shadow-gold-soft transition-all flex items-center justify-center gap-2 mt-4">
+          <i class="fa-solid fa-circle-check"></i>
+          <span>FAST / Havale Yaptım, Siparişi Başlat</span>
+        </button>
+      </form>
+
+    </div>
+  </div>
+
+  <!-- ==================== JAVASCRIPT: ŞABLON SİMÜLATÖRÜ & FAST MODAL MOTORU ==================== -->
+  <script>
+    // TOAST BİLDİRİMİ
+    function showToast(message, type = 'info') {
+      const container = document.getElementById('toast-container');
+      const toast = document.createElement('div');
+      
+      const icons = {
+        success: 'fa-circle-check text-emerald-400',
+        info: 'fa-circle-info text-champagne-400',
+        warning: 'fa-triangle-exclamation text-amber-400'
+      };
+
+      toast.className = `flex items-center gap-3 px-4 py-3 rounded-2xl glass-panel bg-night-900 border border-champagne-500/40 shadow-2xl text-xs font-semibold text-white pointer-events-auto transform transition-all duration-300 translate-y-2 opacity-0 max-w-sm`;
+      toast.innerHTML = `
+        <i class="fa-solid ${icons[type] || icons.info} text-base flex-shrink-0"></i>
+        <span>${message}</span>
+      `;
+
+      container.appendChild(toast);
+
+      setTimeout(() => {
+        toast.classList.remove('translate-y-2', 'opacity-0');
+      }, 10);
+
+      setTimeout(() => {
+        toast.classList.add('opacity-0', 'scale-90');
+        setTimeout(() => toast.remove(), 300);
+      }, 4500);
+    }
+
+    // MOBİL MENÜ
+    function toggleMobileMenu() {
+      const menu = document.getElementById('mobile-menu');
+      menu.classList.toggle('hidden');
+      menu.classList.toggle('flex');
+    }
+
+    // AKTİF SEVİYE DURUMU (1, 2 veya 3)
+    let currentTemplateLevel = 1;
+
+    // ŞABLON METADATASI
+    const templateMeta = {
+      1: {
+        title: '1. Seviye: Hızlı Butik Vitrin (Butik Kafe & Fırın)',
+        desc: 'Tek sayfalık minimal tasarım, çalışma saatleri, konum, hızlı telefon araması ve 4 imza lezzet.',
+        url: 'https://www.monacoffeebakery.com',
+        plan: 'Başlangıç Vitrin (₺3.450)',
+        price: 3450,
+        btnText: '1. Seviye İçin FAST / Havale ile Başla'
+      },
+      2: {
+        title: '2. Seviye: Standart Menü & Bistro (Orta Segment Restoran)',
+        desc: 'Hero manşet, sekmeli menü (Başlangıç, Ana Yemek, İçecek), Instagram galeri akışı, yol tarifi ve masa ayırt butonu.',
+        url: 'https://www.bistronomikadakoy.com',
+        plan: 'Standart Bistro & Menü (₺5.850)',
+        price: 5850,
+        btnText: '2. Seviye İçin FAST / Havale ile Başla'
+      },
+      3: {
+        title: '3. Seviye: Ultra Kapsamlı Gurme & Şubeli (Fine Dining & Lüks)',
+        desc: 'Şefin hikayesi, alerjen etiketli menü, Kadıköy/Nişantaşı şube seçici, VIP özel salon rezervasyonu ve 360° sanal tur alanı.',
+        url: 'https://www.asirgourmetsteak.com',
+        plan: 'Ultra Gurme & Şubeli (₺9.800)',
+        price: 9800,
+        btnText: '3. Seviye İçin FAST / Havale ile Başla'
+      }
+    };
+
+    // ŞABLON DEĞİŞTİRİCİ
+    function switchTemplate(level) {
+      currentTemplateLevel = level;
+      const meta = templateMeta[level];
+
+      [1, 2, 3].forEach(i => {
+        const btn = document.getElementById(`tab-btn-${i}`);
+        if (i === level) {
+          btn.className = 'flex-1 min-w-[200px] py-3.5 px-4 rounded-xl text-xs font-bold transition-all flex items-center justify-center gap-2 bg-gradient-to-r from-champagne-500 to-champagne-600 text-night-950 shadow-gold-soft';
+        } else {
+          btn.className = 'flex-1 min-w-[200px] py-3.5 px-4 rounded-xl text-xs font-bold text-slate-300 hover:text-champagne-300 hover:bg-white/5 transition-all flex items-center justify-center gap-2';
+        }
+      });
+
+      document.getElementById('badge-icon-wrap').innerText = level;
+      document.getElementById('badge-title').innerText = meta.title;
+      document.getElementById('badge-desc').innerText = meta.desc;
+      document.getElementById('badge-matched-plan').innerText = `Eşleşen Paket: ${meta.plan}`;
+      document.getElementById('mock-browser-url').innerText = meta.url;
+      document.getElementById('btn-pick-simulator-text').innerText = meta.btnText;
+
+      const canvas = document.getElementById('simulator-canvas');
+      if (level === 1) canvas.innerHTML = renderLevel1Html();
+      else if (level === 2) canvas.innerHTML = renderLevel2Html();
+      else if (level === 3) canvas.innerHTML = renderLevel3Html();
+
+      showToast(`${level}. Seviye Şablon Canlı Simülatöre Yüklendi!`, 'info');
+    }
+
+    // ================= 1. SEVİYE SİMÜLATÖR GÖVDESİ =================
+    function renderLevel1Html() {
+      return `
+        <div class="p-6 sm:p-8 max-w-2xl mx-auto">
+          <!-- Butik Sade Profil -->
+          <div class="text-center pb-6 border-b border-white/5">
+            <div class="w-20 h-20 mx-auto rounded-3xl bg-gradient-to-br from-champagne-400 to-champagne-700 text-night-950 flex items-center justify-center text-3xl shadow-gold-soft mb-3">
+              ☕
+            </div>
+            <span class="px-3 py-1 rounded-full bg-champagne-500/10 text-champagne-300 border border-champagne-500/20 text-[10px] font-black uppercase tracking-wider">
+              Butik Fırın &amp; Kahve Evi
+            </span>
+            <h1 class="text-2xl font-bold text-white mt-2 font-serif">Mona Coffee &amp; Bakery</h1>
+            <p class="text-xs text-slate-400 mt-1 font-light">Özel kavrum filtre kahveler ve taş fırından taze kruvasanlar.</p>
+            
+            <div class="mt-4 flex flex-wrap items-center justify-center gap-3 text-xs text-slate-300">
+              <span class="flex items-center gap-1.5"><i class="fa-solid fa-location-dot text-champagne-400"></i> Moda Cad. No: 42, Kadıköy</span>
+              <span>•</span>
+              <span class="flex items-center gap-1.5"><i class="fa-solid fa-clock text-champagne-400"></i> Her Gün 08:30 - 21:00</span>
+            </div>
+
+            <!-- Tek Tıkla Arama & WhatsApp -->
+            <div class="mt-6 flex flex-col sm:flex-row items-center justify-center gap-3">
+              <button onclick="simulateCustomerAction('call', 'Mona Coffee')" class="w-full sm:w-auto px-5 py-3 rounded-xl bg-night-800 hover:bg-night-700 text-white text-xs font-bold border border-white/10 flex items-center justify-center gap-2 transition">
+                <i class="fa-solid fa-phone text-champagne-400"></i>
+                <span>İşletmeyi Doğrudan Ara</span>
+              </button>
+              <button onclick="simulateCustomerAction('whatsapp', 'Mona Coffee')" class="w-full sm:w-auto px-5 py-3 rounded-xl bg-emerald-600 hover:bg-emerald-500 text-white text-xs font-bold flex items-center justify-center gap-2 transition shadow-md">
+                <i class="fa-brands fa-whatsapp text-sm"></i>
+                <span>WhatsApp ile Yazın</span>
+              </button>
+            </div>
+          </div>
+
+          <!-- Sade 4 İmza Ürün -->
+          <div class="mt-6">
+            <h3 class="text-xs font-black uppercase tracking-wider text-slate-400 mb-3 flex items-center justify-between">
+              <span>İmza Lezzetlerimiz</span>
+              <span class="text-champagne-400 font-bold">Masada Servis</span>
+            </h3>
+
+            <div class="divide-y divide-white/5">
+              <div class="py-3 flex items-center justify-between">
+                <div class="flex items-center gap-3">
+                  <span class="text-2xl">🥐</span>
+                  <div>
+                    <h4 class="text-xs sm:text-sm font-bold text-white">Fransız Tereyağlı Kruvasan</h4>
+                    <p class="text-[11px] text-slate-400 font-light">Kat kat çıtır hamur, taze badem kremalı</p>
+                  </div>
+                </div>
+                <span class="text-sm font-black text-champagne-300 font-serif">₺140</span>
+              </div>
+
+              <div class="py-3 flex items-center justify-between">
+                <div class="flex items-center gap-3">
+                  <span class="text-2xl">☕</span>
+                  <div>
+                    <h4 class="text-xs sm:text-sm font-bold text-white">Flat White (Single Origin)</h4>
+                    <p class="text-[11px] text-slate-400 font-light">Kolombiya çekirdekleri, ipeksi süt köpüğü</p>
+                  </div>
+                </div>
+                <span class="text-sm font-black text-champagne-300 font-serif">₺115</span>
+              </div>
+
+              <div class="py-3 flex items-center justify-between">
+                <div class="flex items-center gap-3">
+                  <span class="text-2xl">🥪</span>
+                  <div>
+                    <h4 class="text-xs sm:text-sm font-bold text-white">Füme Antrikotlu Ekşi Maya Sandviç</h4>
+                    <p class="text-[11px] text-slate-400 font-light">Köz biber, çeçil peyniri, ev yapımı hardal</p>
+                  </div>
+                </div>
+                <span class="text-sm font-black text-champagne-300 font-serif">₺220</span>
+              </div>
+
+              <div class="py-3 flex items-center justify-between">
+                <div class="flex items-center gap-3">
+                  <span class="text-2xl">🍰</span>
+                  <div>
+                    <h4 class="text-xs sm:text-sm font-bold text-white">San Sebastian Cheesecake</h4>
+                    <p class="text-[11px] text-slate-400 font-light">Akışkan kıvam, eritilmiş Belçika çikolatası ile</p>
+                  </div>
+                </div>
+                <span class="text-sm font-black text-champagne-300 font-serif">₺180</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="mt-6 pt-4 border-t border-white/5 text-center">
+            <button onclick="simulateCustomerAction('map', 'Mona Coffee')" class="text-xs font-bold text-champagne-400 hover:text-champagne-300 inline-flex items-center gap-1.5">
+              <i class="fa-solid fa-map-location-dot"></i>
+              <span>Google Haritalarda Aç &amp; Yol Tarifi Al</span>
+            </button>
+          </div>
+        </div>
+      `;
+    }
+
+    // ================= 2. SEVİYE SİMÜLATÖR GÖVDESİ =================
+    function renderLevel2Html() {
+      return `
+        <div>
+          <!-- Hero Banner -->
+          <div class="relative bg-gradient-to-r from-night-950 via-night-850 to-night-950 text-white p-6 sm:p-8 border-b border-white/5">
+            <div class="max-w-2xl">
+              <span class="px-3 py-1 rounded-full bg-champagne-500/20 text-champagne-300 text-[10px] font-black uppercase tracking-wider border border-champagne-500/30">
+                Bistro &amp; Restoran
+              </span>
+              <h2 class="text-2xl sm:text-3xl font-bold mt-2 font-serif text-white">Bistronomik Kitchen &amp; Bar</h2>
+              <p class="text-xs sm:text-sm text-slate-300 mt-1 font-light">Akdeniz mutfağının seçkin tabakları, el yapımı taze makarnalar ve sıcak şampanya ışığında akşamlar.</p>
+              
+              <div class="mt-5 flex flex-wrap gap-2.5 text-xs">
+                <button onclick="simulateCustomerAction('reserve', 'Bistronomik')" class="px-4 py-2.5 rounded-xl bg-gradient-to-r from-champagne-500 to-champagne-600 text-night-950 font-black shadow-gold-soft hover:brightness-110 transition">
+                  <i class="fa-regular fa-calendar-check mr-1.5"></i> Masa Ayırt
+                </button>
+                <button onclick="simulateCustomerAction('call', 'Bistronomik')" class="px-4 py-2.5 rounded-xl bg-night-800 text-white font-bold border border-white/10 hover:bg-night-700 transition">
+                  <i class="fa-solid fa-phone mr-1.5 text-champagne-400"></i> (0216) 345 67 89
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <!-- Kategori Sekmeleri -->
+          <div class="p-6">
+            <div class="flex items-center justify-between pb-3 border-b border-white/5 mb-4">
+              <h3 class="text-xs font-black uppercase tracking-wider text-slate-400">Kategorili Dijital Menümüz</h3>
+              <div class="flex gap-2">
+                <span class="px-3 py-1 rounded-lg bg-champagne-500 text-night-950 text-xs font-extrabold cursor-pointer">Başlangıçlar</span>
+                <span class="px-3 py-1 rounded-lg bg-white/5 text-slate-300 text-xs font-medium cursor-pointer hover:bg-white/10">Ana Yemekler</span>
+                <span class="px-3 py-1 rounded-lg bg-white/5 text-slate-300 text-xs font-medium cursor-pointer hover:bg-white/10">İçecekler</span>
+              </div>
+            </div>
+
+            <!-- Yemek Kartları -->
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+              <div class="p-3.5 rounded-2xl bg-night-900 border border-white/5 flex gap-3">
+                <div class="w-16 h-16 rounded-xl bg-night-800 text-2xl flex items-center justify-center flex-shrink-0 border border-white/5">🍝</div>
+                <div>
+                  <div class="flex items-center justify-between">
+                    <h5 class="text-xs font-bold text-white">Trüflü El Açması Tagliatelle</h5>
+                    <span class="text-xs font-black text-champagne-300 font-serif">₺360</span>
+                  </div>
+                  <p class="text-[11px] text-slate-400 mt-1 font-light">Yabani mantar sosu, trüf ezmesi ve 24 aylık parmesan.</p>
+                </div>
+              </div>
+
+              <div class="p-3.5 rounded-2xl bg-night-900 border border-white/5 flex gap-3">
+                <div class="w-16 h-16 rounded-xl bg-night-800 text-2xl flex items-center justify-center flex-shrink-0 border border-white/5">🥩</div>
+                <div>
+                  <div class="flex items-center justify-between">
+                    <h5 class="text-xs font-bold text-white">Izgara Dana Madalyon</h5>
+                    <span class="text-xs font-black text-champagne-300 font-serif">₺490</span>
+                  </div>
+                  <p class="text-[11px] text-slate-400 mt-1 font-light">Patates püresi, karamelize arpacık soğan ve biberiye sosu.</p>
+                </div>
+              </div>
+
+              <div class="p-3.5 rounded-2xl bg-night-900 border border-white/5 flex gap-3">
+                <div class="w-16 h-16 rounded-xl bg-night-800 text-2xl flex items-center justify-center flex-shrink-0 border border-white/5">🥗</div>
+                <div>
+                  <div class="flex items-center justify-between">
+                    <h5 class="text-xs font-bold text-white">Burrata &amp; Kiraz Domates</h5>
+                    <span class="text-xs font-black text-champagne-300 font-serif">₺290</span>
+                  </div>
+                  <p class="text-[11px] text-slate-400 mt-1 font-light">Balsamik sirke havyarı, taze fesleğen ve sızma zeytinyağı.</p>
+                </div>
+              </div>
+
+              <div class="p-3.5 rounded-2xl bg-night-900 border border-white/5 flex gap-3">
+                <div class="w-16 h-16 rounded-xl bg-night-800 text-2xl flex items-center justify-center flex-shrink-0 border border-white/5">🍷</div>
+                <div>
+                  <div class="flex items-center justify-between">
+                    <h5 class="text-xs font-bold text-white">Özel Karaf Sangria</h5>
+                    <span class="text-xs font-black text-champagne-300 font-serif">₺320</span>
+                  </div>
+                  <p class="text-[11px] text-slate-400 mt-1 font-light">Mevsim narenciyeleri ve baharatlarla dinlendirilmiş kokteyl.</p>
+                </div>
+              </div>
+            </div>
+
+            <!-- Alt Galeri & Harita -->
+            <div class="mt-6 pt-4 border-t border-white/5 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs">
+              <div class="flex items-center gap-2 text-slate-400 font-light">
+                <i class="fa-brands fa-instagram text-champagne-400 text-base"></i>
+                <span>Instagram: <strong class="text-white">@bistronomik.ist</strong> (4.9 Puan / 840 Yorum)</span>
+              </div>
+              <button onclick="simulateCustomerAction('map', 'Bistronomik')" class="px-4 py-2 rounded-xl bg-night-800 text-white font-bold border border-white/10 hover:bg-night-700 transition">
+                <i class="fa-solid fa-location-dot text-champagne-400 mr-1.5"></i> Haritada Yol Tarifi Al
+              </button>
+            </div>
+          </div>
+        </div>
+      `;
+    }
+
+    // ================= 3. SEVİYE SİMÜLATÖR GÖVDESİ =================
+    function renderLevel3Html() {
+      return `
+        <div>
+          <!-- Lüks Üst Menü & Şube Seçici -->
+          <div class="bg-night-950 text-white px-6 py-3.5 flex flex-wrap items-center justify-between border-b border-champagne-500/20 gap-3">
+            <div class="flex items-center gap-3">
+              <span class="font-serif italic text-champagne-300 text-lg">Âşir Gourmet Steakhouse</span>
+              <span class="text-[11px] text-slate-400 hidden sm:inline">| Fine Dining &amp; Dry Aged Etleri</span>
+            </div>
+
+            <!-- Çoklu Şube Seçici -->
+            <div class="flex items-center gap-2 text-xs bg-night-900 px-3 py-1.5 rounded-xl border border-champagne-500/20">
+              <i class="fa-solid fa-location-dot text-champagne-400"></i>
+              <span class="text-slate-400">Şube:</span>
+              <select onchange="simulateBranchChange(this.value)" class="bg-transparent text-champagne-200 font-bold focus:outline-none cursor-pointer">
+                <option value="Kadıköy Sahil" class="bg-night-900 text-white">Kadıköy Sahil Şubesi</option>
+                <option value="Nişantaşı VIP" class="bg-night-900 text-white">Nişantaşı VIP Şubesi</option>
+                <option value="Bodrum Marina" class="bg-night-900 text-white">Bodrum Marina (Yazlık)</option>
+              </select>
+            </div>
+          </div>
+
+          <!-- Şefin Hikayesi & Lüks Hero -->
+          <div class="p-6 sm:p-8 bg-gradient-to-b from-night-950 via-night-900 to-night-950 text-white border-b border-white/5">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6 items-center">
+              <div class="md:col-span-2">
+                <span class="px-3 py-1 rounded-full bg-champagne-500/10 text-champagne-300 border border-champagne-500/20 text-[10px] font-black uppercase tracking-wider">
+                  Şefin İmzası &amp; 28 Gün Dry-Aged
+                </span>
+                <h3 class="text-2xl sm:text-3xl font-serif font-bold mt-2 text-white">
+                  Ateşin, Ustalığın ve Zamansız Lezzetin Buluşması
+                </h3>
+                <p class="text-xs text-slate-300 mt-2 leading-relaxed font-light">
+                  "Her et parçası kendi hikayesini fısıldar; meşe odunu kömüründe doğru ısı ve sabırla o hikaye bir sanat eserine dönüşür." 
+                  <span class="text-champagne-300 block mt-1 font-serif italic">— Başşef Cihan Âşir</span>
+                </p>
+
+                <!-- Aksiyonlar: VIP Masa & 360 Tur -->
+                <div class="mt-5 flex flex-wrap gap-2.5 text-xs">
+                  <button onclick="simulateCustomerAction('vip', 'Âşir Gourmet')" class="px-4 py-2.5 rounded-xl bg-gradient-to-r from-champagne-500 via-champagne-400 to-champagne-600 text-night-950 font-black shadow-gold-soft hover:brightness-110 transition">
+                    <i class="fa-solid fa-crown mr-1.5"></i> VIP Salon &amp; Özel Oda Rezervasyonu
+                  </button>
+                  <button onclick="simulateCustomerAction('360', 'Âşir Gourmet')" class="px-4 py-2.5 rounded-xl bg-night-800 text-slate-200 font-bold border border-white/10 hover:bg-night-700 transition">
+                    <i class="fa-solid fa-street-view text-champagne-400 mr-1.5"></i> 360° Sanal Mekan Turu
+                  </button>
+                </div>
+              </div>
+
+              <!-- Ödül Kartı -->
+              <div class="p-4 rounded-2xl bg-night-900/90 border border-champagne-500/20 text-center">
+                <i class="fa-solid fa-award text-3xl text-champagne-400 mb-2"></i>
+                <h5 class="text-xs font-bold text-white font-serif">Gastronomi Mükemmellik Ödülü 2025</h5>
+                <p class="text-[10px] text-slate-400 mt-1 font-light">En İyi Dry-Aged Et &amp; Sommelier Hizmeti</p>
+                <div class="mt-3 pt-2 border-t border-white/5 flex justify-center gap-1 text-champagne-400 text-xs">
+                  ★★★★★ <span class="text-slate-400 text-[10px] ml-1">(4.9/5)</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Alerjen Filtreli & Kapsamlı Gurme Menü -->
+          <div class="p-6">
+            <div class="flex flex-col sm:flex-row sm:items-center justify-between pb-3 border-b border-white/5 gap-2 mb-4">
+              <div>
+                <h4 class="text-xs font-black uppercase tracking-wider text-slate-400">Alakart Gurme Menü</h4>
+                <p class="text-[11px] text-slate-400 font-light">Alerjen etiketleri ve gramaj detaylarıyla</p>
+              </div>
+
+              <div class="flex items-center gap-1.5 text-[11px]">
+                <span class="px-2.5 py-1 rounded-md bg-champagne-500 text-night-950 font-bold">Tümü</span>
+                <span class="px-2.5 py-1 rounded-md bg-white/5 text-slate-300 font-medium cursor-pointer hover:bg-white/10">🌾 Glutensiz</span>
+                <span class="px-2.5 py-1 rounded-md bg-white/5 text-slate-300 font-medium cursor-pointer hover:bg-white/10">🥩 Şef Tavsiyesi</span>
+              </div>
+            </div>
+
+            <!-- Tabaklar -->
+            <div class="space-y-3">
+              <div class="p-4 rounded-2xl bg-night-900 border border-white/5 flex flex-col sm:flex-row sm:items-center justify-between gap-3">
+                <div class="flex items-start gap-3">
+                  <div class="w-14 h-14 rounded-xl bg-night-800 text-2xl flex items-center justify-center flex-shrink-0 border border-white/5">🥩</div>
+                  <div>
+                    <div class="flex items-center gap-2">
+                      <h5 class="text-xs font-bold text-white">Dry-Aged Tomahawk (850g)</h5>
+                      <span class="px-2 py-0.5 rounded text-[9px] font-black bg-champagne-500/20 text-champagne-300 border border-champagne-500/30">Şefin İmzası</span>
+                      <span class="text-[10px] text-emerald-400 font-medium">Glutensiz</span>
+                    </div>
+                    <p class="text-[11px] text-slate-400 mt-1 font-light">Himalaya tuz odalarında 28 gün dinlendirilmiş antrikot, közlenmiş sarımsak confit ile.</p>
+                  </div>
+                </div>
+                <div class="text-right sm:flex-shrink-0">
+                  <span class="text-sm font-black text-champagne-300 font-serif">₺1.450</span>
+                  <span class="block text-[10px] text-slate-400 font-light">2 Kişilik Porsiyon</span>
+                </div>
+              </div>
+
+              <div class="p-4 rounded-2xl bg-night-900 border border-white/5 flex flex-col sm:flex-row sm:items-center justify-between gap-3">
+                <div class="flex items-start gap-3">
+                  <div class="w-14 h-14 rounded-xl bg-night-800 text-2xl flex items-center justify-center flex-shrink-0 border border-white/5">🍖</div>
+                  <div>
+                    <div class="flex items-center gap-2">
+                      <h5 class="text-xs font-bold text-white">Ağır Ateşte Kuzu İncik (12 Saat Fırın)</h5>
+                      <span class="px-2 py-0.5 rounded text-[9px] font-black bg-white/10 text-slate-300">Klasik</span>
+                    </div>
+                    <p class="text-[11px] text-slate-400 mt-1 font-light">Safranlı risotto, kök sebzeler ve ilikli demi-glace sos ile.</p>
+                  </div>
+                </div>
+                <div class="text-right sm:flex-shrink-0">
+                  <span class="text-sm font-black text-champagne-300 font-serif">₺680</span>
+                  <span class="block text-[10px] text-slate-400 font-light">Tek Kişilik</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="mt-5 p-4 rounded-2xl glass-panel border border-champagne-500/20 flex flex-col sm:flex-row items-center justify-between gap-3 text-xs">
+              <div class="flex items-center gap-2 text-slate-300">
+                <i class="fa-solid fa-bell-concierge text-champagne-400 text-base"></i>
+                <span>Özel yemekler, iş toplantıları ve VIP locası için rezervasyon hattı:</span>
+              </div>
+              <button onclick="simulateCustomerAction('vip-call', 'Âşir Steakhouse')" class="px-4 py-2 rounded-xl bg-champagne-500 text-night-950 font-bold flex items-center gap-1.5 transition hover:brightness-110">
+                <i class="fa-solid fa-phone"></i>
+                <span>VIP Danışmanı: (0212) 287 00 00</span>
+              </button>
+            </div>
+          </div>
+        </div>
+      `;
+    }
+
+    // SİMÜLASYON TIKLAMALARI
+    function simulateCustomerAction(action, name) {
+      if (action === 'call') {
+        showToast(`📞 Müşteri ${name} işletmesini arıyor (0216 XXX XX XX)...`, 'info');
+      } else if (action === 'whatsapp') {
+        showToast(`💬 WhatsApp mesajı oluşturuldu: "Merhaba, ${name} rezervasyon yaptırmak istiyorum."`, 'success');
+      } else if (action === 'map') {
+        showToast(`📍 Google Haritalar navigasyonu ${name} konumuna yönlendirildi.`, 'info');
+      } else if (action === 'reserve') {
+        showToast(`📅 ${name} masa rezervasyonu talebi işletme WhatsApp hattına yönlendirildi.`, 'success');
+      } else if (action === 'vip') {
+        showToast(`👑 ${name} VIP Salon Rezervasyon formu açıldı. Yetkiliye anlık bildirim iletildi.`, 'success');
+      } else if (action === '360') {
+        showToast(`🌐 360° Mekan sanal turu başlatıldı.`, 'info');
+      } else if (action === 'vip-call') {
+        showToast(`📞 VIP Rezervasyon hattı aranıyor...`, 'info');
+      }
+    }
+
+    function simulateBranchChange(branchName) {
+      showToast(`📍 Şube Güncellendi: ${branchName} konumu ve saatleri yüklendi.`, 'info');
+    }
+
+    // FAST MODAL FONKSİYONLARI
+    let currentModalPackage = 'Standart Bistro & Menü';
+    let currentModalPrice = 5850;
+
+    function openFastPaymentModal(packageName, price) {
+      currentModalPackage = packageName;
+      currentModalPrice = price;
+
+      // Rastgele sipariş takip kodu üret (Örn: RW-84920)
+      const randomCode = 'RW-' + Math.floor(10000 + Math.random() * 90000);
+
+      document.getElementById('modal-package-title').innerText = packageName + ' Paketi';
+      document.getElementById('modal-order-code').innerText = randomCode;
+      document.querySelectorAll('.modal-order-code-inline').forEach(el => el.innerText = randomCode);
+      document.getElementById('modal-order-amount').innerText = '₺' + Number(price).toLocaleString('tr-TR');
+
+      const modal = document.getElementById('fast-payment-modal');
+      modal.classList.remove('hidden');
+      document.body.style.overflow = 'hidden';
+    }
+
+    function closeFastPaymentModal() {
+      const modal = document.getElementById('fast-payment-modal');
+      modal.classList.add('hidden');
+      document.body.style.overflow = 'auto';
+    }
+
+    function pickCurrentSimulatorPlan() {
+      const meta = templateMeta[currentTemplateLevel];
+      openFastPaymentModal(meta.title.split(':')[1].trim(), meta.price);
+    }
+
+    // IBAN KOPYALAMA (document.execCommand fallback'li)
+    function copyIbanToClipboard() {
+      const ibanInput = document.getElementById('iban-input');
+      ibanInput.select();
+      ibanInput.setSelectionRange(0, 99999);
+      try {
+        document.execCommand('copy');
+        document.getElementById('copy-btn-text').innerText = 'Kopyalandı!';
+        showToast('IBAN panoya kopyalandı! Bankanızdan FAST ile transferi tamamlayabilirsiniz.', 'success');
+        setTimeout(() => {
+          document.getElementById('copy-btn-text').innerText = 'Kopyala';
+        }, 2500);
+      } catch (err) {
+        showToast('Lütfen IBAN numarasını elle kopyalayınız.', 'warning');
+      }
+    }
+
+    // HAVALE BİLDİRİM FORMU
+    function handleFastNotifySubmit(event) {
+      event.preventDefault();
+      const code = document.getElementById('modal-order-code').innerText;
+      const name = document.getElementById('notify-name').value;
+      const business = document.getElementById('notify-business').value;
+      const phone = document.getElementById('notify-phone').value;
+
+      closeFastPaymentModal();
+      showToast(`🎉 Tebrikler Sayın ${name}! [${code}] referanslı FAST ödeme bildiriminiz alındı. "${business}" web sitenizin kurulumu başladı! Detaylar WhatsApp (${phone}) hattınıza gönderildi.`, 'success');
+      event.target.reset();
+    }
+
+    // ÜCRETSİZ TASLAK FORMU
+    function handleDraftSubmit(event) {
+      event.preventDefault();
+      const business = document.getElementById('draft-business-name').value;
+      const phone = document.getElementById('draft-phone').value;
+      const level = document.getElementById('draft-template-level').value;
+
+      showToast(`⭐ Harika! "${business}" için ${level} bazlı ücretsiz web sitesi taslağımız 24 saatte WhatsApp (${phone}) hattınıza gönderilecektir.`, 'success');
+      event.target.reset();
+    }
+
+    // SAYFA İLK AÇILDIĞINDA 1. SEVİYE İLE BAŞLAT
+    window.addEventListener('DOMContentLoaded', () => {
+      switchTemplate(1);
+    });
+  </script>
+</body>
+</html>
