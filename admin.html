@@ -101,11 +101,11 @@
             
             <!-- 1. FİNANS & ZİYARETÇİ METRİK KARTLARI -->
             <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
-                <!-- Gerçek Ziyaretçi Sayısı -->
+                <!-- Gerçek Tekil Ziyaretçi Sayısı -->
                 <div class="bg-night-900 border border-gold-400/30 rounded-2xl p-5 relative overflow-hidden shadow-lg shadow-gold-400/5">
                     <div class="flex justify-between items-start">
                         <div>
-                            <span class="text-xs text-slate-400 font-medium">Gerçek Tekil Ziyaretçi</span>
+                            <span class="text-xs text-slate-400 font-medium">Tekil Ziyaretçi (Benzersiz Cihaz)</span>
                             <h3 id="stat-visitors" class="text-3xl font-extrabold text-gold-400 mt-1">0</h3>
                         </div>
                         <div class="w-10 h-10 rounded-xl bg-gold-400/10 border border-gold-400/30 flex items-center justify-center text-gold-400">
@@ -113,7 +113,7 @@
                         </div>
                     </div>
                     <span class="text-[11px] text-emerald-400 font-medium flex items-center gap-1 mt-3">
-                        <i data-lucide="activity" class="w-3.5 h-3.5 animate-pulse"></i> Organik IP Bazlı Gerçek Veri
+                        <i data-lucide="shield-check" class="w-3.5 h-3.5"></i> Aynı cihazlar mükerrer sayılmaz
                     </span>
                 </div>
 
@@ -147,30 +147,30 @@
                     <span class="text-[11px] text-slate-400 mt-3 block">Banka hesabı teyit edilecek</span>
                 </div>
 
-                <!-- Aktif Canlı Siteler -->
+                <!-- Kayıtlı Restoran / Üye Sayısı -->
                 <div class="bg-night-900 border border-white/10 rounded-2xl p-5">
                     <div class="flex justify-between items-start">
                         <div>
-                            <span class="text-xs text-slate-400 font-medium">Yayındaki Restoranlar</span>
-                            <h3 id="stat-active" class="text-2xl font-bold text-emerald-400 mt-1">0</h3>
+                            <span class="text-xs text-slate-400 font-medium">Kayıtlı Restoran Hesabı</span>
+                            <h3 id="stat-users" class="text-2xl font-bold text-blue-400 mt-1">0</h3>
                         </div>
-                        <div class="w-10 h-10 rounded-xl bg-emerald-500/10 border border-emerald-500/30 flex items-center justify-center text-emerald-400">
-                            <i data-lucide="globe" class="w-5 h-5"></i>
+                        <div class="w-10 h-10 rounded-xl bg-blue-500/10 border border-blue-500/30 flex items-center justify-center text-blue-400">
+                            <i data-lucide="store" class="w-5 h-5"></i>
                         </div>
                     </div>
-                    <span class="text-[11px] text-slate-400 mt-3 block">Canlıdaki kurumsal vitrinler</span>
+                    <span class="text-[11px] text-slate-400 mt-3 block">Siteden hesap oluşturanlar</span>
                 </div>
             </div>
 
-            <!-- 2. GERÇEK KULLANICI & ZİYARETÇİ BİLGİLERİ TABLOSU -->
+            <!-- 2. TEKİL ZİYARETÇİ BİLGİLERİ TABLOSU -->
             <div class="bg-night-900 border border-white/10 rounded-2xl overflow-hidden shadow-xl">
                 <div class="p-5 border-b border-white/10 flex flex-col sm:flex-row sm:items-center justify-between gap-3">
                     <div>
                         <h2 class="text-base font-bold text-white flex items-center gap-2">
                             <i data-lucide="eye" class="w-4 h-4 text-gold-400"></i>
-                            <span>Canlı Ziyaretçi & Kullanıcı Bilgileri</span>
+                            <span>Tekil Ziyaretçiler (Aynı Cihaz Tekrar Yazılmaz)</span>
                         </h2>
-                        <p class="text-xs text-slate-400">Siteyi ziyaret eden gerçek kişilerin şehir, ülke, cihaz ve IP kayıtları.</p>
+                        <p class="text-xs text-slate-400">Siteye giren her benzersiz cihaz ve IP adresi sadece 1 defa listelenir.</p>
                     </div>
                     <button onclick="renderVisitors()" class="text-xs text-gold-400 hover:underline flex items-center gap-1 self-start sm:self-auto">
                         <i data-lucide="rotate-cw" class="w-3.5 h-3.5"></i>
@@ -182,9 +182,9 @@
                     <table class="w-full text-left border-collapse text-xs">
                         <thead>
                             <tr class="bg-night-950/80 border-b border-white/5 text-slate-400 uppercase tracking-wider text-[10px]">
-                                <th class="py-3.5 px-4 font-semibold">Tarih / Saat</th>
+                                <th class="py-3.5 px-4 font-semibold">İlk Giriş Zamanı</th>
                                 <th class="py-3.5 px-4 font-semibold">Konum (Şehir / Ülke)</th>
-                                <th class="py-3.5 px-4 font-semibold">Cihaz</th>
+                                <th class="py-3.5 px-4 font-semibold">Cihaz Türü</th>
                                 <th class="py-3.5 px-4 font-semibold">IP Adresi</th>
                             </tr>
                         </thead>
@@ -198,7 +198,40 @@
                 </div>
             </div>
 
-            <!-- 3. SİPARİŞ & MÜŞTERİ YÖNETİM TABLOSU -->
+            <!-- 3. KAYITLI RESTORAN & KULLANICI HESAPLARI TABLOSU -->
+            <div class="bg-night-900 border border-white/10 rounded-2xl overflow-hidden shadow-xl">
+                <div class="p-5 border-b border-white/10 flex justify-between items-center">
+                    <div>
+                        <h2 class="text-base font-bold text-white flex items-center gap-2">
+                            <i data-lucide="user-check" class="w-4 h-4 text-blue-400"></i>
+                            <span>Siteden Kayıt Olan Müşteriler / Restoranlar</span>
+                        </h2>
+                        <p class="text-xs text-slate-400">Sitenizdeki "Kayıt Ol" formunu dolduran restoran sahiplerinin hesap bilgileri.</p>
+                    </div>
+                </div>
+
+                <div class="overflow-x-auto">
+                    <table class="w-full text-left border-collapse text-xs">
+                        <thead>
+                            <tr class="bg-night-950/80 border-b border-white/5 text-slate-400 uppercase tracking-wider text-[10px]">
+                                <th class="py-3.5 px-4 font-semibold">Kayıt Tarihi</th>
+                                <th class="py-3.5 px-4 font-semibold">Restoran / İşletme</th>
+                                <th class="py-3.5 px-4 font-semibold">Yetkili Kişi</th>
+                                <th class="py-3.5 px-4 font-semibold">WhatsApp Numarası</th>
+                                <th class="py-3.5 px-4 font-semibold">E-Posta</th>
+                            </tr>
+                        </thead>
+                        <tbody id="users-tbody" class="divide-y divide-white/5 text-slate-300">
+                            <!-- JS ile basılır -->
+                        </tbody>
+                    </table>
+                </div>
+                <div id="users-empty" class="p-8 text-center text-slate-500 text-xs hidden">
+                    Henüz kayıtlı bir restoran hesabı bulunmuyor.
+                </div>
+            </div>
+
+            <!-- 4. SİPARİŞ & MÜŞTERİ YÖNETİM TABLOSU -->
             <div class="bg-night-900 border border-white/10 rounded-2xl overflow-hidden shadow-xl">
                 <div class="p-5 border-b border-white/10 flex flex-col sm:flex-row sm:items-center justify-between gap-3">
                     <div>
@@ -241,7 +274,7 @@
                 </div>
             </div>
 
-            <!-- 4. BANKA HESAP BİLGİSİ KARTI -->
+            <!-- 5. BANKA HESAP BİLGİSİ KARTI -->
             <div class="bg-night-900 border border-gold-400/20 rounded-2xl p-6 flex flex-col md:flex-row items-start md:items-center justify-between gap-4">
                 <div class="flex items-center gap-4">
                     <div class="w-12 h-12 rounded-xl bg-gold-400/10 border border-gold-400/30 flex items-center justify-center text-gold-400">
@@ -335,6 +368,7 @@
         const STORAGE_KEY_PIN = "rw_admin_pin";
         const STORAGE_KEY_ORDERS = "rw_admin_orders";
         const STORAGE_KEY_VISITORS = "rw_real_visitors";
+        const STORAGE_KEY_USERS = "rw_registered_users";
 
         function getStoredPin() {
             return localStorage.getItem(STORAGE_KEY_PIN) || "1234";
@@ -411,11 +445,13 @@
 
         function initDashboard() {
             renderVisitors();
+            renderUsers();
             renderOrders();
             renderStats();
             lucide.createIcons();
         }
 
+        // 1. ZİYARETÇİ LİSTESİ (TEKİL)
         function renderVisitors() {
             const visitors = JSON.parse(localStorage.getItem(STORAGE_KEY_VISITORS) || '[]');
             const tbody = document.getElementById('visitors-tbody');
@@ -447,25 +483,65 @@
             lucide.createIcons();
         }
 
+        // 2. KAYITLI ÜYELER / RESTORANLAR
+        function renderUsers() {
+            const users = JSON.parse(localStorage.getItem(STORAGE_KEY_USERS) || '[]');
+            const tbody = document.getElementById('users-tbody');
+            const empty = document.getElementById('users-empty');
+            tbody.innerHTML = "";
+
+            document.getElementById('stat-users').innerText = users.length;
+
+            if (users.length === 0) {
+                empty.classList.remove('hidden');
+                return;
+            }
+            empty.classList.add('hidden');
+
+            users.forEach(u => {
+                const tr = document.createElement('tr');
+                tr.className = "hover:bg-white/[0.02] transition-colors";
+                const cleanPhone = u.phone.replace(/[^0-9]/g, '');
+                const waLink = `https://wa.me/90${cleanPhone.startsWith('0') ? cleanPhone.substring(1) : cleanPhone}`;
+
+                tr.innerHTML = `
+                    <td class="py-3 px-4 font-mono text-slate-400">${u.registeredAt || 'Bugün'}</td>
+                    <td class="py-3 px-4 font-bold text-white flex items-center gap-1.5">
+                        <i data-lucide="store" class="w-3.5 h-3.5 text-gold-400"></i>
+                        <span>${u.restaurant}</span>
+                    </td>
+                    <td class="py-3 px-4">${u.owner}</td>
+                    <td class="py-3 px-4 font-mono">
+                        <a href="${waLink}" target="_blank" class="text-emerald-400 hover:underline flex items-center gap-1">
+                            <i data-lucide="message-circle" class="w-3.5 h-3.5"></i>
+                            <span>${u.phone}</span>
+                        </a>
+                    </td>
+                    <td class="py-3 px-4 font-mono text-slate-400">${u.email}</td>
+                `;
+                tbody.appendChild(tr);
+            });
+            lucide.createIcons();
+        }
+
+        // 3. STAT METRİKLERİ
         function renderStats() {
             const orders = getOrders();
             let totalRevenue = 0;
             let pendingCount = 0;
-            let activeCount = 0;
 
             orders.forEach(o => {
                 if (o.status === 'YAYINDA' || o.status === 'HAZIRLANIYOR') {
                     totalRevenue += Number(o.price);
                 }
                 if (o.status === 'BEKLIYOR') pendingCount++;
-                if (o.status === 'YAYINDA') activeCount++;
             });
 
             document.getElementById('stat-revenue').innerText = totalRevenue.toLocaleString('tr-TR') + " ₺";
             document.getElementById('stat-pending').innerText = pendingCount;
-            document.getElementById('stat-active').innerText = activeCount;
         }
 
+        // 4. SİPARİŞ LİSTESİ
         function renderOrders() {
             const filter = document.getElementById('filter-status').value;
             const orders = getOrders();
