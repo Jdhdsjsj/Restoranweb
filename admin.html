@@ -1,0 +1,536 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Restoranweb | Yönetici Operasyon Paneli</title>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Playfair+Display:ital,wght@0,600;0,700;1,600&display=swap" rel="stylesheet">
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        gold: {
+                            400: '#D4AF37',
+                            500: '#C59B27',
+                            600: '#A47D1C',
+                        },
+                        night: {
+                            950: '#070A10',
+                            900: '#0C111D',
+                            850: '#111827',
+                            800: '#162033',
+                            700: '#1F2E47'
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['"Plus Jakarta Sans"', 'sans-serif'],
+                        serif: ['"Playfair Display"', 'serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        .gold-border { border: 1px solid rgba(212, 175, 55, 0.22); }
+        .gold-glow { box-shadow: 0 0 25px -5px rgba(212, 175, 55, 0.2); }
+    </style>
+</head>
+<body class="bg-night-950 text-slate-200 font-sans antialiased selection:bg-gold-400 selection:text-night-950 min-h-screen">
+
+    <!-- ================= GİRİŞ / PIN KİLİT EKRANI ================= -->
+    <div id="login-modal" class="fixed inset-0 z-50 bg-night-950 flex items-center justify-center p-4">
+        <div class="bg-night-900 border border-gold-400/30 rounded-2xl p-8 max-w-sm w-full text-center shadow-2xl gold-glow">
+            <div class="w-14 h-14 rounded-2xl bg-gold-400/10 border border-gold-400/30 flex items-center justify-center text-gold-400 mx-auto mb-4">
+                <i data-lucide="shield-check" class="w-7 h-7"></i>
+            </div>
+            <h2 class="font-serif text-2xl font-bold text-white">Yönetici Girişi</h2>
+            <p class="text-xs text-slate-400 mt-1 mb-6">Restoranweb operasyon merkezine erişmek için PIN kodunuzu girin.</p>
+            
+            <form onsubmit="handleLogin(event)" class="space-y-4">
+                <input type="password" id="admin-pin-input" maxlength="8" placeholder="••••" required class="w-full text-center tracking-[0.5em] text-2xl font-bold py-3 rounded-xl bg-night-950 border border-white/10 text-gold-400 focus:outline-none focus:border-gold-400">
+                <button type="submit" class="w-full py-3.5 rounded-xl text-sm font-bold bg-gold-400 text-night-950 hover:brightness-110 transition-all shadow-lg shadow-gold-400/20">
+                    Panele Giriş Yap
+                </button>
+            </form>
+            <p id="login-error" class="text-xs text-rose-400 font-semibold mt-3 hidden">Hatalı PIN kodu! Tekrar deneyin.</p>
+            <p class="text-[10px] text-slate-500 mt-4">(Varsayılan PIN: 1234 - Giriş yaptıktan sonra değiştirebilirsiniz)</p>
+        </div>
+    </div>
+
+    <!-- ================= ANA DASHBOARD EKRANI ================= -->
+    <div id="dashboard-app" class="hidden">
+        
+        <!-- ÜST ÇUBUK -->
+        <header class="bg-night-900/80 backdrop-blur-md border-b border-white/5 sticky top-0 z-40">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-18 py-4 flex items-center justify-between">
+                <div class="flex items-center gap-3">
+                    <div class="w-9 h-9 rounded-lg bg-gold-400 flex items-center justify-center text-night-950 font-bold">
+                        <i data-lucide="utensils" class="w-5 h-5"></i>
+                    </div>
+                    <div>
+                        <span class="font-serif text-lg font-bold text-white">Restoran<span class="text-gold-400">web</span></span>
+                        <span class="text-[10px] uppercase tracking-wider text-slate-400 block font-semibold">Master Operasyon Konsolu</span>
+                    </div>
+                </div>
+
+                <div class="flex items-center gap-3">
+                    <button onclick="openNewOrderModal()" class="px-4 py-2 rounded-xl bg-gold-400 text-night-950 text-xs font-bold hover:brightness-110 flex items-center gap-1.5 transition-all shadow-md shadow-gold-400/10">
+                        <i data-lucide="plus-circle" class="w-4 h-4"></i>
+                        <span>Manuel Sipariş Ekle</span>
+                    </button>
+                    <button onclick="changePinPrompt()" class="p-2 rounded-xl bg-night-850 border border-white/10 text-slate-300 hover:text-white" title="PIN Kodunu Değiştir">
+                        <i data-lucide="key" class="w-4 h-4"></i>
+                    </button>
+                    <button onclick="handleLogout()" class="p-2 rounded-xl bg-night-850 border border-rose-500/20 text-rose-400 hover:bg-rose-500/10" title="Güvenli Çıkış">
+                        <i data-lucide="log-out" class="w-4 h-4"></i>
+                    </button>
+                </div>
+            </div>
+        </header>
+
+        <!-- İÇERİK ALANI -->
+        <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 space-y-8">
+            
+            <!-- 1. FİNANS & METRİK KARTLARI -->
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
+                <!-- Toplam Ciro -->
+                <div class="bg-night-900 border border-gold-400/20 rounded-2xl p-5 relative overflow-hidden">
+                    <div class="flex justify-between items-start">
+                        <div>
+                            <span class="text-xs text-slate-400 font-medium">Toplam Onaylı Ciro</span>
+                            <h3 id="stat-revenue" class="text-2xl font-bold text-white mt-1">0 ₺</h3>
+                        </div>
+                        <div class="w-10 h-10 rounded-xl bg-gold-400/10 border border-gold-400/30 flex items-center justify-center text-gold-400">
+                            <i data-lucide="wallet" class="w-5 h-5"></i>
+                        </div>
+                    </div>
+                    <span class="text-[11px] text-emerald-400 font-medium flex items-center gap-1 mt-3">
+                        <i data-lucide="check" class="w-3.5 h-3.5"></i> FAST / Havale ile net tahsilat
+                    </span>
+                </div>
+
+                <!-- Bekleyen Siparişler -->
+                <div class="bg-night-900 border border-white/10 rounded-2xl p-5">
+                    <div class="flex justify-between items-start">
+                        <div>
+                            <span class="text-xs text-slate-400 font-medium">Ödeme Bekleyenler</span>
+                            <h3 id="stat-pending" class="text-2xl font-bold text-amber-400 mt-1">0</h3>
+                        </div>
+                        <div class="w-10 h-10 rounded-xl bg-amber-500/10 border border-amber-500/30 flex items-center justify-center text-amber-400">
+                            <i data-lucide="clock" class="w-5 h-5"></i>
+                        </div>
+                    </div>
+                    <span class="text-[11px] text-slate-400 mt-3 block">Banka hesabı kontrol edilecek</span>
+                </div>
+
+                <!-- Hazırlanan / Canlıdaki Siteler -->
+                <div class="bg-night-900 border border-white/10 rounded-2xl p-5">
+                    <div class="flex justify-between items-start">
+                        <div>
+                            <span class="text-xs text-slate-400 font-medium">Aktif Müşteri / Siteler</span>
+                            <h3 id="stat-active" class="text-2xl font-bold text-emerald-400 mt-1">0</h3>
+                        </div>
+                        <div class="w-10 h-10 rounded-xl bg-emerald-500/10 border border-emerald-500/30 flex items-center justify-center text-emerald-400">
+                            <i data-lucide="globe" class="w-5 h-5"></i>
+                        </div>
+                    </div>
+                    <span class="text-[11px] text-slate-400 mt-3 block">Yayında olan kurumsal vitrinler</span>
+                </div>
+
+                <!-- Formspree E-posta Entegrasyon Durumu -->
+                <div class="bg-night-900 border border-white/10 rounded-2xl p-5">
+                    <div class="flex justify-between items-start">
+                        <div>
+                            <span class="text-xs text-slate-400 font-medium">E-posta Bildirim Hattı</span>
+                            <h3 class="text-sm font-bold text-white mt-2 font-mono">xnppjawa</h3>
+                        </div>
+                        <div class="w-10 h-10 rounded-xl bg-blue-500/10 border border-blue-500/30 flex items-center justify-center text-blue-400">
+                            <i data-lucide="mail-check" class="w-5 h-5"></i>
+                        </div>
+                    </div>
+                    <a href="https://formspree.io/forms/xnppjawa/submissions" target="_blank" class="text-[11px] text-gold-400 hover:underline flex items-center gap-1 mt-3">
+                        <span>Formspree Gelen Kutusunu Aç</span>
+                        <i data-lucide="external-link" class="w-3 h-3"></i>
+                    </a>
+                </div>
+            </div>
+
+            <!-- 2. SİPARİŞ & MÜŞTERİ YÖNETİM TABLOSU -->
+            <div class="bg-night-900 border border-white/10 rounded-2xl overflow-hidden shadow-xl">
+                <div class="p-5 border-b border-white/10 flex flex-col sm:flex-row sm:items-center justify-between gap-3">
+                    <div>
+                        <h2 class="text-lg font-bold text-white">Sipariş & Müşteri Listesi</h2>
+                        <p class="text-xs text-slate-400">Sitenizden gelen FAST taleplerini buradan yönetin ve aşamalarını güncelleyin.</p>
+                    </div>
+
+                    <div class="flex items-center gap-2">
+                        <select id="filter-status" onchange="renderOrders()" class="bg-night-950 border border-white/10 text-xs rounded-xl px-3 py-2 text-slate-300 focus:outline-none focus:border-gold-400">
+                            <option value="ALL">Tüm Durumlar</option>
+                            <option value="BEKLIYOR">Ödeme Bekliyor</option>
+                            <option value="HAZIRLANIYOR">Hazırlanıyor</option>
+                            <option value="YAYINDA">Yayında (Canlı)</option>
+                        </select>
+                    </div>
+                </div>
+
+                <!-- Tablo -->
+                <div class="overflow-x-auto">
+                    <table class="w-full text-left border-collapse text-xs">
+                        <thead>
+                            <tr class="bg-night-950/80 border-b border-white/5 text-slate-400 uppercase tracking-wider text-[10px]">
+                                <th class="py-3.5 px-4 font-semibold">Kod & Tarih</th>
+                                <th class="py-3.5 px-4 font-semibold">Restoran / Kafe</th>
+                                <th class="py-3.5 px-4 font-semibold">Yetkili Kişi</th>
+                                <th class="py-3.5 px-4 font-semibold">WhatsApp Tel</th>
+                                <th class="py-3.5 px-4 font-semibold">Paket & Tutar</th>
+                                <th class="py-3.5 px-4 font-semibold">Durum</th>
+                                <th class="py-3.5 px-4 font-semibold text-right">Aksiyonlar</th>
+                            </tr>
+                        </thead>
+                        <tbody id="orders-tbody" class="divide-y divide-white/5 text-slate-300">
+                            <!-- JS ile basılacak -->
+                        </tbody>
+                    </table>
+                </div>
+
+                <!-- Boş Liste Uyarısı -->
+                <div id="empty-state" class="p-12 text-center hidden">
+                    <i data-lucide="inbox" class="w-10 h-10 text-slate-600 mx-auto mb-2"></i>
+                    <p class="text-sm text-slate-400 font-medium">Henüz kayıtlı bir sipariş bulunmuyor.</p>
+                    <p class="text-xs text-slate-500 mt-1">Formspree'den mail geldikçe sağ üstteki "Manuel Sipariş Ekle" butonu ile ekleyebilirsiniz.</p>
+                </div>
+            </div>
+
+            <!-- 3. HIZLI BANKA & HESAP BİLGİSİ KARTI -->
+            <div class="bg-night-900 border border-gold-400/20 rounded-2xl p-6 flex flex-col md:flex-row items-start md:items-center justify-between gap-4">
+                <div class="flex items-center gap-4">
+                    <div class="w-12 h-12 rounded-xl bg-gold-400/10 border border-gold-400/30 flex items-center justify-center text-gold-400">
+                        <i data-lucide="building-2" class="w-6 h-6"></i>
+                    </div>
+                    <div>
+                        <h4 class="text-sm font-bold text-white">Vakıflar Bankası FAST Tahsilat Hesabınız</h4>
+                        <p class="text-xs text-gold-300 font-mono mt-0.5">TR96 0001 5001 5800 7300 6566 54 • Fatih Yıldız</p>
+                    </div>
+                </div>
+                <div class="text-xs text-slate-400 bg-night-950 px-4 py-2 rounded-xl border border-white/5">
+                    Müşteriler havale yaparken açıklama kısmına <strong>RW- kodlarını</strong> yazmalıdır.
+                </div>
+            </div>
+
+        </main>
+    </div>
+
+    <!-- ================= SİPARİŞ EKLEME / DÜZENLEME MODALI ================= -->
+    <div id="order-modal" class="fixed inset-0 z-50 bg-black/80 backdrop-blur-sm hidden items-center justify-center p-4">
+        <div class="bg-night-900 border border-gold-400/30 rounded-2xl p-6 sm:p-8 max-w-lg w-full relative shadow-2xl">
+            <button onclick="closeNewOrderModal()" class="absolute top-5 right-5 text-slate-400 hover:text-white">
+                <i data-lucide="x" class="w-5 h-5"></i>
+            </button>
+
+            <h3 class="text-lg font-bold text-white font-serif mb-4 flex items-center gap-2">
+                <i data-lucide="file-plus" class="w-5 h-5 text-gold-400"></i>
+                <span>Yeni Sipariş / Müşteri Kaydı</span>
+            </h3>
+
+            <form onsubmit="handleSaveOrder(event)" class="space-y-3.5 text-left text-xs">
+                <div class="grid grid-cols-2 gap-3">
+                    <div>
+                        <label class="block text-slate-400 mb-1">Sipariş / Referans Kodu</label>
+                        <input type="text" id="m-order-code" required placeholder="RW-84920" class="w-full px-3 py-2 rounded-lg bg-night-950 border border-white/10 text-gold-300 font-mono font-bold focus:outline-none focus:border-gold-400">
+                    </div>
+                    <div>
+                        <label class="block text-slate-400 mb-1">Durum</label>
+                        <select id="m-order-status" class="w-full px-3 py-2 rounded-lg bg-night-950 border border-white/10 text-white focus:outline-none focus:border-gold-400">
+                            <option value="BEKLIYOR">Ödeme Bekliyor</option>
+                            <option value="HAZIRLANIYOR">Hazırlanıyor</option>
+                            <option value="YAYINDA">Yayında (Canlı)</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="grid grid-cols-2 gap-3">
+                    <div>
+                        <label class="block text-slate-400 mb-1">Restoran / Kafe Adı</label>
+                        <input type="text" id="m-restaurant" required placeholder="Örn: Lezzet Bistro" class="w-full px-3 py-2 rounded-lg bg-night-950 border border-white/10 text-white focus:outline-none focus:border-gold-400">
+                    </div>
+                    <div>
+                        <label class="block text-slate-400 mb-1">Yetkili Adı Soyadı</label>
+                        <input type="text" id="m-owner" required placeholder="Müşteri Adı" class="w-full px-3 py-2 rounded-lg bg-night-950 border border-white/10 text-white focus:outline-none focus:border-gold-400">
+                    </div>
+                </div>
+
+                <div>
+                    <label class="block text-slate-400 mb-1">WhatsApp Telefon Numarası</label>
+                    <input type="tel" id="m-phone" required placeholder="05XXXXXXXXX" class="w-full px-3 py-2 rounded-lg bg-night-950 border border-white/10 text-white focus:outline-none focus:border-gold-400">
+                </div>
+
+                <div class="grid grid-cols-2 gap-3">
+                    <div>
+                        <label class="block text-slate-400 mb-1">Seçilen Paket</label>
+                        <select id="m-package" onchange="autoFillPrice()" class="w-full px-3 py-2 rounded-lg bg-night-950 border border-white/10 text-white focus:outline-none focus:border-gold-400">
+                            <option value="1. Seviye: Butik Vitrin">1. Seviye: Butik Vitrin</option>
+                            <option value="2. Seviye: Klasik Bistro" selected>2. Seviye: Klasik Bistro</option>
+                            <option value="3. Seviye: Ultra Lüks Gurme">3. Seviye: Ultra Lüks Gurme</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label class="block text-slate-400 mb-1">Tutar (₺)</label>
+                        <input type="number" id="m-price" required value="4490" class="w-full px-3 py-2 rounded-lg bg-night-950 border border-white/10 text-white font-bold focus:outline-none focus:border-gold-400">
+                    </div>
+                </div>
+
+                <div class="pt-3">
+                    <button type="submit" class="w-full py-3 rounded-xl bg-gold-400 text-night-950 font-bold hover:brightness-110 transition-all">
+                        Siparişi Kaydet
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- JAVASCRIPT MOTORU -->
+    <script>
+        lucide.createIcons();
+
+        // 1. GÜVENLİK VE PIN YÖNETİMİ
+        const STORAGE_KEY_PIN = "rw_admin_pin";
+        const STORAGE_KEY_ORDERS = "rw_admin_orders";
+
+        function getStoredPin() {
+            return localStorage.getItem(STORAGE_KEY_PIN) || "1234";
+        }
+
+        function handleLogin(e) {
+            e.preventDefault();
+            const pin = document.getElementById('admin-pin-input').value;
+            if (pin === getStoredPin()) {
+                document.getElementById('login-modal').classList.add('hidden');
+                document.getElementById('dashboard-app').classList.remove('hidden');
+                initDashboard();
+            } else {
+                document.getElementById('login-error').classList.remove('hidden');
+            }
+        }
+
+        function handleLogout() {
+            document.getElementById('dashboard-app').classList.add('hidden');
+            document.getElementById('login-modal').classList.remove('hidden');
+            document.getElementById('admin-pin-input').value = "";
+            document.getElementById('login-error').classList.add('hidden');
+        }
+
+        function changePinPrompt() {
+            const currentPin = prompt("Mevcut PIN kodunuzu girin:");
+            if (currentPin !== getStoredPin()) {
+                alert("Mevcut PIN hatalı!");
+                return;
+            }
+            const newPin = prompt("Yeni 4-8 haneli PIN kodunuzu girin:");
+            if (newPin && newPin.trim().length >= 4) {
+                localStorage.setItem(STORAGE_KEY_PIN, newPin.trim());
+                alert("PIN kodunuz başarıyla güncellendi!");
+            }
+        }
+
+        // 2. SİPARİŞ VERİLERİ (LOCALSTORAGE)
+        function getOrders() {
+            const raw = localStorage.getItem(STORAGE_KEY_ORDERS);
+            if (!raw) {
+                // İlk açılış için örnek 2 başlangıç kaydı
+                const defaults = [
+                    {
+                        code: "RW-10294",
+                        date: "Bugün",
+                        restaurant: "Sultanahmet Ocakbaşı",
+                        owner: "Hasan Özdemir",
+                        phone: "05321112233",
+                        package: "3. Seviye: Ultra Lüks Gurme",
+                        price: 7490,
+                        status: "YAYINDA"
+                    },
+                    {
+                        code: "RW-84920",
+                        date: "Bugün",
+                        restaurant: "Moda Roast Coffee",
+                        owner: "Murat Korkmaz",
+                        phone: "05442223344",
+                        package: "2. Seviye: Klasik Bistro",
+                        price: 4490,
+                        status: "BEKLIYOR"
+                    }
+                ];
+                localStorage.setItem(STORAGE_KEY_ORDERS, JSON.stringify(defaults));
+                return defaults;
+            }
+            return JSON.parse(raw);
+        }
+
+        function saveOrders(orders) {
+            localStorage.setItem(STORAGE_KEY_ORDERS, JSON.stringify(orders));
+            renderOrders();
+            renderStats();
+        }
+
+        // 3. TABLO & METRİKLERİ ÇİZME
+        function initDashboard() {
+            renderOrders();
+            renderStats();
+            lucide.createIcons();
+        }
+
+        function renderStats() {
+            const orders = getOrders();
+            let totalRevenue = 0;
+            let pendingCount = 0;
+            let activeCount = 0;
+
+            orders.forEach(o => {
+                if (o.status === 'YAYINDA' || o.status === 'HAZIRLANIYOR') {
+                    totalRevenue += Number(o.price);
+                }
+                if (o.status === 'BEKLIYOR') pendingCount++;
+                if (o.status === 'YAYINDA') activeCount++;
+            });
+
+            document.getElementById('stat-revenue').innerText = totalRevenue.toLocaleString('tr-TR') + " ₺";
+            document.getElementById('stat-pending').innerText = pendingCount;
+            document.getElementById('stat-active').innerText = activeCount;
+        }
+
+        function renderOrders() {
+            const filter = document.getElementById('filter-status').value;
+            const orders = getOrders();
+            const tbody = document.getElementById('orders-tbody');
+            const emptyState = document.getElementById('empty-state');
+            tbody.innerHTML = "";
+
+            const filtered = filter === "ALL" ? orders : orders.filter(o => o.status === filter);
+
+            if (filtered.length === 0) {
+                emptyState.classList.remove('hidden');
+                return;
+            }
+            emptyState.classList.add('hidden');
+
+            filtered.forEach((order, index) => {
+                const tr = document.createElement('tr');
+                tr.className = "hover:bg-white/[0.02] transition-colors";
+
+                let statusBadge = "";
+                if (order.status === "BEKLIYOR") {
+                    statusBadge = `<span class="px-2.5 py-1 rounded-full text-[10px] font-bold bg-amber-500/20 text-amber-400 border border-amber-500/30">Ödeme Bekliyor</span>`;
+                } else if (order.status === "HAZIRLANIYOR") {
+                    statusBadge = `<span class="px-2.5 py-1 rounded-full text-[10px] font-bold bg-blue-500/20 text-blue-400 border border-blue-500/30">Hazırlanıyor</span>`;
+                } else {
+                    statusBadge = `<span class="px-2.5 py-1 rounded-full text-[10px] font-bold bg-emerald-500/20 text-emerald-400 border border-emerald-500/30">Yayında (Canlı)</span>`;
+                }
+
+                const cleanPhone = order.phone.replace(/[^0-9]/g, '');
+                const waLink = `https://wa.me/90${cleanPhone.startsWith('0') ? cleanPhone.substring(1) : cleanPhone}?text=Merhaba%20${encodeURIComponent(order.owner)},%20${encodeURIComponent(order.restaurant)}%20için%20Restoranweb%20üzerinden%20oluşturduğunuz%20${order.code}%20kodlu%20siparişinizle%20ilgili%20ulaşıyorum.`;
+
+                tr.innerHTML = `
+                    <td class="py-3.5 px-4 font-mono">
+                        <span class="font-bold text-gold-300 block">${order.code}</span>
+                        <span class="text-[10px] text-slate-500">${order.date || 'Bugün'}</span>
+                    </td>
+                    <td class="py-3.5 px-4 font-semibold text-white">${order.restaurant}</td>
+                    <td class="py-3.5 px-4">${order.owner}</td>
+                    <td class="py-3.5 px-4 font-mono">
+                        <a href="${waLink}" target="_blank" class="text-emerald-400 hover:underline flex items-center gap-1">
+                            <i data-lucide="message-circle" class="w-3.5 h-3.5"></i>
+                            <span>${order.phone}</span>
+                        </a>
+                    </td>
+                    <td class="py-3.5 px-4">
+                        <span class="block text-slate-300">${order.package}</span>
+                        <span class="text-gold-400 font-bold">${Number(order.price).toLocaleString('tr-TR')} ₺</span>
+                    </td>
+                    <td class="py-3.5 px-4">${statusBadge}</td>
+                    <td class="py-3.5 px-4 text-right">
+                        <div class="flex items-center justify-end gap-1.5">
+                            <button onclick="toggleOrderStatus('${order.code}')" class="p-1.5 rounded-lg bg-night-850 hover:bg-gold-400 hover:text-night-950 border border-white/10 text-slate-300" title="Durum Değiştir">
+                                <i data-lucide="refresh-cw" class="w-3.5 h-3.5"></i>
+                            </button>
+                            <button onclick="deleteOrder('${order.code}')" class="p-1.5 rounded-lg bg-night-850 hover:bg-rose-500 hover:text-white border border-white/10 text-slate-400" title="Sil">
+                                <i data-lucide="trash-2" class="w-3.5 h-3.5"></i>
+                            </button>
+                        </div>
+                    </td>
+                `;
+                tbody.appendChild(tr);
+            });
+            lucide.createIcons();
+        }
+
+        // 4. SİPARİŞ DURUMUNU İLERLETME
+        function toggleOrderStatus(code) {
+            let orders = getOrders();
+            orders = orders.map(o => {
+                if (o.code === code) {
+                    if (o.status === "BEKLIYOR") o.status = "HAZIRLANIYOR";
+                    else if (o.status === "HAZIRLANIYOR") o.status = "YAYINDA";
+                    else o.status = "BEKLIYOR";
+                }
+                return o;
+            });
+            saveOrders(orders);
+        }
+
+        function deleteOrder(code) {
+            if (confirm(code + " kodlu siparişi silmek istediğinize emin misiniz?")) {
+                let orders = getOrders();
+                orders = orders.filter(o => o.code !== code);
+                saveOrders(orders);
+            }
+        }
+
+        // 5. MANUEL SİPARİŞ EKLEME
+        function openNewOrderModal() {
+            document.getElementById('m-order-code').value = 'RW-' + Math.floor(10000 + Math.random() * 90000);
+            document.getElementById('order-modal').classList.remove('hidden');
+            document.getElementById('order-modal').classList.add('flex');
+        }
+
+        function closeNewOrderModal() {
+            document.getElementById('order-modal').classList.add('hidden');
+            document.getElementById('order-modal').classList.remove('flex');
+        }
+
+        function autoFillPrice() {
+            const pkg = document.getElementById('m-package').value;
+            const priceInput = document.getElementById('m-price');
+            if (pkg.includes('Butik')) priceInput.value = 2490;
+            else if (pkg.includes('Bistro')) priceInput.value = 4490;
+            else priceInput.value = 7490;
+        }
+
+        function handleSaveOrder(e) {
+            e.preventDefault();
+            const newOrder = {
+                code: document.getElementById('m-order-code').value,
+                date: new Date().toLocaleDateString('tr-TR'),
+                restaurant: document.getElementById('m-restaurant').value,
+                owner: document.getElementById('m-owner').value,
+                phone: document.getElementById('m-phone').value,
+                package: document.getElementById('m-package').value,
+                price: Number(document.getElementById('m-price').value),
+                status: document.getElementById('m-order-status').value
+            };
+
+            const orders = getOrders();
+            orders.unshift(newOrder);
+            saveOrders(orders);
+            closeNewOrderModal();
+            e.target.reset();
+        }
+    </script>
+</body>
+</html>
