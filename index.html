@@ -96,13 +96,17 @@
             <nav class="hidden lg:flex items-center gap-8 text-sm font-medium text-slate-300">
                 <a href="#sablonlar" class="hover:text-gold-400 transition-colors">3 Şablon Seviyesi</a>
                 <a href="#nasil-calisir" class="hover:text-gold-400 transition-colors">Nasıl Çalışır?</a>
-                <a href="#qr-hediye" class="hover:text-gold-400 transition-colors">QR Kartvizit</a>
+                <a href="#qr-hediye" class="hover:text-gold-400 transition-colors">QR Menü Kartı</a>
                 <a href="#paketler" class="hover:text-gold-400 transition-colors">Fiyatlandırma</a>
                 <a href="#sss" class="hover:text-gold-400 transition-colors">Sıkça Sorulanlar</a>
             </nav>
 
             <div class="flex items-center gap-3">
-                <button onclick="openFastModal('Standart Bistro Paketi (2. Seviye Şablon)', '4.490 ₺')" class="hidden sm:inline-flex items-center gap-2 px-5 py-2.5 rounded-xl text-sm font-semibold text-night-950 bg-gradient-to-r from-gold-300 via-gold-400 to-gold-500 hover:brightness-110 shadow-lg shadow-gold-400/20 transition-all duration-300 transform hover:-translate-y-0.5">
+                <a href="tel:+905445722203" class="hidden sm:inline-flex items-center gap-2 px-4 py-2.5 rounded-xl text-xs font-bold text-gold-300 bg-night-900 border border-gold-400/30 hover:border-gold-400 transition-colors">
+                    <i data-lucide="phone" class="w-3.5 h-3.5 text-gold-400"></i>
+                    <span>0544 572 22 03</span>
+                </a>
+                <button onclick="openFastModal('Standart Bistro Paketi (2. Seviye Şablon)', '4.490 ₺')" class="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl text-sm font-semibold text-night-950 bg-gradient-to-r from-gold-300 via-gold-400 to-gold-500 hover:brightness-110 shadow-lg shadow-gold-400/20 transition-all duration-300 transform hover:-translate-y-0.5">
                     <i data-lucide="sparkles" class="w-4 h-4"></i>
                     <span>Hemen Başla (FAST/Havale)</span>
                 </button>
@@ -293,7 +297,7 @@
                         Masalarınıza Özel Tasarımlı <br><span class="gold-gradient-text">Akrilik / Ahşap QR Menü Standı</span>
                     </h2>
                     <p class="text-slate-300 text-sm leading-relaxed">
-                        Siteniz açıldığında masalarınıza koyabileceğiniz, restorantınızın logosunu ve kurumsal renklerini taşıyan yüksek çözünürlüklü baskıya hazır QR kod tasarımlarını hediye ediyoruz. Müşterileriniz telefon kamerasını tuttuğu anda doğrudan menünüze ulaşır.
+                        Siteniz açıldığında masalarınıza koyabileceğiniz, restoranınızın logosunu ve kurumsal renklerini taşıyan yüksek çözünürlüklü baskıya hazır QR kod tasarımlarını hediye ediyoruz. Müşterileriniz telefon kamerasını tuttuğu anda doğrudan menünüze ulaşır.
                     </p>
                     <ul class="space-y-2.5 text-xs text-slate-300">
                         <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-gold-400"></i> Matbaa baskısına hazır yüksek çözünürlüklü vektör PDF</li>
@@ -604,35 +608,68 @@
         </div>
     </section>
 
-    <!-- FOOTER & YASAL METİNLER -->
-    <footer class="bg-night-950 border-t border-white/5 py-12 text-slate-500 text-sm">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row items-center justify-between gap-6">
-            <div class="flex items-center gap-3">
-                <div class="w-8 h-8 rounded-lg bg-gold-400 flex items-center justify-center text-night-950 font-bold">
-                    <i data-lucide="utensils" class="w-4 h-4"></i>
-                </div>
-                <span class="font-serif text-lg font-bold text-white">Restoran<span class="text-gold-400">web</span></span>
-                <span class="text-xs text-slate-400">| © 2026 Tüm Hakları Saklıdır.</span>
-            </div>
+    <!-- ================= GÜNCELLENMİŞ FOOTER (TELEFON NUMARASI VE İLETİŞİM ALANI) ================= -->
+    <footer class="bg-night-950 border-t border-white/10 pt-16 pb-12 text-slate-400 text-sm relative">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             
-            <div class="flex flex-wrap items-center justify-center gap-6 text-xs text-slate-400">
-                <button onclick="openLegalModal('kvkk')" class="hover:text-gold-400 transition-colors">KVKK Aydınlatma Metni</button>
-                <span>•</span>
-                <button onclick="openLegalModal('sozlesme')" class="hover:text-gold-400 transition-colors">Hizmet & Teslimat Şartları</button>
-                <span>•</span>
-                <a href="tel:+905445722203" class="text-slate-300 font-mono hover:text-gold-400">0544 572 22 03</a>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-10 pb-12 border-b border-white/10 items-center text-center md:text-left">
+                <!-- Marka -->
+                <div>
+                    <div class="flex items-center justify-center md:justify-start gap-3 mb-2">
+                        <div class="w-9 h-9 rounded-xl bg-gold-400 flex items-center justify-center text-night-950 font-bold shadow-md shadow-gold-400/20">
+                            <i data-lucide="utensils" class="w-5 h-5"></i>
+                        </div>
+                        <span class="font-serif text-2xl font-bold text-white tracking-tight">Restoran<span class="text-gold-400">web</span></span>
+                    </div>
+                    <p class="text-xs text-slate-400 leading-relaxed max-w-sm mx-auto md:mx-0">
+                        Restoran ve kafeler için %0 komisyonlu, şık ve prestijli dijital vitrinler kuruyoruz. Masalarınızı doğrudan müşterilerle doldurun.
+                    </p>
+                </div>
+
+                <!-- Belirgin Telefon & İletişim Kartı (İstediğin Bölüm) -->
+                <div class="flex flex-col items-center justify-center">
+                    <span class="text-[11px] uppercase tracking-widest text-gold-400 font-bold mb-2">Müşteri Destek & Sipariş Hattı</span>
+                    <a href="tel:+905445722203" class="inline-flex items-center gap-3 px-6 py-3.5 rounded-2xl bg-night-900 border border-gold-400/40 text-white hover:border-gold-400 hover:bg-gold-400/10 transition-all duration-300 shadow-xl group">
+                        <div class="w-9 h-9 rounded-xl bg-gold-400/20 flex items-center justify-center text-gold-400 group-hover:scale-110 transition-transform">
+                            <i data-lucide="phone-call" class="w-4 h-4"></i>
+                        </div>
+                        <span class="text-xl sm:text-2xl font-mono font-extrabold text-gold-300 tracking-wider">0544 572 22 03</span>
+                    </a>
+                    <span class="text-[10px] text-slate-500 mt-2">Haftanın 7 günü 09:00 - 23:00 Canlı Destek</span>
+                </div>
+
+                <!-- Hızlı Bağlantılar & KVKK -->
+                <div class="flex flex-col md:items-end items-center justify-center space-y-2 text-xs">
+                    <div class="flex items-center gap-4 text-slate-300">
+                        <button onclick="openLegalModal('kvkk')" class="hover:text-gold-400 transition-colors">KVKK Aydınlatma Metni</button>
+                        <span>•</span>
+                        <button onclick="openLegalModal('sozlesme')" class="hover:text-gold-400 transition-colors">Hizmet Şartları</button>
+                    </div>
+                    <p class="text-[11px] text-slate-500 pt-2">© 2026 Restoranweb. Tüm hakları saklıdır.</p>
+                </div>
             </div>
+
+            <!-- Alt Güven Rozetleri -->
+            <div class="pt-8 flex flex-wrap items-center justify-center gap-8 text-[11px] text-slate-500 font-medium">
+                <span class="flex items-center gap-1.5"><i data-lucide="shield-check" class="w-3.5 h-3.5 text-gold-400"></i> %100 Güvenli FAST / Havale</span>
+                <span class="flex items-center gap-1.5"><i data-lucide="clock" class="w-3.5 h-3.5 text-gold-400"></i> 48 Saatte Hızlı Teslimat</span>
+                <span class="flex items-center gap-1.5"><i data-lucide="percent" class="w-3.5 h-3.5 text-gold-400"></i> Sıfır Sipariş Komisyonu</span>
+            </div>
+
         </div>
     </footer>
 
-    <!-- SABİT CANLI WHATSAPP DESTEK BUTONU (0544 572 22 03) -->
-    <a href="https://wa.me/905445722203?text=Merhaba,%20Restoranweb%20%C3%BCzerinden%20ula%C5%9F%C4%B1yorum.%20Restoran%C4%B1m%20i%C3%A7in%20tan%C4%B1t%C4%B1m%20sitesi%20hakk%C4%B1nda%20bilgi%20almak%20istiyorum." target="_blank" rel="noopener noreferrer" class="fixed bottom-6 right-6 z-40 flex items-center gap-3 bg-emerald-500 hover:bg-emerald-600 text-white px-4 py-3 rounded-full shadow-2xl hover:shadow-emerald-500/30 transition-all duration-300 transform hover:scale-105 group">
+    <!-- ================= SABİT CANLI WHATSAPP DESTEK BUTONU (0544 572 22 03) ================= -->
+    <a href="https://wa.me/905445722203?text=Merhaba,%20Restoranweb%20%C3%BCzerinden%20ula%C5%9F%C4%B1yorum.%20Restoran%C4%B1m%20i%C3%A7in%20tan%C4%B1t%C4%B1m%20sitesi%20hakk%C4%B1nda%20bilgi%20almak%20istiyorum." target="_blank" rel="noopener noreferrer" class="fixed bottom-6 right-6 z-40 flex items-center gap-3 bg-emerald-500 hover:bg-emerald-600 text-white px-4 py-3 rounded-full shadow-2xl hover:shadow-emerald-500/40 transition-all duration-300 transform hover:scale-105 group">
         <span class="relative flex h-3 w-3">
             <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-white opacity-75"></span>
             <span class="relative inline-flex rounded-full h-3 w-3 bg-white"></span>
         </span>
         <i data-lucide="message-circle" class="w-5 h-5"></i>
-        <span class="text-xs font-bold hidden sm:inline-block pr-1">0544 572 22 03</span>
+        <div class="flex flex-col text-left hidden sm:flex pr-1">
+            <span class="text-[9px] uppercase font-bold text-emerald-100 tracking-wider">Canlı WhatsApp</span>
+            <span class="text-xs font-extrabold tracking-wide font-mono">0544 572 22 03</span>
+        </div>
     </a>
 
     <!-- FAST / HAVALE MODALI -->
@@ -735,9 +772,7 @@
                 <i data-lucide="x" class="w-5 h-5"></i>
             </button>
             <h3 id="legal-modal-title" class="text-xl font-bold text-white font-serif mb-4">KVKK Aydınlatma Metni</h3>
-            <div id="legal-modal-content" class="text-xs text-slate-300 space-y-3 leading-relaxed">
-                <!-- Dinamik metin -->
-            </div>
+            <div id="legal-modal-content" class="text-xs text-slate-300 space-y-3 leading-relaxed"></div>
         </div>
     </div>
 
