@@ -96,7 +96,7 @@
             <nav class="hidden lg:flex items-center gap-8 text-sm font-medium text-slate-300">
                 <a href="#sablonlar" class="hover:text-gold-400 transition-colors">3 Şablon Seviyesi</a>
                 <a href="#nasil-calisir" class="hover:text-gold-400 transition-colors">Nasıl Çalışır?</a>
-                <a href="#avantajlar" class="hover:text-gold-400 transition-colors">Neden Tanıtım Sitesi?</a>
+                <a href="#qr-hediye" class="hover:text-gold-400 transition-colors">QR Kartvizit</a>
                 <a href="#paketler" class="hover:text-gold-400 transition-colors">Fiyatlandırma</a>
                 <a href="#sss" class="hover:text-gold-400 transition-colors">Sıkça Sorulanlar</a>
             </nav>
@@ -281,48 +281,38 @@
         </div>
     </section>
 
-    <!-- NEDEN SADECE TANITIM SİTESİ? -->
-    <section id="avantajlar" class="py-24 bg-night-900/50 border-t border-white/5 relative">
+    <!-- MASALARA ÖZEL ŞIK QR KOD HEDİYE BÖLÜMÜ -->
+    <section id="qr-hediye" class="py-20 bg-night-900/60 border-t border-white/5 relative">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="text-center max-w-3xl mx-auto mb-16">
-                <span class="text-gold-400 font-semibold text-xs uppercase tracking-widest">Akıllı İşletme Modeli</span>
-                <h2 class="text-3xl sm:text-5xl font-serif font-bold text-white mt-2">
-                    Neden Siteden Ödeme Almak Yerine <br><span class="gold-gradient-text italic font-normal">Sadece Tanıtım Sitesi?</span>
-                </h2>
-                <p class="text-slate-300 mt-4 text-base">
-                    Restoranların %85'i için online kart ödemesi almak kârlı değildir; banka komisyonları, sanal POS entegrasyonu ve kurye yazılımları ekstra maliyet yaratır. Tanıtım sitesi en saf ve en kârlı çözümdür:
-                </p>
-            </div>
-
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-                <div class="luxury-card p-8 rounded-2xl relative group">
-                    <div class="w-14 h-14 rounded-xl bg-gold-400/10 border border-gold-400/25 flex items-center justify-center text-gold-400 mb-6 group-hover:scale-110 transition-transform">
-                        <i data-lucide="percent" class="w-7 h-7"></i>
+            <div class="luxury-card rounded-3xl p-8 sm:p-12 border border-gold-400/30 flex flex-col lg:flex-row items-center gap-10">
+                <div class="flex-1 space-y-5 text-left">
+                    <div class="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-gold-400/20 text-gold-300 text-xs font-bold border border-gold-400/30">
+                        <i data-lucide="gift" class="w-3.5 h-3.5"></i> 2. ve 3. Paketlerde Ücretsiz Hediye
                     </div>
-                    <h3 class="text-xl font-bold text-white mb-3">0% Komisyon, 0% POS Masrafı</h3>
+                    <h2 class="text-3xl sm:text-4xl font-serif font-bold text-white leading-tight">
+                        Masalarınıza Özel Tasarımlı <br><span class="gold-gradient-text">Akrilik / Ahşap QR Menü Standı</span>
+                    </h2>
                     <p class="text-slate-300 text-sm leading-relaxed">
-                        Sanal POS kurulum ücreti, aylık aidat veya banka bloke süreleri yok. Müşteri menünüzü inceler, işletmenize gelip masada veya kapıda doğrudan size öder.
+                        Siteniz açıldığında masalarınıza koyabileceğiniz, restorantınızın logosunu ve kurumsal renklerini taşıyan yüksek çözünürlüklü baskıya hazır QR kod tasarımlarını hediye ediyoruz. Müşterileriniz telefon kamerasını tuttuğu anda doğrudan menünüze ulaşır.
                     </p>
+                    <ul class="space-y-2.5 text-xs text-slate-300">
+                        <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-gold-400"></i> Matbaa baskısına hazır yüksek çözünürlüklü vektör PDF</li>
+                        <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-gold-400"></i> Wi-Fi şifresi ve sosyal medya hesapları alanı</li>
+                        <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-gold-400"></i> Yıpranmayan kalıcı dijital bağlantı</li>
+                    </ul>
                 </div>
-
-                <div class="luxury-card p-8 rounded-2xl relative group">
-                    <div class="w-14 h-14 rounded-xl bg-gold-400/10 border border-gold-400/25 flex items-center justify-center text-gold-400 mb-6 group-hover:scale-110 transition-transform">
-                        <i data-lucide="message-circle" class="w-7 h-7"></i>
+                
+                <!-- QR Önizleme Kartı -->
+                <div class="w-full sm:w-72 bg-gradient-to-b from-night-900 to-night-950 p-6 rounded-2xl border-2 border-gold-400/40 text-center shadow-2xl relative group transform hover:scale-105 transition-transform duration-300">
+                    <div class="w-12 h-12 rounded-xl bg-gold-400 text-night-950 font-serif font-bold flex items-center justify-center mx-auto mb-3 text-lg">
+                        R
                     </div>
-                    <h3 class="text-xl font-bold text-white mb-3">Doğrudan Müşteri İletişimi</h3>
-                    <p class="text-slate-300 text-sm leading-relaxed">
-                        Aracı uygulamalar müşterinizin telefonunu sizden gizler. Bizim sitelerimiz sayesinde müşteri tek tıkla doğrudan WhatsApp hattınıza veya sabit telefonunuza bağlanır.
-                    </p>
-                </div>
-
-                <div class="luxury-card p-8 rounded-2xl relative group">
-                    <div class="w-14 h-14 rounded-xl bg-gold-400/10 border border-gold-400/25 flex items-center justify-center text-gold-400 mb-6 group-hover:scale-110 transition-transform">
-                        <i data-lucide="crown" class="w-7 h-7"></i>
+                    <h4 class="text-sm font-bold text-white font-serif">Restoranınızın Adı</h4>
+                    <p class="text-[10px] text-gold-300 mb-4 tracking-wider uppercase">Temassız Dijital Menü</p>
+                    <div class="bg-white p-4 rounded-xl mx-auto w-40 h-40 flex items-center justify-center shadow-inner">
+                        <i data-lucide="qr-code" class="w-32 h-32 text-night-950"></i>
                     </div>
-                    <h3 class="text-xl font-bold text-white mb-3">Kendi Alan Adınızla Prestij</h3>
-                    <p class="text-slate-300 text-sm leading-relaxed">
-                        Sosyal medyada başka bir firmanın profil linkini paylaşmak yerine `restoraniniz.com` gibi kurumsal alan adınızla prestij kazanın ve Google'da üst sıraya çıkın.
-                    </p>
+                    <p class="text-[10px] text-slate-400 mt-4">Kameranızla QR Kodu Okutun</p>
                 </div>
             </div>
         </div>
@@ -434,8 +424,8 @@
                                 <span>Google Haritalar tam konum & navigasyon entegrasyonu</span>
                             </li>
                             <li class="flex items-center gap-2.5">
-                                <i data-lucide="check" class="w-4 h-4 text-gold-400 shrink-0"></i>
-                                <span>Restoran masaları için özel tasarımlı QR kod hediye</span>
+                                <i data-lucide="gift" class="w-4 h-4 text-gold-400 shrink-0"></i>
+                                <span class="text-gold-300 font-semibold">Masa QR Kod Tasarımı Hediye</span>
                             </li>
                         </ul>
                     </div>
@@ -485,8 +475,8 @@
                                 <span>Şefin hikayesi, ambiyans ve 360° sanal tur alanı</span>
                             </li>
                             <li class="flex items-center gap-2.5">
-                                <i data-lucide="check" class="w-4 h-4 text-gold-400 shrink-0"></i>
-                                <span>VIP Özel Salon / Etkinlik rezervasyon modülü</span>
+                                <i data-lucide="gift" class="w-4 h-4 text-gold-400 shrink-0"></i>
+                                <span class="text-gold-300 font-semibold">VIP Akrilik Masa QR Standı Tasarımı</span>
                             </li>
                         </ul>
                     </div>
@@ -496,95 +486,6 @@
                             <i data-lucide="arrow-right" class="w-4 h-4"></i>
                             <span>Bu Paketi Seç (FAST/Havale)</span>
                         </button>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- MÜŞTERİ YORUMLARI & SOSYAL KANIT -->
-    <section class="py-20 bg-night-900/40 border-t border-white/5 relative">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="text-center max-w-3xl mx-auto mb-16">
-                <span class="text-gold-400 font-semibold text-xs uppercase tracking-widest">İşletmeci Deneyimleri</span>
-                <h2 class="text-3xl sm:text-4xl font-serif font-bold text-white mt-2">
-                    Restoran Sahipleri Ne Diyor?
-                </h2>
-                <p class="text-slate-300 mt-3 text-sm">
-                    Restoranweb ile komisyon ödemeden doğrudan müşteri kazanan işletmecilerimizin geri bildirimleri.
-                </p>
-            </div>
-
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-                <div class="luxury-card p-6 sm:p-8 rounded-2xl border border-white/10 flex flex-col justify-between">
-                    <div>
-                        <div class="flex text-gold-400 mb-4 gap-1">
-                            <i data-lucide="star" class="w-4 h-4 fill-current"></i>
-                            <i data-lucide="star" class="w-4 h-4 fill-current"></i>
-                            <i data-lucide="star" class="w-4 h-4 fill-current"></i>
-                            <i data-lucide="star" class="w-4 h-4 fill-current"></i>
-                            <i data-lucide="star" class="w-4 h-4 fill-current"></i>
-                        </div>
-                        <p class="text-xs sm:text-sm text-slate-300 italic leading-relaxed">
-                            "Yemek uygulamalarına her ay binlerce lira komisyon ödemekten bıkmıştık. Tanıtım sitemiz açıldıktan sonra Instagram'dan gelen müşteriler doğrudan WhatsApp'tan sipariş veriyor, kârımız tamamen bize kalıyor."
-                        </p>
-                    </div>
-                    <div class="mt-6 pt-4 border-t border-white/10 flex items-center gap-3">
-                        <div class="w-10 h-10 rounded-full bg-gold-400/20 border border-gold-400/40 flex items-center justify-center font-bold text-gold-300 text-sm">
-                            MK
-                        </div>
-                        <div>
-                            <h4 class="text-xs font-bold text-white">Murat Korkmaz</h4>
-                            <span class="text-[11px] text-slate-400">Moda Roast Coffee • Kadıköy</span>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="luxury-card p-6 sm:p-8 rounded-2xl border border-gold-400/30 flex flex-col justify-between">
-                    <div>
-                        <div class="flex text-gold-400 mb-4 gap-1">
-                            <i data-lucide="star" class="w-4 h-4 fill-current"></i>
-                            <i data-lucide="star" class="w-4 h-4 fill-current"></i>
-                            <i data-lucide="star" class="w-4 h-4 fill-current"></i>
-                            <i data-lucide="star" class="w-4 h-4 fill-current"></i>
-                            <i data-lucide="star" class="w-4 h-4 fill-current"></i>
-                        </div>
-                        <p class="text-xs sm:text-sm text-slate-300 italic leading-relaxed">
-                            "2. Seviye Bistro paketini seçtik. 48 saat dolmadan sitemiz hazırdı. Masalarımıza özel QR kod koyduk, müşteriler telefonlarından hem zengin menüyü hem de şarap listemizi hayranlıkla inceliyor."
-                        </p>
-                    </div>
-                    <div class="mt-6 pt-4 border-t border-white/10 flex items-center gap-3">
-                        <div class="w-10 h-10 rounded-full bg-gold-400/20 border border-gold-400/40 flex items-center justify-center font-bold text-gold-300 text-sm">
-                            ES
-                        </div>
-                        <div>
-                            <h4 class="text-xs font-bold text-white">Ece Sezgin</h4>
-                            <span class="text-[11px] text-slate-400">Bistro Trattoria • Nişantaşı</span>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="luxury-card p-6 sm:p-8 rounded-2xl border border-white/10 flex flex-col justify-between">
-                    <div>
-                        <div class="flex text-gold-400 mb-4 gap-1">
-                            <i data-lucide="star" class="w-4 h-4 fill-current"></i>
-                            <i data-lucide="star" class="w-4 h-4 fill-current"></i>
-                            <i data-lucide="star" class="w-4 h-4 fill-current"></i>
-                            <i data-lucide="star" class="w-4 h-4 fill-current"></i>
-                            <i data-lucide="star" class="w-4 h-4 fill-current"></i>
-                        </div>
-                        <p class="text-xs sm:text-sm text-slate-300 italic leading-relaxed">
-                            "Mekan fotoğraflarımızın ve VIP salon rezervasyon modülünün sitede olması işimizi bambaşka bir seviyeye taşıdı. Hafta sonu özel davet rezervasyonlarımız iki katına çıktı."
-                        </p>
-                    </div>
-                    <div class="mt-6 pt-4 border-t border-white/10 flex items-center gap-3">
-                        <div class="w-10 h-10 rounded-full bg-gold-400/20 border border-gold-400/40 flex items-center justify-center font-bold text-gold-300 text-sm">
-                            HÖ
-                        </div>
-                        <div>
-                            <h4 class="text-xs font-bold text-white">Hasan Özdemir</h4>
-                            <span class="text-[11px] text-slate-400">Özdemir Ocakbaşı • Florya</span>
-                        </div>
                     </div>
                 </div>
             </div>
@@ -617,38 +518,48 @@
 
                 <div class="luxury-card rounded-xl border border-white/10 overflow-hidden">
                     <button onclick="toggleFaq(2)" class="w-full p-5 text-left flex items-center justify-between text-sm sm:text-base font-semibold text-white hover:text-gold-300 transition-colors">
-                        <span>Menüdeki ürünler veya fiyatlar değiştiğinde ne yapacağız?</span>
+                        <span>Web sitem Google Haritalar'da (Google Business) çıkar mı?</span>
                         <i id="faq-icon-2" data-lucide="chevron-down" class="w-5 h-5 text-gold-400 transition-transform duration-300"></i>
                     </button>
                     <div id="faq-ans-2" class="hidden px-5 pb-5 text-xs sm:text-sm text-slate-300 border-t border-white/5 pt-3 leading-relaxed">
-                        Hiç dert etmeyin. Güncel menünüzü veya değişen fiyat listenizi WhatsApp üzerinden destek ekibimize iletmeniz yeterlidir. Paketlerimize dahil olan ücretsiz güncelleme desteğimizle menünüz aynı gün içerisinde yenilenir.
+                        Evet! Sitenizi doğrudan Google Haritalar (Google İşletme) profilinizdeki "Web Sitesi" alanına entegre ediyoruz. Bölgenizde arama yapan veya yol tarifi alan müşteriler Google Haritalar üzerinden tek tıkla sitenize ve menünüze yönlendirilir.
                     </div>
                 </div>
 
                 <div class="luxury-card rounded-xl border border-white/10 overflow-hidden">
                     <button onclick="toggleFaq(3)" class="w-full p-5 text-left flex items-center justify-between text-sm sm:text-base font-semibold text-white hover:text-gold-300 transition-colors">
-                        <span>Benim zaten tescilli bir .com alan adım (domain) var, kullanabilir miyiz?</span>
+                        <span>Kendi yemek fotoğraflarımız profesyonel değilse ne olacak?</span>
                         <i id="faq-icon-3" data-lucide="chevron-down" class="w-5 h-5 text-gold-400 transition-transform duration-300"></i>
                     </button>
                     <div id="faq-ans-3" class="hidden px-5 pb-5 text-xs sm:text-sm text-slate-300 border-t border-white/5 pt-3 leading-relaxed">
-                        Kesinlikle evet! Mevcut alan adınızı ücretsiz olarak yeni sitenize bağlıyoruz ve SSL güvenlik sertifikasını tanımlıyoruz. Yeni bir domain almak zorunda kalmazsınız.
+                        Hiç problem değil. Eğer kendi profesyonel çekimleriniz yoksa, menünüzdeki lezzetlerle birebir eşleşen ultra yüksek çözünürlüklü gurme stok fotoğraflarla sitenizin vitrinini ve menüsünü ücretsiz olarak biz zenginleştiriyoruz.
                     </div>
                 </div>
 
                 <div class="luxury-card rounded-xl border border-white/10 overflow-hidden">
                     <button onclick="toggleFaq(4)" class="w-full p-5 text-left flex items-center justify-between text-sm sm:text-base font-semibold text-white hover:text-gold-300 transition-colors">
-                        <span>Aylık bir abonelik veya aidat ödeyecek miyim?</span>
+                        <span>Menüdeki ürünler veya fiyatlar değiştiğinde ne yapacağız?</span>
                         <i id="faq-icon-4" data-lucide="chevron-down" class="w-5 h-5 text-gold-400 transition-transform duration-300"></i>
                     </button>
                     <div id="faq-ans-4" class="hidden px-5 pb-5 text-xs sm:text-sm text-slate-300 border-t border-white/5 pt-3 leading-relaxed">
-                        Hayır. Fiyatlarımız tek seferlik kurulum ücretidir. Herhangi bir aylık aidat veya komisyon yoktur. Yalnızca 1. yılın sonunda alan adı ve yüksek hızlı sunucu (hosting) barındırma maliyetleri için standart yıllık yenileme bedeli uygulanır.
+                        Güncel menünüzü veya değişen fiyat listenizi WhatsApp üzerinden <strong>0544 572 22 03</strong> numaralı destek hattımıza iletmeniz yeterlidir. Paketlerimize dahil olan ücretsiz güncelleme desteğimizle menünüz aynı gün içerisinde yenilenir.
+                    </div>
+                </div>
+
+                <div class="luxury-card rounded-xl border border-white/10 overflow-hidden">
+                    <button onclick="toggleFaq(5)" class="w-full p-5 text-left flex items-center justify-between text-sm sm:text-base font-semibold text-white hover:text-gold-300 transition-colors">
+                        <span>Benim zaten tescilli bir .com alan adım (domain) var, kullanabilir miyiz?</span>
+                        <i id="faq-icon-5" data-lucide="chevron-down" class="w-5 h-5 text-gold-400 transition-transform duration-300"></i>
+                    </button>
+                    <div id="faq-ans-5" class="hidden px-5 pb-5 text-xs sm:text-sm text-slate-300 border-t border-white/5 pt-3 leading-relaxed">
+                        Kesinlikle evet! Mevcut alan adınızı ücretsiz olarak yeni sitenize bağlıyoruz ve SSL güvenlik sertifikasını tanımlıyoruz. Yeni bir domain almak zorunda kalmazsınız.
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- İLETİŞİM & HIZLI TEKLİF FORMU (E-POSTAYA GİDER) -->
+    <!-- İLETİŞİM & HIZLI TEKLİF FORMU -->
     <section id="iletisim" class="py-20 bg-night-900/40 border-t border-white/5 relative">
         <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="luxury-card rounded-2xl p-8 sm:p-12 border border-gold-400/20 text-center">
@@ -657,7 +568,7 @@
                     Restoranınız İçin Ücretsiz Taslak İsteyin
                 </h2>
                 <p class="text-slate-300 mt-3 text-sm max-w-xl mx-auto">
-                    İşletmenizin adını ve menünüzü gönderin, ekibimiz size özel ücretsiz bir önizleme hazırlasın. Beğenirseniz FAST ile ödeyip yayına alın.
+                    İşletmenizin adını ve menünüzü gönderin, ekibimiz size özel ücretsiz bir önizleme hazırlasın.
                 </p>
 
                 <form onsubmit="handleLeadSubmit(event)" class="mt-8 grid grid-cols-1 sm:grid-cols-2 gap-4 text-left">
@@ -693,7 +604,7 @@
         </div>
     </section>
 
-    <!-- FOOTER -->
+    <!-- FOOTER & YASAL METİNLER -->
     <footer class="bg-night-950 border-t border-white/5 py-12 text-slate-500 text-sm">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row items-center justify-between gap-6">
             <div class="flex items-center gap-3">
@@ -703,25 +614,28 @@
                 <span class="font-serif text-lg font-bold text-white">Restoran<span class="text-gold-400">web</span></span>
                 <span class="text-xs text-slate-400">| © 2026 Tüm Hakları Saklıdır.</span>
             </div>
-            <div class="flex items-center gap-6 text-xs text-slate-400">
-                <span>Ödeme Karmaşası Yok</span>
-                <span>%0 Komisyon</span>
-                <span>Doğrudan Müşteri İletişimi</span>
+            
+            <div class="flex flex-wrap items-center justify-center gap-6 text-xs text-slate-400">
+                <button onclick="openLegalModal('kvkk')" class="hover:text-gold-400 transition-colors">KVKK Aydınlatma Metni</button>
+                <span>•</span>
+                <button onclick="openLegalModal('sozlesme')" class="hover:text-gold-400 transition-colors">Hizmet & Teslimat Şartları</button>
+                <span>•</span>
+                <a href="tel:+905445722203" class="text-slate-300 font-mono hover:text-gold-400">0544 572 22 03</a>
             </div>
         </div>
     </footer>
 
-    <!-- SABİT CANLI WHATSAPP DESTEK BUTONU -->
-    <a href="https://wa.me/905000000000?text=Merhaba,%20Restoranweb%20%C3%BCzerinden%20ula%C5%9F%C4%B1yorum.%20Restoran%C4%B1m%20i%C3%A7in%20tan%C4%B1t%C4%B1m%20sitesi%20hakk%C4%B1nda%20bilgi%20almak%20istiyorum." target="_blank" rel="noopener noreferrer" class="fixed bottom-6 right-6 z-40 flex items-center gap-3 bg-emerald-500 hover:bg-emerald-600 text-white px-4 py-3 rounded-full shadow-2xl hover:shadow-emerald-500/30 transition-all duration-300 transform hover:scale-105 group">
+    <!-- SABİT CANLI WHATSAPP DESTEK BUTONU (0544 572 22 03) -->
+    <a href="https://wa.me/905445722203?text=Merhaba,%20Restoranweb%20%C3%BCzerinden%20ula%C5%9F%C4%B1yorum.%20Restoran%C4%B1m%20i%C3%A7in%20tan%C4%B1t%C4%B1m%20sitesi%20hakk%C4%B1nda%20bilgi%20almak%20istiyorum." target="_blank" rel="noopener noreferrer" class="fixed bottom-6 right-6 z-40 flex items-center gap-3 bg-emerald-500 hover:bg-emerald-600 text-white px-4 py-3 rounded-full shadow-2xl hover:shadow-emerald-500/30 transition-all duration-300 transform hover:scale-105 group">
         <span class="relative flex h-3 w-3">
             <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-white opacity-75"></span>
             <span class="relative inline-flex rounded-full h-3 w-3 bg-white"></span>
         </span>
         <i data-lucide="message-circle" class="w-5 h-5"></i>
-        <span class="text-xs font-bold hidden sm:inline-block pr-1">Hızlı WhatsApp Destek</span>
+        <span class="text-xs font-bold hidden sm:inline-block pr-1">0544 572 22 03</span>
     </a>
 
-    <!-- FAST / HAVALE MODALI (E-POSTA BİLDİRİMLİ) -->
+    <!-- FAST / HAVALE MODALI -->
     <div id="fast-modal" class="fixed inset-0 z-50 bg-black/85 backdrop-blur-md hidden items-center justify-center p-4">
         <div class="luxury-card rounded-2xl w-full max-w-xl border border-gold-400/40 p-6 sm:p-8 relative shadow-2xl overflow-y-auto max-h-[92vh]">
             <button onclick="closeFastModal()" class="absolute top-5 right-5 text-slate-400 hover:text-white p-1">
@@ -749,7 +663,7 @@
                 </div>
             </div>
 
-            <!-- GÜNCEL BANKA HESAP BİLGİLERİ -->
+            <!-- BANKA HESAP BİLGİLERİ -->
             <div class="bg-night-900 border border-gold-400/25 rounded-xl p-4 sm:p-5 mb-6 space-y-3">
                 <div class="flex justify-between items-center text-xs border-b border-white/5 pb-2">
                     <span class="text-slate-400">Banka:</span>
@@ -814,6 +728,19 @@
         </div>
     </div>
 
+    <!-- KVKK & HİZMET SÖZLEŞMESİ MODALI -->
+    <div id="legal-modal" class="fixed inset-0 z-50 bg-black/85 backdrop-blur-md hidden items-center justify-center p-4">
+        <div class="luxury-card rounded-2xl w-full max-w-xl border border-gold-400/30 p-6 sm:p-8 relative shadow-2xl max-h-[85vh] overflow-y-auto">
+            <button onclick="closeLegalModal()" class="absolute top-5 right-5 text-slate-400 hover:text-white">
+                <i data-lucide="x" class="w-5 h-5"></i>
+            </button>
+            <h3 id="legal-modal-title" class="text-xl font-bold text-white font-serif mb-4">KVKK Aydınlatma Metni</h3>
+            <div id="legal-modal-content" class="text-xs text-slate-300 space-y-3 leading-relaxed">
+                <!-- Dinamik metin -->
+            </div>
+        </div>
+    </div>
+
     <!-- TOAST BİLDİRİMİ -->
     <div id="toast" class="fixed bottom-6 left-6 z-50 bg-gold-400 text-night-950 font-bold px-5 py-3 rounded-xl shadow-2xl flex items-center gap-3 transform translate-y-24 opacity-0 transition-all duration-300">
         <i data-lucide="check" class="w-5 h-5"></i>
@@ -824,7 +751,6 @@
     <script>
         lucide.createIcons();
 
-        // GÜNCEL FORMSPREE E-POSTA BAĞLANTINIZ
         const FORMSPREE_ENDPOINT = "https://formspree.io/f/xnppjawa";
 
         // 3 ŞABLON VERİSİ
@@ -844,14 +770,14 @@
                             </p>
                         </div>
                         <div class="grid grid-cols-2 gap-3 my-6">
-                            <button onclick="showToast('0216 555 44 33 aranıyor...')" class="py-3 px-4 rounded-xl bg-gold-400 text-night-950 font-bold text-xs flex items-center justify-center gap-2 hover:brightness-110">
+                            <a href="tel:+905445722203" class="py-3 px-4 rounded-xl bg-gold-400 text-night-950 font-bold text-xs flex items-center justify-center gap-2 hover:brightness-110">
                                 <i data-lucide="phone" class="w-4 h-4"></i>
                                 <span>Doğrudan Ara</span>
-                            </button>
-                            <button onclick="showToast('WhatsApp sohbeti açılıyor...')" class="py-3 px-4 rounded-xl bg-emerald-500/20 text-emerald-300 border border-emerald-500/40 font-bold text-xs flex items-center justify-center gap-2 hover:bg-emerald-500/30">
+                            </a>
+                            <a href="https://wa.me/905445722203?text=Merhaba,%20konum%20ve%20men%C3%BC%20bilgisi%20almak%20istiyorum." target="_blank" class="py-3 px-4 rounded-xl bg-emerald-500/20 text-emerald-300 border border-emerald-500/40 font-bold text-xs flex items-center justify-center gap-2 hover:bg-emerald-500/30">
                                 <i data-lucide="message-circle" class="w-4 h-4"></i>
                                 <span>WhatsApp Konum</span>
-                            </button>
+                            </a>
                         </div>
                         <div class="space-y-3">
                             <h4 class="text-xs font-bold text-slate-400 uppercase tracking-wider mb-2">Öne Çıkan İmza Lezzetler</h4>
@@ -898,10 +824,10 @@
                                 <p class="text-xs text-slate-400 mt-1">Otantik İtalyan Makarnaları, Taş Fırın Pizza ve Şarap Menüsü</p>
                             </div>
                             <div class="flex items-center gap-2">
-                                <button onclick="showToast('Masa Rezervasyon WhatsApp hattına bağlandı')" class="py-2.5 px-4 rounded-xl bg-gold-400 text-night-950 font-bold text-xs flex items-center gap-2 hover:brightness-110">
+                                <a href="https://wa.me/905445722203?text=Merhaba,%20masa%20rezervasyonu%20yapt%C4%B1rmak%20istiyorum." target="_blank" class="py-2.5 px-4 rounded-xl bg-gold-400 text-night-950 font-bold text-xs flex items-center gap-2 hover:brightness-110">
                                     <i data-lucide="calendar" class="w-4 h-4"></i>
                                     <span>Masa Ayırt</span>
-                                </button>
+                                </a>
                                 <button onclick="showToast('Google Haritalar Navigasyonu Açıldı')" class="py-2.5 px-3 rounded-xl bg-night-900 border border-white/10 text-slate-300 font-bold text-xs hover:text-white">
                                     <i data-lucide="navigation" class="w-4 h-4"></i>
                                 </button>
@@ -974,10 +900,10 @@
                                     <i data-lucide="video" class="w-4 h-4"></i>
                                     <span>360° Mekan Turu</span>
                                 </button>
-                                <button onclick="showToast('VIP Özel Salon Rezervasyonu Seçildi')" class="py-2 px-4 rounded-xl bg-gradient-to-r from-gold-300 to-gold-500 text-night-950 font-bold text-xs flex items-center gap-2 hover:brightness-110">
+                                <a href="https://wa.me/905445722203?text=Merhaba,%20VIP%20Salon%20rezervasyonu%20hakk%C4%B1nda%20g%C3%B6r%C3%BC%C5%9Fmek%20istiyorum." target="_blank" class="py-2 px-4 rounded-xl bg-gradient-to-r from-gold-300 to-gold-500 text-night-950 font-bold text-xs flex items-center gap-2 hover:brightness-110">
                                     <i data-lucide="crown" class="w-4 h-4"></i>
                                     <span>VIP Salon Ayırt</span>
-                                </button>
+                                </a>
                             </div>
                         </div>
 
@@ -1061,10 +987,10 @@
 
                         <div class="mt-8 pt-6 border-t border-white/10 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs">
                             <span class="text-slate-400">Vale Hizmeti Mevcuttur • Özel Otopark</span>
-                            <button onclick="showToast('Konsiyerj hattı bağlandı: +90 212 999 88 77')" class="text-gold-300 font-bold flex items-center gap-2 hover:underline">
+                            <a href="tel:+905445722203" class="text-gold-300 font-bold flex items-center gap-2 hover:underline">
                                 <i data-lucide="phone-call" class="w-4 h-4"></i>
-                                <span>Konsiyerj & Özel Etkinlik Masası</span>
-                            </button>
+                                <span>Konsiyerj & Destek: 0544 572 22 03</span>
+                            </a>
                         </div>
                     </div>
                 `
@@ -1149,7 +1075,6 @@
             }, 2500);
         }
 
-        // SİPARİŞİ FORMSPREE'YE VE YEREL LİSTEYE GÖNDERME
         async function handlePaymentSubmit(e) {
             e.preventDefault();
             const btn = document.getElementById('payment-submit-btn');
@@ -1159,7 +1084,6 @@
 
             const formData = new FormData(e.target);
 
-            // Yerel sipariş listesine de hemen yaz (Dashboard için)
             const orderItem = {
                 code: document.getElementById('hidden-order-ref').value,
                 date: new Date().toLocaleDateString('tr-TR'),
@@ -1172,7 +1096,7 @@
             };
 
             try {
-                const response = await fetch(FORMSPREE_ENDPOINT, {
+                await fetch(FORMSPREE_ENDPOINT, {
                     method: 'POST',
                     body: formData,
                     headers: { 'Accept': 'application/json' }
@@ -1219,6 +1143,40 @@
             }
         }
 
+        // KVKK & HİZMET MODALI
+        function openLegalModal(type) {
+            const modal = document.getElementById('legal-modal');
+            const title = document.getElementById('legal-modal-title');
+            const content = document.getElementById('legal-modal-content');
+
+            if (type === 'kvkk') {
+                title.innerText = "KVKK ve Gizlilik Politikası";
+                content.innerHTML = `
+                    <p><strong>Restoranweb</strong> olarak kullanıcılarımızın ve işletme sahiplerinin kişisel verilerinin korunmasına büyük önem veriyoruz.</p>
+                    <p><strong>1. Toplanan Veriler:</strong> Sitemiz üzerindeki teklif ve sipariş formları aracılığıyla toplanan işletme adı, yetkili adı ve WhatsApp iletişim numarası yalnızca web sitesi kurulum sürecinin yürütülmesi ve sipariş teyidi amacıyla kullanılmaktadır.</p>
+                    <p><strong>2. Üçüncü Taraflar:</strong> Verileriniz hiçbir koşulda ticari veya reklam amaçlı üçüncü şahıs ve kurumlarla paylaşılmaz.</p>
+                    <p><strong>3. İletişim:</strong> Bilgilerinizin silinmesini veya güncellenmesini talep etmek için dilediğiniz zaman <strong>0544 572 22 03</strong> numaralı hattımızdan bize ulaşabilirsiniz.</p>
+                `;
+            } else {
+                title.innerText = "Hizmet ve Teslimat Şartları";
+                content.innerHTML = `
+                    <p><strong>1. Teslimat Süreci:</strong> Sipariş teyidi ve menü içeriklerinin tarafımıza WhatsApp/E-posta ile iletilmesinin ardından 48 saat içerisinde işletmenize özel canlı önizleme linki hazırlanır.</p>
+                    <p><strong>2. Alan Adı ve Barındırma:</strong> Seçilen paket kapsamındaki 1 yıllık .com alan adı tescili ve yüksek hızlı sunucu (hosting) hizmeti ücretsiz olarak sağlanır.</p>
+                    <p><strong>3. Komisyonsuz Yapı:</strong> Kurulan web siteleri üzerinden restoranınıza doğrudan gelen sipariş ve rezervasyonlardan hiçbir komisyon, işlem ücreti veya ciro payı talep edilmez.</p>
+                `;
+            }
+
+            modal.classList.remove('hidden');
+            modal.classList.add('flex');
+            lucide.createIcons();
+        }
+
+        function closeLegalModal() {
+            const modal = document.getElementById('legal-modal');
+            modal.classList.add('hidden');
+            modal.classList.remove('flex');
+        }
+
         function showToast(message) {
             const toast = document.getElementById('toast');
             document.getElementById('toast-text').innerText = message;
@@ -1231,9 +1189,7 @@
             }, 4000);
         }
 
-        // ========================================================
-        // GERÇEK ORGANİK ZİYARETÇİ VE KULLANICI İZLEME MOTORU
-        // ========================================================
+        // GERÇEK ORGANİK ZİYARETÇİ TAKİBİ
         (async function trackRealVisitor() {
             if (sessionStorage.getItem('rw_session_tracked')) return;
 
@@ -1249,7 +1205,6 @@
                     tarih: new Date().toLocaleDateString('tr-TR') + ' ' + new Date().toLocaleTimeString('tr-TR', { hour: '2-digit', minute: '2-digit' })
                 };
 
-                // Yerel analitik hafızasına kaydet
                 let visitors = JSON.parse(localStorage.getItem('rw_real_visitors') || '[]');
                 visitors.unshift(visitorEntry);
                 if (visitors.length > 150) visitors.pop();
@@ -1257,7 +1212,7 @@
 
                 sessionStorage.setItem('rw_session_tracked', 'true');
             } catch (err) {
-                console.log("İzleme motoru devrede.");
+                console.log("İzleme devrede.");
             }
         })();
     </script>
