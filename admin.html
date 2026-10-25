@@ -4,7 +4,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Restoranweb | Master Operasyon & Yönetim Konsolu</title>
-    <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Playfair+Display:ital,wght@0,600;0,700;1,600&display=swap" rel="stylesheet">
@@ -68,13 +67,13 @@
             <p class="text-xs text-slate-400 mt-1 mb-6">Restoranweb operasyon merkezine erişmek için 6 haneli PIN girin.</p>
             
             <form onsubmit="handleLogin(event)" class="space-y-4">
-                <input type="password" id="admin-pin-input" maxlength="6" placeholder="••••••" required class="w-full text-center tracking-[0.5em] text-2xl font-bold py-3 rounded-xl bg-night-950 border border-white/10 text-gold-400 focus:outline-none focus:border-gold-400">
+                <input type="password" id="admin-pin-input" maxlength="6" placeholder="••••••" autofocus required class="w-full text-center tracking-[0.5em] text-2xl font-bold py-3 rounded-xl bg-night-950 border border-white/10 text-gold-400 focus:outline-none focus:border-gold-400">
                 <button type="submit" class="w-full py-3.5 rounded-xl text-sm font-bold bg-gold-400 text-night-950 hover:brightness-110 transition-all shadow-lg shadow-gold-400/20">
                     Konsola Giriş Yap
                 </button>
             </form>
             <p id="login-error" class="text-xs text-rose-400 font-semibold mt-3 hidden">Hatalı PIN kodu! Tekrar deneyin.</p>
-            <p class="text-[10px] text-slate-500 mt-4">(Varsayılan 6 Haneli PIN: <strong>123456</strong>)</p>
+            <p class="text-[10px] text-slate-500 mt-4">Varsayılan PIN: <strong class="text-gold-400">123456</strong></p>
         </div>
     </div>
 
@@ -321,9 +320,7 @@
                                     <th class="py-3.5 px-4 font-semibold text-right">Aksiyonlar</th>
                                 </tr>
                             </thead>
-                            <tbody id="orders-tbody" class="divide-y divide-white/5 text-slate-300">
-                                <!-- JS ile render edilir -->
-                            </tbody>
+                            <tbody id="orders-tbody" class="divide-y divide-white/5 text-slate-300"></tbody>
                         </table>
                     </div>
 
@@ -343,7 +340,7 @@
                                 <i data-lucide="eye" class="w-4 h-4 text-gold-400"></i>
                                 <span>Organik Tekil Ziyaretçiler & Cihaz Kayıtları</span>
                             </h2>
-                            <p class="text-xs text-slate-400">Aynı cihaz veya IP mükerrer sayılmaz. İstemediğiniz kayıtları tek tıkla silebilirsiniz.</p>
+                            <p class="text-xs text-slate-400">Aynı cihaz veya IP mükerrer sayılmaz.</p>
                         </div>
                         <div class="flex items-center gap-3">
                             <button onclick="clearAllVisitors()" class="text-xs text-rose-400 hover:text-rose-300 flex items-center gap-1">
@@ -368,9 +365,7 @@
                                     <th class="py-3.5 px-4 font-semibold text-right">İşlem</th>
                                 </tr>
                             </thead>
-                            <tbody id="visitors-tbody" class="divide-y divide-white/5 text-slate-300">
-                                <!-- JS ile render edilir -->
-                            </tbody>
+                            <tbody id="visitors-tbody" class="divide-y divide-white/5 text-slate-300"></tbody>
                         </table>
                     </div>
                     <div id="visitors-empty" class="p-8 text-center text-slate-500 text-xs hidden">
@@ -388,7 +383,7 @@
                                 <i data-lucide="store" class="w-4 h-4 text-blue-400"></i>
                                 <span>Siteden Hesap Açan Restoran & Kafeler</span>
                             </h2>
-                            <p class="text-xs text-slate-400">Sitenizdeki "Kayıt Ol" formunu dolduran işletme sahiplerinin müşteri portföyü.</p>
+                            <p class="text-xs text-slate-400">Kayıtlı işletme portföyünüz.</p>
                         </div>
                     </div>
 
@@ -404,9 +399,7 @@
                                     <th class="py-3.5 px-4 font-semibold text-right">İşlem</th>
                                 </tr>
                             </thead>
-                            <tbody id="users-tbody" class="divide-y divide-white/5 text-slate-300">
-                                <!-- JS ile basılır -->
-                            </tbody>
+                            <tbody id="users-tbody" class="divide-y divide-white/5 text-slate-300"></tbody>
                         </table>
                     </div>
                     <div id="users-empty" class="p-8 text-center text-slate-500 text-xs hidden">
@@ -457,7 +450,7 @@
                                 </div>
                             </div>
                             <p class="text-xs text-slate-300 leading-relaxed mb-4">
-                                Tarayıcı çerezleri silindiğinde siparişlerinizin kaybolmaması için veritabanınızı düzenli olarak bilgisayarınıza yedekleyebilirsiniz.
+                                Veritabanınızı düzenli olarak bilgisayarınıza yedekleyebilirsiniz.
                             </p>
                         </div>
 
@@ -546,7 +539,7 @@
         </div>
     </div>
 
-    <!-- ================= 4. ÖZELLİK: RESMİ KAŞELİ FAST SİPARİŞ & HİZMET FİŞİ (A4 PDF BASKI ŞABLONU) ================= -->
+    <!-- GİZLİ YAZDIRMA / PDF FİŞ ŞABLONU (RESMİ KAŞELİ) -->
     <div id="print-area" class="hidden p-10 font-sans max-w-3xl mx-auto border-2 border-slate-300 rounded-2xl bg-white text-slate-900 shadow-xl">
         <div class="border-b-2 border-amber-600 pb-5 mb-6 flex justify-between items-start">
             <div>
@@ -596,4 +589,503 @@
                         <span class="text-[11px] text-slate-500 block mt-0.5">Özel .com alan adı, 1 yıl hosting, SSL, kategorili dijital menü ve masa akrilik QR stand tasarımı dahildir.</span>
                     </td>
                     <td class="p-3 text-slate-600 font-medium">48 Saat İçerisinde Canlı Yayın</td>
-                    <td id="p-price" class="p-3 font-bold text-right text-base text-slate-900 font
+                    <td id="p-price" class="p-3 font-bold text-right text-base text-slate-900 font-mono">5.990 ₺</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <div class="grid grid-cols-2 gap-4 items-end pt-4 border-t border-slate-200">
+            <div class="text-[10px] text-slate-500 space-y-1">
+                <p>• Bu fiş, müşterinin Restoranweb üzerinden başlattığı web sitesi kurulum hizmetini teyit eder.</p>
+                <p>• İşletmenin sitesinden gelen sipariş ve rezervasyonlardan <strong>%0 komisyon</strong> alınır.</p>
+                <p>• Fiyat veya menü değişikliklerinde WhatsApp üzerinden aynı gün ücretsiz bakım sağlanır.</p>
+            </div>
+
+            <div class="text-right">
+                <div class="inline-block p-3 rounded-xl border-2 border-dashed border-amber-600/60 bg-amber-50/50 text-center">
+                    <span class="text-[9px] uppercase tracking-widest text-amber-800 font-bold block">RESTORANWEB DİJİTAL AJANS</span>
+                    <span class="text-xs font-serif font-bold text-amber-700 block my-0.5">ONAYLANDI & YÜRÜRLÜKTE</span>
+                    <span class="text-[9px] text-slate-500 font-mono block">Kaşe / Operasyon Onayı</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- JAVASCRIPT KONSOL MOTORU -->
+    <script>
+        lucide.createIcons();
+
+        const STORAGE_KEY_PIN = "rw_admin_pin";
+        const STORAGE_KEY_ORDERS = "rw_admin_orders";
+        const STORAGE_KEY_VISITORS = "rw_real_visitors";
+        const STORAGE_KEY_USERS = "rw_registered_users";
+
+        function getStoredPin() {
+            return localStorage.getItem(STORAGE_KEY_PIN) || "123456";
+        }
+
+        function handleLogin(e) {
+            e.preventDefault();
+            const pin = document.getElementById('admin-pin-input').value.trim();
+            if (pin === getStoredPin()) {
+                document.getElementById('login-modal').classList.add('hidden');
+                document.getElementById('dashboard-app').classList.remove('hidden');
+                initDashboard();
+            } else {
+                document.getElementById('login-error').classList.remove('hidden');
+            }
+        }
+
+        function handleLogout() {
+            document.getElementById('dashboard-app').classList.add('hidden');
+            document.getElementById('login-modal').classList.remove('hidden');
+            document.getElementById('admin-pin-input').value = "";
+            document.getElementById('login-error').classList.add('hidden');
+        }
+
+        function changePinPrompt() {
+            const currentPin = prompt("Mevcut 6 haneli PIN kodunuzu girin:");
+            if (currentPin !== getStoredPin()) {
+                alert("Mevcut PIN hatalı!");
+                return;
+            }
+            const newPin = prompt("Yeni 6 haneli PIN kodunuzu girin:");
+            if (newPin && newPin.trim().length === 6) {
+                localStorage.setItem(STORAGE_KEY_PIN, newPin.trim());
+                alert("6 Haneli PIN kodunuz güncellendi: " + newPin.trim());
+            } else {
+                alert("PIN kodu tam 6 haneli olmalıdır!");
+            }
+        }
+
+        function switchTab(tabId) {
+            const tabs = ['overview', 'orders', 'visitors', 'users', 'settings'];
+            tabs.forEach(t => {
+                const btn = document.getElementById(`tab-btn-${t}`);
+                const content = document.getElementById(`tab-content-${t}`);
+                if (t === tabId) {
+                    btn.className = "tab-btn px-4 py-2 rounded-xl bg-gold-400 text-night-950 font-bold flex items-center gap-2 transition-all";
+                    content.classList.remove('hidden');
+                } else {
+                    btn.className = "tab-btn px-4 py-2 rounded-xl bg-night-850 text-slate-300 hover:text-white border border-white/10 flex items-center gap-2 transition-all";
+                    content.classList.add('hidden');
+                }
+            });
+            lucide.createIcons();
+        }
+
+        function getOrders() {
+            const raw = localStorage.getItem(STORAGE_KEY_ORDERS);
+            if (!raw) {
+                const defaults = [
+                    {
+                        code: "RW-10294",
+                        date: "Bugün",
+                        restaurant: "Sultanahmet Ocakbaşı",
+                        owner: "Hasan Özdemir",
+                        phone: "05321112233",
+                        package: "3. Seviye: Ultra Lüks Gurme",
+                        price: 9990,
+                        status: "YAYINDA"
+                    },
+                    {
+                        code: "RW-84920",
+                        date: "Bugün",
+                        restaurant: "Moda Roast Coffee",
+                        owner: "Murat Korkmaz",
+                        phone: "05442223344",
+                        package: "2. Seviye: Klasik Bistro & Menü",
+                        price: 5990,
+                        status: "BEKLIYOR"
+                    }
+                ];
+                localStorage.setItem(STORAGE_KEY_ORDERS, JSON.stringify(defaults));
+                return defaults;
+            }
+            return JSON.parse(raw);
+        }
+
+        function saveOrders(orders) {
+            localStorage.setItem(STORAGE_KEY_ORDERS, JSON.stringify(orders));
+            renderOrders();
+            renderStats();
+        }
+
+        function initDashboard() {
+            renderVisitors();
+            renderUsers();
+            renderOrders();
+            renderStats();
+            lucide.createIcons();
+        }
+
+        function renderOrders() {
+            const filter = document.getElementById('filter-status').value;
+            const searchTerm = (document.getElementById('order-search')?.value || '').toLowerCase().trim();
+            const orders = getOrders();
+            const tbody = document.getElementById('orders-tbody');
+            const emptyState = document.getElementById('empty-state');
+            tbody.innerHTML = "";
+
+            let filtered = filter === "ALL" ? orders : orders.filter(o => o.status === filter);
+
+            if (searchTerm) {
+                filtered = filtered.filter(o => 
+                    (o.restaurant || '').toLowerCase().includes(searchTerm) ||
+                    (o.code || '').toLowerCase().includes(searchTerm) ||
+                    (o.owner || '').toLowerCase().includes(searchTerm) ||
+                    (o.phone || '').includes(searchTerm)
+                );
+            }
+
+            document.getElementById('tab-badge-orders').innerText = orders.length;
+
+            if (filtered.length === 0) {
+                emptyState.classList.remove('hidden');
+                return;
+            }
+            emptyState.classList.add('hidden');
+
+            filtered.forEach((order) => {
+                const tr = document.createElement('tr');
+                tr.className = "hover:bg-white/[0.02] transition-colors";
+
+                let statusBadge = "";
+                if (order.status === "BEKLIYOR") {
+                    statusBadge = `<span class="px-2.5 py-1 rounded-full text-[10px] font-bold bg-amber-500/20 text-amber-400 border border-amber-500/30">Ödeme Bekliyor</span>`;
+                } else if (order.status === "HAZIRLANIYOR") {
+                    statusBadge = `<span class="px-2.5 py-1 rounded-full text-[10px] font-bold bg-blue-500/20 text-blue-400 border border-blue-500/30">Hazırlanıyor</span>`;
+                } else {
+                    statusBadge = `<span class="px-2.5 py-1 rounded-full text-[10px] font-bold bg-emerald-500/20 text-emerald-400 border border-emerald-500/30">Yayında (Canlı)</span>`;
+                }
+
+                const cleanPhone = order.phone.replace(/[^0-9]/g, '');
+                const telBase = `https://wa.me/90${cleanPhone.startsWith('0') ? cleanPhone.substring(1) : cleanPhone}?text=`;
+
+                const msgOdeme = encodeURIComponent(`Merhaba ${order.owner}, ${order.restaurant} için ${order.code} kodlu siparişinizin FAST ödemesi hesabımıza ulaşmıştır. 48 saatlik kurulum sürecimiz başlamıştır.`);
+                const msgMenu = encodeURIComponent(`Merhaba ${order.owner}, ${order.restaurant} web sitenizin tasarımına başladık. Menü listenizi, logonuzu ve fotoğraflarınızı buradan gönderebilirsiniz.`);
+                const msgYayin = encodeURIComponent(`Müjde ${order.owner}! ${order.restaurant} tanıtım web siteniz yayına alınmıştır. Hediye akrilik QR masa standı baskı dosyanız da hazırlandı.`);
+                const msgBakim = encodeURIComponent(`Merhaba ${order.owner}, ${order.restaurant} web sitenizin fiyat veya menü güncellemeleri için buradayız. Güncellenmesini istediğiniz listeyi buradan iletebilirsiniz.`);
+
+                tr.innerHTML = `
+                    <td class="py-3.5 px-4 font-mono">
+                        <span class="font-bold text-gold-300 block">${order.code}</span>
+                        <span class="text-[10px] text-slate-500">${order.date || 'Bugün'}</span>
+                    </td>
+                    <td class="py-3.5 px-4 font-semibold text-white">${order.restaurant}</td>
+                    <td class="py-3.5 px-4">
+                        <span class="block text-slate-200 font-medium">${order.owner}</span>
+                        <span class="font-mono text-slate-400 text-[11px]">${order.phone}</span>
+                    </td>
+                    <td class="py-3.5 px-4">
+                        <span class="block text-slate-300">${order.package}</span>
+                        <span class="text-gold-400 font-bold">${Number(order.price).toLocaleString('tr-TR')} ₺</span>
+                    </td>
+                    <td class="py-3.5 px-4">${statusBadge}</td>
+                    <td class="py-3.5 px-4">
+                        <div class="flex items-center gap-1.5 flex-wrap">
+                            <a href="${telBase + msgOdeme}" target="_blank" class="px-2 py-1 rounded-md bg-emerald-500/10 hover:bg-emerald-500/20 text-emerald-400 border border-emerald-500/20 text-[10px] font-semibold">1. Ödeme Onayı</a>
+                            <a href="${telBase + msgMenu}" target="_blank" class="px-2 py-1 rounded-md bg-blue-500/10 hover:bg-blue-500/20 text-blue-400 border border-blue-500/20 text-[10px] font-semibold">2. Menü İste</a>
+                            <a href="${telBase + msgYayin}" target="_blank" class="px-2 py-1 rounded-md bg-gold-400/10 hover:bg-gold-400/20 text-gold-300 border border-gold-400/20 text-[10px] font-semibold">3. Canlıda!</a>
+                            <a href="${telBase + msgBakim}" target="_blank" class="px-2 py-1 rounded-md bg-purple-500/10 hover:bg-purple-500/20 text-purple-300 border border-purple-500/20 text-[10px] font-semibold">4. Bakım & Güncelleme</a>
+                        </div>
+                    </td>
+                    <td class="py-3.5 px-4 text-right">
+                        <div class="flex items-center justify-end gap-1.5">
+                            <button onclick="printOrderInvoice('${order.code}')" class="p-1.5 rounded-lg bg-night-850 hover:bg-blue-500 hover:text-white border border-white/10 text-slate-300" title="Resmi FAST Fişi / PDF Çıktısı Al">
+                                <i data-lucide="printer" class="w-3.5 h-3.5"></i>
+                            </button>
+                            <button onclick="toggleOrderStatus('${order.code}')" class="p-1.5 rounded-lg bg-night-850 hover:bg-gold-400 hover:text-night-950 border border-white/10 text-slate-300" title="Durum Değiştir">
+                                <i data-lucide="refresh-cw" class="w-3.5 h-3.5"></i>
+                            </button>
+                            <button onclick="deleteOrder('${order.code}')" class="p-1.5 rounded-lg bg-night-850 hover:bg-rose-500 hover:text-white border border-white/10 text-slate-400" title="Sil">
+                                <i data-lucide="trash-2" class="w-3.5 h-3.5"></i>
+                            </button>
+                        </div>
+                    </td>
+                `;
+                tbody.appendChild(tr);
+            });
+            lucide.createIcons();
+        }
+
+        function toggleOrderStatus(code) {
+            let orders = getOrders();
+            orders = orders.map(o => {
+                if (o.code === code) {
+                    if (o.status === "BEKLIYOR") o.status = "HAZIRLANIYOR";
+                    else if (o.status === "HAZIRLANIYOR") o.status = "YAYINDA";
+                    else o.status = "BEKLIYOR";
+                }
+                return o;
+            });
+            saveOrders(orders);
+        }
+
+        function deleteOrder(code) {
+            if (confirm(code + " kodlu siparişi silmek istediğinize emin misiniz?")) {
+                let orders = getOrders();
+                orders = orders.filter(o => o.code !== code);
+                saveOrders(orders);
+            }
+        }
+
+        function printOrderInvoice(code) {
+            const orders = getOrders();
+            const order = orders.find(o => o.code === code);
+            if (!order) return;
+
+            document.getElementById('p-ref-code').innerText = order.code;
+            document.getElementById('p-date').innerText = 'Tarih: ' + (order.date || new Date().toLocaleDateString('tr-TR'));
+            document.getElementById('p-restaurant').innerText = order.restaurant;
+            document.getElementById('p-owner').innerText = 'Yetkili: ' + order.owner;
+            document.getElementById('p-phone').innerText = 'WhatsApp: ' + order.phone;
+            document.getElementById('p-package').innerText = order.package;
+            document.getElementById('p-price').innerText = Number(order.price).toLocaleString('tr-TR') + ' ₺';
+
+            const printArea = document.getElementById('print-area');
+            printArea.classList.remove('hidden');
+            window.print();
+            printArea.classList.add('hidden');
+        }
+
+        function exportOrdersToCSV() {
+            const orders = getOrders();
+            if (orders.length === 0) {
+                alert("İndirilecek sipariş kaydı bulunmuyor.");
+                return;
+            }
+
+            let csvContent = "data:text/csv;charset=utf-8,\uFEFF";
+            csvContent += "Kod,Tarih,Restoran,Yetkili,Telefon,Paket,Tutar,Durum\n";
+
+            orders.forEach(o => {
+                const row = [
+                    o.code,
+                    o.date || '',
+                    `"${o.restaurant}"`,
+                    `"${o.owner}"`,
+                    `"${o.phone}"`,
+                    `"${o.package}"`,
+                    o.price,
+                    o.status
+                ].join(",");
+                csvContent += row + "\n";
+            });
+
+            const encodedUri = encodeURI(csvContent);
+            const link = document.createElement("a");
+            link.setAttribute("href", encodedUri);
+            link.setAttribute("download", `restoranweb_siparisler_${new Date().toISOString().slice(0,10)}.csv`);
+            document.body.appendChild(link);
+            link.click();
+            document.body.removeChild(link);
+        }
+
+        function backupAllData() {
+            const backup = {
+                date: new Date().toISOString(),
+                orders: getOrders(),
+                visitors: JSON.parse(localStorage.getItem(STORAGE_KEY_VISITORS) || '[]'),
+                users: JSON.parse(localStorage.getItem(STORAGE_KEY_USERS) || '[]')
+            };
+
+            const dataStr = "data:text/json;charset=utf-8," + encodeURIComponent(JSON.stringify(backup, null, 2));
+            const downloadAnchor = document.createElement('a');
+            downloadAnchor.setAttribute("href", dataStr);
+            downloadAnchor.setAttribute("download", `restoranweb_tam_yedek_${new Date().toISOString().slice(0,10)}.json`);
+            document.body.appendChild(downloadAnchor);
+            downloadAnchor.click();
+            downloadAnchor.remove();
+        }
+
+        function renderVisitors() {
+            const visitors = JSON.parse(localStorage.getItem(STORAGE_KEY_VISITORS) || '[]');
+            const tbody = document.getElementById('visitors-tbody');
+            const empty = document.getElementById('visitors-empty');
+            tbody.innerHTML = "";
+
+            document.getElementById('stat-visitors').innerText = visitors.length;
+            document.getElementById('tab-badge-visitors').innerText = visitors.length;
+
+            if (visitors.length === 0) {
+                empty.classList.remove('hidden');
+                return;
+            }
+            empty.classList.add('hidden');
+
+            visitors.forEach((v, index) => {
+                const tr = document.createElement('tr');
+                tr.className = "hover:bg-white/[0.02] transition-colors";
+                tr.innerHTML = `
+                    <td class="py-3 px-4 font-mono text-slate-400">${v.tarih}</td>
+                    <td class="py-3 px-4 font-semibold text-white flex items-center gap-1.5">
+                        <i data-lucide="map-pin" class="w-3.5 h-3.5 text-gold-400"></i>
+                        <span>${v.sehir}, ${v.ulke}</span>
+                    </td>
+                    <td class="py-3 px-4">${v.tarayici}</td>
+                    <td class="py-3 px-4 font-mono text-[11px] text-slate-500">${v.ip}</td>
+                    <td class="py-3 px-4 text-right">
+                        <button onclick="deleteVisitor('${v.deviceId || index}', '${v.ip}')" class="p-1.5 rounded-lg bg-night-850 hover:bg-rose-500 hover:text-white border border-white/10 text-slate-400 transition-colors" title="Cihazı Sil">
+                            <i data-lucide="trash-2" class="w-3.5 h-3.5"></i>
+                        </button>
+                    </td>
+                `;
+                tbody.appendChild(tr);
+            });
+            lucide.createIcons();
+        }
+
+        function deleteVisitor(deviceId, ip) {
+            if (confirm(`${ip} IP adresli cihazı silmek istediğinize emin misiniz?`)) {
+                let visitors = JSON.parse(localStorage.getItem(STORAGE_KEY_VISITORS) || '[]');
+                visitors = visitors.filter(v => (v.deviceId ? v.deviceId !== deviceId : v.ip !== ip));
+                localStorage.setItem(STORAGE_KEY_VISITORS, JSON.stringify(visitors));
+                renderVisitors();
+            }
+        }
+
+        function clearAllVisitors() {
+            if (confirm("Tüm ziyaretçileri temizlemek istediğinize emin misiniz?")) {
+                localStorage.removeItem(STORAGE_KEY_VISITORS);
+                renderVisitors();
+            }
+        }
+
+        function renderUsers() {
+            const users = JSON.parse(localStorage.getItem(STORAGE_KEY_USERS) || '[]');
+            const tbody = document.getElementById('users-tbody');
+            const empty = document.getElementById('users-empty');
+            tbody.innerHTML = "";
+
+            document.getElementById('stat-users').innerText = users.length;
+            document.getElementById('tab-badge-users').innerText = users.length;
+
+            if (users.length === 0) {
+                empty.classList.remove('hidden');
+                return;
+            }
+            empty.classList.add('hidden');
+
+            users.forEach((u) => {
+                const tr = document.createElement('tr');
+                tr.className = "hover:bg-white/[0.02] transition-colors";
+                const cleanPhone = (u.phone || '').replace(/[^0-9]/g, '');
+                const waLink = `https://wa.me/90${cleanPhone.startsWith('0') ? cleanPhone.substring(1) : cleanPhone}`;
+
+                tr.innerHTML = `
+                    <td class="py-3 px-4 font-mono text-slate-400">${u.registeredAt || 'Bugün'}</td>
+                    <td class="py-3 px-4 font-bold text-white flex items-center gap-1.5">
+                        <i data-lucide="store" class="w-3.5 h-3.5 text-gold-400"></i>
+                        <span>${u.restaurant}</span>
+                    </td>
+                    <td class="py-3 px-4">${u.owner}</td>
+                    <td class="py-3 px-4 font-mono">
+                        <a href="${waLink}" target="_blank" class="text-emerald-400 hover:underline flex items-center gap-1">
+                            <i data-lucide="message-circle" class="w-3.5 h-3.5"></i>
+                            <span>${u.phone}</span>
+                        </a>
+                    </td>
+                    <td class="py-3 px-4 font-mono text-slate-400">${u.email}</td>
+                    <td class="py-3 px-4 text-right">
+                        <button onclick="deleteUser('${u.email}', '${u.restaurant}')" class="p-1.5 rounded-lg bg-night-850 hover:bg-rose-500 hover:text-white border border-white/10 text-slate-400 transition-colors" title="Hesabı Sil">
+                            <i data-lucide="trash-2" class="w-3.5 h-3.5"></i>
+                        </button>
+                    </td>
+                `;
+                tbody.appendChild(tr);
+            });
+            lucide.createIcons();
+        }
+
+        function deleteUser(email, restaurant) {
+            if (confirm(`${restaurant} hesabını silmek istediğinize emin misiniz?`)) {
+                let users = JSON.parse(localStorage.getItem(STORAGE_KEY_USERS) || '[]');
+                users = users.filter(u => u.email !== email);
+                localStorage.setItem(STORAGE_KEY_USERS, JSON.stringify(users));
+
+                const currentUser = JSON.parse(localStorage.getItem('rw_current_user') || 'null');
+                if (currentUser && currentUser.email === email) {
+                    localStorage.removeItem('rw_current_user');
+                }
+
+                renderUsers();
+            }
+        }
+
+        function renderStats() {
+            const orders = getOrders();
+            let totalRevenue = 0;
+            let pendingCount = 0;
+            let activeCount = 0;
+
+            let count1 = 0, count2 = 0, count3 = 0;
+
+            orders.forEach(o => {
+                if (o.status === 'YAYINDA' || o.status === 'HAZIRLANIYOR') {
+                    totalRevenue += Number(o.price);
+                }
+                if (o.status === 'BEKLIYOR') pendingCount++;
+                if (o.status === 'YAYINDA') activeCount++;
+
+                const pkg = (o.package || '');
+                if (pkg.includes('Butik')) count1++;
+                else if (pkg.includes('Bistro')) count2++;
+                else if (pkg.includes('Gurme')) count3++;
+            });
+
+            document.getElementById('stat-revenue').innerText = totalRevenue.toLocaleString('tr-TR') + " ₺";
+            document.getElementById('stat-pending').innerText = pendingCount;
+            document.getElementById('stat-active').innerText = activeCount;
+
+            const totalOrders = orders.length || 1;
+            document.getElementById('pkg-count-1').innerText = `${count1} Adet (${Math.round((count1/totalOrders)*100)}%)`;
+            document.getElementById('pkg-count-2').innerText = `${count2} Adet (${Math.round((count2/totalOrders)*100)}%)`;
+            document.getElementById('pkg-count-3').innerText = `${count3} Adet (${Math.round((count3/totalOrders)*100)}%)`;
+
+            document.getElementById('pkg-bar-1').style.width = `${(count1/totalOrders)*100}%`;
+            document.getElementById('pkg-bar-2').style.width = `${(count2/totalOrders)*100}%`;
+            document.getElementById('pkg-bar-3').style.width = `${(count3/totalOrders)*100}%`;
+        }
+
+        function openNewOrderModal() {
+            document.getElementById('m-order-code').value = 'RW-' + Math.floor(10000 + Math.random() * 90000);
+            document.getElementById('order-modal').classList.remove('hidden');
+            document.getElementById('order-modal').classList.add('flex');
+        }
+
+        function closeNewOrderModal() {
+            document.getElementById('order-modal').classList.add('hidden');
+            document.getElementById('order-modal').classList.remove('flex');
+        }
+
+        function autoFillPrice() {
+            const pkg = document.getElementById('m-package').value;
+            const priceInput = document.getElementById('m-price');
+            if (pkg.includes('Butik')) priceInput.value = 3490;
+            else if (pkg.includes('Bistro')) priceInput.value = 5990;
+            else priceInput.value = 9990;
+        }
+
+        function handleSaveOrder(e) {
+            e.preventDefault();
+            const newOrder = {
+                code: document.getElementById('m-order-code').value,
+                date: new Date().toLocaleDateString('tr-TR'),
+                restaurant: document.getElementById('m-restaurant').value,
+                owner: document.getElementById('m-owner').value,
+                phone: document.getElementById('m-phone').value,
+                package: document.getElementById('m-package').value,
+                price: Number(document.getElementById('m-price').value),
+                status: document.getElementById('m-order-status').value
+            };
+
+            const orders = getOrders();
+            orders.unshift(newOrder);
+            saveOrders(orders);
+            closeNewOrderModal();
+            e.target.reset();
+        }
+    </script>
+</body>
+</html>
