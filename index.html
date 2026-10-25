@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="tr" class="scroll-smooth">
+<html lang="tr" class="scroll-smooth dark">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -145,18 +145,29 @@
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
         }
-        .gold-glow {
+        .dark .gold-glow {
             box-shadow: 0 0 35px -5px rgba(212, 175, 55, 0.18);
         }
+        .gold-glow {
+            box-shadow: 0 10px 30px -5px rgba(212, 175, 55, 0.12);
+        }
+
+        /* Lüks Koyu / Açık Kart Yapısı */
         .luxury-card {
+            background: #ffffff;
+            border: 1px solid rgba(212, 175, 55, 0.25);
+            box-shadow: 0 4px 20px -2px rgba(0, 0, 0, 0.05);
+        }
+        .dark .luxury-card {
             background: radial-gradient(120% 120% at 50% 0%, rgba(26, 35, 52, 0.5) 0%, rgba(12, 17, 29, 0.85) 100%);
             backdrop-filter: blur(12px);
             border: 1px solid rgba(212, 175, 55, 0.15);
+            box-shadow: none;
         }
         .luxury-card:hover {
-            border-color: rgba(212, 175, 55, 0.38);
-            box-shadow: 0 10px 30px -10px rgba(212, 175, 55, 0.15);
+            border-color: rgba(212, 175, 55, 0.45);
         }
+
         input[type="range"]::-webkit-slider-thumb {
             -webkit-appearance: none;
             height: 24px;
@@ -199,47 +210,52 @@
         }
     </style>
 </head>
-<body class="bg-night-950 text-slate-200 font-sans selection:bg-gold-400 selection:text-night-950 antialiased overflow-x-hidden">
+<body class="bg-slate-50 text-slate-800 dark:bg-night-950 dark:text-slate-200 font-sans selection:bg-gold-400 selection:text-night-950 antialiased overflow-x-hidden transition-colors duration-300">
 
     <!-- ÜST BİLGİ ŞERİDİ -->
-    <div class="bg-gradient-to-r from-night-950 via-gold-950/60 to-night-950 border-b border-gold-400/20 py-2 px-4 text-xs font-medium text-center text-gold-200 flex items-center justify-center gap-2">
-        <span class="inline-flex items-center px-2 py-0.5 rounded-full text-[10px] font-semibold bg-gold-400/20 text-gold-300 border border-gold-400/30">
+    <div class="bg-gold-100 text-slate-900 dark:bg-gradient-to-r dark:from-night-950 dark:via-gold-950/60 dark:to-night-950 border-b border-gold-400/20 py-2 px-4 text-xs font-medium text-center dark:text-gold-200 flex items-center justify-center gap-2">
+        <span class="inline-flex items-center px-2 py-0.5 rounded-full text-[10px] font-semibold bg-gold-400/20 text-gold-700 dark:text-gold-300 border border-gold-400/30">
             %0 Komisyon Garantisi
         </span>
         <span>Yemek platformlarının %30+ komisyonlarına son verin. Sadece restoranınızı tanıtan prestijli web siteleri kuruyoruz.</span>
     </div>
 
     <!-- NAVBAR -->
-    <header class="sticky top-0 z-40 bg-night-950/80 backdrop-blur-md border-b border-white/5 transition-all duration-300">
+    <header class="sticky top-0 z-40 bg-white/80 dark:bg-night-950/80 backdrop-blur-md border-b border-slate-200 dark:border-white/5 transition-all duration-300">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
             <a href="#" class="flex items-center gap-3 group" aria-label="Restoranweb Ana Sayfa">
                 <div class="w-11 h-11 rounded-xl bg-gradient-to-br from-gold-400 to-gold-600 flex items-center justify-center shadow-lg shadow-gold-500/20 group-hover:scale-105 transition-transform duration-300">
                     <i data-lucide="utensils" class="w-6 h-6 text-night-950"></i>
                 </div>
                 <div class="flex flex-col">
-                    <span class="font-serif text-2xl font-bold tracking-tight text-white flex items-center">
-                        Restoran<span class="text-gold-400">web</span>
+                    <span class="font-serif text-2xl font-bold tracking-tight text-slate-900 dark:text-white flex items-center">
+                        Restoran<span class="text-gold-500 dark:text-gold-400">web</span>
                     </span>
-                    <span class="text-[10px] text-slate-400 tracking-widest uppercase font-semibold -mt-1">Dijital Vitrin Stüdyosu</span>
+                    <span class="text-[10px] text-slate-500 dark:text-slate-400 tracking-widest uppercase font-semibold -mt-1">Dijital Vitrin Stüdyosu</span>
                 </div>
             </a>
 
-            <nav aria-label="Ana Menü" class="hidden lg:flex items-center gap-8 text-sm font-medium text-slate-300">
-                <a href="#sablonlar" class="hover:text-gold-400 transition-colors">3 Şablon Seviyesi</a>
-                <a href="demo.html" target="_blank" class="text-gold-300 hover:text-gold-400 flex items-center gap-1 font-semibold">
+            <nav aria-label="Ana Menü" class="hidden lg:flex items-center gap-8 text-sm font-medium text-slate-600 dark:text-slate-300">
+                <a href="#sablonlar" class="hover:text-gold-600 dark:hover:text-gold-400 transition-colors">3 Şablon Seviyesi</a>
+                <a href="demo.html" target="_blank" class="text-gold-600 dark:text-gold-300 hover:text-gold-500 flex items-center gap-1 font-semibold">
                     <i data-lucide="external-link" class="w-3.5 h-3.5"></i>
                     <span>Canlı Demo</span>
                 </a>
-                <a href="#yerel-cozumler" class="hover:text-gold-400 transition-colors">Bölgesel Hizmetler</a>
-                <a href="#tasarruf-hesaplayici" class="hover:text-gold-400 transition-colors">Tasarruf Hesapla</a>
-                <a href="#bakim-destek" class="hover:text-gold-400 transition-colors">Bakım & Destek</a>
-                <a href="#paketler" class="hover:text-gold-400 transition-colors">Fiyatlandırma</a>
+                <a href="#harita-onizleme" class="hover:text-gold-600 dark:hover:text-gold-400 transition-colors">Google Önizleme</a>
+                <a href="#yorumlar" class="hover:text-gold-600 dark:hover:text-gold-400 transition-colors">Yorumlar</a>
+                <a href="#tasarruf-hesaplayici" class="hover:text-gold-600 dark:hover:text-gold-400 transition-colors">Tasarruf Hesapla</a>
+                <a href="#paketler" class="hover:text-gold-600 dark:hover:text-gold-400 transition-colors">Fiyatlandırma</a>
             </nav>
 
-            <div class="flex items-center gap-3">
+            <div class="flex items-center gap-2.5 sm:gap-3">
+                <!-- ================= YENİ: SAĞ ÜST KÖŞE KOYU / AÇIK RENK BUTONU ================= -->
+                <button onclick="toggleTheme()" id="theme-toggle-btn" class="p-2.5 rounded-xl bg-slate-100 hover:bg-slate-200 dark:bg-night-900 dark:hover:bg-night-850 border border-slate-200 dark:border-white/10 text-slate-700 dark:text-gold-400 transition-all shadow-sm" title="Temayı Değiştir (Açık/Koyu)">
+                    <i id="theme-icon" data-lucide="sun" class="w-4 h-4"></i>
+                </button>
+
                 <div id="auth-nav-area">
-                    <button onclick="openAuthModal('login')" class="px-3.5 py-2 rounded-xl text-xs font-semibold text-slate-300 hover:text-white bg-night-900 border border-white/10 hover:border-gold-400/40 flex items-center gap-1.5 transition-all">
-                        <i data-lucide="user" class="w-3.5 h-3.5 text-gold-400"></i>
+                    <button onclick="openAuthModal('login')" class="px-3.5 py-2 rounded-xl text-xs font-semibold text-slate-700 dark:text-slate-300 hover:text-slate-900 dark:hover:text-white bg-slate-100 dark:bg-night-900 border border-slate-200 dark:border-white/10 hover:border-gold-400/40 flex items-center gap-1.5 transition-all">
+                        <i data-lucide="user" class="w-3.5 h-3.5 text-gold-500 dark:text-gold-400"></i>
                         <span>Giriş Yap / Kayıt</span>
                     </button>
                 </div>
@@ -252,25 +268,25 @@
         </div>
     </header>
 
-    <!-- HERO SECTION (GOOGLE MARKA HEDEFLEMESİ İÇİN H1 GÜÇLENDİRİLDİ) -->
+    <!-- HERO SECTION -->
     <section class="relative pt-12 pb-20 lg:pt-20 lg:pb-28 overflow-hidden">
         <div class="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[350px] bg-gold-400/10 blur-[130px] rounded-full pointer-events-none"></div>
 
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center">
-            <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-night-900 border border-gold-400/30 text-gold-300 text-xs font-semibold tracking-wide uppercase mb-6 shadow-md">
+            <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-slate-100 dark:bg-night-900 border border-gold-400/30 text-gold-700 dark:text-gold-300 text-xs font-semibold tracking-wide uppercase mb-6 shadow-md">
                 <span class="w-2 h-2 rounded-full bg-gold-400 animate-pulse"></span>
                 Restoranweb ile Komisyonsuz Dijital Dönüşüm
             </div>
 
-            <h1 class="text-4xl sm:text-6xl lg:text-7xl font-serif font-bold text-white tracking-tight leading-[1.15] max-w-4xl mx-auto">
+            <h1 class="text-4xl sm:text-6xl lg:text-7xl font-serif font-bold text-slate-900 dark:text-white tracking-tight leading-[1.15] max-w-4xl mx-auto">
                 Ödeme Karmaşası Yok. <br>
                 Sadece <span class="gold-gradient-text italic font-normal">Prestijli Tanıtım</span> ve Dolu Masalar.
             </h1>
 
-            <p class="mt-6 text-lg sm:text-xl text-slate-300 max-w-2xl mx-auto font-light leading-relaxed">
+            <p class="mt-6 text-lg sm:text-xl text-slate-600 dark:text-slate-300 max-w-2xl mx-auto font-light leading-relaxed">
                 Müşterilerinizden online para toplamakla uğraşmayın. Menünüzü fotoğraflarla sergileyen, tek tıkla 
-                <span class="text-white font-medium">WhatsApp rezervasyonu</span> ve 
-                <span class="text-white font-medium">telefon araması</span> başlatan yüksek prestijli tanıtım web sitenizi 2 günde yayına alıyoruz.
+                <span class="text-slate-900 dark:text-white font-medium">WhatsApp rezervasyonu</span> ve 
+                <span class="text-slate-900 dark:text-white font-medium">telefon araması</span> başlatan yüksek prestijli tanıtım web sitenizi 2 günde yayına alıyoruz.
             </p>
 
             <div class="mt-10 flex flex-col sm:flex-row items-center justify-center gap-4">
@@ -278,47 +294,47 @@
                     <i data-lucide="eye" class="w-5 h-5"></i>
                     <span>Canlı Şablonları İnceleyin</span>
                 </a>
-                <a href="demo.html" target="_blank" class="w-full sm:w-auto inline-flex items-center justify-center gap-3 px-8 py-4 rounded-xl text-base font-semibold text-gold-300 bg-night-900/90 border border-gold-400/30 hover:border-gold-400 hover:bg-night-850 transition-all duration-300">
-                    <i data-lucide="external-link" class="w-5 h-5 text-gold-400"></i>
-                    <span>Tam Ekran Canlı Demo Gör</span>
+                <a href="https://wa.me/905445722203?text=Merhaba,%20men%C3%BC%20foto%C4%9Fraf%C4%B1m%C4%B1z%C4%B1%20iletiyorum.%20%C4%B0%C5%9Fletmemize%20%C3%B6zel%20%C3%BCcretsiz%20%C3%B6nizleme%20tasla%C4%9F%C4%B1%20haz%C4%B1rlayabilir%20misiniz?" target="_blank" rel="noopener noreferrer" class="w-full sm:w-auto inline-flex items-center justify-center gap-3 px-8 py-4 rounded-xl text-base font-semibold text-emerald-800 dark:text-emerald-300 bg-emerald-100 dark:bg-emerald-950/60 border border-emerald-500/40 hover:border-emerald-400 transition-all duration-300 shadow-lg shadow-emerald-500/10">
+                    <i data-lucide="camera" class="w-5 h-5 text-emerald-600 dark:text-emerald-400"></i>
+                    <span>Menü Fotoğrafını At, Taslak İste</span>
                 </a>
             </div>
 
-            <div class="mt-12 pt-8 border-t border-white/10 grid grid-cols-2 md:grid-cols-4 gap-6 text-left max-w-4xl mx-auto">
+            <div class="mt-12 pt-8 border-t border-slate-200 dark:border-white/10 grid grid-cols-2 md:grid-cols-4 gap-6 text-left max-w-4xl mx-auto">
                 <div class="flex items-center gap-3">
-                    <div class="w-9 h-9 rounded-lg bg-gold-400/10 border border-gold-400/20 flex items-center justify-center text-gold-400">
+                    <div class="w-9 h-9 rounded-lg bg-gold-400/10 border border-gold-400/20 flex items-center justify-center text-gold-500 dark:text-gold-400">
                         <i data-lucide="shield-check" class="w-5 h-5"></i>
                     </div>
                     <div>
-                        <p class="text-xs text-slate-400 font-medium">Sıfır Komisyon</p>
-                        <p class="text-sm font-semibold text-white">%100 Sizin Kazancınız</p>
+                        <p class="text-xs text-slate-500 dark:text-slate-400 font-medium">Sıfır Komisyon</p>
+                        <p class="text-sm font-semibold text-slate-900 dark:text-white">%100 Sizin Kazancınız</p>
                     </div>
                 </div>
                 <div class="flex items-center gap-3">
-                    <div class="w-9 h-9 rounded-lg bg-gold-400/10 border border-gold-400/20 flex items-center justify-center text-gold-400">
+                    <div class="w-9 h-9 rounded-lg bg-gold-400/10 border border-gold-400/20 flex items-center justify-center text-gold-500 dark:text-gold-400">
                         <i data-lucide="map-pin" class="w-5 h-5"></i>
                     </div>
                     <div>
-                        <p class="text-xs text-slate-400 font-medium">Google Haritalar</p>
-                        <p class="text-sm font-semibold text-white">1. Sıra Yerel SEO</p>
+                        <p class="text-xs text-slate-500 dark:text-slate-400 font-medium">Google Haritalar</p>
+                        <p class="text-sm font-semibold text-slate-900 dark:text-white">1. Sıra Yerel SEO</p>
                     </div>
                 </div>
                 <div class="flex items-center gap-3">
-                    <div class="w-9 h-9 rounded-lg bg-gold-400/10 border border-gold-400/20 flex items-center justify-center text-gold-400">
+                    <div class="w-9 h-9 rounded-lg bg-gold-400/10 border border-gold-400/20 flex items-center justify-center text-gold-500 dark:text-gold-400">
                         <i data-lucide="smartphone" class="w-5 h-5"></i>
                     </div>
                     <div>
-                        <p class="text-xs text-slate-400 font-medium">Doğrudan İletişim</p>
-                        <p class="text-sm font-semibold text-white">WhatsApp & Telefon</p>
+                        <p class="text-xs text-slate-500 dark:text-slate-400 font-medium">Doğrudan İletişim</p>
+                        <p class="text-sm font-semibold text-slate-900 dark:text-white">WhatsApp & Telefon</p>
                     </div>
                 </div>
                 <div class="flex items-center gap-3">
-                    <div class="w-9 h-9 rounded-lg bg-gold-400/10 border border-gold-400/20 flex items-center justify-center text-gold-400">
+                    <div class="w-9 h-9 rounded-lg bg-gold-400/10 border border-gold-400/20 flex items-center justify-center text-gold-500 dark:text-gold-400">
                         <i data-lucide="zap" class="w-5 h-5"></i>
                     </div>
                     <div>
-                        <p class="text-xs text-slate-400 font-medium">Hızlı Teslim</p>
-                        <p class="text-sm font-semibold text-white">48 Saatte Yayında</p>
+                        <p class="text-xs text-slate-500 dark:text-slate-400 font-medium">Hızlı Teslim</p>
+                        <p class="text-sm font-semibold text-slate-900 dark:text-white">48 Saatte Yayında</p>
                     </div>
                 </div>
             </div>
@@ -326,25 +342,25 @@
     </section>
 
     <!-- 3 SEVİYELİ CANLI ŞABLON SİMÜLATÖRÜ -->
-    <section id="sablonlar" class="py-20 bg-night-950 relative">
+    <section id="sablonlar" class="py-20 bg-slate-100 dark:bg-night-950 relative transition-colors duration-300">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center max-w-3xl mx-auto mb-10">
-                <span class="text-gold-400 font-semibold text-xs uppercase tracking-widest">Kademeli Tasarım Seçenekleri</span>
-                <h2 class="text-3xl sm:text-5xl font-serif font-bold text-white mt-2">
+                <span class="text-gold-600 dark:text-gold-400 font-semibold text-xs uppercase tracking-widest">Kademeli Tasarım Seçenekleri</span>
+                <h2 class="text-3xl sm:text-5xl font-serif font-bold text-slate-900 dark:text-white mt-2">
                     Basitten En Lükse: 3 Farklı Şablon Mimarisi
                 </h2>
-                <p class="text-slate-300 mt-3 text-sm sm:text-base">
+                <p class="text-slate-600 dark:text-slate-300 mt-3 text-sm sm:text-base">
                     İşletmenizin ölçeğine göre hazırlanan şablonlarımızı canlı olarak test edin. Hem bilgisayarda hem telefonda nasıl durduğunu görmek için görünümü değiştirebilir veya doğrudan tam ekran demo açabilirsiniz.
                 </p>
             </div>
 
             <div class="flex flex-wrap items-center justify-center gap-3 mb-8">
-                <button onclick="switchTemplate(1)" id="btn-tab-1" class="tab-btn px-6 py-3 rounded-xl text-sm font-bold flex items-center gap-2.5 transition-all duration-300 bg-night-850 text-slate-300 hover:text-white border border-white/10">
-                    <span class="w-6 h-6 rounded-full bg-white/10 flex items-center justify-center text-xs">1</span>
+                <button onclick="switchTemplate(1)" id="btn-tab-1" class="tab-btn px-6 py-3 rounded-xl text-sm font-bold flex items-center gap-2.5 transition-all duration-300 bg-white dark:bg-night-850 text-slate-700 dark:text-slate-300 border border-slate-300 dark:border-white/10">
+                    <span class="w-6 h-6 rounded-full bg-slate-200 dark:bg-white/10 flex items-center justify-center text-xs">1</span>
                     <span>1. Seviye: Hızlı Butik Vitrin</span>
                 </button>
-                <button onclick="switchTemplate(2)" id="btn-tab-2" class="tab-btn px-6 py-3 rounded-xl text-sm font-semibold flex items-center gap-2.5 transition-all duration-300 bg-night-850 text-slate-300 hover:text-white border border-white/10">
-                    <span class="w-6 h-6 rounded-full bg-white/10 flex items-center justify-center text-xs">2</span>
+                <button onclick="switchTemplate(2)" id="btn-tab-2" class="tab-btn px-6 py-3 rounded-xl text-sm font-semibold flex items-center gap-2.5 transition-all duration-300 bg-white dark:bg-night-850 text-slate-700 dark:text-slate-300 border border-slate-300 dark:border-white/10">
+                    <span class="w-6 h-6 rounded-full bg-slate-200 dark:bg-white/10 flex items-center justify-center text-xs">2</span>
                     <span>2. Seviye: Klasik Bistro & Menü</span>
                 </button>
                 <button onclick="switchTemplate(3)" id="btn-tab-3" class="tab-btn px-6 py-3 rounded-xl text-sm font-bold flex items-center gap-2.5 transition-all duration-300 bg-gold-400 text-night-950 shadow-lg shadow-gold-400/20">
@@ -358,7 +374,7 @@
                     <i data-lucide="monitor" class="w-4 h-4"></i>
                     <span>Masaüstü Görünümü</span>
                 </button>
-                <button onclick="switchDeviceView('mobile')" id="view-btn-mobile" class="px-4 py-2 rounded-xl text-xs font-semibold flex items-center gap-2 bg-night-900 border border-white/10 text-slate-300 hover:text-white transition-all">
+                <button onclick="switchDeviceView('mobile')" id="view-btn-mobile" class="px-4 py-2 rounded-xl text-xs font-semibold flex items-center gap-2 bg-white dark:bg-night-900 border border-slate-300 dark:border-white/10 text-slate-700 dark:text-slate-300 transition-all">
                     <i data-lucide="smartphone" class="w-4 h-4"></i>
                     <span>Telefon Görünümü (Mobil)</span>
                 </button>
@@ -370,18 +386,18 @@
 
             <div class="flex justify-center transition-all duration-500">
                 <div id="sim-frame" class="w-full transition-all duration-500 rounded-2xl luxury-card overflow-hidden gold-glow border border-gold-400/30">
-                    <div class="bg-night-950/90 border-b border-white/10 px-4 py-3 flex items-center justify-between">
+                    <div class="bg-slate-200/80 dark:bg-night-950/90 border-b border-slate-300 dark:border-white/10 px-4 py-3 flex items-center justify-between">
                         <div class="flex items-center gap-2">
                             <span class="w-3 h-3 rounded-full bg-red-500/80"></span>
                             <span class="w-3 h-3 rounded-full bg-amber-500/80"></span>
                             <span class="w-3 h-3 rounded-full bg-emerald-500/80"></span>
                         </div>
-                        <div id="sim-url" class="bg-night-900 border border-white/10 px-6 py-1 rounded-lg text-xs font-mono text-gold-300 flex items-center gap-2 max-w-[200px] sm:max-w-none truncate">
-                            <i data-lucide="lock" class="w-3 h-3 text-gold-400 shrink-0"></i>
+                        <div id="sim-url" class="bg-white dark:bg-night-900 border border-slate-300 dark:border-white/10 px-6 py-1 rounded-lg text-xs font-mono text-gold-600 dark:text-gold-300 flex items-center gap-2 max-w-[200px] sm:max-w-none truncate">
+                            <i data-lucide="lock" class="w-3 h-3 text-gold-500 dark:text-gold-400 shrink-0"></i>
                             <span class="truncate">https://sarayocakbasi.restoranweb.com</span>
                         </div>
-                        <div class="text-[11px] text-slate-400 font-medium hidden sm:block">
-                            <span id="sim-level-badge" class="px-2 py-0.5 rounded bg-gold-400/10 text-gold-300 border border-gold-400/20 font-bold">3. Seviye VIP & Fotoğraflı</span>
+                        <div class="text-[11px] text-slate-500 dark:text-slate-400 font-medium hidden sm:block">
+                            <span id="sim-level-badge" class="px-2 py-0.5 rounded bg-gold-400/20 text-gold-700 dark:text-gold-300 border border-gold-400/30 font-bold">3. Seviye VIP & Fotoğraflı</span>
                         </div>
                     </div>
 
@@ -391,107 +407,157 @@
         </div>
     </section>
 
-    <!-- BÖLGESEL & YEREL SEO BÖLÜMÜ -->
-    <section id="yerel-cozumler" class="py-20 bg-night-900/60 border-y border-white/5 relative">
+    <!-- GOOGLE ARAMA & HARİTALAR "NASIL GÖRÜNECEKSİNİZ?" MOCKUP BÖLÜMÜ -->
+    <section id="harita-onizleme" class="py-20 bg-slate-50 dark:bg-night-900/60 border-y border-slate-200 dark:border-white/5 relative transition-colors duration-300">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="text-center max-w-3xl mx-auto mb-16">
-                <span class="text-gold-400 font-semibold text-xs uppercase tracking-widest">Bölgesel ve Sektörel Uzmanlık</span>
-                <h2 class="text-3xl sm:text-4xl font-serif font-bold text-white mt-2">
-                    Mekanınızın Konseptine & Bölgenize Özel Çözümler
+            <div class="text-center max-w-3xl mx-auto mb-12">
+                <span class="text-gold-600 dark:text-gold-400 font-semibold text-xs uppercase tracking-widest">1. Sıra Yerel SEO Farkı</span>
+                <h2 class="text-3xl sm:text-4xl font-serif font-bold text-slate-900 dark:text-white mt-2">
+                    Müşterileriniz Bölgenizde Arama Yaptığında Nasıl Görüneceksiniz?
                 </h2>
-                <p class="text-slate-300 mt-3 text-sm">
-                    İster Kadıköy’de bir 3. nesil kafe, ister Beşiktaş’ta bir bistro ya da Florya’da bir ocakbaşı... Mekanınızın hedef kitlesine ve bölgesine özel anahtar teslim web vitrini kuruyoruz.
+                <p class="text-slate-600 dark:text-slate-300 mt-3 text-sm">
+                    Web sitesi olmayan mekanlar Google Haritalar'da geriye düşer. Restoranweb siteniz açıldığında işletmeniz Google'da prestijle parlar.
                 </p>
             </div>
 
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-                <div class="luxury-card p-6 rounded-2xl border border-white/10 hover:border-gold-400/30 transition-all group">
-                    <div class="w-10 h-10 rounded-xl bg-gold-400/10 border border-gold-400/20 flex items-center justify-center text-gold-400 mb-4 group-hover:scale-110 transition-transform">
-                        <i data-lucide="coffee" class="w-5 h-5"></i>
+            <div class="max-w-3xl mx-auto luxury-card rounded-3xl p-6 sm:p-8 border border-gold-400/30 shadow-2xl">
+                <div class="bg-slate-100 dark:bg-night-950 border border-slate-200 dark:border-white/10 rounded-2xl p-3 px-4 flex items-center gap-3 mb-6">
+                    <i data-lucide="search" class="w-4 h-4 text-slate-400"></i>
+                    <span class="text-xs sm:text-sm text-slate-800 dark:text-slate-200 font-medium">Kadıköy Moda ocakbaşı restoranları</span>
+                    <span class="ml-auto text-[10px] bg-emerald-500/20 text-emerald-700 dark:text-emerald-300 px-2 py-0.5 rounded-full font-bold">Google Arama</span>
+                </div>
+
+                <div class="bg-slate-100/70 dark:bg-night-950/90 rounded-2xl p-5 border border-gold-400/30 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-5">
+                    <div class="space-y-2 flex-1">
+                        <div class="flex items-center gap-2">
+                            <span class="px-2 py-0.5 rounded bg-gold-400/20 text-gold-700 dark:text-gold-300 text-[10px] font-bold border border-gold-400/30">1. Sırada Önerilen</span>
+                            <span class="text-[11px] text-emerald-600 dark:text-emerald-400 font-medium flex items-center gap-1">
+                                <span class="w-2 h-2 rounded-full bg-emerald-500"></span> Açık • Kapanış 23:30
+                            </span>
+                        </div>
+                        <h3 class="text-lg sm:text-xl font-bold text-slate-900 dark:text-white font-serif">Sultanahmet Ocakbaşı & Steakhouse</h3>
+                        <div class="flex items-center gap-2 text-xs text-slate-600 dark:text-slate-300">
+                            <div class="flex text-amber-500">
+                                <i data-lucide="star" class="w-3.5 h-3.5 fill-current"></i>
+                                <i data-lucide="star" class="w-3.5 h-3.5 fill-current"></i>
+                                <i data-lucide="star" class="w-3.5 h-3.5 fill-current"></i>
+                                <i data-lucide="star" class="w-3.5 h-3.5 fill-current"></i>
+                                <i data-lucide="star" class="w-3.5 h-3.5 fill-current"></i>
+                            </div>
+                            <span class="font-bold text-slate-900 dark:text-white">4.9</span>
+                            <span class="text-slate-500 dark:text-slate-400">(480+ Google Yorumu)</span>
+                            <span>•</span>
+                            <span class="text-slate-700 dark:text-slate-300">₺₺</span>
+                        </div>
+                        <p class="text-xs text-slate-500 dark:text-slate-400 flex items-center gap-1.5">
+                            <i data-lucide="map-pin" class="w-3.5 h-3.5 text-gold-500 dark:text-gold-400 shrink-0"></i>
+                            <span>Moda Caddesi No:42, Kadıköy / İstanbul</span>
+                        </p>
                     </div>
-                    <span class="text-[11px] font-bold text-gold-400 tracking-wider uppercase">Kadıköy & Moda</span>
-                    <h3 class="text-lg font-bold text-white mt-1">3. Nesil Kafe & Kahveci Web Tasarımı</h3>
-                    <p class="text-xs text-slate-300 mt-2 leading-relaxed">
-                        Kadıköy ve Moda bölgesinde kahve severlerin dikkatini çekecek modern, minimalist ve hızlı menü tasarımları. Çekirdek türleri ve tatlı menünüzü telefon ekranlarına sığdırıyoruz.
-                    </p>
-                    <div class="mt-4 pt-3 border-t border-white/5 flex items-center justify-between text-[11px] text-slate-400">
-                        <span>Tek Tıkla Harita / Konum</span>
-                        <span class="text-gold-400 font-semibold">1. Seviye Butik</span>
+
+                    <div class="flex flex-row sm:flex-col gap-2 w-full sm:w-auto shrink-0">
+                        <a href="demo.html" target="_blank" class="flex-1 sm:flex-none px-4 py-2.5 rounded-xl bg-gold-400 text-night-950 text-xs font-bold flex items-center justify-center gap-2 hover:brightness-110 shadow-lg shadow-gold-400/20">
+                            <i data-lucide="globe" class="w-4 h-4"></i>
+                            <span>Web Sitesi (Menü)</span>
+                        </a>
+                        <button onclick="showToast('Yol tarifi simülasyonu çalışıyor')" class="flex-1 sm:flex-none px-4 py-2.5 rounded-xl bg-white dark:bg-night-900 border border-slate-300 dark:border-white/10 text-slate-800 dark:text-white text-xs font-semibold flex items-center justify-center gap-2 hover:border-gold-400">
+                            <i data-lucide="navigation" class="w-4 h-4 text-gold-500 dark:text-gold-400"></i>
+                            <span>Yol Tarifi Al</span>
+                        </button>
                     </div>
                 </div>
 
-                <div class="luxury-card p-6 rounded-2xl border border-gold-400/30 shadow-lg shadow-gold-400/5 group">
-                    <div class="w-10 h-10 rounded-xl bg-gold-400 text-night-950 font-bold flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
-                        <i data-lucide="glass-water" class="w-5 h-5"></i>
+                <div class="mt-4 pt-3 border-t border-slate-200 dark:border-white/5 flex items-center justify-between text-[11px] text-slate-500 dark:text-slate-400">
+                    <span>⚡ Restoranweb paketinizle Google Haritalar entegrasyonu tamamen ücretsiz yapılır.</span>
+                    <span class="text-gold-600 dark:text-gold-400 font-semibold hidden sm:inline">Yerel SEO Dahil</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- RESTORAN İŞLETMECİSİ YORUMLARI -->
+    <section id="yorumlar" class="py-20 bg-slate-100 dark:bg-night-950 relative transition-colors duration-300">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-16">
+                <span class="text-gold-600 dark:text-gold-400 font-semibold text-xs uppercase tracking-widest">Referanslarımız Ne Diyor?</span>
+                <h2 class="text-3xl sm:text-5xl font-serif font-bold text-slate-900 dark:text-white mt-2">
+                    Yemek Platformu Komisyonundan Kurtulanlar
+                </h2>
+                <p class="text-slate-600 dark:text-slate-300 mt-4 text-base">
+                    İstanbul'un farklı semtlerindeki işletmelerimizin Restoranweb deneyimleri.
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <div class="luxury-card rounded-2xl p-6 border border-slate-200 dark:border-white/10 flex flex-col justify-between">
+                    <div>
+                        <div class="flex text-amber-500 mb-4">
+                            <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+                            <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+                            <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+                            <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+                            <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+                        </div>
+                        <p class="text-xs sm:text-sm text-slate-700 dark:text-slate-200 leading-relaxed italic">
+                            "Yemek uygulamalarına ayda 35-40 bin ₺ komisyon kaptırıyorduk. Sitemiz açıldığından beri Instagram ve Google'dan gelen müşteriler doğrudan WhatsApp hattımıza yazıyor. Cironun tamamı bize kalıyor."
+                        </p>
                     </div>
-                    <span class="text-[11px] font-bold text-gold-300 tracking-wider uppercase">Beşiktaş & Nişantaşı</span>
-                    <h3 class="text-lg font-bold text-white mt-1">Bistro, Brasserie & Bar Web Siteleri</h3>
-                    <p class="text-xs text-slate-300 mt-2 leading-relaxed">
-                        Akşam yoğunluğunda telefon trafiğini azaltan, doğrudan WhatsApp'a rezervasyon talebi düşüren şık tasarımlar. Kokteyl ve ana yemek menülerinizi kategorili olarak sergileyin.
-                    </p>
-                    <div class="mt-4 pt-3 border-t border-white/5 flex items-center justify-between text-[11px] text-slate-400">
-                        <span>WhatsApp Rezervasyon</span>
-                        <span class="text-gold-400 font-semibold">2. Seviye Bistro</span>
+                    <div class="mt-6 pt-4 border-t border-slate-200 dark:border-white/5 flex items-center gap-3">
+                        <div class="w-10 h-10 rounded-full bg-gold-400/20 text-gold-700 dark:text-gold-300 font-bold flex items-center justify-center text-xs">
+                            HÖ
+                        </div>
+                        <div>
+                            <h4 class="text-xs font-bold text-slate-900 dark:text-white">Hasan Özdemir</h4>
+                            <p class="text-[11px] text-slate-500 dark:text-slate-400">Sultanahmet Ocakbaşı / Fatih</p>
+                        </div>
                     </div>
                 </div>
 
-                <div class="luxury-card p-6 rounded-2xl border border-white/10 hover:border-gold-400/30 transition-all group">
-                    <div class="w-10 h-10 rounded-xl bg-gold-400/10 border border-gold-400/20 flex items-center justify-center text-gold-400 mb-4 group-hover:scale-110 transition-transform">
-                        <i data-lucide="flame" class="w-5 h-5"></i>
+                <div class="luxury-card rounded-2xl p-6 border border-gold-400/30 flex flex-col justify-between shadow-xl shadow-gold-400/5">
+                    <div>
+                        <div class="flex text-amber-500 mb-4">
+                            <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+                            <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+                            <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+                            <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+                            <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+                        </div>
+                        <p class="text-xs sm:text-sm text-slate-700 dark:text-slate-200 leading-relaxed italic">
+                            "Masa için hediye gönderdikleri akrilik QR standı harika bir kalite. Masaya oturan müşteri kamerasını tuttuğu gibi şık menümüzü görüyor. Fiyat değiştiğinde WhatsApp'tan yazıyorum, aynı gün güncelliyorlar."
+                        </p>
                     </div>
-                    <span class="text-[11px] font-bold text-gold-400 tracking-wider uppercase">Florya, Karaköy & Boğaz</span>
-                    <h3 class="text-lg font-bold text-white mt-1">Ocakbaşı, Kebapçı & Steakhouse Vitrinleri</h3>
-                    <p class="text-xs text-slate-300 mt-2 leading-relaxed">
-                        Köz ve meşe ateşindeki lezzetlerinizi, VIP salonlarınızı ve şefin tadım masalarını gösteren ultra lüks mekan fotoğraf galerileri. Özel iş yemekleri için doğrudan arama alın.
-                    </p>
-                    <div class="mt-4 pt-3 border-t border-white/5 flex items-center justify-between text-[11px] text-slate-400">
-                        <span>VIP Salon & Foto Galeri</span>
-                        <span class="text-gold-400 font-semibold">3. Seviye Gurme</span>
-                    </div>
-                </div>
-
-                <div class="luxury-card p-6 rounded-2xl border border-white/10 hover:border-gold-400/30 transition-all group">
-                    <div class="w-10 h-10 rounded-xl bg-gold-400/10 border border-gold-400/20 flex items-center justify-center text-gold-400 mb-4 group-hover:scale-110 transition-transform">
-                        <i data-lucide="cake" class="w-5 h-5"></i>
-                    </div>
-                    <span class="text-[11px] font-bold text-gold-400 tracking-wider uppercase">Bakırköy & Şişli</span>
-                    <h3 class="text-lg font-bold text-white mt-1">Butik Fırın, Pastane & Tatlıcı Siteleri</h3>
-                    <p class="text-xs text-slate-300 mt-2 leading-relaxed">
-                        Özel gün pastaları, ekşi maya ekmekler ve günlük tatlılar için görsel ağırlıklı, tek tıkla adres yol tarifi başlatan dijital vitrin mimarisi.
-                    </p>
-                    <div class="mt-4 pt-3 border-t border-white/5 flex items-center justify-between text-[11px] text-slate-400">
-                        <span>Hızlı Yol Tarifi (Maps)</span>
-                        <span class="text-gold-400 font-semibold">1. Seviye Butik</span>
+                    <div class="mt-6 pt-4 border-t border-slate-200 dark:border-white/5 flex items-center gap-3">
+                        <div class="w-10 h-10 rounded-full bg-gold-400/20 text-gold-700 dark:text-gold-300 font-bold flex items-center justify-center text-xs">
+                            MK
+                        </div>
+                        <div>
+                            <h4 class="text-xs font-bold text-slate-900 dark:text-white">Murat Korkmaz</h4>
+                            <p class="text-[11px] text-slate-500 dark:text-slate-400">Roast & Bread Co. / Kadıköy Moda</p>
+                        </div>
                     </div>
                 </div>
 
-                <div class="luxury-card p-6 rounded-2xl border border-white/10 hover:border-gold-400/30 transition-all group">
-                    <div class="w-10 h-10 rounded-xl bg-gold-400/10 border border-gold-400/20 flex items-center justify-center text-gold-400 mb-4 group-hover:scale-110 transition-transform">
-                        <i data-lucide="fish" class="w-5 h-5"></i>
+                <div class="luxury-card rounded-2xl p-6 border border-slate-200 dark:border-white/10 flex flex-col justify-between">
+                    <div>
+                        <div class="flex text-amber-500 mb-4">
+                            <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+                            <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+                            <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+                            <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+                            <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+                        </div>
+                        <p class="text-xs sm:text-sm text-slate-700 dark:text-slate-200 leading-relaxed italic">
+                            "Akşamları telefon trafiği yüzünden sipariş kaçırıyorduk. Şimdi menüyü inceleyen herkes doğrudan hazır WhatsApp mesajıyla masa ayırtıyor. Kurulumu da tam söyledikleri gibi 48 saatte teslim ettiler."
+                        </p>
                     </div>
-                    <span class="text-[11px] font-bold text-gold-400 tracking-wider uppercase">Sahil & Marina Bölgeleri</span>
-                    <h3 class="text-lg font-bold text-white mt-1">Balık & Deniz Mahsulleri Restoranları</h3>
-                    <p class="text-xs text-slate-300 mt-2 leading-relaxed">
-                        Günlük taze deniz balıkları, meze çeşitleri ve manzaralı masa rezervasyonları için şık deniz konseptli dijital vitrin siteleri.
-                    </p>
-                    <div class="mt-4 pt-3 border-t border-white/5 flex items-center justify-between text-[11px] text-slate-400">
-                        <span>Masa Rezervasyonu</span>
-                        <span class="text-gold-400 font-semibold">2. Seviye Bistro</span>
-                    </div>
-                </div>
-
-                <div class="luxury-card p-6 rounded-2xl border border-white/10 hover:border-gold-400/30 transition-all group">
-                    <div class="w-10 h-10 rounded-xl bg-gold-400/10 border border-gold-400/20 flex items-center justify-center text-gold-400 mb-4 group-hover:scale-110 transition-transform">
-                        <i data-lucide="network" class="w-5 h-5"></i>
-                    </div>
-                    <span class="text-[11px] font-bold text-gold-400 tracking-wider uppercase">Zincir & Franchising</span>
-                    <h3 class="text-lg font-bold text-white mt-1">Çok Şubeli Restoran Ağları</h3>
-                    <p class="text-xs text-slate-300 mt-2 leading-relaxed">
-                        Farklı semtlerdeki şubeleriniz için tek tıkla şube seçici, her şubeye özel telefon ve adres haritası entegrasyonu.
-                    </p>
-                    <div class="mt-4 pt-3 border-t border-white/5 flex items-center justify-between text-[11px] text-slate-400">
-                        <span>Çoklu Şube Desteği</span>
-                        <span class="text-gold-400 font-semibold">3. Seviye Gurme</span>
+                    <div class="mt-6 pt-4 border-t border-slate-200 dark:border-white/5 flex items-center gap-3">
+                        <div class="w-10 h-10 rounded-full bg-gold-400/20 text-gold-700 dark:text-gold-300 font-bold flex items-center justify-center text-xs">
+                            ST
+                        </div>
+                        <div>
+                            <h4 class="text-xs font-bold text-slate-900 dark:text-white">Selin Taşçı</h4>
+                            <p class="text-[11px] text-slate-500 dark:text-slate-400">Trattoria di Milano / Nişantaşı</p>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -499,14 +565,14 @@
     </section>
 
     <!-- KOMİSYON TASARRUF HESAPLAYICISI -->
-    <section id="tasarruf-hesaplayici" class="py-20 bg-night-950 relative">
+    <section id="tasarruf-hesaplayici" class="py-20 bg-slate-50 dark:bg-night-950 relative border-t border-slate-200 dark:border-white/5 transition-colors duration-300">
         <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center max-w-2xl mx-auto mb-12">
-                <span class="text-gold-400 font-semibold text-xs uppercase tracking-widest">Finansal Karşılaştırma</span>
-                <h2 class="text-3xl sm:text-4xl font-serif font-bold text-white mt-2">
+                <span class="text-gold-600 dark:text-gold-400 font-semibold text-xs uppercase tracking-widest">Finansal Karşılaştırma</span>
+                <h2 class="text-3xl sm:text-4xl font-serif font-bold text-slate-900 dark:text-white mt-2">
                     Uygulamalara Ne Kadar Kaptırıyorsunuz?
                 </h2>
-                <p class="text-slate-300 mt-2 text-sm">
+                <p class="text-slate-600 dark:text-slate-300 mt-2 text-sm">
                     Aylık tahmini cironuzu seçin; aracı yemek platformlarına her ay havaya savurduğunuz komisyon miktarını canlı hesaplayalım.
                 </p>
             </div>
@@ -514,11 +580,11 @@
             <div class="luxury-card rounded-3xl p-8 sm:p-10 border border-gold-400/30">
                 <div class="space-y-6">
                     <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2">
-                        <label class="text-sm font-bold text-white">Aylık Paket / Sipariş Cironuz:</label>
-                        <span id="slider-ciro-val" class="text-2xl font-extrabold text-gold-400 font-mono">100.000 ₺</span>
+                        <label class="text-sm font-bold text-slate-900 dark:text-white">Aylık Paket / Sipariş Cironuz:</label>
+                        <span id="slider-ciro-val" class="text-2xl font-extrabold text-gold-600 dark:text-gold-400 font-mono">100.000 ₺</span>
                     </div>
 
-                    <input type="range" id="ciro-slider" min="20000" max="600000" step="10000" value="100000" oninput="calculateSavings()" class="w-full h-2.5 bg-night-950 rounded-lg appearance-none cursor-pointer border border-white/10">
+                    <input type="range" id="ciro-slider" min="20000" max="600000" step="10000" value="100000" oninput="calculateSavings()" class="w-full h-2.5 bg-slate-200 dark:bg-night-950 rounded-lg appearance-none cursor-pointer border border-slate-300 dark:border-white/10">
 
                     <div class="flex justify-between text-[11px] text-slate-500 font-mono">
                         <span>20.000 ₺</span>
@@ -527,23 +593,23 @@
                     </div>
                 </div>
 
-                <div class="grid grid-cols-1 md:grid-cols-3 gap-5 mt-10 pt-8 border-t border-white/10 text-center">
-                    <div class="p-5 rounded-2xl bg-night-950/80 border border-rose-500/20">
-                        <span class="text-xs text-rose-300 font-medium block">Uygulama Komisyon Kaybınız (%32)</span>
-                        <h4 id="calc-komisyon-aylik" class="text-2xl font-bold text-rose-400 mt-1 font-mono">32.000 ₺</h4>
-                        <span class="text-[11px] text-slate-400 block mt-1">Her Ay Havaya Giden Para</span>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-5 mt-10 pt-8 border-t border-slate-200 dark:border-white/10 text-center">
+                    <div class="p-5 rounded-2xl bg-white dark:bg-night-950/80 border border-rose-500/20 shadow-sm">
+                        <span class="text-xs text-rose-600 dark:text-rose-300 font-medium block">Uygulama Komisyon Kaybınız (%32)</span>
+                        <h4 id="calc-komisyon-aylik" class="text-2xl font-bold text-rose-500 dark:text-rose-400 mt-1 font-mono">32.000 ₺</h4>
+                        <span class="text-[11px] text-slate-500 dark:text-slate-400 block mt-1">Her Ay Havaya Giden Para</span>
                     </div>
 
-                    <div class="p-5 rounded-2xl bg-night-950/80 border border-emerald-500/20">
-                        <span class="text-xs text-emerald-300 font-medium block">1 Yılda Cebinizde Kalan</span>
-                        <h4 id="calc-komisyon-yillik" class="text-2xl font-extrabold text-emerald-400 mt-1 font-mono">384.000 ₺</h4>
-                        <span class="text-[11px] text-slate-400 block mt-1">Yıllık Net Tasarrufunuz</span>
+                    <div class="p-5 rounded-2xl bg-white dark:bg-night-950/80 border border-emerald-500/20 shadow-sm">
+                        <span class="text-xs text-emerald-700 dark:text-emerald-300 font-medium block">1 Yılda Cebinizde Kalan</span>
+                        <h4 id="calc-komisyon-yillik" class="text-2xl font-extrabold text-emerald-600 dark:text-emerald-400 mt-1 font-mono">384.000 ₺</h4>
+                        <span class="text-[11px] text-slate-500 dark:text-slate-400 block mt-1">Yıllık Net Tasarrufunuz</span>
                     </div>
 
-                    <div class="p-5 rounded-2xl bg-gradient-to-br from-gold-950/40 to-night-950 border border-gold-400/40 flex flex-col justify-center items-center">
-                        <span class="text-xs text-gold-300 font-bold block">Restoranweb Amorti Süresi</span>
-                        <h4 id="calc-amorti-sure" class="text-2xl font-black text-white mt-1 font-mono">6 Gün</h4>
-                        <span class="text-[11px] text-gold-300/80 block mt-1">5.990 ₺ site masrafı hemen çıkar</span>
+                    <div class="p-5 rounded-2xl bg-gradient-to-br from-gold-100 to-white dark:from-gold-950/40 dark:to-night-950 border border-gold-400/40 flex flex-col justify-center items-center shadow-sm">
+                        <span class="text-xs text-gold-700 dark:text-gold-300 font-bold block">Restoranweb Amorti Süresi</span>
+                        <h4 id="calc-amorti-sure" class="text-2xl font-black text-slate-900 dark:text-white mt-1 font-mono">6 Gün</h4>
+                        <span class="text-[11px] text-gold-700/80 dark:text-gold-300/80 block mt-1">5.990 ₺ site masrafı hemen çıkar</span>
                     </div>
                 </div>
 
@@ -557,31 +623,31 @@
     </section>
 
     <!-- BAKIM & DESTEK BİLGİLENDİRME BÖLÜMÜ -->
-    <section id="bakim-destek" class="py-16 bg-night-900/40 border-y border-white/5 relative">
+    <section id="bakim-destek" class="py-16 bg-slate-100 dark:bg-night-900/40 border-y border-slate-200 dark:border-white/5 relative transition-colors duration-300">
         <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="luxury-card rounded-3xl p-8 sm:p-12 border border-gold-400/30 flex flex-col lg:flex-row items-center justify-between gap-8">
                 <div class="flex-1 space-y-4 text-left">
-                    <div class="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-gold-400/20 text-gold-300 text-xs font-bold border border-gold-400/30">
+                    <div class="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-gold-400/20 text-gold-700 dark:text-gold-300 text-xs font-bold border border-gold-400/30">
                         <i data-lucide="wrench" class="w-3.5 h-3.5"></i> Yıllık Bakım & Menü Güncelleme Garantisi
                     </div>
-                    <h2 class="text-2xl sm:text-3xl font-serif font-bold text-white leading-tight">
+                    <h2 class="text-2xl sm:text-3xl font-serif font-bold text-slate-900 dark:text-white leading-tight">
                         Fiyatlar Değiştiğinde veya Yeni Lezzetler Geldiğinde <br>
                         <span class="gold-gradient-text">Bizimle İletişime Geçmeniz Yeterli</span>
                     </h2>
-                    <p class="text-slate-300 text-xs sm:text-sm leading-relaxed max-w-2xl">
+                    <p class="text-slate-600 dark:text-slate-300 text-xs sm:text-sm leading-relaxed max-w-2xl">
                         Karmaşık yönetim panelleriyle, şifrelerle veya teknik ayarlar ile vakit kaybetmeyin. Menünüzde fiyat güncellemesi, yeni bir yemek eklemesi ya da çalışma saati değişikliği gerektiğinde tek yapmanız gereken WhatsApp destek hattımıza yazmaktır. Ekibimiz aynı gün sitenizi günceller.
                     </p>
-                    <div class="grid grid-cols-1 sm:grid-cols-3 gap-3 pt-2 text-xs text-slate-300">
+                    <div class="grid grid-cols-1 sm:grid-cols-3 gap-3 pt-2 text-xs text-slate-600 dark:text-slate-300">
                         <div class="flex items-center gap-2">
-                            <i data-lucide="check-circle-2" class="w-4 h-4 text-emerald-400 shrink-0"></i>
+                            <i data-lucide="check-circle-2" class="w-4 h-4 text-emerald-500 shrink-0"></i>
                             <span>Aynı Gün Menü Güncellemesi</span>
                         </div>
                         <div class="flex items-center gap-2">
-                            <i data-lucide="check-circle-2" class="w-4 h-4 text-emerald-400 shrink-0"></i>
+                            <i data-lucide="check-circle-2" class="w-4 h-4 text-emerald-500 shrink-0"></i>
                             <span>Yıllık Sunucu & SSL Bakımı</span>
                         </div>
                         <div class="flex items-center gap-2">
-                            <i data-lucide="check-circle-2" class="w-4 h-4 text-emerald-400 shrink-0"></i>
+                            <i data-lucide="check-circle-2" class="w-4 h-4 text-emerald-500 shrink-0"></i>
                             <span>7/24 Kesintisiz Yayın Desteği</span>
                         </div>
                     </div>
@@ -592,107 +658,107 @@
                         <i data-lucide="message-circle" class="w-5 h-5"></i>
                         <span>Bakım & Destek İçin Yazın (WhatsApp)</span>
                     </a>
-                    <span class="block text-[11px] text-slate-400 mt-2 font-mono">0544 572 22 03</span>
+                    <span class="block text-[11px] text-slate-500 dark:text-slate-400 mt-2 font-mono">0544 572 22 03</span>
                 </div>
             </div>
         </div>
     </section>
 
     <!-- MASALARA ÖZEL ŞIK QR KOD HEDİYE BÖLÜMÜ -->
-    <section id="qr-hediye" class="py-20 bg-night-950 relative">
+    <section id="qr-hediye" class="py-20 bg-slate-50 dark:bg-night-950 relative transition-colors duration-300">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="luxury-card rounded-3xl p-8 sm:p-12 border border-gold-400/30 flex flex-col lg:flex-row items-center gap-10">
                 <div class="flex-1 space-y-5 text-left">
-                    <div class="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-gold-400/20 text-gold-300 text-xs font-bold border border-gold-400/30">
+                    <div class="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-gold-400/20 text-gold-700 dark:text-gold-300 text-xs font-bold border border-gold-400/30">
                         <i data-lucide="gift" class="w-3.5 h-3.5"></i> 2. ve 3. Paketlerde Ücretsiz Hediye
                     </div>
-                    <h2 class="text-3xl sm:text-4xl font-serif font-bold text-white leading-tight">
+                    <h2 class="text-3xl sm:text-4xl font-serif font-bold text-slate-900 dark:text-white leading-tight">
                         Masalarınıza Özel Tasarımlı <br><span class="gold-gradient-text">Akrilik / Ahşap QR Menü Standı</span>
                     </h2>
-                    <p class="text-slate-300 text-sm leading-relaxed">
+                    <p class="text-slate-600 dark:text-slate-300 text-sm leading-relaxed">
                         Siteniz açıldığında masalarınıza koyabileceğiniz, restoranınızın logosunu ve kurumsal renklerini taşıyan yüksek çözünürlüklü baskıya hazır QR kod tasarımlarını hediye ediyoruz. Müşterileriniz telefon kamerasını tuttuğu anda doğrudan menünüze ulaşır.
                     </p>
-                    <ul class="space-y-2.5 text-xs text-slate-300">
-                        <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-gold-400"></i> Matbaa baskısına hazır yüksek çözünürlüklü vektör PDF</li>
-                        <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-gold-400"></i> Wi-Fi şifresi ve sosyal medya hesapları alanı</li>
-                        <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-gold-400"></i> Yıpranmayan kalıcı dijital bağlantı</li>
+                    <ul class="space-y-2.5 text-xs text-slate-600 dark:text-slate-300">
+                        <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-gold-500 dark:text-gold-400"></i> Matbaa baskısına hazır yüksek çözünürlüklü vektör PDF</li>
+                        <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-gold-500 dark:text-gold-400"></i> Wi-Fi şifresi ve sosyal medya hesapları alanı</li>
+                        <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-gold-500 dark:text-gold-400"></i> Yıpranmayan kalıcı dijital bağlantı</li>
                     </ul>
                 </div>
                 
-                <div class="w-full sm:w-72 bg-gradient-to-b from-night-900 to-night-950 p-6 rounded-2xl border-2 border-gold-400/40 text-center shadow-2xl relative group transform hover:scale-105 transition-transform duration-300">
+                <div class="w-full sm:w-72 bg-gradient-to-b from-slate-100 to-white dark:from-night-900 dark:to-night-950 p-6 rounded-2xl border-2 border-gold-400/40 text-center shadow-2xl relative group transform hover:scale-105 transition-transform duration-300">
                     <div class="w-12 h-12 rounded-xl bg-gold-400 text-night-950 font-serif font-bold flex items-center justify-center mx-auto mb-3 text-lg">
                         R
                     </div>
-                    <h4 class="text-sm font-bold text-white font-serif">Restoranınızın Adı</h4>
-                    <p class="text-[10px] text-gold-300 mb-4 tracking-wider uppercase">Temassız Dijital Menü</p>
-                    <div class="bg-white p-4 rounded-xl mx-auto w-40 h-40 flex items-center justify-center shadow-inner">
+                    <h4 class="text-sm font-bold text-slate-900 dark:text-white font-serif">Restoranınızın Adı</h4>
+                    <p class="text-[10px] text-gold-700 dark:text-gold-300 mb-4 tracking-wider uppercase">Temassız Dijital Menü</p>
+                    <div class="bg-white p-4 rounded-xl mx-auto w-40 h-40 flex items-center justify-center shadow-inner border border-slate-200">
                         <i data-lucide="qr-code" class="w-32 h-32 text-night-950"></i>
                     </div>
-                    <p class="text-[10px] text-slate-400 mt-4">Kameranızla QR Kodu Okutun</p>
+                    <p class="text-[10px] text-slate-500 dark:text-slate-400 mt-4">Kameranızla QR Kodu Okutun</p>
                 </div>
             </div>
         </div>
     </section>
 
     <!-- FİYATLANDIRMA PAKETLERİ -->
-    <section id="paketler" class="py-24 bg-night-950 border-t border-white/5 relative">
+    <section id="paketler" class="py-24 bg-slate-100 dark:bg-night-950 border-t border-slate-200 dark:border-white/5 relative transition-colors duration-300">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center max-w-3xl mx-auto mb-16">
-                <span class="text-gold-400 font-semibold text-xs uppercase tracking-widest">Şeffaf Tek Seferlik Yatırım</span>
-                <h2 class="text-3xl sm:text-5xl font-serif font-bold text-white mt-2">
+                <span class="text-gold-600 dark:text-gold-400 font-semibold text-xs uppercase tracking-widest">Şeffaf Tek Seferlik Yatırım</span>
+                <h2 class="text-3xl sm:text-5xl font-serif font-bold text-slate-900 dark:text-white mt-2">
                     İhtiyacınıza Uygun Paketi Seçin
                 </h2>
-                <p class="text-slate-300 mt-4 text-base">
+                <p class="text-slate-600 dark:text-slate-300 mt-4 text-base">
                     Aylık fahiş komisyonlar yok. Tek seferlik kurulum ücreti, anında FAST / Havale ile ödeme kolaylığı ve 48 saatte anahtar teslim yayın.
                 </p>
             </div>
 
             <div class="grid grid-cols-1 lg:grid-cols-3 gap-8 items-stretch">
                 <!-- Paket 1 -->
-                <div class="luxury-card rounded-2xl p-8 flex flex-col justify-between border border-white/10 hover:border-gold-400/30 transition-all">
+                <div class="luxury-card rounded-2xl p-8 flex flex-col justify-between border border-slate-200 dark:border-white/10 hover:border-gold-400/40 transition-all">
                     <div>
                         <div class="flex justify-between items-center mb-4">
-                            <span class="px-3 py-1 rounded-full text-xs font-bold bg-white/5 text-slate-300 border border-white/10">1. Seviye Şablon</span>
-                            <span class="text-xs text-slate-400">Tek Sayfa</span>
+                            <span class="px-3 py-1 rounded-full text-xs font-bold bg-slate-200 dark:bg-white/5 text-slate-700 dark:text-slate-300 border border-slate-300 dark:border-white/10">1. Seviye Şablon</span>
+                            <span class="text-xs text-slate-500 dark:text-slate-400">Tek Sayfa</span>
                         </div>
-                        <h3 class="text-2xl font-bold text-white font-serif">Hızlı Butik Vitrin</h3>
-                        <p class="text-slate-400 text-xs mt-1">Küçük kafeler, butik fırınlar ve büfeler için en sade çözüm.</p>
+                        <h3 class="text-2xl font-bold text-slate-900 dark:text-white font-serif">Hızlı Butik Vitrin</h3>
+                        <p class="text-slate-500 dark:text-slate-400 text-xs mt-1">Küçük kafeler, butik fırınlar ve büfeler için en sade çözüm.</p>
                         
                         <div class="mt-6 mb-6">
                             <div class="flex items-baseline gap-2">
-                                <span class="text-4xl font-extrabold text-white">3.490</span>
-                                <span class="text-gold-400 font-bold text-xl">₺</span>
-                                <span class="text-xs text-slate-400 font-normal">/ tek seferlik</span>
+                                <span class="text-4xl font-extrabold text-slate-900 dark:text-white">3.490</span>
+                                <span class="text-gold-500 dark:text-gold-400 font-bold text-xl">₺</span>
+                                <span class="text-xs text-slate-500 dark:text-slate-400 font-normal">/ tek seferlik</span>
                             </div>
-                            <p class="text-[11px] text-gold-300/80 mt-1">Yıllık alan adı + hosting dahil</p>
+                            <p class="text-[11px] text-gold-700 dark:text-gold-300/80 mt-1">Yıllık alan adı + hosting dahil</p>
                         </div>
 
-                        <ul class="space-y-3 text-sm text-slate-300 border-t border-white/10 pt-6">
+                        <ul class="space-y-3 text-sm text-slate-700 dark:text-slate-300 border-t border-slate-200 dark:border-white/10 pt-6">
                             <li class="flex items-center gap-2.5">
-                                <i data-lucide="check" class="w-4 h-4 text-gold-400 shrink-0"></i>
+                                <i data-lucide="check" class="w-4 h-4 text-gold-500 dark:text-gold-400 shrink-0"></i>
                                 <span>Tek sayfa modern ve hızlı vitrin</span>
                             </li>
                             <li class="flex items-center gap-2.5">
-                                <i data-lucide="check" class="w-4 h-4 text-gold-400 shrink-0"></i>
+                                <i data-lucide="check" class="w-4 h-4 text-gold-500 dark:text-gold-400 shrink-0"></i>
                                 <span>4-6 imza lezzet listesi ve fiyatları</span>
                             </li>
                             <li class="flex items-center gap-2.5">
-                                <i data-lucide="check" class="w-4 h-4 text-gold-400 shrink-0"></i>
+                                <i data-lucide="check" class="w-4 h-4 text-gold-500 dark:text-gold-400 shrink-0"></i>
                                 <span>Çalışma saatleri ve adres bilgisi</span>
                             </li>
                             <li class="flex items-center gap-2.5">
-                                <i data-lucide="check" class="w-4 h-4 text-gold-400 shrink-0"></i>
+                                <i data-lucide="check" class="w-4 h-4 text-gold-500 dark:text-gold-400 shrink-0"></i>
                                 <span>Tek tıkla Hızlı WhatsApp & Arama butonu</span>
                             </li>
                             <li class="flex items-center gap-2.5">
-                                <i data-lucide="wrench" class="w-4 h-4 text-gold-400 shrink-0"></i>
+                                <i data-lucide="wrench" class="w-4 h-4 text-gold-500 dark:text-gold-400 shrink-0"></i>
                                 <span>Yıllık ücretsiz menü güncelleme desteği</span>
                             </li>
                         </ul>
                     </div>
 
-                    <div class="mt-8 pt-6 border-t border-white/10">
-                        <button onclick="requestPurchase('Hızlı Butik Vitrin (1. Seviye Şablon)', '3.490 ₺')" class="w-full py-3.5 px-4 rounded-xl text-sm font-bold text-white bg-night-850 hover:bg-gold-400 hover:text-night-950 border border-gold-400/30 hover:border-transparent transition-all flex items-center justify-center gap-2">
+                    <div class="mt-8 pt-6 border-t border-slate-200 dark:border-white/10">
+                        <button onclick="requestPurchase('Hızlı Butik Vitrin (1. Seviye Şablon)', '3.490 ₺')" class="w-full py-3.5 px-4 rounded-xl text-sm font-bold text-slate-900 dark:text-white bg-slate-200 dark:bg-night-850 hover:bg-gold-400 hover:text-night-950 border border-gold-400/30 hover:border-transparent transition-all flex items-center justify-center gap-2">
                             <i data-lucide="arrow-right" class="w-4 h-4"></i>
                             <span>Bu Paketi Seç (FAST/Havale)</span>
                         </button>
@@ -707,46 +773,46 @@
 
                     <div>
                         <div class="flex justify-between items-center mb-4">
-                            <span class="px-3 py-1 rounded-full text-xs font-bold bg-gold-400/20 text-gold-300 border border-gold-400/30">2. Seviye Şablon</span>
-                            <span class="text-xs text-gold-300 font-semibold">Geniş Menü</span>
+                            <span class="px-3 py-1 rounded-full text-xs font-bold bg-gold-400/20 text-gold-700 dark:text-gold-300 border border-gold-400/30">2. Seviye Şablon</span>
+                            <span class="text-xs text-gold-700 dark:text-gold-300 font-semibold">Geniş Menü</span>
                         </div>
-                        <h3 class="text-2xl font-bold text-white font-serif">Klasik Bistro & Menü</h3>
-                        <p class="text-slate-400 text-xs mt-1">Restoranlar, bistrolar ve zengin menülü kafeler için ideal.</p>
+                        <h3 class="text-2xl font-bold text-slate-900 dark:text-white font-serif">Klasik Bistro & Menü</h3>
+                        <p class="text-slate-500 dark:text-slate-400 text-xs mt-1">Restoranlar, bistrolar ve zengin menülü kafeler için ideal.</p>
                         
                         <div class="mt-6 mb-6">
                             <div class="flex items-baseline gap-2">
-                                <span class="text-4xl font-extrabold text-white">5.990</span>
-                                <span class="text-gold-400 font-bold text-xl">₺</span>
-                                <span class="text-xs text-slate-400 font-normal">/ tek seferlik</span>
+                                <span class="text-4xl font-extrabold text-slate-900 dark:text-white">5.990</span>
+                                <span class="text-gold-500 dark:text-gold-400 font-bold text-xl">₺</span>
+                                <span class="text-xs text-slate-500 dark:text-slate-400 font-normal">/ tek seferlik</span>
                             </div>
-                            <p class="text-[11px] text-gold-300/80 mt-1">Özel .com domain + 1 yıl hosting + SSL hediye</p>
+                            <p class="text-[11px] text-gold-700 dark:text-gold-300/80 mt-1">Özel .com domain + 1 yıl hosting + SSL hediye</p>
                         </div>
 
-                        <ul class="space-y-3 text-sm text-slate-200 border-t border-white/10 pt-6">
+                        <ul class="space-y-3 text-sm text-slate-700 dark:text-slate-200 border-t border-slate-200 dark:border-white/10 pt-6">
                             <li class="flex items-center gap-2.5">
-                                <i data-lucide="check" class="w-4 h-4 text-gold-400 shrink-0"></i>
+                                <i data-lucide="check" class="w-4 h-4 text-gold-500 dark:text-gold-400 shrink-0"></i>
                                 <span><strong>Kategorili Dijital Menü:</strong> Başlangıç, Ana Yemek vb.</span>
                             </li>
                             <li class="flex items-center gap-2.5">
-                                <i data-lucide="check" class="w-4 h-4 text-gold-400 shrink-0"></i>
+                                <i data-lucide="check" class="w-4 h-4 text-gold-500 dark:text-gold-400 shrink-0"></i>
                                 <span>Masa rezervasyon talep formu (Doğrudan WhatsApp'a)</span>
                             </li>
                             <li class="flex items-center gap-2.5">
-                                <i data-lucide="check" class="w-4 h-4 text-gold-400 shrink-0"></i>
+                                <i data-lucide="check" class="w-4 h-4 text-gold-500 dark:text-gold-400 shrink-0"></i>
                                 <span>Instagram galeri fotoğraf entegrasyonu</span>
                             </li>
                             <li class="flex items-center gap-2.5">
-                                <i data-lucide="wrench" class="w-4 h-4 text-gold-400 shrink-0"></i>
+                                <i data-lucide="wrench" class="w-4 h-4 text-gold-500 dark:text-gold-400 shrink-0"></i>
                                 <span>Fiyat değişimi & bakım için doğrudan WhatsApp desteği</span>
                             </li>
                             <li class="flex items-center gap-2.5">
-                                <i data-lucide="gift" class="w-4 h-4 text-gold-400 shrink-0"></i>
-                                <span class="text-gold-300 font-semibold">Masa Akrilik QR Standı Tasarımı Hediye</span>
+                                <i data-lucide="gift" class="w-4 h-4 text-gold-500 dark:text-gold-400 shrink-0"></i>
+                                <span class="text-gold-700 dark:text-gold-300 font-semibold">Masa Akrilik QR Standı Tasarımı Hediye</span>
                             </li>
                         </ul>
                     </div>
 
-                    <div class="mt-8 pt-6 border-t border-white/10">
+                    <div class="mt-8 pt-6 border-t border-slate-200 dark:border-white/10">
                         <button onclick="requestPurchase('Klasik Bistro & Menü Paketi (2. Seviye Şablon)', '5.990 ₺')" class="w-full py-4 px-4 rounded-xl text-sm font-bold text-night-950 bg-gradient-to-r from-gold-300 via-gold-400 to-gold-500 hover:brightness-110 shadow-lg shadow-gold-400/20 transition-all flex items-center justify-center gap-2">
                             <i data-lucide="sparkles" class="w-4 h-4"></i>
                             <span>Hemen Başla (FAST/Havale)</span>
@@ -755,50 +821,50 @@
                 </div>
 
                 <!-- Paket 3 -->
-                <div class="luxury-card rounded-2xl p-8 flex flex-col justify-between border border-white/10 hover:border-gold-400/30 transition-all">
+                <div class="luxury-card rounded-2xl p-8 flex flex-col justify-between border border-slate-200 dark:border-white/10 hover:border-gold-400/40 transition-all">
                     <div>
                         <div class="flex justify-between items-center mb-4">
-                            <span class="px-3 py-1 rounded-full text-xs font-bold bg-white/5 text-slate-300 border border-white/10">3. Seviye Şablon</span>
-                            <span class="text-xs text-slate-400">En Kapsamlı</span>
+                            <span class="px-3 py-1 rounded-full text-xs font-bold bg-slate-200 dark:bg-white/5 text-slate-700 dark:text-slate-300 border border-slate-300 dark:border-white/10">3. Seviye Şablon</span>
+                            <span class="text-xs text-slate-500 dark:text-slate-400">En Kapsamlı</span>
                         </div>
-                        <h3 class="text-2xl font-bold text-white font-serif">Ultra Lüks Gurme</h3>
-                        <p class="text-slate-400 text-xs mt-1">Ocakbaşı, fine dining, otel restoranları ve çok şubeli işletmeler.</p>
+                        <h3 class="text-2xl font-bold text-slate-900 dark:text-white font-serif">Ultra Lüks Gurme</h3>
+                        <p class="text-slate-500 dark:text-slate-400 text-xs mt-1">Ocakbaşı, fine dining, otel restoranları ve çok şubeli işletmeler.</p>
                         
                         <div class="mt-6 mb-6">
                             <div class="flex items-baseline gap-2">
-                                <span class="text-4xl font-extrabold text-white">9.990</span>
-                                <span class="text-gold-400 font-bold text-xl">₺</span>
-                                <span class="text-xs text-slate-400 font-normal">/ tek seferlik</span>
+                                <span class="text-4xl font-extrabold text-slate-900 dark:text-white">9.990</span>
+                                <span class="text-gold-500 dark:text-gold-400 font-bold text-xl">₺</span>
+                                <span class="text-xs text-slate-500 dark:text-slate-400 font-normal">/ tek seferlik</span>
                             </div>
-                            <p class="text-[11px] text-gold-300/80 mt-1">Her şey dahil VIP kurulum & profesyonel fotoğraf galerisi</p>
+                            <p class="text-[11px] text-gold-700 dark:text-gold-300/80 mt-1">Her şey dahil VIP kurulum & profesyonel fotoğraf galerisi</p>
                         </div>
 
-                        <ul class="space-y-3 text-sm text-slate-300 border-t border-white/10 pt-6">
+                        <ul class="space-y-3 text-sm text-slate-700 dark:text-slate-300 border-t border-slate-200 dark:border-white/10 pt-6">
                             <li class="flex items-center gap-2.5">
-                                <i data-lucide="check" class="w-4 h-4 text-gold-400 shrink-0"></i>
+                                <i data-lucide="check" class="w-4 h-4 text-gold-500 dark:text-gold-400 shrink-0"></i>
                                 <span><strong>Mekan & Ambiyans Fotoğraf Galerisi:</strong> Salon, mutfak, masalar</span>
                             </li>
                             <li class="flex items-center gap-2.5">
-                                <i data-lucide="check" class="w-4 h-4 text-gold-400 shrink-0"></i>
+                                <i data-lucide="check" class="w-4 h-4 text-gold-500 dark:text-gold-400 shrink-0"></i>
                                 <span><strong>Çoklu Şube Desteği:</strong> Farklı lokasyon ve adresler</span>
                             </li>
                             <li class="flex items-center gap-2.5">
-                                <i data-lucide="wrench" class="w-4 h-4 text-gold-400 shrink-0"></i>
+                                <i data-lucide="wrench" class="w-4 h-4 text-gold-500 dark:text-gold-400 shrink-0"></i>
                                 <span>Öncelikli VIP bakım, içerik ve menü revizyon hattı</span>
                             </li>
                             <li class="flex items-center gap-2.5">
-                                <i data-lucide="check" class="w-4 h-4 text-gold-400 shrink-0"></i>
+                                <i data-lucide="check" class="w-4 h-4 text-gold-500 dark:text-gold-400 shrink-0"></i>
                                 <span>Şefin hikayesi, ambiyans ve 360° sanal tur alanı</span>
                             </li>
                             <li class="flex items-center gap-2.5">
-                                <i data-lucide="gift" class="w-4 h-4 text-gold-400 shrink-0"></i>
-                                <span class="text-gold-300 font-semibold">VIP Akrilik Masa QR Standı Tasarımı</span>
+                                <i data-lucide="gift" class="w-4 h-4 text-gold-500 dark:text-gold-400 shrink-0"></i>
+                                <span class="text-gold-700 dark:text-gold-300 font-semibold">VIP Akrilik Masa QR Standı Tasarımı</span>
                             </li>
                         </ul>
                     </div>
 
-                    <div class="mt-8 pt-6 border-t border-white/10">
-                        <button onclick="requestPurchase('Ultra Lüks Gurme Paketi (3. Seviye Şablon)', '9.990 ₺')" class="w-full py-3.5 px-4 rounded-xl text-sm font-bold text-white bg-night-850 hover:bg-gold-400 hover:text-night-950 border border-gold-400/30 hover:border-transparent transition-all flex items-center justify-center gap-2">
+                    <div class="mt-8 pt-6 border-t border-slate-200 dark:border-white/10">
+                        <button onclick="requestPurchase('Ultra Lüks Gurme Paketi (3. Seviye Şablon)', '9.990 ₺')" class="w-full py-3.5 px-4 rounded-xl text-sm font-bold text-slate-900 dark:text-white bg-slate-200 dark:bg-night-850 hover:bg-gold-400 hover:text-night-950 border border-gold-400/30 hover:border-transparent transition-all flex items-center justify-center gap-2">
                             <i data-lucide="arrow-right" class="w-4 h-4"></i>
                             <span>Bu Paketi Seç (FAST/Havale)</span>
                         </button>
@@ -809,65 +875,65 @@
     </section>
 
     <!-- SIKÇA SORULAN SORULAR -->
-    <section id="sss" class="py-20 bg-night-950 border-t border-white/5 relative">
+    <section id="sss" class="py-20 bg-slate-50 dark:bg-night-950 border-t border-slate-200 dark:border-white/5 relative transition-colors duration-300">
         <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center max-w-3xl mx-auto mb-16">
-                <span class="text-gold-400 font-semibold text-xs uppercase tracking-widest">Merak Edilenler</span>
-                <h2 class="text-3xl sm:text-4xl font-serif font-bold text-white mt-2">
+                <span class="text-gold-600 dark:text-gold-400 font-semibold text-xs uppercase tracking-widest">Merak Edilenler</span>
+                <h2 class="text-3xl sm:text-4xl font-serif font-bold text-slate-900 dark:text-white mt-2">
                     Sıkça Sorulan Sorular
                 </h2>
-                <p class="text-slate-300 mt-3 text-sm">
+                <p class="text-slate-600 dark:text-slate-300 mt-3 text-sm">
                     Aklınıza takılan soruların net ve şeffaf yanıtları.
                 </p>
             </div>
 
             <div class="space-y-4">
-                <div class="luxury-card rounded-xl border border-white/10 overflow-hidden">
-                    <button onclick="toggleFaq(1)" class="w-full p-5 text-left flex items-center justify-between text-sm sm:text-base font-semibold text-white hover:text-gold-300 transition-colors">
+                <div class="luxury-card rounded-xl border border-slate-200 dark:border-white/10 overflow-hidden">
+                    <button onclick="toggleFaq(1)" class="w-full p-5 text-left flex items-center justify-between text-sm sm:text-base font-semibold text-slate-900 dark:text-white hover:text-gold-600 dark:hover:text-gold-300 transition-colors">
                         <span>Neden online sipariş ve kredi kartı ödemesi eklemiyorsunuz?</span>
-                        <i id="faq-icon-1" data-lucide="chevron-down" class="w-5 h-5 text-gold-400 transition-transform duration-300"></i>
+                        <i id="faq-icon-1" data-lucide="chevron-down" class="w-5 h-5 text-gold-500 dark:text-gold-400 transition-transform duration-300"></i>
                     </button>
-                    <div id="faq-ans-1" class="hidden px-5 pb-5 text-xs sm:text-sm text-slate-300 border-t border-white/5 pt-3 leading-relaxed">
+                    <div id="faq-ans-1" class="hidden px-5 pb-5 text-xs sm:text-sm text-slate-600 dark:text-slate-300 border-t border-slate-200 dark:border-white/5 pt-3 leading-relaxed">
                         Çünkü online kart ödemeleri restoranlar için gizli komisyonlar (%3 ila %5 banka kesintisi), aylık POS aidatları, kurye takip yazılımı maliyetleri ve ters ibraz sorunları yaratır. Tanıtım sitelerimizde müşteri menüyü beğenir, doğrudan WhatsApp hattınıza yazar veya işletmenize gelerek ödemesini masada doğrudan size yapar. Böylece cironuzun %100'ü sizde kalır.
                     </div>
                 </div>
 
-                <div class="luxury-card rounded-xl border border-white/10 overflow-hidden">
-                    <button onclick="toggleFaq(2)" class="w-full p-5 text-left flex items-center justify-between text-sm sm:text-base font-semibold text-white hover:text-gold-300 transition-colors">
+                <div class="luxury-card rounded-xl border border-slate-200 dark:border-white/10 overflow-hidden">
+                    <button onclick="toggleFaq(2)" class="w-full p-5 text-left flex items-center justify-between text-sm sm:text-base font-semibold text-slate-900 dark:text-white hover:text-gold-600 dark:hover:text-gold-300 transition-colors">
                         <span>Web sitem Google Haritalar'da (Google Business) çıkar mı?</span>
-                        <i id="faq-icon-2" data-lucide="chevron-down" class="w-5 h-5 text-gold-400 transition-transform duration-300"></i>
+                        <i id="faq-icon-2" data-lucide="chevron-down" class="w-5 h-5 text-gold-500 dark:text-gold-400 transition-transform duration-300"></i>
                     </button>
-                    <div id="faq-ans-2" class="hidden px-5 pb-5 text-xs sm:text-sm text-slate-300 border-t border-white/5 pt-3 leading-relaxed">
+                    <div id="faq-ans-2" class="hidden px-5 pb-5 text-xs sm:text-sm text-slate-600 dark:text-slate-300 border-t border-slate-200 dark:border-white/5 pt-3 leading-relaxed">
                         Evet! Sitenizi doğrudan Google Haritalar profilinizdeki 'Web Sitesi' alanına entegre ediyoruz. Bölgenizde arama yapan veya yol tarifi alan müşteriler Google Haritalar üzerinden tek tıkla sitenize ve menünüze yönlendirilir.
                     </div>
                 </div>
 
-                <div class="luxury-card rounded-xl border border-white/10 overflow-hidden">
-                    <button onclick="toggleFaq(3)" class="w-full p-5 text-left flex items-center justify-between text-sm sm:text-base font-semibold text-white hover:text-gold-300 transition-colors">
+                <div class="luxury-card rounded-xl border border-slate-200 dark:border-white/10 overflow-hidden">
+                    <button onclick="toggleFaq(3)" class="w-full p-5 text-left flex items-center justify-between text-sm sm:text-base font-semibold text-slate-900 dark:text-white hover:text-gold-600 dark:hover:text-gold-300 transition-colors">
                         <span>Kendi yemek fotoğraflarımız profesyonel değilse ne olacak?</span>
-                        <i id="faq-icon-3" data-lucide="chevron-down" class="w-5 h-5 text-gold-400 transition-transform duration-300"></i>
+                        <i id="faq-icon-3" data-lucide="chevron-down" class="w-5 h-5 text-gold-500 dark:text-gold-400 transition-transform duration-300"></i>
                     </button>
-                    <div id="faq-ans-3" class="hidden px-5 pb-5 text-xs sm:text-sm text-slate-300 border-t border-white/5 pt-3 leading-relaxed">
+                    <div id="faq-ans-3" class="hidden px-5 pb-5 text-xs sm:text-sm text-slate-600 dark:text-slate-300 border-t border-slate-200 dark:border-white/5 pt-3 leading-relaxed">
                         Hiç problem değil. Eğer kendi profesyonel çekimleriniz yoksa, menünüzdeki lezzetlerle birebir eşleşen ultra yüksek çözünürlüklü gurme stok fotoğraflarla sitenizin vitrinini ve menüsünü ücretsiz olarak biz zenginleştiriyoruz.
                     </div>
                 </div>
 
-                <div class="luxury-card rounded-xl border border-white/10 overflow-hidden">
-                    <button onclick="toggleFaq(4)" class="w-full p-5 text-left flex items-center justify-between text-sm sm:text-base font-semibold text-white hover:text-gold-300 transition-colors">
+                <div class="luxury-card rounded-xl border border-slate-200 dark:border-white/10 overflow-hidden">
+                    <button onclick="toggleFaq(4)" class="w-full p-5 text-left flex items-center justify-between text-sm sm:text-base font-semibold text-slate-900 dark:text-white hover:text-gold-600 dark:hover:text-gold-300 transition-colors">
                         <span>Menüdeki ürünler veya fiyatlar değiştiğinde, site bakımında ne yapacağız?</span>
-                        <i id="faq-icon-4" data-lucide="chevron-down" class="w-5 h-5 text-gold-400 transition-transform duration-300"></i>
+                        <i id="faq-icon-4" data-lucide="chevron-down" class="w-5 h-5 text-gold-500 dark:text-gold-400 transition-transform duration-300"></i>
                     </button>
-                    <div id="faq-ans-4" class="hidden px-5 pb-5 text-xs sm:text-sm text-slate-300 border-t border-white/5 pt-3 leading-relaxed">
+                    <div id="faq-ans-4" class="hidden px-5 pb-5 text-xs sm:text-sm text-slate-600 dark:text-slate-300 border-t border-slate-200 dark:border-white/5 pt-3 leading-relaxed">
                         Karmaşık yönetim panelleriyle uğraşmanıza gerek yok. Değişen fiyatlarınızı veya yeni ürünlerinizi <strong>0544 572 22 03</strong> numaralı WhatsApp destek hattımıza iletmeniz yeterlidir. Paketlerimize dahil olan ücretsiz bakım ve güncelleme desteğimizle menünüz aynı gün içerisinde yenilenir.
                     </div>
                 </div>
 
-                <div class="luxury-card rounded-xl border border-white/10 overflow-hidden">
-                    <button onclick="toggleFaq(5)" class="w-full p-5 text-left flex items-center justify-between text-sm sm:text-base font-semibold text-white hover:text-gold-300 transition-colors">
+                <div class="luxury-card rounded-xl border border-slate-200 dark:border-white/10 overflow-hidden">
+                    <button onclick="toggleFaq(5)" class="w-full p-5 text-left flex items-center justify-between text-sm sm:text-base font-semibold text-slate-900 dark:text-white hover:text-gold-600 dark:hover:text-gold-300 transition-colors">
                         <span>Benim zaten tescilli bir .com alan adım (domain) var, kullanabilir miyiz?</span>
-                        <i id="faq-icon-5" data-lucide="chevron-down" class="w-5 h-5 text-gold-400 transition-transform duration-300"></i>
+                        <i id="faq-icon-5" data-lucide="chevron-down" class="w-5 h-5 text-gold-500 dark:text-gold-400 transition-transform duration-300"></i>
                     </button>
-                    <div id="faq-ans-5" class="hidden px-5 pb-5 text-xs sm:text-sm text-slate-300 border-t border-white/5 pt-3 leading-relaxed">
+                    <div id="faq-ans-5" class="hidden px-5 pb-5 text-xs sm:text-sm text-slate-600 dark:text-slate-300 border-t border-slate-200 dark:border-white/5 pt-3 leading-relaxed">
                         Kesinlikle evet! Mevcut alan adınızı ücretsiz olarak yeni sitenize bağlıyoruz ve SSL güvenlik sertifikasını tanımlıyoruz. Yeni bir domain almak zorunda kalmazsınız.
                     </div>
                 </div>
@@ -876,34 +942,51 @@
     </section>
 
     <!-- İLETİŞİM & HIZLI TEKLİF FORMU -->
-    <section id="iletisim" class="py-20 bg-night-900/40 border-t border-white/5 relative">
+    <section id="iletisim" class="py-20 bg-slate-100 dark:bg-night-900/40 border-t border-slate-200 dark:border-white/5 relative transition-colors duration-300">
         <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="luxury-card rounded-2xl p-8 sm:p-12 border border-gold-400/20 text-center">
-                <span class="text-gold-400 font-semibold text-xs uppercase tracking-widest">Hemen Başlayalım</span>
-                <h2 class="text-2xl sm:text-4xl font-serif font-bold text-white mt-2">
+                <span class="text-gold-600 dark:text-gold-400 font-semibold text-xs uppercase tracking-widest">Hemen Başlayalım</span>
+                <h2 class="text-2xl sm:text-4xl font-serif font-bold text-slate-900 dark:text-white mt-2">
                     Restoranınız İçin Ücretsiz Taslak İsteyin
                 </h2>
-                <p class="text-slate-300 mt-3 text-sm max-w-xl mx-auto">
+                <p class="text-slate-600 dark:text-slate-300 mt-3 text-sm max-w-xl mx-auto">
                     İşletmenizin adını ve menünüzü gönderin, ekibimiz size özel ücretsiz bir önizleme hazırlasın.
                 </p>
+
+                <!-- WHATSAPP İLE MENÜ GÖNDERİM BİLGİ BANDI -->
+                <div class="mt-6 p-4 rounded-xl bg-white dark:bg-night-950 border border-emerald-500/30 flex flex-col sm:flex-row items-center justify-between gap-3 text-left shadow-sm">
+                    <div class="flex items-center gap-3">
+                        <div class="w-10 h-10 rounded-lg bg-emerald-500/20 text-emerald-600 dark:text-emerald-400 flex items-center justify-center shrink-0">
+                            <i data-lucide="image" class="w-5 h-5"></i>
+                        </div>
+                        <div>
+                            <span class="text-xs font-bold text-slate-900 dark:text-white block">Form doldurmak istemiyor musunuz?</span>
+                            <span class="text-[11px] text-slate-500 dark:text-slate-400">Telefonunuzdaki menü fotoğrafını WhatsApp'tan atın, önizlemenizi hazırlayalım.</span>
+                        </div>
+                    </div>
+                    <a href="https://wa.me/905445722203?text=Merhaba,%20men%C3%BC%20foto%C4%9Fraf%C4%B1m%C4%B1z%C4%B1%20ekledik.%20%C3%9Ccretsiz%20taslak%20haz%C4%B1rlayabilir%20misiniz?" target="_blank" rel="noopener noreferrer" class="px-4 py-2 rounded-lg bg-emerald-500 hover:bg-emerald-600 text-white font-bold text-xs flex items-center gap-1.5 shrink-0 transition-colors">
+                        <i data-lucide="send" class="w-3.5 h-3.5"></i>
+                        <span>WhatsApp'tan Menü At</span>
+                    </a>
+                </div>
 
                 <form onsubmit="handleLeadSubmit(event)" class="mt-8 grid grid-cols-1 sm:grid-cols-2 gap-4 text-left">
                     <input type="hidden" name="form_tipi" value="Ucretsiz_Taslak_Talebi">
                     <div>
-                        <label class="block text-xs font-semibold text-slate-300 mb-1">Restoran / Kafe Adı</label>
-                        <input type="text" name="restoran_adi" id="lead-restoran-adi" required placeholder="Örn: Lezzet Bistro & Grill" class="w-full px-4 py-3 rounded-xl bg-night-900 border border-white/10 text-white placeholder-slate-500 focus:outline-none focus:border-gold-400 text-sm">
+                        <label class="block text-xs font-semibold text-slate-700 dark:text-slate-300 mb-1">Restoran / Kafe Adı</label>
+                        <input type="text" name="restoran_adi" id="lead-restoran-adi" required placeholder="Örn: Lezzet Bistro & Grill" class="w-full px-4 py-3 rounded-xl bg-slate-50 dark:bg-night-900 border border-slate-300 dark:border-white/10 text-slate-900 dark:text-white placeholder-slate-400 focus:outline-none focus:border-gold-400 text-sm">
                     </div>
                     <div>
-                        <label class="block text-xs font-semibold text-slate-300 mb-1">Yetkili Adı Soyadı</label>
-                        <input type="text" name="yetkili_adi" id="lead-yetkili-adi" required placeholder="Adınız Soyadınız" class="w-full px-4 py-3 rounded-xl bg-night-900 border border-white/10 text-white placeholder-slate-500 focus:outline-none focus:border-gold-400 text-sm">
+                        <label class="block text-xs font-semibold text-slate-700 dark:text-slate-300 mb-1">Yetkili Adı Soyadı</label>
+                        <input type="text" name="yetkili_adi" id="lead-yetkili-adi" required placeholder="Adınız Soyadınız" class="w-full px-4 py-3 rounded-xl bg-slate-50 dark:bg-night-900 border border-slate-300 dark:border-white/10 text-slate-900 dark:text-white placeholder-slate-400 focus:outline-none focus:border-gold-400 text-sm">
                     </div>
                     <div>
-                        <label class="block text-xs font-semibold text-slate-300 mb-1">WhatsApp Telefon Numarası</label>
-                        <input type="tel" name="telefon" id="lead-telefon" required placeholder="05XX XXX XX XX" class="w-full px-4 py-3 rounded-xl bg-night-900 border border-white/10 text-white placeholder-slate-500 focus:outline-none focus:border-gold-400 text-sm">
+                        <label class="block text-xs font-semibold text-slate-700 dark:text-slate-300 mb-1">WhatsApp Telefon Numarası</label>
+                        <input type="tel" name="telefon" id="lead-telefon" required placeholder="05XX XXX XX XX" class="w-full px-4 py-3 rounded-xl bg-slate-50 dark:bg-night-900 border border-slate-300 dark:border-white/10 text-slate-900 dark:text-white placeholder-slate-400 focus:outline-none focus:border-gold-400 text-sm">
                     </div>
                     <div>
-                        <label class="block text-xs font-semibold text-slate-300 mb-1">İlgilendiğiniz Şablon Seviyesi</label>
-                        <select name="secilen_sablon" id="lead-secilen-sablon" class="w-full px-4 py-3 rounded-xl bg-night-900 border border-white/10 text-white focus:outline-none focus:border-gold-400 text-sm">
+                        <label class="block text-xs font-semibold text-slate-700 dark:text-slate-300 mb-1">İlgilendiğiniz Şablon Seviyesi</label>
+                        <select name="secilen_sablon" id="lead-secilen-sablon" class="w-full px-4 py-3 rounded-xl bg-slate-50 dark:bg-night-900 border border-slate-300 dark:border-white/10 text-slate-900 dark:text-white focus:outline-none focus:border-gold-400 text-sm">
                             <option value="1. Seviye: Hızlı Butik Vitrin (3.490 ₺)">1. Seviye: Hızlı Butik Vitrin (3.490 ₺)</option>
                             <option value="2. Seviye: Klasik Bistro & Menü (5.990 ₺)" selected>2. Seviye: Klasik Bistro & Menü (5.990 ₺)</option>
                             <option value="3. Seviye: Ultra Lüks Gurme (9.990 ₺)">3. Seviye: Ultra Lüks Gurme (9.990 ₺)</option>
@@ -921,46 +1004,46 @@
     </section>
 
     <!-- FOOTER -->
-    <footer class="bg-night-950 border-t border-white/10 pt-16 pb-12 text-slate-400 text-sm relative">
+    <footer class="bg-white dark:bg-night-950 border-t border-slate-200 dark:border-white/10 pt-16 pb-12 text-slate-500 dark:text-slate-400 text-sm relative transition-colors duration-300">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-10 pb-12 border-b border-white/10 items-center text-center md:text-left">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-10 pb-12 border-b border-slate-200 dark:border-white/10 items-center text-center md:text-left">
                 <div>
                     <div class="flex items-center justify-center md:justify-start gap-3 mb-2">
                         <div class="w-9 h-9 rounded-xl bg-gold-400 flex items-center justify-center text-night-950 font-bold shadow-md shadow-gold-400/20">
                             <i data-lucide="utensils" class="w-5 h-5"></i>
                         </div>
-                        <span class="font-serif text-2xl font-bold text-white tracking-tight">Restoran<span class="text-gold-400">web</span></span>
+                        <span class="font-serif text-2xl font-bold text-slate-900 dark:text-white tracking-tight">Restoran<span class="text-gold-500 dark:text-gold-400">web</span></span>
                     </div>
-                    <p class="text-xs text-slate-400 leading-relaxed max-w-sm mx-auto md:mx-0">
+                    <p class="text-xs text-slate-500 dark:text-slate-400 leading-relaxed max-w-sm mx-auto md:mx-0">
                         Restoran ve kafeler için %0 komisyonlu, şık ve prestijli dijital vitrinler kuruyoruz. Masalarınızı doğrudan müşterilerle doldurun.
                     </p>
                 </div>
 
                 <div class="flex flex-col items-center justify-center">
-                    <span class="text-[11px] uppercase tracking-widest text-gold-400 font-bold mb-2">Müşteri Destek & Bakım Hattı</span>
-                    <a href="tel:+905445722203" class="inline-flex items-center gap-3 px-6 py-3.5 rounded-2xl bg-night-900 border border-gold-400/40 text-white hover:border-gold-400 hover:bg-gold-400/10 transition-all duration-300 shadow-xl group">
-                        <div class="w-9 h-9 rounded-xl bg-gold-400/20 flex items-center justify-center text-gold-400 group-hover:scale-110 transition-transform">
+                    <span class="text-[11px] uppercase tracking-widest text-gold-600 dark:text-gold-400 font-bold mb-2">Müşteri Destek & Bakım Hattı</span>
+                    <a href="tel:+905445722203" class="inline-flex items-center gap-3 px-6 py-3.5 rounded-2xl bg-slate-100 dark:bg-night-900 border border-gold-400/40 text-slate-900 dark:text-white hover:border-gold-400 transition-all duration-300 shadow-xl group">
+                        <div class="w-9 h-9 rounded-xl bg-gold-400/20 flex items-center justify-center text-gold-500 dark:text-gold-400 group-hover:scale-110 transition-transform">
                             <i data-lucide="phone-call" class="w-4 h-4"></i>
                         </div>
-                        <span class="text-xl sm:text-2xl font-mono font-extrabold text-gold-300 tracking-wider">0544 572 22 03</span>
+                        <span class="text-xl sm:text-2xl font-mono font-extrabold text-gold-600 dark:text-gold-300 tracking-wider">0544 572 22 03</span>
                     </a>
                     <span class="text-[10px] text-slate-500 mt-2">Haftanın 7 günü 09:00 - 23:00 Canlı Destek & Güncelleme</span>
                 </div>
 
                 <div class="flex flex-col md:items-end items-center justify-center space-y-2 text-xs">
-                    <div class="flex items-center gap-4 text-slate-300">
-                        <button onclick="openLegalModal('kvkk')" class="hover:text-gold-400 transition-colors">KVKK Aydınlatma Metni</button>
+                    <div class="flex items-center gap-4 text-slate-600 dark:text-slate-300">
+                        <button onclick="openLegalModal('kvkk')" class="hover:text-gold-500 transition-colors">KVKK Aydınlatma Metni</button>
                         <span>•</span>
-                        <button onclick="openLegalModal('sozlesme')" class="hover:text-gold-400 transition-colors">Hizmet Şartları</button>
+                        <button onclick="openLegalModal('sozlesme')" class="hover:text-gold-500 transition-colors">Hizmet Şartları</button>
                     </div>
                     <p class="text-[11px] text-slate-500 pt-2">© 2026 Restoranweb. Tüm hakları saklıdır.</p>
                 </div>
             </div>
 
             <div class="pt-8 flex flex-wrap items-center justify-center gap-8 text-[11px] text-slate-500 font-medium">
-                <span class="flex items-center gap-1.5"><i data-lucide="shield-check" class="w-3.5 h-3.5 text-gold-400"></i> %100 Güvenli FAST / Havale</span>
-                <span class="flex items-center gap-1.5"><i data-lucide="clock" class="w-3.5 h-3.5 text-gold-400"></i> 48 Saatte Hızlı Teslimat</span>
-                <span class="flex items-center gap-1.5"><i data-lucide="wrench" class="w-3.5 h-3.5 text-gold-400"></i> Yıllık Ücretsiz Bakım & Güncelleme</span>
+                <span class="flex items-center gap-1.5"><i data-lucide="shield-check" class="w-3.5 h-3.5 text-gold-500 dark:text-gold-400"></i> %100 Güvenli FAST / Havale</span>
+                <span class="flex items-center gap-1.5"><i data-lucide="clock" class="w-3.5 h-3.5 text-gold-500 dark:text-gold-400"></i> 48 Saatte Hızlı Teslimat</span>
+                <span class="flex items-center gap-1.5"><i data-lucide="wrench" class="w-3.5 h-3.5 text-gold-500 dark:text-gold-400"></i> Yıllık Ücretsiz Bakım & Güncelleme</span>
             </div>
         </div>
     </footer>
@@ -978,17 +1061,17 @@
         </div>
     </a>
 
-    <!-- ================= YENİ: DİNAMİK SOSYAL KANIT BİLDİRİM KARTI (SOL ALT) ================= -->
-    <div id="social-proof-toast" class="fixed bottom-6 left-6 z-40 bg-night-900/95 border border-gold-400/30 rounded-2xl p-3.5 shadow-2xl backdrop-blur-md flex items-center gap-3.5 transform -translate-x-[150%] opacity-0 transition-all duration-700 max-w-sm pointer-events-none">
-        <div class="w-10 h-10 rounded-xl bg-gold-400/10 border border-gold-400/30 flex items-center justify-center text-gold-400 shrink-0">
+    <!-- DİNAMİK SOSYAL KANIT BİLDİRİM KARTI (SOL ALT) -->
+    <div id="social-proof-toast" class="fixed bottom-6 left-6 z-40 bg-white/95 dark:bg-night-900/95 border border-gold-400/30 rounded-2xl p-3.5 shadow-2xl backdrop-blur-md flex items-center gap-3.5 transform -translate-x-[150%] opacity-0 transition-all duration-700 max-w-sm pointer-events-none">
+        <div class="w-10 h-10 rounded-xl bg-gold-400/10 border border-gold-400/30 flex items-center justify-center text-gold-500 dark:text-gold-400 shrink-0">
             <i id="sp-icon" data-lucide="bell" class="w-5 h-5"></i>
         </div>
         <div class="flex-1 min-w-0 pr-2">
             <div class="flex items-center justify-between gap-2">
-                <span id="sp-title" class="text-xs font-bold text-white truncate">Yeni Kurulum Talebi</span>
-                <span id="sp-time" class="text-[10px] text-slate-500 font-mono shrink-0">9 dk önce</span>
+                <span id="sp-title" class="text-xs font-bold text-slate-900 dark:text-white truncate">Yeni Kurulum Talebi</span>
+                <span id="sp-time" class="text-[10px] text-slate-400 font-mono shrink-0">9 dk önce</span>
             </div>
-            <p id="sp-desc" class="text-[11px] text-slate-300 mt-0.5 truncate">Kadıköy'den bir işletme Klasik Bistro seçti.</p>
+            <p id="sp-desc" class="text-[11px] text-slate-600 dark:text-slate-300 mt-0.5 truncate">Kadıköy'den bir işletme Klasik Bistro seçti.</p>
         </div>
     </div>
 
@@ -1000,46 +1083,46 @@
             </button>
 
             <div class="flex items-center gap-3 mb-6">
-                <div class="w-12 h-12 rounded-xl bg-gold-400/10 border border-gold-400/30 flex items-center justify-center text-gold-400">
+                <div class="w-12 h-12 rounded-xl bg-gold-400/10 border border-gold-400/30 flex items-center justify-center text-gold-500 dark:text-gold-400">
                     <i data-lucide="banknote" class="w-6 h-6"></i>
                 </div>
                 <div>
-                    <h3 class="text-xl font-bold text-white font-serif">FAST / Havale Sipariş Ekranı</h3>
-                    <p class="text-xs text-slate-400">Seçilen Paket: <span id="modal-pkg-name" class="text-gold-300 font-semibold">Klasik Bistro & Menü</span></p>
+                    <h3 class="text-xl font-bold text-slate-900 dark:text-white font-serif">FAST / Havale Sipariş Ekranı</h3>
+                    <p class="text-xs text-slate-500 dark:text-slate-400">Seçilen Paket: <span id="modal-pkg-name" class="text-gold-600 dark:text-gold-300 font-semibold">Klasik Bistro & Menü</span></p>
                 </div>
             </div>
 
-            <div class="bg-night-950 p-4 rounded-xl border border-white/10 mb-6 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3">
+            <div class="bg-slate-100 dark:bg-night-950 p-4 rounded-xl border border-slate-200 dark:border-white/10 mb-6 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3">
                 <div>
-                    <span class="text-xs text-slate-400 block">Ödenecek Tutar</span>
-                    <span id="modal-pkg-price" class="text-2xl font-extrabold text-white">5.990 ₺</span>
+                    <span class="text-xs text-slate-500 dark:text-slate-400 block">Ödenecek Tutar</span>
+                    <span id="modal-pkg-price" class="text-2xl font-extrabold text-slate-900 dark:text-white">5.990 ₺</span>
                 </div>
                 <div class="text-left sm:text-right">
-                    <span class="text-xs text-slate-400 block">Sipariş Takip Kodu</span>
-                    <span id="modal-order-ref" class="text-sm font-mono font-bold text-gold-300">RW-84920</span>
+                    <span class="text-xs text-slate-500 dark:text-slate-400 block">Sipariş Takip Kodu</span>
+                    <span id="modal-order-ref" class="text-sm font-mono font-bold text-gold-600 dark:text-gold-300">RW-84920</span>
                 </div>
             </div>
 
             <!-- BANKA HESAP BİLGİLERİ -->
-            <div class="bg-night-900 border border-gold-400/25 rounded-xl p-4 sm:p-5 mb-6 space-y-3">
-                <div class="flex justify-between items-center text-xs border-b border-white/5 pb-2">
-                    <span class="text-slate-400">Banka:</span>
-                    <span class="text-white font-bold flex items-center gap-1.5">
-                        <i data-lucide="building-2" class="w-3.5 h-3.5 text-gold-400"></i>
+            <div class="bg-white dark:bg-night-900 border border-gold-400/25 rounded-xl p-4 sm:p-5 mb-6 space-y-3">
+                <div class="flex justify-between items-center text-xs border-b border-slate-200 dark:border-white/5 pb-2">
+                    <span class="text-slate-500 dark:text-slate-400">Banka:</span>
+                    <span class="text-slate-900 dark:text-white font-bold flex items-center gap-1.5">
+                        <i data-lucide="building-2" class="w-3.5 h-3.5 text-gold-500 dark:text-gold-400"></i>
                         Vakıflar Bankası (7/24 FAST)
                     </span>
                 </div>
-                <div class="flex justify-between items-center text-xs border-b border-white/5 pb-2">
-                    <span class="text-slate-400">Hesap Sahibi:</span>
-                    <span class="text-white font-semibold">Fatih Yıldız</span>
+                <div class="flex justify-between items-center text-xs border-b border-slate-200 dark:border-white/5 pb-2">
+                    <span class="text-slate-500 dark:text-slate-400">Hesap Sahibi:</span>
+                    <span class="text-slate-900 dark:text-white font-semibold">Fatih Yıldız</span>
                 </div>
                 <div>
                     <div class="flex justify-between items-center text-xs mb-1">
-                        <span class="text-slate-400 font-medium">IBAN Numarası:</span>
-                        <span class="text-[11px] text-gold-400">Tıkla ve Kopyala</span>
+                        <span class="text-slate-500 dark:text-slate-400 font-medium">IBAN Numarası:</span>
+                        <span class="text-[11px] text-gold-600 dark:text-gold-400">Tıkla ve Kopyala</span>
                     </div>
                     <div class="flex items-center gap-2">
-                        <input id="iban-input" type="text" readonly value="TR96 0001 5001 5800 7300 6566 54" class="w-full px-3 py-2.5 rounded-lg bg-night-950 border border-gold-400/40 text-gold-300 font-mono text-xs sm:text-sm font-bold tracking-wider focus:outline-none">
+                        <input id="iban-input" type="text" readonly value="TR96 0001 5001 5800 7300 6566 54" class="w-full px-3 py-2.5 rounded-lg bg-slate-50 dark:bg-night-950 border border-gold-400/40 text-gold-600 dark:text-gold-300 font-mono text-xs sm:text-sm font-bold tracking-wider focus:outline-none">
                         <button onclick="copyIban()" id="copy-btn" class="px-4 py-2.5 rounded-lg bg-gold-400 text-night-950 text-xs font-bold hover:brightness-110 flex items-center gap-1.5 shrink-0 transition-all">
                             <i data-lucide="copy" class="w-3.5 h-3.5"></i>
                             <span>Kopyala</span>
@@ -1048,8 +1131,8 @@
                 </div>
             </div>
 
-            <div class="bg-gold-400/10 border border-gold-400/20 rounded-xl p-3 text-xs text-gold-200 mb-6 flex items-start gap-2.5">
-                <i data-lucide="alert-circle" class="w-4 h-4 text-gold-400 shrink-0 mt-0.5"></i>
+            <div class="bg-gold-400/10 border border-gold-400/20 rounded-xl p-3 text-xs text-gold-800 dark:text-gold-200 mb-6 flex items-start gap-2.5">
+                <i data-lucide="alert-circle" class="w-4 h-4 text-gold-500 dark:text-gold-400 shrink-0 mt-0.5"></i>
                 <p>
                     Lütfen FAST / Havale açıklama kısmına <strong>sipariş takip kodunuzu (<span id="modal-note-ref">RW-84920</span>)</strong> ve restoran adınızı yazmayı unutmayınız.
                 </p>
@@ -1062,20 +1145,20 @@
                 <input type="hidden" name="secilen_paket" id="hidden-pkg-name" value="">
                 <input type="hidden" name="odenecek_tutar" id="hidden-pkg-price" value="">
 
-                <h4 class="text-xs font-bold text-slate-300 uppercase tracking-wider">Ödeme Bildirim Bilgileriniz</h4>
+                <h4 class="text-xs font-bold text-slate-700 dark:text-slate-300 uppercase tracking-wider">Ödeme Bildirim Bilgileriniz</h4>
                 <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
                     <div>
-                        <label class="block text-[11px] text-slate-400 mb-1">Restoran / Kafe Adı</label>
-                        <input type="text" name="restoran_adi" id="pay-restoran-adi" required placeholder="İşletme Adınız" class="w-full px-3 py-2 rounded-lg bg-night-950 border border-white/10 text-white text-xs focus:outline-none focus:border-gold-400">
+                        <label class="block text-[11px] text-slate-500 dark:text-slate-400 mb-1">Restoran / Kafe Adı</label>
+                        <input type="text" name="restoran_adi" id="pay-restoran-adi" required placeholder="İşletme Adınız" class="w-full px-3 py-2 rounded-lg bg-slate-50 dark:bg-night-950 border border-slate-300 dark:border-white/10 text-slate-900 dark:text-white text-xs focus:outline-none focus:border-gold-400">
                     </div>
                     <div>
-                        <label class="block text-[11px] text-slate-400 mb-1">Yetkili Adı Soyadı</label>
-                        <input type="text" name="yetkili_adi" id="pay-yetkili-adi" required placeholder="Adınız Soyadınız" class="w-full px-3 py-2 rounded-lg bg-night-950 border border-white/10 text-white text-xs focus:outline-none focus:border-gold-400">
+                        <label class="block text-[11px] text-slate-500 dark:text-slate-400 mb-1">Yetkili Adı Soyadı</label>
+                        <input type="text" name="yetkili_adi" id="pay-yetkili-adi" required placeholder="Adınız Soyadınız" class="w-full px-3 py-2 rounded-lg bg-slate-50 dark:bg-night-950 border border-slate-300 dark:border-white/10 text-slate-900 dark:text-white text-xs focus:outline-none focus:border-gold-400">
                     </div>
                 </div>
                 <div>
-                    <label class="block text-[11px] text-slate-400 mb-1">WhatsApp Telefon Numaranız (Teyit İçin)</label>
-                    <input type="tel" name="telefon" id="pay-telefon" required placeholder="05XX XXX XX XX" class="w-full px-3 py-2 rounded-lg bg-night-950 border border-white/10 text-white text-xs focus:outline-none focus:border-gold-400">
+                    <label class="block text-[11px] text-slate-500 dark:text-slate-400 mb-1">WhatsApp Telefon Numaranız (Teyit İçin)</label>
+                    <input type="tel" name="telefon" id="pay-telefon" required placeholder="05XX XXX XX XX" class="w-full px-3 py-2 rounded-lg bg-slate-50 dark:bg-night-950 border border-slate-300 dark:border-white/10 text-slate-900 dark:text-white text-xs focus:outline-none focus:border-gold-400">
                 </div>
                 <button type="submit" id="payment-submit-btn" class="w-full py-3.5 rounded-xl text-sm font-bold text-night-950 bg-gradient-to-r from-gold-300 via-gold-400 to-gold-500 hover:brightness-110 shadow-lg shadow-gold-400/20 transition-all flex items-center justify-center gap-2">
                     <i data-lucide="check-circle-2" class="w-4 h-4"></i>
@@ -1092,51 +1175,51 @@
                 <i data-lucide="x" class="w-5 h-5"></i>
             </button>
 
-            <div id="auth-intent-banner" class="mb-5 p-3 rounded-xl bg-gold-400/10 border border-gold-400/30 text-xs text-gold-300 flex items-center gap-2.5 hidden">
-                <i data-lucide="shield-alert" class="w-4 h-4 text-gold-400 shrink-0"></i>
+            <div id="auth-intent-banner" class="mb-5 p-3 rounded-xl bg-gold-400/10 border border-gold-400/30 text-xs text-gold-700 dark:text-gold-300 flex items-center gap-2.5 hidden">
+                <i data-lucide="shield-alert" class="w-4 h-4 text-gold-500 dark:text-gold-400 shrink-0"></i>
                 <span id="auth-intent-text">Devam etmek için lütfen giriş yapın veya ücretsiz hesap oluşturun.</span>
             </div>
 
-            <div class="flex border-b border-white/10 mb-6">
-                <button onclick="switchAuthTab('login')" id="tab-auth-login" class="flex-1 pb-3 text-sm font-bold text-gold-400 border-b-2 border-gold-400 transition-all">Giriş Yap</button>
-                <button onclick="switchAuthTab('register')" id="tab-auth-register" class="flex-1 pb-3 text-sm font-semibold text-slate-400 border-b-2 border-transparent hover:text-white transition-all">Kayıt Ol</button>
+            <div class="flex border-b border-slate-200 dark:border-white/10 mb-6">
+                <button onclick="switchAuthTab('login')" id="tab-auth-login" class="flex-1 pb-3 text-sm font-bold text-gold-600 dark:text-gold-400 border-b-2 border-gold-400 transition-all">Giriş Yap</button>
+                <button onclick="switchAuthTab('register')" id="tab-auth-register" class="flex-1 pb-3 text-sm font-semibold text-slate-500 dark:text-slate-400 border-b-2 border-transparent hover:text-slate-900 dark:hover:text-white transition-all">Kayıt Ol</button>
             </div>
 
             <form id="form-auth-login" onsubmit="handleUserLogin(event)" class="space-y-4 text-left">
                 <div>
-                    <label class="block text-xs text-slate-400 mb-1">E-Posta Adresi</label>
-                    <input type="email" id="login-email" required placeholder="restoran@mail.com" class="w-full px-3 py-2.5 rounded-xl bg-night-950 border border-white/10 text-white text-xs focus:outline-none focus:border-gold-400">
+                    <label class="block text-xs text-slate-500 dark:text-slate-400 mb-1">E-Posta Adresi</label>
+                    <input type="email" id="login-email" required placeholder="restoran@mail.com" class="w-full px-3 py-2.5 rounded-xl bg-slate-50 dark:bg-night-950 border border-slate-300 dark:border-white/10 text-slate-900 dark:text-white text-xs focus:outline-none focus:border-gold-400">
                 </div>
                 <div>
-                    <label class="block text-xs text-slate-400 mb-1">Şifre</label>
-                    <input type="password" id="login-password" required placeholder="••••••••" class="w-full px-3 py-2.5 rounded-xl bg-night-950 border border-white/10 text-white text-xs focus:outline-none focus:border-gold-400">
+                    <label class="block text-xs text-slate-500 dark:text-slate-400 mb-1">Şifre</label>
+                    <input type="password" id="login-password" required placeholder="••••••••" class="w-full px-3 py-2.5 rounded-xl bg-slate-50 dark:bg-night-950 border border-slate-300 dark:border-white/10 text-slate-900 dark:text-white text-xs focus:outline-none focus:border-gold-400">
                 </div>
                 <button type="submit" class="w-full py-3 rounded-xl text-xs font-bold text-night-950 bg-gradient-to-r from-gold-300 via-gold-400 to-gold-500 hover:brightness-110 shadow-lg shadow-gold-400/20 transition-all">
                     Giriş Yap ve Devam Et
                 </button>
-                <p class="text-[11px] text-center text-slate-400">Hesabınız yok mu? <a href="javascript:void(0)" onclick="switchAuthTab('register')" class="text-gold-400 hover:underline">Hemen Kayıt Olun</a></p>
+                <p class="text-[11px] text-center text-slate-500 dark:text-slate-400">Hesabınız yok mu? <a href="javascript:void(0)" onclick="switchAuthTab('register')" class="text-gold-600 dark:text-gold-400 hover:underline">Hemen Kayıt Olun</a></p>
             </form>
 
             <form id="form-auth-register" onsubmit="handleUserRegister(event)" class="space-y-3 text-left hidden">
                 <div>
-                    <label class="block text-xs text-slate-400 mb-1">Restoran / İşletme Adı</label>
-                    <input type="text" id="reg-restaurant" required placeholder="Örn: Lezzet Bistro" class="w-full px-3 py-2 rounded-xl bg-night-950 border border-white/10 text-white text-xs focus:outline-none focus:border-gold-400">
+                    <label class="block text-xs text-slate-500 dark:text-slate-400 mb-1">Restoran / İşletme Adı</label>
+                    <input type="text" id="reg-restaurant" required placeholder="Örn: Lezzet Bistro" class="w-full px-3 py-2 rounded-xl bg-slate-50 dark:bg-night-950 border border-slate-300 dark:border-white/10 text-slate-900 dark:text-white text-xs focus:outline-none focus:border-gold-400">
                 </div>
                 <div>
-                    <label class="block text-xs text-slate-400 mb-1">Yetkili Adı Soyadı</label>
-                    <input type="text" id="reg-owner" required placeholder="Adınız Soyadınız" class="w-full px-3 py-2 rounded-xl bg-night-950 border border-white/10 text-white text-xs focus:outline-none focus:border-gold-400">
+                    <label class="block text-xs text-slate-500 dark:text-slate-400 mb-1">Yetkili Adı Soyadı</label>
+                    <input type="text" id="reg-owner" required placeholder="Adınız Soyadınız" class="w-full px-3 py-2 rounded-xl bg-slate-50 dark:bg-night-950 border border-slate-300 dark:border-white/10 text-slate-900 dark:text-white text-xs focus:outline-none focus:border-gold-400">
                 </div>
                 <div>
-                    <label class="block text-xs text-slate-400 mb-1">WhatsApp Telefon Numarası</label>
-                    <input type="tel" id="reg-phone" required placeholder="05XX XXX XX XX" class="w-full px-3 py-2 rounded-xl bg-night-950 border border-white/10 text-white text-xs focus:outline-none focus:border-gold-400">
+                    <label class="block text-xs text-slate-500 dark:text-slate-400 mb-1">WhatsApp Telefon Numarası</label>
+                    <input type="tel" id="reg-phone" required placeholder="05XX XXX XX XX" class="w-full px-3 py-2 rounded-xl bg-slate-50 dark:bg-night-950 border border-slate-300 dark:border-white/10 text-slate-900 dark:text-white text-xs focus:outline-none focus:border-gold-400">
                 </div>
                 <div>
-                    <label class="block text-xs text-slate-400 mb-1">E-Posta</label>
-                    <input type="email" id="reg-email" required placeholder="isletme@mail.com" class="w-full px-3 py-2 rounded-xl bg-night-950 border border-white/10 text-white text-xs focus:outline-none focus:border-gold-400">
+                    <label class="block text-xs text-slate-500 dark:text-slate-400 mb-1">E-Posta</label>
+                    <input type="email" id="reg-email" required placeholder="isletme@mail.com" class="w-full px-3 py-2 rounded-xl bg-slate-50 dark:bg-night-950 border border-slate-300 dark:border-white/10 text-slate-900 dark:text-white text-xs focus:outline-none focus:border-gold-400">
                 </div>
                 <div>
-                    <label class="block text-xs text-slate-400 mb-1">Şifre Oluşturun</label>
-                    <input type="password" id="reg-password" minlength="6" required placeholder="En az 6 karakter" class="w-full px-3 py-2 rounded-xl bg-night-950 border border-white/10 text-white text-xs focus:outline-none focus:border-gold-400">
+                    <label class="block text-xs text-slate-500 dark:text-slate-400 mb-1">Şifre Oluşturun</label>
+                    <input type="password" id="reg-password" minlength="6" required placeholder="En az 6 karakter" class="w-full px-3 py-2 rounded-xl bg-slate-50 dark:bg-night-950 border border-slate-300 dark:border-white/10 text-slate-900 dark:text-white text-xs focus:outline-none focus:border-gold-400">
                 </div>
                 <button type="submit" class="w-full py-3 rounded-xl text-xs font-bold text-night-950 bg-gradient-to-r from-gold-300 via-gold-400 to-gold-500 hover:brightness-110 shadow-lg shadow-gold-400/20 transition-all mt-2">
                     Hesap Oluştur ve Devam Et
@@ -1151,8 +1234,8 @@
             <button onclick="closeLegalModal()" class="absolute top-5 right-5 text-slate-400 hover:text-white">
                 <i data-lucide="x" class="w-5 h-5"></i>
             </button>
-            <h3 id="legal-modal-title" class="text-xl font-bold text-white font-serif mb-4">KVKK Aydınlatma Metni</h3>
-            <div id="legal-modal-content" class="text-xs text-slate-300 space-y-3 leading-relaxed"></div>
+            <h3 id="legal-modal-title" class="text-xl font-bold text-slate-900 dark:text-white font-serif mb-4">KVKK Aydınlatma Metni</h3>
+            <div id="legal-modal-content" class="text-xs text-slate-600 dark:text-slate-300 space-y-3 leading-relaxed"></div>
         </div>
     </div>
 
@@ -1165,6 +1248,48 @@
     <!-- JAVASCRIPT MOTORU -->
     <script>
         lucide.createIcons();
+
+        // ==========================================
+        // KOYU / AÇIK TEMA MOTORU (DARK & LIGHT MODE)
+        // ==========================================
+        function initTheme() {
+            const savedTheme = localStorage.getItem('rw_theme') || 'dark';
+            if (savedTheme === 'light') {
+                document.documentElement.classList.remove('dark');
+                updateThemeIcon('sun');
+            } else {
+                document.documentElement.classList.add('dark');
+                updateThemeIcon('moon');
+            }
+        }
+
+        function toggleTheme() {
+            const isDark = document.documentElement.classList.contains('dark');
+            if (isDark) {
+                document.documentElement.classList.remove('dark');
+                localStorage.setItem('rw_theme', 'light');
+                updateThemeIcon('sun');
+                showToast("Açık renk temaya geçildi.");
+            } else {
+                document.documentElement.classList.add('dark');
+                localStorage.setItem('rw_theme', 'dark');
+                updateThemeIcon('moon');
+                showToast("Koyu temaya geçildi.");
+            }
+        }
+
+        function updateThemeIcon(mode) {
+            const icon = document.getElementById('theme-icon');
+            if (!icon) return;
+            if (mode === 'sun') {
+                icon.setAttribute('data-lucide', 'moon');
+            } else {
+                icon.setAttribute('data-lucide', 'sun');
+            }
+            lucide.createIcons();
+        }
+
+        initTheme();
 
         const FORMSPREE_ENDPOINT = "https://formspree.io/f/xnppjawa";
 
@@ -1244,11 +1369,11 @@
             if (user) {
                 navArea.innerHTML = `
                     <div class="flex items-center gap-2">
-                        <span class="text-xs text-gold-300 font-semibold bg-night-900 border border-gold-400/30 px-3 py-1.5 rounded-xl flex items-center gap-1.5">
-                            <i data-lucide="store" class="w-3.5 h-3.5 text-gold-400"></i>
+                        <span class="text-xs text-gold-700 dark:text-gold-300 font-semibold bg-slate-100 dark:bg-night-900 border border-gold-400/30 px-3 py-1.5 rounded-xl flex items-center gap-1.5">
+                            <i data-lucide="store" class="w-3.5 h-3.5 text-gold-500 dark:text-gold-400"></i>
                             <span class="max-w-[120px] truncate">${user.restaurant}</span>
                         </span>
-                        <button onclick="handleUserLogout()" class="p-1.5 rounded-xl bg-night-900 border border-white/10 text-slate-400 hover:text-rose-400" title="Çıkış Yap">
+                        <button onclick="handleUserLogout()" class="p-1.5 rounded-xl bg-slate-100 dark:bg-night-900 border border-slate-200 dark:border-white/10 text-slate-500 hover:text-rose-500" title="Çıkış Yap">
                             <i data-lucide="log-out" class="w-3.5 h-3.5"></i>
                         </button>
                     </div>
@@ -1262,8 +1387,8 @@
                 if (document.getElementById('lead-telefon')) document.getElementById('lead-telefon').value = user.phone;
             } else {
                 navArea.innerHTML = `
-                    <button onclick="openAuthModal('login')" class="px-3.5 py-2 rounded-xl text-xs font-semibold text-slate-300 hover:text-white bg-night-900 border border-white/10 hover:border-gold-400/40 flex items-center gap-1.5 transition-all">
-                        <i data-lucide="user" class="w-3.5 h-3.5 text-gold-400"></i>
+                    <button onclick="openAuthModal('login')" class="px-3.5 py-2 rounded-xl text-xs font-semibold text-slate-700 dark:text-slate-300 hover:text-slate-900 dark:hover:text-white bg-slate-100 dark:bg-night-900 border border-slate-200 dark:border-white/10 hover:border-gold-400/40 flex items-center gap-1.5 transition-all">
+                        <i data-lucide="user" class="w-3.5 h-3.5 text-gold-500 dark:text-gold-400"></i>
                         <span>Giriş Yap / Kayıt</span>
                     </button>
                 `;
@@ -1298,13 +1423,13 @@
             const formReg = document.getElementById('form-auth-register');
 
             if (tab === 'login') {
-                tabLogin.className = "flex-1 pb-3 text-sm font-bold text-gold-400 border-b-2 border-gold-400 transition-all";
-                tabReg.className = "flex-1 pb-3 text-sm font-semibold text-slate-400 border-b-2 border-transparent hover:text-white transition-all";
+                tabLogin.className = "flex-1 pb-3 text-sm font-bold text-gold-600 dark:text-gold-400 border-b-2 border-gold-400 transition-all";
+                tabReg.className = "flex-1 pb-3 text-sm font-semibold text-slate-500 dark:text-slate-400 border-b-2 border-transparent hover:text-slate-900 dark:hover:text-white transition-all";
                 formLogin.classList.remove('hidden');
                 formReg.classList.add('hidden');
             } else {
-                tabReg.className = "flex-1 pb-3 text-sm font-bold text-gold-400 border-b-2 border-gold-400 transition-all";
-                tabLogin.className = "flex-1 pb-3 text-sm font-semibold text-slate-400 border-b-2 border-transparent hover:text-white transition-all";
+                tabReg.className = "flex-1 pb-3 text-sm font-bold text-gold-600 dark:text-gold-400 border-b-2 border-gold-400 transition-all";
+                tabLogin.className = "flex-1 pb-3 text-sm font-semibold text-slate-500 dark:text-slate-400 border-b-2 border-transparent hover:text-slate-900 dark:hover:text-white transition-all";
                 formReg.classList.remove('hidden');
                 formLogin.classList.add('hidden');
             }
@@ -1401,11 +1526,11 @@
             if (view === 'mobile') {
                 frame.classList.add('is-mobile-frame');
                 btnMob.className = "px-4 py-2 rounded-xl text-xs font-bold flex items-center gap-2 bg-gold-400 text-night-950 transition-all";
-                btnDesk.className = "px-4 py-2 rounded-xl text-xs font-semibold flex items-center gap-2 bg-night-900 border border-white/10 text-slate-300 hover:text-white transition-all";
+                btnDesk.className = "px-4 py-2 rounded-xl text-xs font-semibold flex items-center gap-2 bg-white dark:bg-night-900 border border-slate-300 dark:border-white/10 text-slate-700 dark:text-slate-300 transition-all";
             } else {
                 frame.classList.remove('is-mobile-frame');
                 btnDesk.className = "px-4 py-2 rounded-xl text-xs font-bold flex items-center gap-2 bg-gold-400 text-night-950 transition-all";
-                btnMob.className = "px-4 py-2 rounded-xl text-xs font-semibold flex items-center gap-2 bg-night-900 border border-white/10 text-slate-300 hover:text-white transition-all";
+                btnMob.className = "px-4 py-2 rounded-xl text-xs font-semibold flex items-center gap-2 bg-white dark:bg-night-900 border border-slate-300 dark:border-white/10 text-slate-700 dark:text-slate-300 transition-all";
             }
         }
 
@@ -1415,12 +1540,12 @@
                 badge: "1. Seviye Minimalist",
                 url: "https://butikkahve.restoranweb.com",
                 html: `
-                    <div class="max-w-2xl mx-auto bg-night-950 rounded-2xl p-4 sm:p-8 border border-white/10">
-                        <div class="text-center pb-5 border-b border-white/10">
-                            <span class="text-[11px] uppercase tracking-widest text-gold-400 font-semibold block">Artisan Kahve & Fırın</span>
-                            <h3 class="sim-title text-xl sm:text-3xl font-serif font-bold text-white mt-1">Roast & Bread Co.</h3>
-                            <p class="text-xs text-slate-400 mt-1 flex items-center justify-center gap-1.5 flex-wrap">
-                                <i data-lucide="map-pin" class="w-3.5 h-3.5 text-gold-400 shrink-0"></i>
+                    <div class="max-w-2xl mx-auto bg-slate-50 dark:bg-night-950 rounded-2xl p-4 sm:p-8 border border-slate-200 dark:border-white/10">
+                        <div class="text-center pb-5 border-b border-slate-200 dark:border-white/10">
+                            <span class="text-[11px] uppercase tracking-widest text-gold-600 dark:text-gold-400 font-semibold block">Artisan Kahve & Fırın</span>
+                            <h3 class="sim-title text-xl sm:text-3xl font-serif font-bold text-slate-900 dark:text-white mt-1">Roast & Bread Co.</h3>
+                            <p class="text-xs text-slate-500 dark:text-slate-400 mt-1 flex items-center justify-center gap-1.5 flex-wrap">
+                                <i data-lucide="map-pin" class="w-3.5 h-3.5 text-gold-500 dark:text-gold-400 shrink-0"></i>
                                 <span>Moda Caddesi No:42, Kadıköy / İstanbul</span>
                             </p>
                         </div>
@@ -1429,39 +1554,39 @@
                                 <i data-lucide="phone" class="w-4 h-4"></i>
                                 <span>Doğrudan Ara</span>
                             </a>
-                            <a href="https://wa.me/905445722203?text=Merhaba,%20konum%20ve%20men%C3%BC%20bilgisi%20almak%20istiyorum." target="_blank" class="flex-1 py-2.5 px-3 rounded-xl bg-emerald-500/20 text-emerald-300 border border-emerald-500/40 font-bold text-xs flex items-center justify-center gap-2 hover:bg-emerald-500/30">
+                            <a href="https://wa.me/905445722203?text=Merhaba,%20konum%20ve%20men%C3%BC%20bilgisi%20almak%20istiyorum." target="_blank" class="flex-1 py-2.5 px-3 rounded-xl bg-emerald-500/20 text-emerald-800 dark:text-emerald-300 border border-emerald-500/40 font-bold text-xs flex items-center justify-center gap-2 hover:bg-emerald-500/30">
                                 <i data-lucide="message-circle" class="w-4 h-4"></i>
                                 <span>WhatsApp Konum</span>
                             </a>
                         </div>
                         <div class="space-y-2.5">
-                            <h4 class="text-xs font-bold text-slate-400 uppercase tracking-wider mb-2">Öne Çıkan İmza Lezzetler</h4>
-                            <div class="p-3 rounded-lg bg-night-900 border border-white/5 flex justify-between items-start gap-2">
+                            <h4 class="text-xs font-bold text-slate-500 dark:text-slate-400 uppercase tracking-wider mb-2">Öne Çıkan İmza Lezzetler</h4>
+                            <div class="p-3 rounded-lg bg-white dark:bg-night-900 border border-slate-200 dark:border-white/5 flex justify-between items-start gap-2 shadow-sm">
                                 <div class="pr-2">
-                                    <span class="text-xs sm:text-sm font-semibold text-white block">Single Origin Flat White</span>
-                                    <span class="text-[10px] sm:text-[11px] text-slate-400 block mt-0.5">Etiyopya Yirgacheffe taze çekirdek</span>
+                                    <span class="text-xs sm:text-sm font-semibold text-slate-900 dark:text-white block">Single Origin Flat White</span>
+                                    <span class="text-[10px] sm:text-[11px] text-slate-500 dark:text-slate-400 block mt-0.5">Etiyopya Yirgacheffe taze çekirdek</span>
                                 </div>
-                                <span class="text-xs sm:text-sm font-bold text-gold-400 shrink-0 font-mono">110 ₺</span>
+                                <span class="text-xs sm:text-sm font-bold text-gold-600 dark:text-gold-400 shrink-0 font-mono">110 ₺</span>
                             </div>
-                            <div class="p-3 rounded-lg bg-night-900 border border-white/5 flex justify-between items-start gap-2">
+                            <div class="p-3 rounded-lg bg-white dark:bg-night-900 border border-slate-200 dark:border-white/5 flex justify-between items-start gap-2 shadow-sm">
                                 <div class="pr-2">
-                                    <span class="text-xs sm:text-sm font-semibold text-white block">Tereyağlı Kruvasan</span>
-                                    <span class="text-[10px] sm:text-[11px] text-slate-400 block mt-0.5">Günlük fırından taze Fransız reçetesi</span>
+                                    <span class="text-xs sm:text-sm font-semibold text-slate-900 dark:text-white block">Tereyağlı Kruvasan</span>
+                                    <span class="text-[10px] sm:text-[11px] text-slate-500 dark:text-slate-400 block mt-0.5">Günlük fırından taze Fransız reçetesi</span>
                                 </div>
-                                <span class="text-xs sm:text-sm font-bold text-gold-400 shrink-0 font-mono">130 ₺</span>
+                                <span class="text-xs sm:text-sm font-bold text-gold-600 dark:text-gold-400 shrink-0 font-mono">130 ₺</span>
                             </div>
-                            <div class="p-3 rounded-lg bg-night-900 border border-white/5 flex justify-between items-start gap-2">
+                            <div class="p-3 rounded-lg bg-white dark:bg-night-900 border border-slate-200 dark:border-white/5 flex justify-between items-start gap-2 shadow-sm">
                                 <div class="pr-2">
-                                    <span class="text-xs sm:text-sm font-semibold text-white block">San Sebastian Cheesecake</span>
-                                    <span class="text-[10px] sm:text-[11px] text-slate-400 block mt-0.5">Akışkan Belçika çikolatası sosu</span>
+                                    <span class="text-xs sm:text-sm font-semibold text-slate-900 dark:text-white block">San Sebastian Cheesecake</span>
+                                    <span class="text-[10px] sm:text-[11px] text-slate-500 dark:text-slate-400 block mt-0.5">Akışkan Belçika çikolatası sosu</span>
                                 </div>
-                                <span class="text-xs sm:text-sm font-bold text-gold-400 shrink-0 font-mono">190 ₺</span>
+                                <span class="text-xs sm:text-sm font-bold text-gold-600 dark:text-gold-400 shrink-0 font-mono">190 ₺</span>
                             </div>
                         </div>
-                        <div class="mt-5 pt-3 border-t border-white/10 text-center text-[11px] text-slate-400 flex items-center justify-center gap-3">
+                        <div class="mt-5 pt-3 border-t border-slate-200 dark:border-white/10 text-center text-[11px] text-slate-500 dark:text-slate-400 flex items-center justify-center gap-3">
                             <span>Hergün: 08:30 - 23:00</span>
                             <span>•</span>
-                            <span class="text-emerald-400 font-medium">Şu An Açık</span>
+                            <span class="text-emerald-600 dark:text-emerald-400 font-medium">Şu An Açık</span>
                         </div>
                     </div>
                 `
@@ -1471,61 +1596,61 @@
                 badge: "2. Seviye Kategori Menülü",
                 url: "https://bistrolezzet.restoranweb.com",
                 html: `
-                    <div class="max-w-4xl mx-auto bg-night-950 rounded-2xl p-4 sm:p-8 border border-white/10">
-                        <div class="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3 pb-5 border-b border-white/10">
+                    <div class="max-w-4xl mx-auto bg-slate-50 dark:bg-night-950 rounded-2xl p-4 sm:p-8 border border-slate-200 dark:border-white/10">
+                        <div class="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3 pb-5 border-b border-slate-200 dark:border-white/10">
                             <div>
-                                <span class="text-[11px] uppercase tracking-widest text-gold-400 font-semibold block">Şehir Bistrosu & Izgara</span>
-                                <h3 class="sim-title text-xl sm:text-3xl font-serif font-bold text-white mt-1">Trattoria di Milano</h3>
-                                <p class="text-xs text-slate-400 mt-0.5">İtalyan Makarnaları, Taş Fırın Pizza ve Şarap Menüsü</p>
+                                <span class="text-[11px] uppercase tracking-widest text-gold-600 dark:text-gold-400 font-semibold block">Şehir Bistrosu & Izgara</span>
+                                <h3 class="sim-title text-xl sm:text-3xl font-serif font-bold text-slate-900 dark:text-white mt-1">Trattoria di Milano</h3>
+                                <p class="text-xs text-slate-500 dark:text-slate-400 mt-0.5">İtalyan Makarnaları, Taş Fırın Pizza ve Şarap Menüsü</p>
                             </div>
                             <div class="flex items-center gap-2 w-full sm:w-auto">
                                 <a href="https://wa.me/905445722203?text=Merhaba,%20masa%20rezervasyonu%20yapt%C4%B1rmak%20istiyorum." target="_blank" class="flex-1 sm:flex-none text-center py-2 px-3.5 rounded-xl bg-gold-400 text-night-950 font-bold text-xs flex items-center justify-center gap-1.5 hover:brightness-110">
                                     <i data-lucide="calendar" class="w-3.5 h-3.5"></i>
                                     <span>Masa Ayırt</span>
                                 </a>
-                                <button onclick="showToast('Google Haritalar Navigasyonu Açıldı')" class="py-2 px-2.5 rounded-xl bg-night-900 border border-white/10 text-slate-300 font-bold text-xs hover:text-white">
+                                <button onclick="showToast('Google Haritalar Navigasyonu Açıldı')" class="py-2 px-2.5 rounded-xl bg-white dark:bg-night-900 border border-slate-300 dark:border-white/10 text-slate-700 dark:text-slate-300 font-bold text-xs hover:text-slate-900 dark:hover:text-white">
                                     <i data-lucide="navigation" class="w-3.5 h-3.5"></i>
                                 </button>
                             </div>
                         </div>
 
-                        <div class="flex items-center gap-1.5 overflow-x-auto py-3 border-b border-white/5 text-[11px] font-semibold no-scrollbar">
-                            <span class="px-2.5 py-1 rounded-lg bg-gold-400/20 text-gold-300 border border-gold-400/30 whitespace-nowrap">Tümü</span>
-                            <span class="px-2.5 py-1 rounded-lg bg-night-900 text-slate-400 whitespace-nowrap">Başlangıç</span>
-                            <span class="px-2.5 py-1 rounded-lg bg-night-900 text-slate-400 whitespace-nowrap">Makarna</span>
-                            <span class="px-2.5 py-1 rounded-lg bg-night-900 text-slate-400 whitespace-nowrap">Pizza</span>
+                        <div class="flex items-center gap-1.5 overflow-x-auto py-3 border-b border-slate-200 dark:border-white/5 text-[11px] font-semibold no-scrollbar">
+                            <span class="px-2.5 py-1 rounded-lg bg-gold-400/20 text-gold-700 dark:text-gold-300 border border-gold-400/30 whitespace-nowrap">Tümü</span>
+                            <span class="px-2.5 py-1 rounded-lg bg-white dark:bg-night-900 text-slate-600 dark:text-slate-400 whitespace-nowrap">Başlangıç</span>
+                            <span class="px-2.5 py-1 rounded-lg bg-white dark:bg-night-900 text-slate-600 dark:text-slate-400 whitespace-nowrap">Makarna</span>
+                            <span class="px-2.5 py-1 rounded-lg bg-white dark:bg-night-900 text-slate-600 dark:text-slate-400 whitespace-nowrap">Pizza</span>
                         </div>
 
                         <div class="sim-grid grid grid-cols-1 sm:grid-cols-2 gap-3 mt-4">
-                            <div class="p-3 rounded-xl bg-night-900 border border-white/5 flex gap-3 items-center">
-                                <div class="w-12 h-12 rounded-lg bg-amber-500/10 border border-amber-500/20 flex items-center justify-center text-amber-400 shrink-0">
+                            <div class="p-3 rounded-xl bg-white dark:bg-night-900 border border-slate-200 dark:border-white/5 flex gap-3 items-center shadow-sm">
+                                <div class="w-12 h-12 rounded-lg bg-amber-500/10 border border-amber-500/20 flex items-center justify-center text-amber-500 shrink-0">
                                     <i data-lucide="pizza" class="w-6 h-6"></i>
                                 </div>
                                 <div class="flex-1 min-w-0">
                                     <div class="flex justify-between items-center gap-1">
-                                        <h5 class="text-xs sm:text-sm font-bold text-white truncate">Pizza Margherita DOP</h5>
-                                        <span class="text-xs font-bold text-gold-400 shrink-0">340 ₺</span>
+                                        <h5 class="text-xs sm:text-sm font-bold text-slate-900 dark:text-white truncate">Pizza Margherita DOP</h5>
+                                        <span class="text-xs font-bold text-gold-600 dark:text-gold-400 shrink-0">340 ₺</span>
                                     </div>
-                                    <p class="text-[10px] text-slate-400 mt-0.5 truncate">San Marzano sos, bufalo mozzarella</p>
+                                    <p class="text-[10px] text-slate-500 dark:text-slate-400 mt-0.5 truncate">San Marzano sos, bufalo mozzarella</p>
                                 </div>
                             </div>
 
-                            <div class="p-3 rounded-xl bg-night-900 border border-white/5 flex gap-3 items-center">
-                                <div class="w-12 h-12 rounded-lg bg-orange-500/10 border border-orange-500/20 flex items-center justify-center text-orange-400 shrink-0">
+                            <div class="p-3 rounded-xl bg-white dark:bg-night-900 border border-slate-200 dark:border-white/5 flex gap-3 items-center shadow-sm">
+                                <div class="w-12 h-12 rounded-lg bg-orange-500/10 border border-orange-500/20 flex items-center justify-center text-orange-500 shrink-0">
                                     <i data-lucide="utensils-crossed" class="w-6 h-6"></i>
                                 </div>
                                 <div class="flex-1 min-w-0">
                                     <div class="flex justify-between items-center gap-1">
-                                        <h5 class="text-xs sm:text-sm font-bold text-white truncate">Trüflü Tagliolini</h5>
-                                        <span class="text-xs font-bold text-gold-400 shrink-0">420 ₺</span>
+                                        <h5 class="text-xs sm:text-sm font-bold text-slate-900 dark:text-white truncate">Trüflü Tagliolini</h5>
+                                        <span class="text-xs font-bold text-gold-600 dark:text-gold-400 shrink-0">420 ₺</span>
                                     </div>
-                                    <p class="text-[10px] text-slate-400 mt-0.5 truncate">El yapımı makarna, kara trüf</p>
+                                    <p class="text-[10px] text-slate-500 dark:text-slate-400 mt-0.5 truncate">El yapımı makarna, kara trüf</p>
                                 </div>
                             </div>
                         </div>
 
-                        <div class="mt-5 pt-4 border-t border-white/10 flex items-center justify-between text-[11px] text-slate-400">
-                            <span class="flex items-center gap-1 text-white font-medium">
+                        <div class="mt-5 pt-4 border-t border-slate-200 dark:border-white/10 flex items-center justify-between text-[11px] text-slate-500 dark:text-slate-400">
+                            <span class="flex items-center gap-1 text-slate-800 dark:text-white font-medium">
                                 <i data-lucide="instagram" class="w-3.5 h-3.5 text-pink-500"></i>
                                 <span>@trattoriadimilano</span>
                             </span>
@@ -1539,17 +1664,17 @@
                 badge: "3. Seviye VIP & Fotoğraf Galerili",
                 url: "https://sarayocakbasi.restoranweb.com",
                 html: `
-                    <div class="max-w-5xl mx-auto bg-night-950 rounded-2xl p-4 sm:p-10 border border-gold-400/30">
+                    <div class="max-w-5xl mx-auto bg-slate-50 dark:bg-night-950 rounded-2xl p-4 sm:p-10 border border-gold-400/30">
                         <div class="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3 pb-5 border-b border-gold-400/20">
                             <div class="flex items-center gap-2">
-                                <span class="text-[10px] sm:text-xs text-slate-400">Şube:</span>
-                                <div class="inline-flex rounded-lg bg-night-900 p-0.5 border border-white/10 text-[10px]">
+                                <span class="text-[10px] sm:text-xs text-slate-500 dark:text-slate-400">Şube:</span>
+                                <div class="inline-flex rounded-lg bg-white dark:bg-night-900 p-0.5 border border-slate-200 dark:border-white/10 text-[10px]">
                                     <button class="px-2 py-0.5 rounded bg-gold-400 text-night-950 font-bold">Nişantaşı</button>
-                                    <button class="px-2 py-0.5 rounded text-slate-400 hover:text-white">Bodrum</button>
+                                    <button class="px-2 py-0.5 rounded text-slate-500 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white">Bodrum</button>
                                 </div>
                             </div>
                             <div class="flex items-center gap-2 w-full sm:w-auto">
-                                <button onclick="showToast('360° Tur Yükleniyor...')" class="text-[11px] text-gold-300 flex items-center gap-1 hover:underline">
+                                <button onclick="showToast('360° Tur Yükleniyor...')" class="text-[11px] text-gold-600 dark:text-gold-300 flex items-center gap-1 hover:underline">
                                     <i data-lucide="video" class="w-3.5 h-3.5"></i>
                                     <span>360° Tur</span>
                                 </button>
@@ -1560,33 +1685,33 @@
                         </div>
 
                         <div class="my-5">
-                            <span class="text-[10px] uppercase tracking-widest text-gold-400 font-semibold block">Fine Dining & Kömür Ateşi</span>
-                            <h3 class="sim-title text-xl sm:text-4xl font-serif font-bold text-white mt-1">Sultanahmet Ocakbaşı & Steak</h3>
-                            <p class="text-xs text-slate-300 mt-2 leading-relaxed">
+                            <span class="text-[10px] uppercase tracking-widest text-gold-600 dark:text-gold-400 font-semibold block">Fine Dining & Kömür Ateşi</span>
+                            <h3 class="sim-title text-xl sm:text-4xl font-serif font-bold text-slate-900 dark:text-white mt-1">Sultanahmet Ocakbaşı & Steak</h3>
+                            <p class="text-xs text-slate-600 dark:text-slate-300 mt-2 leading-relaxed">
                                 Balıkesir kıvırcık kuzu etleri ve 28 gün dry-aged antrikotlarla hazırlanan özel bir lezzet mirası.
                             </p>
                         </div>
 
                         <div class="mb-5">
-                            <h4 class="text-xs font-bold text-gold-400 uppercase tracking-wider mb-2 flex items-center gap-1.5">
+                            <h4 class="text-xs font-bold text-gold-600 dark:text-gold-400 uppercase tracking-wider mb-2 flex items-center gap-1.5">
                                 <i data-lucide="camera" class="w-3.5 h-3.5"></i>
                                 <span>Mekan Atmosferi</span>
                             </h4>
                             
                             <div class="sim-grid grid grid-cols-1 sm:grid-cols-3 gap-2.5">
-                                <div class="group relative rounded-xl overflow-hidden border border-gold-400/20 h-32 sm:h-44 bg-night-900">
+                                <div class="group relative rounded-xl overflow-hidden border border-gold-400/20 h-32 sm:h-44 bg-slate-200 dark:bg-night-900">
                                     <img src="https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?auto=format&fit=crop&w=800&q=80" alt="Lüks restoran ana yemek salonu" loading="lazy" class="w-full h-full object-cover">
                                     <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent flex flex-col justify-end p-2.5">
                                         <span class="text-xs font-bold text-white">Ana Salon</span>
                                     </div>
                                 </div>
-                                <div class="group relative rounded-xl overflow-hidden border border-gold-400/20 h-32 sm:h-44 bg-night-900">
+                                <div class="group relative rounded-xl overflow-hidden border border-gold-400/20 h-32 sm:h-44 bg-slate-200 dark:bg-night-900">
                                     <img src="https://images.unsplash.com/photo-1555396273-367ea4eb4db5?auto=format&fit=crop&w=800&q=80" alt="Ocakbaşı açık mutfağı" loading="lazy" class="w-full h-full object-cover">
                                     <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent flex flex-col justify-end p-2.5">
                                         <span class="text-xs font-bold text-white">Köz Mutfağı</span>
                                     </div>
                                 </div>
-                                <div class="group relative rounded-xl overflow-hidden border border-gold-400/20 h-32 sm:h-44 bg-night-900">
+                                <div class="group relative rounded-xl overflow-hidden border border-gold-400/20 h-32 sm:h-44 bg-slate-200 dark:bg-night-900">
                                     <img src="https://images.unsplash.com/photo-1543007630-9710e4a00a20?auto=format&fit=crop&w=800&q=80" alt="VIP toplantı salonu" loading="lazy" class="w-full h-full object-cover">
                                     <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent flex flex-col justify-end p-2.5">
                                         <span class="text-xs font-bold text-white">VIP Mahzen</span>
@@ -1596,25 +1721,25 @@
                         </div>
 
                         <div class="space-y-2.5">
-                            <div class="p-3 rounded-xl bg-night-900 border border-white/5 flex justify-between items-start gap-2">
+                            <div class="p-3 rounded-xl bg-white dark:bg-night-900 border border-slate-200 dark:border-white/5 flex justify-between items-start gap-2 shadow-sm">
                                 <div class="pr-2">
-                                    <span class="text-xs sm:text-sm font-bold text-white block">Kuzu Sırtı & Trüflü Firik</span>
-                                    <p class="text-[10px] text-slate-400 mt-0.5">Meşe kömüründe 6 saat ağır pişirilmiş</p>
+                                    <span class="text-xs sm:text-sm font-bold text-slate-900 dark:text-white block">Kuzu Sırtı & Trüflü Firik</span>
+                                    <p class="text-[10px] text-slate-500 dark:text-slate-400 mt-0.5">Meşe kömüründe 6 saat ağır pişirilmiş</p>
                                 </div>
-                                <span class="text-xs sm:text-sm font-bold text-gold-400 shrink-0 font-mono">890 ₺</span>
+                                <span class="text-xs sm:text-sm font-bold text-gold-600 dark:text-gold-400 shrink-0 font-mono">890 ₺</span>
                             </div>
-                            <div class="p-3 rounded-xl bg-night-900 border border-white/5 flex justify-between items-start gap-2">
+                            <div class="p-3 rounded-xl bg-white dark:bg-night-900 border border-slate-200 dark:border-white/5 flex justify-between items-start gap-2 shadow-sm">
                                 <div class="pr-2">
-                                    <span class="text-xs sm:text-sm font-bold text-white block">Dry-Aged T-Bone Steak</span>
-                                    <p class="text-[10px] text-slate-400 mt-0.5">28 Gün dinlendirilmiş yerli dana eti</p>
+                                    <span class="text-xs sm:text-sm font-bold text-slate-900 dark:text-white block">Dry-Aged T-Bone Steak</span>
+                                    <p class="text-[10px] text-slate-500 dark:text-slate-400 mt-0.5">28 Gün dinlendirilmiş yerli dana eti</p>
                                 </div>
-                                <span class="text-xs sm:text-sm font-bold text-gold-400 shrink-0 font-mono">1.450 ₺</span>
+                                <span class="text-xs sm:text-sm font-bold text-gold-600 dark:text-gold-400 shrink-0 font-mono">1.450 ₺</span>
                             </div>
                         </div>
 
-                        <div class="mt-5 pt-3 border-t border-white/10 flex items-center justify-between text-[11px]">
-                            <span class="text-slate-400">Vale Park Mevcut</span>
-                            <a href="tel:+905445722203" class="text-gold-300 font-bold hover:underline">0544 572 22 03</a>
+                        <div class="mt-5 pt-3 border-t border-slate-200 dark:border-white/10 flex items-center justify-between text-[11px]">
+                            <span class="text-slate-500 dark:text-slate-400">Vale Park Mevcut</span>
+                            <a href="tel:+905445722203" class="text-gold-600 dark:text-gold-300 font-bold hover:underline">0544 572 22 03</a>
                         </div>
                     </div>
                 `
@@ -1627,14 +1752,14 @@
                 if (i === level) {
                     btn.className = "tab-btn px-6 py-3 rounded-xl text-sm font-bold flex items-center gap-2.5 transition-all duration-300 bg-gold-400 text-night-950 shadow-lg shadow-gold-400/20";
                 } else {
-                    btn.className = "tab-btn px-6 py-3 rounded-xl text-sm font-semibold flex items-center gap-2.5 transition-all duration-300 bg-night-850 text-slate-300 hover:text-white border border-white/10";
+                    btn.className = "tab-btn px-6 py-3 rounded-xl text-sm font-semibold flex items-center gap-2.5 transition-all duration-300 bg-white dark:bg-night-850 text-slate-700 dark:text-slate-300 border border-slate-300 dark:border-white/10";
                 }
             });
 
             const container = document.getElementById('template-container');
             const data = templates[level];
             
-            document.getElementById('sim-url').innerHTML = `<i data-lucide="lock" class="w-3 h-3 text-gold-400 shrink-0"></i><span class="truncate">${data.url}</span>`;
+            document.getElementById('sim-url').innerHTML = `<i data-lucide="lock" class="w-3 text-gold-500 dark:text-gold-400 shrink-0"></i><span class="truncate">${data.url}</span>`;
             document.getElementById('sim-level-badge').innerText = data.badge;
 
             container.innerHTML = data.html;
@@ -1793,9 +1918,7 @@
             }, 4000);
         }
 
-        // ==========================================
-        // DİNAMİK SOSYAL KANIT MOTORU (SOL ALT BİLDİRİM)
-        // ==========================================
+        // DİNAMİK SOSYAL KANIT BİLDİRİM MOTORU
         const socialProofData = [
             { title: "Yeni Sipariş Bildirimi", desc: "Kadıköy'den bir kafe 'Klasik Bistro' paketini seçti.", time: "4 dk önce", icon: "check-circle-2" },
             { title: "Ücretsiz Taslak Talebi", desc: "Beşiktaş'tan bir İtalyan bistrosu önizleme istedi.", time: "11 dk önce", icon: "sparkles" },
@@ -1816,11 +1939,9 @@
             iconContainer.setAttribute('data-lucide', data.icon);
             lucide.createIcons();
 
-            // Göster
             toast.classList.remove('-translate-x-[150%]', 'opacity-0');
             toast.classList.add('translate-x-0', 'opacity-100');
 
-            // 5.5 saniye sonra gizle
             setTimeout(() => {
                 toast.classList.add('-translate-x-[150%]', 'opacity-0');
                 toast.classList.remove('translate-x-0', 'opacity-100');
@@ -1829,7 +1950,6 @@
             spIndex = (spIndex + 1) % socialProofData.length;
         }
 
-        // İlk bildirim 6. saniyede, sonrakiler her 32 saniyede bir çıkar
         setTimeout(() => {
             triggerSocialProof();
             setInterval(triggerSocialProof, 32000);
