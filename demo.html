@@ -1,1 +1,217 @@
+<!DOCTYPE html>
+<html lang="tr" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sultanahmet Ocakbaşı & Steak | Canlı Restoran Demosu</title>
+    <meta name="description" content="Geleneksel köz ateşi, dry-aged antrikotlar ve şefin imza lezzetleri. Rezervasyon ve paket servis için hemen ulaşın.">
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Playfair+Display:ital,wght@0,600;0,700;1,600&display=swap" rel="stylesheet">
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        gold: { 400: '#D4AF37', 500: '#C59B27' },
+                        night: { 950: '#070A10', 900: '#0C111D', 850: '#111827' }
+                    },
+                    fontFamily: {
+                        sans: ['"Plus Jakarta Sans"', 'sans-serif'],
+                        serif: ['"Playfair Display"', 'serif'],
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="bg-night-950 text-slate-200 font-sans antialiased selection:bg-gold-400 selection:text-night-950 pb-20">
 
+    <!-- ÜST BİLGİ ŞERİDİ & DEMO BİLDİRİMİ -->
+    <div class="bg-gold-400 text-night-950 px-4 py-2 text-xs font-bold flex items-center justify-between sticky top-0 z-50 shadow-md">
+        <div class="flex items-center gap-2 max-w-7xl mx-auto w-full justify-between">
+            <span class="flex items-center gap-1.5">
+                <i data-lucide="sparkles" class="w-4 h-4"></i>
+                <span>Canlı Restoran Vitrini Demosu (Restoranweb Altyapısı)</span>
+            </span>
+            <a href="index.html" class="bg-night-950 text-white px-3 py-1 rounded-lg text-[11px] font-semibold hover:bg-night-900 transition-colors">
+                ← Kendi Mekanınız İçin Sipariş Verin
+            </a>
+        </div>
+    </div>
+
+    <!-- RESTORAN HEADER / NAVBAR -->
+    <header class="max-w-6xl mx-auto px-4 py-6 flex items-center justify-between border-b border-white/10">
+        <div>
+            <span class="text-[10px] uppercase tracking-widest text-gold-400 font-semibold block">Geleneksel Kömür Ateşi & Izgara</span>
+            <h1 class="text-2xl sm:text-3xl font-serif font-bold text-white tracking-tight mt-0.5">Sultanahmet Ocakbaşı & Steak</h1>
+        </div>
+        <div class="flex items-center gap-3">
+            <a href="tel:+905445722203" class="hidden sm:inline-flex items-center gap-2 px-4 py-2.5 rounded-xl bg-night-900 border border-white/10 text-xs font-bold text-white hover:border-gold-400 transition-colors">
+                <i data-lucide="phone" class="w-3.5 h-3.5 text-gold-400"></i>
+                <span>0544 572 22 03</span>
+            </a>
+            <a href="https://wa.me/905445722203?text=Merhaba,%20Sultanahmet%20Ocakba%C5%9F%C4%B1%20i%C3%A7in%20masa%20rezervasyonu%20yapt%C4%B1rmak%20istiyorum." target="_blank" class="px-4 py-2.5 rounded-xl bg-emerald-500 hover:bg-emerald-600 text-white text-xs font-bold flex items-center gap-2 shadow-lg shadow-emerald-500/20 transition-all">
+                <i data-lucide="calendar" class="w-4 h-4"></i>
+                <span>Masa Ayırt</span>
+            </a>
+        </div>
+    </header>
+
+    <!-- HERO / BANNER -->
+    <section class="max-w-6xl mx-auto px-4 py-12">
+        <div class="relative rounded-3xl overflow-hidden border border-gold-400/30 h-80 sm:h-96">
+            <img src="https://images.unsplash.com/photo-1544025162-d76694265947?auto=format&fit=crop&w=1600&q=80" alt="Izgara Et" class="w-full h-full object-cover">
+            <div class="absolute inset-0 bg-gradient-to-t from-night-950 via-night-950/40 to-transparent flex flex-col justify-end p-6 sm:p-10">
+                <span class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-gold-400/20 text-gold-300 text-xs font-bold border border-gold-400/30 w-fit mb-3">
+                    <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span> Şu An Açık • 11:30 - 23:30
+                </span>
+                <h2 class="text-2xl sm:text-4xl font-serif font-bold text-white max-w-xl leading-tight">
+                    Meşe Kömüründe Ağır Pişen Eşsiz Kuzu ve Antrikot Deneyimi
+                </h2>
+                <p class="text-xs sm:text-sm text-slate-300 mt-2 max-w-lg">
+                    1984'ten bu yana Balıkesir kıvırcık kuzu etleri ve 28 gün dinlendirilmiş yerli steakhouse lezzetleri.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- HIZLI AKSİYON BUTONLARI -->
+    <section class="max-w-6xl mx-auto px-4 grid grid-cols-2 sm:grid-cols-4 gap-3 mb-12">
+        <a href="tel:+905445722203" class="p-4 rounded-2xl bg-night-900 border border-white/10 hover:border-gold-400 flex flex-col items-center text-center transition-all group">
+            <i data-lucide="phone-call" class="w-6 h-6 text-gold-400 mb-2 group-hover:scale-110 transition-transform"></i>
+            <span class="text-xs font-bold text-white">Doğrudan Ara</span>
+            <span class="text-[10px] text-slate-400 mt-0.5">0544 572 22 03</span>
+        </a>
+        <a href="https://wa.me/905445722203?text=Merhaba,%20g%C3%BCncel%20paket%20servis%20men%C3%BCs%C3%BC%20almak%20istiyorum." target="_blank" class="p-4 rounded-2xl bg-night-900 border border-white/10 hover:border-emerald-500 flex flex-col items-center text-center transition-all group">
+            <i data-lucide="message-circle" class="w-6 h-6 text-emerald-400 mb-2 group-hover:scale-110 transition-transform"></i>
+            <span class="text-xs font-bold text-white">WhatsApp Sipariş</span>
+            <span class="text-[10px] text-slate-400 mt-0.5">Hızlı Cevap</span>
+        </a>
+        <a href="https://maps.google.com" target="_blank" class="p-4 rounded-2xl bg-night-900 border border-white/10 hover:border-blue-500 flex flex-col items-center text-center transition-all group">
+            <i data-lucide="map-pin" class="w-6 h-6 text-blue-400 mb-2 group-hover:scale-110 transition-transform"></i>
+            <span class="text-xs font-bold text-white">Yol Tarifi Al</span>
+            <span class="text-[10px] text-slate-400 mt-0.5">Google Haritalar</span>
+        </a>
+        <button onclick="showMenuAlert()" class="p-4 rounded-2xl bg-night-900 border border-white/10 hover:border-gold-400 flex flex-col items-center text-center transition-all group">
+            <i data-lucide="qr-code" class="w-6 h-6 text-gold-400 mb-2 group-hover:scale-110 transition-transform"></i>
+            <span class="text-xs font-bold text-white">Masa QR Menü</span>
+            <span class="text-[10px] text-slate-400 mt-0.5">Temassız İncele</span>
+        </button>
+    </section>
+
+    <!-- FOTOĞRAFLI DİJİTAL MENÜ -->
+    <section class="max-w-6xl mx-auto px-4 mb-16">
+        <div class="flex items-center justify-between pb-4 border-b border-white/10 mb-8">
+            <div>
+                <span class="text-xs font-bold text-gold-400 uppercase tracking-wider block">Dijital Lezzet Kataloğu</span>
+                <h3 class="text-2xl font-serif font-bold text-white mt-0.5">Şefin İmza Menüsü</h3>
+            </div>
+            <span class="text-xs text-slate-400 font-mono">%0 Komisyonlu Masaya Servis</span>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+            <!-- Ürün 1 -->
+            <div class="p-4 rounded-2xl bg-night-900 border border-white/10 flex gap-4 items-center">
+                <img src="https://images.unsplash.com/photo-1544025162-d76694265947?auto=format&fit=crop&w=200&q=80" alt="Kuzu Sırtı" class="w-20 h-20 rounded-xl object-cover shrink-0">
+                <div class="flex-1 min-w-0">
+                    <div class="flex justify-between items-start gap-2">
+                        <h4 class="text-sm font-bold text-white">Kuzu Sırtı & Trüflü Firik Pilavı</h4>
+                        <span class="text-sm font-bold text-gold-400 font-mono shrink-0">890 ₺</span>
+                    </div>
+                    <p class="text-xs text-slate-400 mt-1">Meşe kömüründe 6 saat dinlendirilmiş kuzu sırtı, Antakya firik buğdayı ve köz sarımsak</p>
+                </div>
+            </div>
+
+            <!-- Ürün 2 -->
+            <div class="p-4 rounded-2xl bg-night-900 border border-white/10 flex gap-4 items-center">
+                <img src="https://images.unsplash.com/photo-1558030006-450675393462?auto=format&fit=crop&w=200&q=80" alt="T-Bone Steak" class="w-20 h-20 rounded-xl object-cover shrink-0">
+                <div class="flex-1 min-w-0">
+                    <div class="flex justify-between items-start gap-2">
+                        <h4 class="text-sm font-bold text-white">Dry-Aged T-Bone Steak (600gr)</h4>
+                        <span class="text-sm font-bold text-gold-400 font-mono shrink-0">1.450 ₺</span>
+                    </div>
+                    <p class="text-xs text-slate-400 mt-1">28 gün kuru dinlendirilmiş yerli dana eti, biberiye tereyağı ve fırın patates</p>
+                </div>
+            </div>
+
+            <!-- Ürün 3 -->
+            <div class="p-4 rounded-2xl bg-night-900 border border-white/10 flex gap-4 items-center">
+                <img src="https://images.unsplash.com/photo-1603360946369-dc9bb6258143?auto=format&fit=crop&w=200&q=80" alt="Zırh Kebabı" class="w-20 h-20 rounded-xl object-cover shrink-0">
+                <div class="flex-1 min-w-0">
+                    <div class="flex justify-between items-start gap-2">
+                        <h4 class="text-sm font-bold text-white">Özel Zırh Kıyma Kebabı</h4>
+                        <span class="text-sm font-bold text-gold-400 font-mono shrink-0">480 ₺</span>
+                    </div>
+                    <p class="text-xs text-slate-400 mt-1">El zırhından çekilmiş kuzu kaburga eti, közlenmiş kapya biber ve tırnak pide</p>
+                </div>
+            </div>
+
+            <!-- Ürün 4 -->
+            <div class="p-4 rounded-2xl bg-night-900 border border-white/10 flex gap-4 items-center">
+                <img src="https://images.unsplash.com/photo-1551024709-8f23befc6f87?auto=format&fit=crop&w=200&q=80" alt="Künefe" class="w-20 h-20 rounded-xl object-cover shrink-0">
+                <div class="flex-1 min-w-0">
+                    <div class="flex justify-between items-start gap-2">
+                        <h4 class="text-sm font-bold text-white">Közde Hatay Künefesi</h4>
+                        <span class="text-sm font-bold text-gold-400 font-mono shrink-0">220 ₺</span>
+                    </div>
+                    <p class="text-xs text-slate-400 mt-1">Köz kömüründe taze pişirilen hakiki peynirli künefe, Maraş dondurması eşliğinde</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- MEKAN VE AMBİYANS FOTOĞRAFLARI -->
+    <section class="max-w-6xl mx-auto px-4 mb-16">
+        <h3 class="text-xl font-serif font-bold text-white mb-4 flex items-center gap-2">
+            <i data-lucide="camera" class="w-5 h-5 text-gold-400"></i>
+            <span>Mekanımız & Atmosfer</span>
+        </h3>
+        <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
+            <div class="h-56 rounded-2xl overflow-hidden border border-white/10 relative group">
+                <img src="https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?auto=format&fit=crop&w=800&q=80" alt="Ana Salon" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent flex items-end p-4">
+                    <span class="text-xs font-bold text-white">Ana Yemek Salonu (120 Kişi)</span>
+                </div>
+            </div>
+            <div class="h-56 rounded-2xl overflow-hidden border border-white/10 relative group">
+                <img src="https://images.unsplash.com/photo-1555396273-367ea4eb4db5?auto=format&fit=crop&w=800&q=80" alt="Açık Mutfak" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent flex items-end p-4">
+                    <span class="text-xs font-bold text-white">Şefin Köz & Izgara Alanı</span>
+                </div>
+            </div>
+            <div class="h-56 rounded-2xl overflow-hidden border border-white/10 relative group">
+                <img src="https://images.unsplash.com/photo-1543007630-9710e4a00a20?auto=format&fit=crop&w=800&q=80" alt="VIP Salon" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent flex items-end p-4">
+                    <span class="text-xs font-bold text-white">VIP Mahzen & Özel Davet Masası</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER / AJANS İMZASI -->
+    <footer class="max-w-6xl mx-auto px-4 pt-8 border-t border-white/10 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-slate-500 text-center sm:text-left">
+        <div>
+            <span class="text-slate-300 font-semibold">Sultanahmet Ocakbaşı & Steak</span>
+            <p class="text-[11px] mt-0.5">Tarihi Yarımada No:14, Fatih / İstanbul</p>
+        </div>
+        <div>
+            <span>Bu prestijli tanıtım web sitesi </span>
+            <a href="index.html" class="text-gold-400 font-bold hover:underline">Restoranweb</a>
+            <span> tarafından 48 saatte kurulmuştur.</span>
+        </div>
+    </footer>
+
+    <script>
+        lucide.createIcons();
+        function showMenuAlert() {
+            alert("Masadaki müşteriler QR kodu okuttuğunda doğrudan bu menü sayfası telefonlarında açılır!");
+        }
+    </script>
+</body>
+</html>
