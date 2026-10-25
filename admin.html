@@ -57,28 +57,8 @@
 </head>
 <body class="bg-night-950 text-slate-200 font-sans antialiased selection:bg-gold-400 selection:text-night-950 min-h-screen">
 
-    <!-- 6 HANELİ GİRİŞ / PIN KİLİT EKRANI -->
-    <div id="login-modal" class="fixed inset-0 z-50 bg-night-950 flex items-center justify-center p-4">
-        <div class="bg-night-900 border border-gold-400/30 rounded-2xl p-8 max-w-sm w-full text-center shadow-2xl gold-glow">
-            <div class="w-14 h-14 rounded-2xl bg-gold-400/10 border border-gold-400/30 flex items-center justify-center text-gold-400 mx-auto mb-4">
-                <i data-lucide="shield-check" class="w-7 h-7"></i>
-            </div>
-            <h2 class="font-serif text-2xl font-bold text-white">Yönetici Girişi</h2>
-            <p class="text-xs text-slate-400 mt-1 mb-6">Restoranweb operasyon merkezine erişmek için 6 haneli PIN girin.</p>
-            
-            <form onsubmit="handleLogin(event)" class="space-y-4">
-                <input type="password" id="admin-pin-input" maxlength="6" placeholder="••••••" autofocus required class="w-full text-center tracking-[0.5em] text-2xl font-bold py-3 rounded-xl bg-night-950 border border-white/10 text-gold-400 focus:outline-none focus:border-gold-400">
-                <button type="submit" class="w-full py-3.5 rounded-xl text-sm font-bold bg-gold-400 text-night-950 hover:brightness-110 transition-all shadow-lg shadow-gold-400/20">
-                    Konsola Giriş Yap
-                </button>
-            </form>
-            <p id="login-error" class="text-xs text-rose-400 font-semibold mt-3 hidden">Hatalı PIN kodu! Tekrar deneyin.</p>
-            <p class="text-[10px] text-slate-500 mt-4">Varsayılan PIN: <strong class="text-gold-400">123456</strong></p>
-        </div>
-    </div>
-
     <!-- ANA DASHBOARD KONSOLU -->
-    <div id="dashboard-app" class="hidden min-h-screen flex flex-col">
+    <div id="dashboard-app" class="min-h-screen flex flex-col">
         
         <!-- ÜST ÇUBUK -->
         <header class="bg-night-900/90 backdrop-blur-md border-b border-white/10 sticky top-0 z-40">
@@ -104,12 +84,10 @@
                     <button onclick="backupAllData()" class="p-2.5 rounded-xl bg-night-850 border border-white/10 text-slate-300 hover:text-white" title="Tüm Veritabanını JSON Olarak Yedekle">
                         <i data-lucide="save" class="w-4 h-4"></i>
                     </button>
-                    <button onclick="changePinPrompt()" class="p-2.5 rounded-xl bg-night-850 border border-white/10 text-slate-300 hover:text-white" title="6 Haneli PIN Değiştir">
-                        <i data-lucide="key" class="w-4 h-4"></i>
-                    </button>
-                    <button onclick="handleLogout()" class="p-2.5 rounded-xl bg-night-850 border border-rose-500/20 text-rose-400 hover:bg-rose-500/10" title="Güvenli Çıkış">
-                        <i data-lucide="log-out" class="w-4 h-4"></i>
-                    </button>
+                    <a href="index.html" class="p-2.5 rounded-xl bg-night-850 border border-white/10 text-slate-300 hover:text-white flex items-center gap-1.5 text-xs font-semibold" title="Vitrin Sitesine Dön">
+                        <i data-lucide="external-link" class="w-4 h-4 text-gold-400"></i>
+                        <span class="hidden md:inline">Siteye Git</span>
+                    </a>
                 </div>
             </div>
 
@@ -459,10 +437,6 @@
                                 <i data-lucide="download-cloud" class="w-4 h-4"></i>
                                 <span>Veritabanı Yedeğini İndir (JSON)</span>
                             </button>
-                            <button onclick="changePinPrompt()" class="w-full py-2.5 rounded-xl bg-night-850 hover:bg-night-800 text-slate-300 border border-white/10 text-xs font-semibold flex items-center justify-center gap-2 transition-all">
-                                <i data-lucide="key" class="w-4 h-4"></i>
-                                <span>6 Haneli Yönetici PIN'ini Değiştir</span>
-                            </button>
                         </div>
                     </div>
                 </div>
@@ -615,48 +589,9 @@
     <script>
         lucide.createIcons();
 
-        const STORAGE_KEY_PIN = "rw_admin_pin";
         const STORAGE_KEY_ORDERS = "rw_admin_orders";
         const STORAGE_KEY_VISITORS = "rw_real_visitors";
         const STORAGE_KEY_USERS = "rw_registered_users";
-
-        function getStoredPin() {
-            return localStorage.getItem(STORAGE_KEY_PIN) || "123456";
-        }
-
-        function handleLogin(e) {
-            e.preventDefault();
-            const pin = document.getElementById('admin-pin-input').value.trim();
-            if (pin === getStoredPin()) {
-                document.getElementById('login-modal').classList.add('hidden');
-                document.getElementById('dashboard-app').classList.remove('hidden');
-                initDashboard();
-            } else {
-                document.getElementById('login-error').classList.remove('hidden');
-            }
-        }
-
-        function handleLogout() {
-            document.getElementById('dashboard-app').classList.add('hidden');
-            document.getElementById('login-modal').classList.remove('hidden');
-            document.getElementById('admin-pin-input').value = "";
-            document.getElementById('login-error').classList.add('hidden');
-        }
-
-        function changePinPrompt() {
-            const currentPin = prompt("Mevcut 6 haneli PIN kodunuzu girin:");
-            if (currentPin !== getStoredPin()) {
-                alert("Mevcut PIN hatalı!");
-                return;
-            }
-            const newPin = prompt("Yeni 6 haneli PIN kodunuzu girin:");
-            if (newPin && newPin.trim().length === 6) {
-                localStorage.setItem(STORAGE_KEY_PIN, newPin.trim());
-                alert("6 Haneli PIN kodunuz güncellendi: " + newPin.trim());
-            } else {
-                alert("PIN kodu tam 6 haneli olmalıdır!");
-            }
-        }
 
         function switchTab(tabId) {
             const tabs = ['overview', 'orders', 'visitors', 'users', 'settings'];
@@ -1086,6 +1021,9 @@
             closeNewOrderModal();
             e.target.reset();
         }
+
+        // Sayfa açıldığında doğrudan paneli yükle
+        window.addEventListener('DOMContentLoaded', initDashboard);
     </script>
 </body>
 </html>
