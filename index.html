@@ -37,7 +37,7 @@
           "image": "https://images.unsplash.com/photo-1517248135467-4c7edcad34c4",
           "description": "Restoran ve kafeler için %0 komisyonlu prestijli tanıtım web siteleri ve dijital menü kurulumu.",
           "telephone": "+905445722203",
-          "priceRange": "2490₺ - 7490₺",
+          "priceRange": "3490₺ - 9990₺",
           "address": {
             "@type": "PostalAddress",
             "addressLocality": "İstanbul",
@@ -75,10 +75,10 @@
             },
             {
               "@type": "Question",
-              "name": "Menüdeki ürünler veya fiyatlar değiştiğinde ne yapacağız?",
+              "name": "Menüdeki ürünler veya fiyatlar değiştiğinde, site bakımında ne yapacağız?",
               "acceptedAnswer": {
                 "@type": "Answer",
-                "text": "Güncel menünüzü veya değişen fiyat listenizi WhatsApp üzerinden 0544 572 22 03 numaralı destek hattımıza iletmeniz yeterlidir. Paketlerimize dahil olan ücretsiz güncelleme desteğimizle menünüz aynı gün içerisinde yenilenir."
+                "text": "Karmaşık yönetim panelleriyle uğraşmanıza gerek yok. Değişen fiyatlarınızı veya yeni ürünlerinizi 0544 572 22 03 numaralı WhatsApp destek hattımıza iletmeniz yeterlidir. Paketlerimize dahil olan ücretsiz bakım ve güncelleme desteğimizle menünüz aynı gün içerisinde yenilenir."
               }
             },
             {
@@ -223,6 +223,7 @@
                 </a>
                 <a href="#yerel-cozumler" class="hover:text-gold-400 transition-colors">Bölgesel Hizmetler</a>
                 <a href="#tasarruf-hesaplayici" class="hover:text-gold-400 transition-colors">Tasarruf Hesapla</a>
+                <a href="#bakim-destek" class="hover:text-gold-400 transition-colors">Bakım & Destek</a>
                 <a href="#paketler" class="hover:text-gold-400 transition-colors">Fiyatlandırma</a>
             </nav>
 
@@ -234,7 +235,7 @@
                     </button>
                 </div>
 
-                <button onclick="requestPurchase('Standart Bistro Paketi (2. Seviye Şablon)', '4.490 ₺')" class="hidden sm:inline-flex items-center gap-2 px-5 py-2.5 rounded-xl text-sm font-semibold text-night-950 bg-gradient-to-r from-gold-300 via-gold-400 to-gold-500 hover:brightness-110 shadow-lg shadow-gold-400/20 transition-all duration-300 transform hover:-translate-y-0.5">
+                <button onclick="requestPurchase('Standart Bistro Paketi (2. Seviye Şablon)', '5.990 ₺')" class="hidden sm:inline-flex items-center gap-2 px-5 py-2.5 rounded-xl text-sm font-semibold text-night-950 bg-gradient-to-r from-gold-300 via-gold-400 to-gold-500 hover:brightness-110 shadow-lg shadow-gold-400/20 transition-all duration-300 transform hover:-translate-y-0.5">
                     <i data-lucide="sparkles" class="w-4 h-4"></i>
                     <span>Hemen Başla (FAST/Havale)</span>
                 </button>
@@ -315,7 +316,7 @@
         </div>
     </section>
 
-    <!-- 3 SEVİYELİ CANLI ŞABLON SİMÜLATÖRÜ (CANLI DEMO BUTONU DAHİL) -->
+    <!-- 3 SEVİYELİ CANLI ŞABLON SİMÜLATÖRÜ -->
     <section id="sablonlar" class="py-20 bg-night-950 relative">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center max-w-3xl mx-auto mb-10">
@@ -344,7 +345,7 @@
                 </button>
             </div>
 
-            <!-- Cihaz Geçiş Butonları & Tam Ekran Canlı Demo Gör Butonu -->
+            <!-- Cihaz Geçiş Butonları -->
             <div class="flex flex-wrap items-center justify-center gap-2.5 mb-6">
                 <button onclick="switchDeviceView('desktop')" id="view-btn-desktop" class="px-4 py-2 rounded-xl text-xs font-bold flex items-center gap-2 bg-gold-400 text-night-950 transition-all">
                     <i data-lucide="monitor" class="w-4 h-4"></i>
@@ -369,7 +370,7 @@
                             <span class="w-3 h-3 rounded-full bg-amber-500/80"></span>
                             <span class="w-3 h-3 rounded-full bg-emerald-500/80"></span>
                         </div>
-                        <div id="sim-url" class="bg-night-900 border border-white/10 px-4 py-1 rounded-lg text-xs font-mono text-gold-300 flex items-center gap-2 max-w-[200px] sm:max-w-none truncate">
+                        <div id="sim-url" class="bg-night-900 border border-white/10 px-6 py-1 rounded-lg text-xs font-mono text-gold-300 flex items-center gap-2 max-w-[200px] sm:max-w-none truncate">
                             <i data-lucide="lock" class="w-3 h-3 text-gold-400 shrink-0"></i>
                             <span class="truncate">https://sarayocakbasi.restoranweb.com</span>
                         </div>
@@ -535,13 +536,13 @@
 
                     <div class="p-5 rounded-2xl bg-gradient-to-br from-gold-950/40 to-night-950 border border-gold-400/40 flex flex-col justify-center items-center">
                         <span class="text-xs text-gold-300 font-bold block">Restoranweb Amorti Süresi</span>
-                        <h4 id="calc-amorti-sure" class="text-2xl font-black text-white mt-1 font-mono">4 Gün</h4>
-                        <span class="text-[11px] text-gold-300/80 block mt-1">4.490 ₺ site masrafı hemen çıkar</span>
+                        <h4 id="calc-amorti-sure" class="text-2xl font-black text-white mt-1 font-mono">6 Gün</h4>
+                        <span class="text-[11px] text-gold-300/80 block mt-1">5.990 ₺ site masrafı hemen çıkar</span>
                     </div>
                 </div>
 
                 <div class="mt-8 text-center">
-                    <button onclick="requestPurchase('Standart Bistro Paketi (2. Seviye Şablon)', '4.490 ₺')" class="px-8 py-3.5 rounded-xl text-sm font-bold text-night-950 bg-gradient-to-r from-gold-300 via-gold-400 to-gold-500 hover:brightness-110 shadow-lg shadow-gold-400/20 transition-all">
+                    <button onclick="requestPurchase('Standart Bistro Paketi (2. Seviye Şablon)', '5.990 ₺')" class="px-8 py-3.5 rounded-xl text-sm font-bold text-night-950 bg-gradient-to-r from-gold-300 via-gold-400 to-gold-500 hover:brightness-110 shadow-lg shadow-gold-400/20 transition-all">
                         Komisyonsuz Web Sitemi Kurun
                     </button>
                 </div>
@@ -549,8 +550,50 @@
         </div>
     </section>
 
+    <!-- ================= YENİ: BAKIM, GÜNCELLEME & DESTEK BİLGİLENDİRME BÖLÜMÜ ================= -->
+    <section id="bakim-destek" class="py-16 bg-night-900/40 border-y border-white/5 relative">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="luxury-card rounded-3xl p-8 sm:p-12 border border-gold-400/30 flex flex-col lg:flex-row items-center justify-between gap-8">
+                <div class="flex-1 space-y-4 text-left">
+                    <div class="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-gold-400/20 text-gold-300 text-xs font-bold border border-gold-400/30">
+                        <i data-lucide="wrench" class="w-3.5 h-3.5"></i> Yıllık Bakım & Menü Güncelleme Garantisi
+                    </div>
+                    <h2 class="text-2xl sm:text-3xl font-serif font-bold text-white leading-tight">
+                        Fiyatlar Değiştiğinde veya Yeni Lezzetler Geldiğinde <br>
+                        <span class="gold-gradient-text">Bizimle İletişime Geçmeniz Yeterli</span>
+                    </h2>
+                    <p class="text-slate-300 text-xs sm:text-sm leading-relaxed max-w-2xl">
+                        Karmaşık yönetim panelleriyle, şifrelerle veya teknik ayarlar ile vakit kaybetmeyin. Menünüzde fiyat güncellemesi, yeni bir yemek eklemesi ya da çalışma saati değişikliği gerektiğinde tek yapmanız gereken WhatsApp destek hattımıza yazmaktır. Ekibimiz aynı gün sitenizi günceller.
+                    </p>
+                    <div class="grid grid-cols-1 sm:grid-cols-3 gap-3 pt-2 text-xs text-slate-300">
+                        <div class="flex items-center gap-2">
+                            <i data-lucide="check-circle-2" class="w-4 h-4 text-emerald-400 shrink-0"></i>
+                            <span>Aynı Gün Menü Güncellemesi</span>
+                        </div>
+                        <div class="flex items-center gap-2">
+                            <i data-lucide="check-circle-2" class="w-4 h-4 text-emerald-400 shrink-0"></i>
+                            <span>Yıllık Sunucu & SSL Bakımı</span>
+                        </div>
+                        <div class="flex items-center gap-2">
+                            <i data-lucide="check-circle-2" class="w-4 h-4 text-emerald-400 shrink-0"></i>
+                            <span>7/24 Kesintisiz Yayın Desteği</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="shrink-0 w-full lg:w-auto text-center">
+                    <a href="https://wa.me/905445722203?text=Merhaba,%20web%20sitemin%20men%C3%BC%20ve%20fiyat%20g%C3%BCncellemesi%20i%C3%A7in%20yaz%C4%B1yorum." target="_blank" class="w-full sm:w-auto inline-flex items-center justify-center gap-3 px-6 py-4 rounded-2xl bg-gradient-to-r from-gold-300 via-gold-400 to-gold-500 text-night-950 font-bold text-sm shadow-xl shadow-gold-400/20 hover:brightness-110 transition-all">
+                        <i data-lucide="message-circle" class="w-5 h-5"></i>
+                        <span>Bakım & Destek İçin Yazın (WhatsApp)</span>
+                    </a>
+                    <span class="block text-[11px] text-slate-400 mt-2 font-mono">0544 572 22 03</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <!-- MASALARA ÖZEL ŞIK QR KOD HEDİYE BÖLÜMÜ -->
-    <section id="qr-hediye" class="py-20 bg-night-900/40 border-t border-white/5 relative">
+    <section id="qr-hediye" class="py-20 bg-night-950 relative">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="luxury-card rounded-3xl p-8 sm:p-12 border border-gold-400/30 flex flex-col lg:flex-row items-center gap-10">
                 <div class="flex-1 space-y-5 text-left">
@@ -611,7 +654,7 @@
                         
                         <div class="mt-6 mb-6">
                             <div class="flex items-baseline gap-2">
-                                <span class="text-4xl font-extrabold text-white">2.490</span>
+                                <span class="text-4xl font-extrabold text-white">3.490</span>
                                 <span class="text-gold-400 font-bold text-xl">₺</span>
                                 <span class="text-xs text-slate-400 font-normal">/ tek seferlik</span>
                             </div>
@@ -636,14 +679,14 @@
                                 <span>Tek tıkla Hızlı WhatsApp & Arama butonu</span>
                             </li>
                             <li class="flex items-center gap-2.5">
-                                <i data-lucide="check" class="w-4 h-4 text-gold-400 shrink-0"></i>
-                                <span>Mobil ve tablet uyumlu responsive arayüz</span>
+                                <i data-lucide="wrench" class="w-4 h-4 text-gold-400 shrink-0"></i>
+                                <span>Yıllık ücretsiz menü güncelleme desteği</span>
                             </li>
                         </ul>
                     </div>
 
                     <div class="mt-8 pt-6 border-t border-white/10">
-                        <button onclick="requestPurchase('Hızlı Butik Vitrin (1. Seviye Şablon)', '2.490 ₺')" class="w-full py-3.5 px-4 rounded-xl text-sm font-bold text-white bg-night-850 hover:bg-gold-400 hover:text-night-950 border border-gold-400/30 hover:border-transparent transition-all flex items-center justify-center gap-2">
+                        <button onclick="requestPurchase('Hızlı Butik Vitrin (1. Seviye Şablon)', '3.490 ₺')" class="w-full py-3.5 px-4 rounded-xl text-sm font-bold text-white bg-night-850 hover:bg-gold-400 hover:text-night-950 border border-gold-400/30 hover:border-transparent transition-all flex items-center justify-center gap-2">
                             <i data-lucide="arrow-right" class="w-4 h-4"></i>
                             <span>Bu Paketi Seç (FAST/Havale)</span>
                         </button>
@@ -666,7 +709,7 @@
                         
                         <div class="mt-6 mb-6">
                             <div class="flex items-baseline gap-2">
-                                <span class="text-4xl font-extrabold text-white">4.490</span>
+                                <span class="text-4xl font-extrabold text-white">5.990</span>
                                 <span class="text-gold-400 font-bold text-xl">₺</span>
                                 <span class="text-xs text-slate-400 font-normal">/ tek seferlik</span>
                             </div>
@@ -687,18 +730,18 @@
                                 <span>Instagram galeri fotoğraf entegrasyonu</span>
                             </li>
                             <li class="flex items-center gap-2.5">
-                                <i data-lucide="check" class="w-4 h-4 text-gold-400 shrink-0"></i>
-                                <span>Google Haritalar tam konum & navigasyon entegrasyonu</span>
+                                <i data-lucide="wrench" class="w-4 h-4 text-gold-400 shrink-0"></i>
+                                <span>Fiyat değişimi & bakım için doğrudan WhatsApp desteği</span>
                             </li>
                             <li class="flex items-center gap-2.5">
                                 <i data-lucide="gift" class="w-4 h-4 text-gold-400 shrink-0"></i>
-                                <span class="text-gold-300 font-semibold">Masa QR Kod Tasarımı Hediye</span>
+                                <span class="text-gold-300 font-semibold">Masa Akrilik QR Standı Tasarımı Hediye</span>
                             </li>
                         </ul>
                     </div>
 
                     <div class="mt-8 pt-6 border-t border-white/10">
-                        <button onclick="requestPurchase('Klasik Bistro & Menü Paketi (2. Seviye Şablon)', '4.490 ₺')" class="w-full py-4 px-4 rounded-xl text-sm font-bold text-night-950 bg-gradient-to-r from-gold-300 via-gold-400 to-gold-500 hover:brightness-110 shadow-lg shadow-gold-400/20 transition-all flex items-center justify-center gap-2">
+                        <button onclick="requestPurchase('Klasik Bistro & Menü Paketi (2. Seviye Şablon)', '5.990 ₺')" class="w-full py-4 px-4 rounded-xl text-sm font-bold text-night-950 bg-gradient-to-r from-gold-300 via-gold-400 to-gold-500 hover:brightness-110 shadow-lg shadow-gold-400/20 transition-all flex items-center justify-center gap-2">
                             <i data-lucide="sparkles" class="w-4 h-4"></i>
                             <span>Hemen Başla (FAST/Havale)</span>
                         </button>
@@ -717,7 +760,7 @@
                         
                         <div class="mt-6 mb-6">
                             <div class="flex items-baseline gap-2">
-                                <span class="text-4xl font-extrabold text-white">7.490</span>
+                                <span class="text-4xl font-extrabold text-white">9.990</span>
                                 <span class="text-gold-400 font-bold text-xl">₺</span>
                                 <span class="text-xs text-slate-400 font-normal">/ tek seferlik</span>
                             </div>
@@ -734,8 +777,8 @@
                                 <span><strong>Çoklu Şube Desteği:</strong> Farklı lokasyon ve adresler</span>
                             </li>
                             <li class="flex items-center gap-2.5">
-                                <i data-lucide="check" class="w-4 h-4 text-gold-400 shrink-0"></i>
-                                <span>Alerjen ve kalori etiketli gurme menü mimarisi</span>
+                                <i data-lucide="wrench" class="w-4 h-4 text-gold-400 shrink-0"></i>
+                                <span>Öncelikli VIP bakım, içerik ve menü revizyon hattı</span>
                             </li>
                             <li class="flex items-center gap-2.5">
                                 <i data-lucide="check" class="w-4 h-4 text-gold-400 shrink-0"></i>
@@ -749,7 +792,7 @@
                     </div>
 
                     <div class="mt-8 pt-6 border-t border-white/10">
-                        <button onclick="requestPurchase('Ultra Lüks Gurme Paketi (3. Seviye Şablon)', '7.490 ₺')" class="w-full py-3.5 px-4 rounded-xl text-sm font-bold text-white bg-night-850 hover:bg-gold-400 hover:text-night-950 border border-gold-400/30 hover:border-transparent transition-all flex items-center justify-center gap-2">
+                        <button onclick="requestPurchase('Ultra Lüks Gurme Paketi (3. Seviye Şablon)', '9.990 ₺')" class="w-full py-3.5 px-4 rounded-xl text-sm font-bold text-white bg-night-850 hover:bg-gold-400 hover:text-night-950 border border-gold-400/30 hover:border-transparent transition-all flex items-center justify-center gap-2">
                             <i data-lucide="arrow-right" class="w-4 h-4"></i>
                             <span>Bu Paketi Seç (FAST/Havale)</span>
                         </button>
@@ -805,11 +848,11 @@
 
                 <div class="luxury-card rounded-xl border border-white/10 overflow-hidden">
                     <button onclick="toggleFaq(4)" class="w-full p-5 text-left flex items-center justify-between text-sm sm:text-base font-semibold text-white hover:text-gold-300 transition-colors">
-                        <span>Menüdeki ürünler veya fiyatlar değiştiğinde ne yapacağız?</span>
+                        <span>Menüdeki ürünler veya fiyatlar değiştiğinde, site bakımında ne yapacağız?</span>
                         <i id="faq-icon-4" data-lucide="chevron-down" class="w-5 h-5 text-gold-400 transition-transform duration-300"></i>
                     </button>
                     <div id="faq-ans-4" class="hidden px-5 pb-5 text-xs sm:text-sm text-slate-300 border-t border-white/5 pt-3 leading-relaxed">
-                        Güncel menünüzü veya değişen fiyat listenizi WhatsApp üzerinden <strong>0544 572 22 03</strong> numaralı destek hattımıza iletmeniz yeterlidir. Paketlerimize dahil olan ücretsiz güncelleme desteğimizle menünüz aynı gün içerisinde yenilenir.
+                        Karmaşık yönetim panelleriyle uğraşmanıza gerek yok. Değişen fiyatlarınızı veya yeni ürünlerinizi <strong>0544 572 22 03</strong> numaralı WhatsApp destek hattımıza iletmeniz yeterlidir. Paketlerimize dahil olan ücretsiz bakım ve güncelleme desteğimizle menünüz aynı gün içerisinde yenilenir.
                     </div>
                 </div>
 
@@ -855,9 +898,9 @@
                     <div>
                         <label class="block text-xs font-semibold text-slate-300 mb-1">İlgilendiğiniz Şablon Seviyesi</label>
                         <select name="secilen_sablon" id="lead-secilen-sablon" class="w-full px-4 py-3 rounded-xl bg-night-900 border border-white/10 text-white focus:outline-none focus:border-gold-400 text-sm">
-                            <option value="1. Seviye: Hızlı Butik Vitrin (2.490 ₺)">1. Seviye: Hızlı Butik Vitrin (2.490 ₺)</option>
-                            <option value="2. Seviye: Klasik Bistro & Menü (4.490 ₺)" selected>2. Seviye: Klasik Bistro & Menü (4.490 ₺)</option>
-                            <option value="3. Seviye: Ultra Lüks Gurme (7.490 ₺)">3. Seviye: Ultra Lüks Gurme (7.490 ₺)</option>
+                            <option value="1. Seviye: Hızlı Butik Vitrin (3.490 ₺)">1. Seviye: Hızlı Butik Vitrin (3.490 ₺)</option>
+                            <option value="2. Seviye: Klasik Bistro & Menü (5.990 ₺)" selected>2. Seviye: Klasik Bistro & Menü (5.990 ₺)</option>
+                            <option value="3. Seviye: Ultra Lüks Gurme (9.990 ₺)">3. Seviye: Ultra Lüks Gurme (9.990 ₺)</option>
                         </select>
                     </div>
                     <div class="sm:col-span-2">
@@ -888,14 +931,14 @@
                 </div>
 
                 <div class="flex flex-col items-center justify-center">
-                    <span class="text-[11px] uppercase tracking-widest text-gold-400 font-bold mb-2">Müşteri Destek & Sipariş Hattı</span>
+                    <span class="text-[11px] uppercase tracking-widest text-gold-400 font-bold mb-2">Müşteri Destek & Bakım Hattı</span>
                     <a href="tel:+905445722203" class="inline-flex items-center gap-3 px-6 py-3.5 rounded-2xl bg-night-900 border border-gold-400/40 text-white hover:border-gold-400 hover:bg-gold-400/10 transition-all duration-300 shadow-xl group">
                         <div class="w-9 h-9 rounded-xl bg-gold-400/20 flex items-center justify-center text-gold-400 group-hover:scale-110 transition-transform">
                             <i data-lucide="phone-call" class="w-4 h-4"></i>
                         </div>
                         <span class="text-xl sm:text-2xl font-mono font-extrabold text-gold-300 tracking-wider">0544 572 22 03</span>
                     </a>
-                    <span class="text-[10px] text-slate-500 mt-2">Haftanın 7 günü 09:00 - 23:00 Canlı Destek</span>
+                    <span class="text-[10px] text-slate-500 mt-2">Haftanın 7 günü 09:00 - 23:00 Canlı Destek & Güncelleme</span>
                 </div>
 
                 <div class="flex flex-col md:items-end items-center justify-center space-y-2 text-xs">
@@ -911,7 +954,7 @@
             <div class="pt-8 flex flex-wrap items-center justify-center gap-8 text-[11px] text-slate-500 font-medium">
                 <span class="flex items-center gap-1.5"><i data-lucide="shield-check" class="w-3.5 h-3.5 text-gold-400"></i> %100 Güvenli FAST / Havale</span>
                 <span class="flex items-center gap-1.5"><i data-lucide="clock" class="w-3.5 h-3.5 text-gold-400"></i> 48 Saatte Hızlı Teslimat</span>
-                <span class="flex items-center gap-1.5"><i data-lucide="percent" class="w-3.5 h-3.5 text-gold-400"></i> Sıfır Sipariş Komisyonu</span>
+                <span class="flex items-center gap-1.5"><i data-lucide="wrench" class="w-3.5 h-3.5 text-gold-400"></i> Yıllık Ücretsiz Bakım & Güncelleme</span>
             </div>
         </div>
     </footer>
@@ -949,7 +992,7 @@
             <div class="bg-night-950 p-4 rounded-xl border border-white/10 mb-6 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3">
                 <div>
                     <span class="text-xs text-slate-400 block">Ödenecek Tutar</span>
-                    <span id="modal-pkg-price" class="text-2xl font-extrabold text-white">4.490 ₺</span>
+                    <span id="modal-pkg-price" class="text-2xl font-extrabold text-white">5.990 ₺</span>
                 </div>
                 <div class="text-left sm:text-right">
                     <span class="text-xs text-slate-400 block">Sipariş Takip Kodu</span>
@@ -1029,7 +1072,6 @@
                 <i data-lucide="x" class="w-5 h-5"></i>
             </button>
 
-            <!-- Dinamik İşlem Şeridi -->
             <div id="auth-intent-banner" class="mb-5 p-3 rounded-xl bg-gold-400/10 border border-gold-400/30 text-xs text-gold-300 flex items-center gap-2.5 hidden">
                 <i data-lucide="shield-alert" class="w-4 h-4 text-gold-400 shrink-0"></i>
                 <span id="auth-intent-text">Devam etmek için lütfen giriş yapın veya ücretsiz hesap oluşturun.</span>
@@ -1116,7 +1158,6 @@
             return JSON.parse(localStorage.getItem('rw_current_user') || 'null');
         }
 
-        // ÖDEME ALIRKEN KONTROL
         function requestPurchase(packageName, price) {
             const user = getCurrentUser();
             if (!user) {
@@ -1127,7 +1168,6 @@
             openFastModal(packageName, price);
         }
 
-        // ŞABLON TALEP EDERKEN KONTROL
         function handleLeadSubmit(e) {
             e.preventDefault();
             const form = e.target;
@@ -1327,7 +1367,7 @@
             document.getElementById('calc-komisyon-yillik').innerText = Math.round(yillikKomisyon).toLocaleString('tr-TR') + " ₺";
 
             const gunlukKomisyon = aylikKomisyon / 30;
-            const amortiGun = Math.max(1, Math.ceil(4490 / gunlukKomisyon));
+            const amortiGun = Math.max(1, Math.ceil(5990 / gunlukKomisyon));
             document.getElementById('calc-amorti-sure').innerText = amortiGun + " Gün";
         }
 
