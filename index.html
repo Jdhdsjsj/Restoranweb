@@ -5,31 +5,93 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Restoran & Kafe Web Sitesi Yaptırma | Komisyonsuz Dijital Menü Vitrini</title>
     <meta name="description" content="Kadıköy, Beşiktaş, Nişantaşı ve tüm Türkiye'deki restoran ve kafeler için komisyonsuz, tek tıkla WhatsApp ve arama alan prestijli tanıtım web siteleri. 48 saatte yayında.">
-    <!-- Google Fonts -->
+    <meta name="robots" content="index, follow">
+    <meta name="author" content="Restoranweb">
+
+    <!-- 3. CANONICAL & YEREL COĞRAFİ HEDEFLEME ETİKETLERİ -->
+    <link rel="canonical" href="https://restoranweb.com/">
+    <meta name="geo.region" content="TR-34">
+    <meta name="geo.placename" content="İstanbul">
+    <meta name="geo.position" content="41.0082;28.9784">
+    <meta name="ICBM" content="41.0082, 28.9784">
+
+    <!-- 5. GOOGLE HIZ & CORE WEB VITALS (FONT DISPLAY SWAP & PRECONNECT) -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Playfair+Display:ital,wght@0,600;0,700;1,600&display=swap" rel="stylesheet">
+    
     <!-- Lucide Icons -->
     <script src="https://unpkg.com/lucide@latest"></script>
     <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
     
-    <!-- GOOGLE SEO YAPISAL VERİ (SCHEMA.ORG JSON-LD) -->
+    <!-- 1. GOOGLE SSS (FAQPAGE) VE İŞLETME YAPISAL VERİSİ (SCHEMA.ORG JSON-LD) -->
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
-      "@type": "ProfessionalService",
-      "name": "Restoranweb",
-      "image": "https://images.unsplash.com/photo-1517248135467-4c7edcad34c4",
-      "description": "Restoran ve kafeler için %0 komisyonlu prestijli tanıtım web siteleri ve dijital menü kurulumu.",
-      "telephone": "+905445722203",
-      "priceRange": "2490₺ - 7490₺",
-      "address": {
-        "@type": "PostalAddress",
-        "addressLocality": "İstanbul",
-        "addressCountry": "TR"
-      },
-      "areaServed": ["Kadıköy", "Beşiktaş", "Şişli", "Nişantaşı", "Bakırköy", "İstanbul", "Türkiye"]
+      "@graph": [
+        {
+          "@type": "ProfessionalService",
+          "@id": "https://restoranweb.com/#service",
+          "name": "Restoranweb - Restoran & Kafe Web Tasarım Stüdyosu",
+          "image": "https://images.unsplash.com/photo-1517248135467-4c7edcad34c4",
+          "description": "Restoran ve kafeler için %0 komisyonlu prestijli tanıtım web siteleri ve dijital menü kurulumu.",
+          "telephone": "+905445722203",
+          "priceRange": "2490₺ - 7490₺",
+          "address": {
+            "@type": "PostalAddress",
+            "addressLocality": "İstanbul",
+            "addressCountry": "TR"
+          },
+          "areaServed": ["Kadıköy", "Beşiktaş", "Şişli", "Nişantaşı", "Bakırköy", "İstanbul", "Türkiye"]
+        },
+        {
+          "@type": "FAQPage",
+          "@id": "https://restoranweb.com/#faq",
+          "mainEntity": [
+            {
+              "@type": "Question",
+              "name": "Neden online sipariş ve kredi kartı ödemesi eklemiyorsunuz?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Çünkü online kart ödemeleri restoranlar için gizli komisyonlar (%3 ila %5 banka kesintisi), aylık POS aidatları, kurye takip yazılımı maliyetleri ve ters ibraz sorunları yaratır. Tanıtım sitelerimizde müşteri menüyü beğenir, doğrudan WhatsApp hattınıza yazar veya işletmenize gelerek ödemesini masada doğrudan size yapar. Böylece cironuzun %100'ü sizde kalır."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "Web sitem Google Haritalar'da (Google Business) çıkar mı?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Evet! Sitenizi doğrudan Google Haritalar (Google İşletme) profilinizdeki 'Web Sitesi' alanına entegre ediyoruz. Bölgenizde arama yapan veya yol tarifi alan müşteriler Google Haritalar üzerinden tek tıkla sitenize ve menünüze yönlendirilir."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "Kendi yemek fotoğraflarımız profesyonel değilse ne olacak?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Hiç problem değil. Eğer kendi profesyonel çekimleriniz yoksa, menünüzdeki lezzetlerle birebir eşleşen ultra yüksek çözünürlüklü gurme stok fotoğraflarla sitenizin vitrinini ve menüsünü ücretsiz olarak biz zenginleştiriyoruz."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "Menüdeki ürünler veya fiyatlar değiştiğinde ne yapacağız?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Güncel menünüzü veya değişen fiyat listenizi WhatsApp üzerinden 0544 572 22 03 numaralı destek hattımıza iletmeniz yeterlidir. Paketlerimize dahil olan ücretsiz güncelleme desteğimizle menünüz aynı gün içerisinde yenilenir."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "Benim zaten tescilli bir .com alan adım (domain) var, kullanabilir miyiz?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Kesinlikle evet! Mevcut alan adınızı ücretsiz olarak yeni sitenize bağlıyoruz ve SSL güvenlik sertifikasını tanımlıyoruz. Yeni bir domain almak zorunda kalmazsınız."
+              }
+            }
+          ]
+        }
+      ]
     }
     </script>
 
@@ -105,7 +167,7 @@
         <span class="inline-flex items-center px-2 py-0.5 rounded-full text-[10px] font-semibold bg-gold-400/20 text-gold-300 border border-gold-400/30">
             %0 Komisyon
         </span>
-        <span>Yemek uygulamalarının %30+ komisyonlarına son verin. Sadece restoranınızı prestijle tanıtan web siteleri kuruyoruz.</span>
+        <span>Yemek platformlarının %30+ komisyonlarına son verin. Sadece restoranınızı prestijle tanıtan web siteleri kuruyoruz.</span>
     </div>
 
     <!-- NAVBAR -->
@@ -285,7 +347,7 @@
         </div>
     </section>
 
-    <!-- ================= 4. ÖZELLİK: ŞEHİR & KATEGORİ BAZLI YEREL SEO BÖLÜMÜ (YENİ EKLENDİ) ================= -->
+    <!-- BÖLGESEL & YEREL SEO BÖLÜMÜ -->
     <section id="yerel-cozumler" class="py-20 bg-night-900/60 border-y border-white/5 relative">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center max-w-3xl mx-auto mb-16">
@@ -705,7 +767,7 @@
                         <span>Kendi yemek fotoğraflarımız profesyonel değilse ne olacak?</span>
                         <i id="faq-icon-3" data-lucide="chevron-down" class="w-5 h-5 text-gold-400 transition-transform duration-300"></i>
                     </button>
-                    <div id="faq-ans-3" class="hidden px-5 pb-5 text-xs sm:text-sm text-slate-300 border-t border-white/5 pt-3 leading-relaxed">
+                    <div id="faq-ans-2" class="hidden px-5 pb-5 text-xs sm:text-sm text-slate-300 border-t border-white/5 pt-3 leading-relaxed">
                         Hiç problem değil. Eğer kendi profesyonel çekimleriniz yoksa, menünüzdeki lezzetlerle birebir eşleşen ultra yüksek çözünürlüklü gurme stok fotoğraflarla sitenizin vitrinini ve menüsünü ücretsiz olarak biz zenginleştiriyoruz.
                     </div>
                 </div>
@@ -1181,7 +1243,7 @@
 
         updateNavAuth();
 
-        // 3 ŞABLON VERİSİ
+        // 3 ŞABLON VERİSİ (4. SEMANTİK VE GÖRSEL SEO ALT ETİKETLERİ DAHİL)
         const templates = {
             1: {
                 name: "1. Seviye: Hızlı Butik Vitrin",
@@ -1350,6 +1412,7 @@
                             </div>
                         </div>
 
+                        <!-- 4. GÖRSEL SEO VE LAZY LOADING -->
                         <div class="mb-10">
                             <div class="flex items-center justify-between mb-4">
                                 <h4 class="text-xs font-bold text-gold-400 uppercase tracking-wider flex items-center gap-2">
@@ -1361,7 +1424,7 @@
                             
                             <div class="grid grid-cols-1 sm:grid-cols-3 gap-3">
                                 <div class="group relative rounded-xl overflow-hidden border border-gold-400/20 h-44 bg-night-900">
-                                    <img src="https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?auto=format&fit=crop&w=800&q=80" alt="Restoran Salonu" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                                    <img src="https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?auto=format&fit=crop&w=800&q=80" alt="Lüks restoran ana yemek salonu ve mum ışığı masaları" loading="lazy" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
                                     <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent flex flex-col justify-end p-3">
                                         <span class="text-xs font-bold text-white">Ana Yemek Salonu</span>
                                         <span class="text-[10px] text-gold-300">Mum Işığında Akşam Yemeği</span>
@@ -1369,7 +1432,7 @@
                                 </div>
 
                                 <div class="group relative rounded-xl overflow-hidden border border-gold-400/20 h-44 bg-night-900">
-                                    <img src="https://images.unsplash.com/photo-1555396273-367ea4eb4db5?auto=format&fit=crop&w=800&q=80" alt="Açık Mutfak" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                                    <img src="https://images.unsplash.com/photo-1555396273-367ea4eb4db5?auto=format&fit=crop&w=800&q=80" alt="Ocakbaşı restoran şefin açık mutfağı ve ızgara köz ateşi" loading="lazy" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
                                     <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent flex flex-col justify-end p-3">
                                         <span class="text-xs font-bold text-white">Şefin Açık Mutfağı</span>
                                         <span class="text-[10px] text-gold-300">Köz & Meşe Ateşi Deneyimi</span>
@@ -1377,7 +1440,7 @@
                                 </div>
 
                                 <div class="group relative rounded-xl overflow-hidden border border-gold-400/20 h-44 bg-night-900">
-                                    <img src="https://images.unsplash.com/photo-1543007630-9710e4a00a20?auto=format&fit=crop&w=800&q=80" alt="VIP Bar & Mahzen" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                                    <img src="https://images.unsplash.com/photo-1543007630-9710e4a00a20?auto=format&fit=crop&w=800&q=80" alt="Restoran VIP özel toplantı salonu ve şarap mahzeni" loading="lazy" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
                                     <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent flex flex-col justify-end p-3">
                                         <span class="text-xs font-bold text-white">VIP Salon & Mahzen</span>
                                         <span class="text-[10px] text-gold-300">Özel Toplantı & Davetler</span>
