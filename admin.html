@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Restoranweb | Yönetici Operasyon & Analitik Paneli</title>
+    <title>Restoranweb | Master Operasyon & Yönetim Konsolu</title>
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -50,259 +50,423 @@
 </head>
 <body class="bg-night-950 text-slate-200 font-sans antialiased selection:bg-gold-400 selection:text-night-950 min-h-screen">
 
-    <!-- ================= GİRİŞ / PIN KİLİT EKRANI ================= -->
+    <!-- ================= 6 HANELİ GİRİŞ / PIN KİLİT EKRANI ================= -->
     <div id="login-modal" class="fixed inset-0 z-50 bg-night-950 flex items-center justify-center p-4">
         <div class="bg-night-900 border border-gold-400/30 rounded-2xl p-8 max-w-sm w-full text-center shadow-2xl gold-glow">
             <div class="w-14 h-14 rounded-2xl bg-gold-400/10 border border-gold-400/30 flex items-center justify-center text-gold-400 mx-auto mb-4">
                 <i data-lucide="shield-check" class="w-7 h-7"></i>
             </div>
             <h2 class="font-serif text-2xl font-bold text-white">Yönetici Girişi</h2>
-            <p class="text-xs text-slate-400 mt-1 mb-6">Restoranweb operasyon merkezine erişmek için PIN kodunuzu girin.</p>
+            <p class="text-xs text-slate-400 mt-1 mb-6">Restoranweb operasyon merkezine erişmek için 6 haneli PIN girin.</p>
             
             <form onsubmit="handleLogin(event)" class="space-y-4">
-                <input type="password" id="admin-pin-input" maxlength="8" placeholder="••••" required class="w-full text-center tracking-[0.5em] text-2xl font-bold py-3 rounded-xl bg-night-950 border border-white/10 text-gold-400 focus:outline-none focus:border-gold-400">
+                <input type="password" id="admin-pin-input" maxlength="6" placeholder="••••••" required class="w-full text-center tracking-[0.5em] text-2xl font-bold py-3 rounded-xl bg-night-950 border border-white/10 text-gold-400 focus:outline-none focus:border-gold-400">
                 <button type="submit" class="w-full py-3.5 rounded-xl text-sm font-bold bg-gold-400 text-night-950 hover:brightness-110 transition-all shadow-lg shadow-gold-400/20">
-                    Panele Giriş Yap
+                    Konsola Giriş Yap
                 </button>
             </form>
             <p id="login-error" class="text-xs text-rose-400 font-semibold mt-3 hidden">Hatalı PIN kodu! Tekrar deneyin.</p>
-            <p class="text-[10px] text-slate-500 mt-4">(Varsayılan PIN: 1234 - Giriş yaptıktan sonra değiştirebilirsiniz)</p>
+            <p class="text-[10px] text-slate-500 mt-4">(Varsayılan 6 Haneli PIN: <strong>123456</strong>)</p>
         </div>
     </div>
 
-    <!-- ================= ANA DASHBOARD EKRANI ================= -->
-    <div id="dashboard-app" class="hidden">
+    <!-- ================= ANA DASHBOARD KONSOLU ================= -->
+    <div id="dashboard-app" class="hidden min-h-screen flex flex-col">
         
         <!-- ÜST ÇUBUK -->
-        <header class="bg-night-900/80 backdrop-blur-md border-b border-white/5 sticky top-0 z-40">
-            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-18 py-4 flex items-center justify-between">
+        <header class="bg-night-900/90 backdrop-blur-md border-b border-white/10 sticky top-0 z-40">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
                 <div class="flex items-center gap-3">
-                    <div class="w-9 h-9 rounded-lg bg-gold-400 flex items-center justify-center text-night-950 font-bold">
+                    <div class="w-10 h-10 rounded-xl bg-gradient-to-br from-gold-400 to-gold-600 flex items-center justify-center text-night-950 font-bold shadow-md shadow-gold-400/20">
                         <i data-lucide="utensils" class="w-5 h-5"></i>
                     </div>
                     <div>
-                        <span class="font-serif text-lg font-bold text-white">Restoran<span class="text-gold-400">web</span></span>
-                        <span class="text-[10px] uppercase tracking-wider text-slate-400 block font-semibold">Master Operasyon & Analitik</span>
+                        <div class="flex items-center gap-2">
+                            <span class="font-serif text-xl font-bold text-white">Restoran<span class="text-gold-400">web</span></span>
+                            <span class="text-[9px] font-bold px-2 py-0.5 rounded-md bg-gold-400/20 text-gold-300 border border-gold-400/30 uppercase tracking-widest">Master 2.0</span>
+                        </div>
+                        <span class="text-[10px] text-slate-400 block font-medium">Merkezi Operasyon & Finans Masası</span>
                     </div>
                 </div>
 
-                <div class="flex items-center gap-2.5">
-                    <button onclick="exportOrdersToCSV()" class="px-3.5 py-2 rounded-xl bg-night-850 hover:bg-night-800 border border-white/10 text-xs font-semibold text-slate-300 hover:text-white flex items-center gap-1.5 transition-all" title="Siparişleri Excel / CSV olarak indir">
-                        <i data-lucide="download" class="w-4 h-4 text-gold-400"></i>
-                        <span class="hidden sm:inline">CSV İndir</span>
-                    </button>
-                    <button onclick="openNewOrderModal()" class="px-4 py-2 rounded-xl bg-gold-400 text-night-950 text-xs font-bold hover:brightness-110 flex items-center gap-1.5 transition-all shadow-md shadow-gold-400/10">
+                <!-- Hızlı Aksiyon Araçları -->
+                <div class="flex items-center gap-2 sm:gap-3">
+                    <button onclick="openNewOrderModal()" class="px-3.5 sm:px-4 py-2.5 rounded-xl bg-gold-400 text-night-950 text-xs font-bold hover:brightness-110 flex items-center gap-1.5 transition-all shadow-md shadow-gold-400/10">
                         <i data-lucide="plus-circle" class="w-4 h-4"></i>
-                        <span>Sipariş Ekle</span>
+                        <span class="hidden sm:inline">Yeni Sipariş</span>
                     </button>
-                    <button onclick="changePinPrompt()" class="p-2 rounded-xl bg-night-850 border border-white/10 text-slate-300 hover:text-white" title="PIN Kodunu Değiştir">
+                    <button onclick="backupAllData()" class="p-2.5 rounded-xl bg-night-850 border border-white/10 text-slate-300 hover:text-white" title="Tüm Veritabanını JSON Olarak Yedekle">
+                        <i data-lucide="save" class="w-4 h-4"></i>
+                    </button>
+                    <button onclick="changePinPrompt()" class="p-2.5 rounded-xl bg-night-850 border border-white/10 text-slate-300 hover:text-white" title="6 Haneli PIN Değiştir">
                         <i data-lucide="key" class="w-4 h-4"></i>
                     </button>
-                    <button onclick="handleLogout()" class="p-2 rounded-xl bg-night-850 border border-rose-500/20 text-rose-400 hover:bg-rose-500/10" title="Güvenli Çıkış">
+                    <button onclick="handleLogout()" class="p-2.5 rounded-xl bg-night-850 border border-rose-500/20 text-rose-400 hover:bg-rose-500/10" title="Güvenli Çıkış">
                         <i data-lucide="log-out" class="w-4 h-4"></i>
                     </button>
                 </div>
             </div>
+
+            <!-- KONSOL SEKMELERİ (NAVIGATION TABS) -->
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center gap-2 overflow-x-auto text-xs font-semibold py-2.5 border-t border-white/5">
+                <button onclick="switchTab('overview')" id="tab-btn-overview" class="tab-btn px-4 py-2 rounded-xl bg-gold-400 text-night-950 font-bold flex items-center gap-2 transition-all">
+                    <i data-lucide="layout-dashboard" class="w-4 h-4"></i>
+                    <span>Genel Bakış & Ciro</span>
+                </button>
+                <button onclick="switchTab('orders')" id="tab-btn-orders" class="tab-btn px-4 py-2 rounded-xl bg-night-850 text-slate-300 hover:text-white border border-white/10 flex items-center gap-2 transition-all">
+                    <i data-lucide="receipt" class="w-4 h-4"></i>
+                    <span>Siparişler (<span id="tab-badge-orders">0</span>)</span>
+                </button>
+                <button onclick="switchTab('visitors')" id="tab-btn-visitors" class="tab-btn px-4 py-2 rounded-xl bg-night-850 text-slate-300 hover:text-white border border-white/10 flex items-center gap-2 transition-all">
+                    <i data-lucide="users" class="w-4 h-4"></i>
+                    <span>Ziyaretçiler & Cihazlar (<span id="tab-badge-visitors">0</span>)</span>
+                </button>
+                <button onclick="switchTab('users')" id="tab-btn-users" class="tab-btn px-4 py-2 rounded-xl bg-night-850 text-slate-300 hover:text-white border border-white/10 flex items-center gap-2 transition-all">
+                    <i data-lucide="store" class="w-4 h-4"></i>
+                    <span>Kayıtlı İşletmeler (<span id="tab-badge-users">0</span>)</span>
+                </button>
+                <button onclick="switchTab('settings')" id="tab-btn-settings" class="tab-btn px-4 py-2 rounded-xl bg-night-850 text-slate-300 hover:text-white border border-white/10 flex items-center gap-2 transition-all">
+                    <i data-lucide="sliders" class="w-4 h-4"></i>
+                    <span>Banka & Ayarlar</span>
+                </button>
+            </div>
         </header>
 
         <!-- İÇERİK ALANI -->
-        <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 space-y-8">
+        <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 flex-1 space-y-8 w-full">
             
-            <!-- 1. FİNANS & ZİYARETÇİ METRİK KARTLARI -->
-            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
-                <div class="bg-night-900 border border-gold-400/30 rounded-2xl p-5 relative overflow-hidden shadow-lg shadow-gold-400/5">
-                    <div class="flex justify-between items-start">
-                        <div>
-                            <span class="text-xs text-slate-400 font-medium">Tekil Ziyaretçi (Benzersiz Cihaz)</span>
-                            <h3 id="stat-visitors" class="text-3xl font-extrabold text-gold-400 mt-1">0</h3>
+            <!-- ================= SEKME 1: GENEL BAKIŞ & FİNANS ================= -->
+            <div id="tab-content-overview" class="space-y-8">
+                <!-- 4 Temel Metrik Kartı -->
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
+                    <div class="bg-night-900 border border-white/10 rounded-2xl p-5">
+                        <div class="flex justify-between items-start">
+                            <div>
+                                <span class="text-xs text-slate-400 font-medium">Toplam Onaylı Ciro</span>
+                                <h3 id="stat-revenue" class="text-3xl font-extrabold text-white mt-1">0 ₺</h3>
+                            </div>
+                            <div class="w-10 h-10 rounded-xl bg-gold-400/10 border border-gold-400/30 flex items-center justify-center text-gold-400">
+                                <i data-lucide="wallet" class="w-5 h-5"></i>
+                            </div>
                         </div>
-                        <div class="w-10 h-10 rounded-xl bg-gold-400/10 border border-gold-400/30 flex items-center justify-center text-gold-400">
-                            <i data-lucide="users" class="w-5 h-5"></i>
-                        </div>
+                        <span class="text-[11px] text-emerald-400 font-medium flex items-center gap-1 mt-3">
+                            <i data-lucide="check" class="w-3.5 h-3.5"></i> FAST / Havale Net Girişi
+                        </span>
                     </div>
-                    <span class="text-[11px] text-emerald-400 font-medium flex items-center gap-1 mt-3">
-                        <i data-lucide="shield-check" class="w-3.5 h-3.5"></i> Aynı cihazlar mükerrer sayılmaz
-                    </span>
+
+                    <div class="bg-night-900 border border-white/10 rounded-2xl p-5">
+                        <div class="flex justify-between items-start">
+                            <div>
+                                <span class="text-xs text-slate-400 font-medium">Ödeme Bekleyen Sipariş</span>
+                                <h3 id="stat-pending" class="text-3xl font-extrabold text-amber-400 mt-1">0</h3>
+                            </div>
+                            <div class="w-10 h-10 rounded-xl bg-amber-500/10 border border-amber-500/30 flex items-center justify-center text-amber-400">
+                                <i data-lucide="clock" class="w-5 h-5"></i>
+                            </div>
+                        </div>
+                        <span class="text-[11px] text-slate-400 mt-3 block">Banka hesabı teyidi bekleniyor</span>
+                    </div>
+
+                    <div class="bg-night-900 border border-white/10 rounded-2xl p-5">
+                        <div class="flex justify-between items-start">
+                            <div>
+                                <span class="text-xs text-slate-400 font-medium">Canlıdaki Restoranlar</span>
+                                <h3 id="stat-active" class="text-3xl font-extrabold text-emerald-400 mt-1">0</h3>
+                            </div>
+                            <div class="w-10 h-10 rounded-xl bg-emerald-500/10 border border-emerald-500/30 flex items-center justify-center text-emerald-400">
+                                <i data-lucide="globe" class="w-5 h-5"></i>
+                            </div>
+                        </div>
+                        <span class="text-[11px] text-slate-400 mt-3 block">Aktif kurumsal vitrinler</span>
+                    </div>
+
+                    <div class="bg-night-900 border border-gold-400/30 rounded-2xl p-5 shadow-lg shadow-gold-400/5">
+                        <div class="flex justify-between items-start">
+                            <div>
+                                <span class="text-xs text-slate-400 font-medium">Tekil Ziyaretçi (Organik)</span>
+                                <h3 id="stat-visitors" class="text-3xl font-extrabold text-gold-400 mt-1">0</h3>
+                            </div>
+                            <div class="w-10 h-10 rounded-xl bg-gold-400/10 border border-gold-400/30 flex items-center justify-center text-gold-400">
+                                <i data-lucide="users" class="w-5 h-5"></i>
+                            </div>
+                        </div>
+                        <span class="text-[11px] text-emerald-400 font-medium flex items-center gap-1 mt-3">
+                            <i data-lucide="shield-check" class="w-3.5 h-3.5"></i> Benzersiz Cihaz / IP
+                        </span>
+                    </div>
                 </div>
 
-                <div class="bg-night-900 border border-white/10 rounded-2xl p-5">
-                    <div class="flex justify-between items-start">
-                        <div>
-                            <span class="text-xs text-slate-400 font-medium">Toplam Onaylı Ciro</span>
-                            <h3 id="stat-revenue" class="text-2xl font-bold text-white mt-1">0 ₺</h3>
-                        </div>
-                        <div class="w-10 h-10 rounded-xl bg-gold-400/10 border border-gold-400/30 flex items-center justify-center text-gold-400">
-                            <i data-lucide="wallet" class="w-5 h-5"></i>
-                        </div>
-                    </div>
-                    <span class="text-[11px] text-emerald-400 font-medium flex items-center gap-1 mt-3">
-                        <i data-lucide="check" class="w-3.5 h-3.5"></i> FAST / Havale Net Tahsilat
-                    </span>
-                </div>
+                <!-- Paket Dağılımı & Hızlı İstatistik Kartı -->
+                <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
+                    <div class="lg:col-span-2 bg-night-900 border border-white/10 rounded-2xl p-6">
+                        <h4 class="text-sm font-bold text-white mb-1 flex items-center gap-2">
+                            <i data-lucide="pie-chart" class="w-4 h-4 text-gold-400"></i>
+                            <span>Paket Satış Dağılımı & Popülerlik</span>
+                        </h4>
+                        <p class="text-xs text-slate-400 mb-6">Restoran sahiplerinin en çok sipariş verdiği şablon seviyeleri.</p>
 
-                <div class="bg-night-900 border border-white/10 rounded-2xl p-5">
-                    <div class="flex justify-between items-start">
-                        <div>
-                            <span class="text-xs text-slate-400 font-medium">Ödeme Bekleyenler</span>
-                            <h3 id="stat-pending" class="text-2xl font-bold text-amber-400 mt-1">0</h3>
-                        </div>
-                        <div class="w-10 h-10 rounded-xl bg-amber-500/10 border border-amber-500/30 flex items-center justify-center text-amber-400">
-                            <i data-lucide="clock" class="w-5 h-5"></i>
-                        </div>
-                    </div>
-                    <span class="text-[11px] text-slate-400 mt-3 block">Banka hesabı teyit edilecek</span>
-                </div>
+                        <div class="space-y-4">
+                            <div>
+                                <div class="flex justify-between text-xs mb-1.5 font-medium">
+                                    <span class="text-slate-300">1. Seviye: Hızlı Butik Vitrin (2.490 ₺)</span>
+                                    <span id="pkg-count-1" class="text-gold-400 font-mono font-bold">0 Adet</span>
+                                </div>
+                                <div class="w-full bg-night-950 h-2.5 rounded-full overflow-hidden border border-white/5">
+                                    <div id="pkg-bar-1" class="bg-slate-400 h-full rounded-full transition-all duration-500" style="width: 0%"></div>
+                                </div>
+                            </div>
 
-                <div class="bg-night-900 border border-white/10 rounded-2xl p-5">
-                    <div class="flex justify-between items-start">
-                        <div>
-                            <span class="text-xs text-slate-400 font-medium">Kayıtlı Restoran Hesabı</span>
-                            <h3 id="stat-users" class="text-2xl font-bold text-blue-400 mt-1">0</h3>
-                        </div>
-                        <div class="w-10 h-10 rounded-xl bg-blue-500/10 border border-blue-500/30 flex items-center justify-center text-blue-400">
-                            <i data-lucide="store" class="w-5 h-5"></i>
+                            <div>
+                                <div class="flex justify-between text-xs mb-1.5 font-medium">
+                                    <span class="text-slate-300">2. Seviye: Klasik Bistro & Menü (4.490 ₺)</span>
+                                    <span id="pkg-count-2" class="text-gold-400 font-mono font-bold">0 Adet</span>
+                                </div>
+                                <div class="w-full bg-night-950 h-2.5 rounded-full overflow-hidden border border-white/5">
+                                    <div id="pkg-bar-2" class="bg-gold-400 h-full rounded-full transition-all duration-500" style="width: 0%"></div>
+                                </div>
+                            </div>
+
+                            <div>
+                                <div class="flex justify-between text-xs mb-1.5 font-medium">
+                                    <span class="text-slate-300">3. Seviye: Ultra Lüks Gurme (7.490 ₺)</span>
+                                    <span id="pkg-count-3" class="text-gold-400 font-mono font-bold">0 Adet</span>
+                                </div>
+                                <div class="w-full bg-night-950 h-2.5 rounded-full overflow-hidden border border-white/5">
+                                    <div id="pkg-bar-3" class="bg-emerald-400 h-full rounded-full transition-all duration-500" style="width: 0%"></div>
+                                </div>
+                            </div>
                         </div>
                     </div>
-                    <span class="text-[11px] text-slate-400 mt-3 block">Siteden hesap oluşturanlar</span>
+
+                    <div class="bg-night-900 border border-white/10 rounded-2xl p-6 flex flex-col justify-between">
+                        <div>
+                            <h4 class="text-sm font-bold text-white mb-1 flex items-center gap-2">
+                                <i data-lucide="zap" class="w-4 h-4 text-gold-400"></i>
+                                <span>Operasyon Hızı</span>
+                            </h4>
+                            <p class="text-xs text-slate-400 mb-4">Sipariş teslim taahhüdü ve SLA durumu.</p>
+                            
+                            <div class="p-4 rounded-xl bg-night-950 border border-white/5 space-y-2">
+                                <div class="flex justify-between text-xs">
+                                    <span class="text-slate-400">Ortalama Teslim:</span>
+                                    <span class="text-emerald-400 font-bold">36 Saat</span>
+                                </div>
+                                <div class="flex justify-between text-xs">
+                                    <span class="text-slate-400">Taahhüt:</span>
+                                    <span class="text-slate-200 font-bold">Maksimum 48 Saat</span>
+                                </div>
+                                <div class="flex justify-between text-xs">
+                                    <span class="text-slate-400">Komisyon Kesintisi:</span>
+                                    <span class="text-gold-400 font-bold">%0 (Sıfır)</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="mt-6 pt-4 border-t border-white/5 text-center">
+                            <button onclick="switchTab('orders')" class="w-full py-2.5 rounded-xl bg-night-850 hover:bg-gold-400 hover:text-night-950 border border-gold-400/30 text-xs font-bold transition-all">
+                                Bekleyen Siparişleri İncele
+                            </button>
+                        </div>
+                    </div>
                 </div>
             </div>
 
-            <!-- 2. SİPARİŞ & MÜŞTERİ YÖNETİM TABLOSU (GELİŞMİŞ WHATSAPP VE FİŞ ÇIKTISI EKLENDİ) -->
-            <div class="bg-night-900 border border-white/10 rounded-2xl overflow-hidden shadow-xl">
-                <div class="p-5 border-b border-white/10 flex flex-col sm:flex-row sm:items-center justify-between gap-3">
-                    <div>
-                        <h2 class="text-lg font-bold text-white flex items-center gap-2">
-                            <i data-lucide="receipt" class="w-5 h-5 text-gold-400"></i>
-                            <span>Sipariş & Müşteri Operasyon Masası</span>
-                        </h2>
-                        <p class="text-xs text-slate-400">FAST taleplerini yönetin, aşama bazlı hazır WhatsApp mesajları atın veya fiş çıktısı alın.</p>
+            <!-- ================= SEKME 2: SİPARİŞ MASASI ================= -->
+            <div id="tab-content-orders" class="hidden space-y-6">
+                <div class="bg-night-900 border border-white/10 rounded-2xl overflow-hidden shadow-xl">
+                    <div class="p-5 border-b border-white/10 flex flex-col md:flex-row md:items-center justify-between gap-4">
+                        <div>
+                            <h2 class="text-lg font-bold text-white flex items-center gap-2">
+                                <i data-lucide="receipt" class="w-5 h-5 text-gold-400"></i>
+                                <span>Gelen FAST / Havale Siparişleri</span>
+                            </h2>
+                            <p class="text-xs text-slate-400">WhatsApp şablonlarıyla müşterilere anında durum bildirimi gönderin.</p>
+                        </div>
+
+                        <div class="flex flex-wrap items-center gap-2.5">
+                            <!-- Canlı Arama Inputu -->
+                            <div class="relative">
+                                <i data-lucide="search" class="w-3.5 h-3.5 absolute left-3 top-1/2 -translate-y-1/2 text-slate-500"></i>
+                                <input type="text" id="order-search" oninput="renderOrders()" placeholder="Restoran, kod veya tel ara..." class="pl-8 pr-3 py-2 rounded-xl bg-night-950 border border-white/10 text-xs text-white placeholder-slate-500 focus:outline-none focus:border-gold-400 w-44 sm:w-56">
+                            </div>
+
+                            <select id="filter-status" onchange="renderOrders()" class="bg-night-950 border border-white/10 text-xs rounded-xl px-3 py-2 text-slate-300 focus:outline-none focus:border-gold-400">
+                                <option value="ALL">Tüm Durumlar</option>
+                                <option value="BEKLIYOR">Ödeme Bekliyor</option>
+                                <option value="HAZIRLANIYOR">Hazırlanıyor</option>
+                                <option value="YAYINDA">Yayında (Canlı)</option>
+                            </select>
+
+                            <button onclick="exportOrdersToCSV()" class="p-2 rounded-xl bg-night-850 hover:bg-gold-400 hover:text-night-950 border border-white/10 text-slate-300 transition-all" title="Excel / CSV Olarak İndir">
+                                <i data-lucide="download" class="w-4 h-4"></i>
+                            </button>
+                        </div>
                     </div>
 
-                    <div class="flex items-center gap-2">
-                        <select id="filter-status" onchange="renderOrders()" class="bg-night-950 border border-white/10 text-xs rounded-xl px-3 py-2 text-slate-300 focus:outline-none focus:border-gold-400">
-                            <option value="ALL">Tüm Durumlar</option>
-                            <option value="BEKLIYOR">Ödeme Bekliyor</option>
-                            <option value="HAZIRLANIYOR">Hazırlanıyor</option>
-                            <option value="YAYINDA">Yayında (Canlı)</option>
-                        </select>
+                    <div class="overflow-x-auto">
+                        <table class="w-full text-left border-collapse text-xs">
+                            <thead>
+                                <tr class="bg-night-950/80 border-b border-white/5 text-slate-400 uppercase tracking-wider text-[10px]">
+                                    <th class="py-3.5 px-4 font-semibold">Kod & Tarih</th>
+                                    <th class="py-3.5 px-4 font-semibold">Restoran / İşletme</th>
+                                    <th class="py-3.5 px-4 font-semibold">Yetkili & Tel</th>
+                                    <th class="py-3.5 px-4 font-semibold">Paket & Tutar</th>
+                                    <th class="py-3.5 px-4 font-semibold">Durum</th>
+                                    <th class="py-3.5 px-4 font-semibold">Aşama Bazlı WhatsApp Mesajları</th>
+                                    <th class="py-3.5 px-4 font-semibold text-right">Aksiyonlar</th>
+                                </tr>
+                            </thead>
+                            <tbody id="orders-tbody" class="divide-y divide-white/5 text-slate-300">
+                                <!-- JS ile render edilir -->
+                            </tbody>
+                        </table>
                     </div>
-                </div>
 
-                <div class="overflow-x-auto">
-                    <table class="w-full text-left border-collapse text-xs">
-                        <thead>
-                            <tr class="bg-night-950/80 border-b border-white/5 text-slate-400 uppercase tracking-wider text-[10px]">
-                                <th class="py-3.5 px-4 font-semibold">Kod & Tarih</th>
-                                <th class="py-3.5 px-4 font-semibold">Restoran / İşletme</th>
-                                <th class="py-3.5 px-4 font-semibold">Yetkili & Tel</th>
-                                <th class="py-3.5 px-4 font-semibold">Paket & Tutar</th>
-                                <th class="py-3.5 px-4 font-semibold">Durum</th>
-                                <th class="py-3.5 px-4 font-semibold">Hazır WhatsApp Şablonları</th>
-                                <th class="py-3.5 px-4 font-semibold text-right">Aksiyon</th>
-                            </tr>
-                        </thead>
-                        <tbody id="orders-tbody" class="divide-y divide-white/5 text-slate-300">
-                            <!-- JS ile basılır -->
-                        </tbody>
-                    </table>
-                </div>
-
-                <div id="empty-state" class="p-12 text-center hidden">
-                    <i data-lucide="inbox" class="w-10 h-10 text-slate-600 mx-auto mb-2"></i>
-                    <p class="text-sm text-slate-400 font-medium">Kayıtlı bir sipariş bulunmuyor.</p>
+                    <div id="empty-state" class="p-12 text-center hidden">
+                        <i data-lucide="inbox" class="w-10 h-10 text-slate-600 mx-auto mb-2"></i>
+                        <p class="text-sm text-slate-400 font-medium">Kayıtlı bir sipariş bulunmuyor.</p>
+                    </div>
                 </div>
             </div>
 
-            <!-- 3. TEKİL ZİYARETÇİ BİLGİLERİ TABLOSU -->
-            <div class="bg-night-900 border border-white/10 rounded-2xl overflow-hidden shadow-xl">
-                <div class="p-5 border-b border-white/10 flex flex-col sm:flex-row sm:items-center justify-between gap-3">
-                    <div>
-                        <h2 class="text-base font-bold text-white flex items-center gap-2">
-                            <i data-lucide="eye" class="w-4 h-4 text-gold-400"></i>
-                            <span>Tekil Ziyaretçiler & Cihazlar</span>
-                        </h2>
-                        <p class="text-xs text-slate-400">Siteye giren her benzersiz cihaz ve IP adresi sadece 1 defa listelenir.</p>
+            <!-- ================= SEKME 3: ZİYARETÇİLER & CİHAZLAR ================= -->
+            <div id="tab-content-visitors" class="hidden space-y-6">
+                <div class="bg-night-900 border border-white/10 rounded-2xl overflow-hidden shadow-xl">
+                    <div class="p-5 border-b border-white/10 flex flex-col sm:flex-row sm:items-center justify-between gap-3">
+                        <div>
+                            <h2 class="text-base font-bold text-white flex items-center gap-2">
+                                <i data-lucide="eye" class="w-4 h-4 text-gold-400"></i>
+                                <span>Organik Tekil Ziyaretçiler & Cihaz Kayıtları</span>
+                            </h2>
+                            <p class="text-xs text-slate-400">Aynı cihaz veya IP mükerrer sayılmaz. İstemediğiniz kayıtları tek tıkla silebilirsiniz.</p>
+                        </div>
+                        <div class="flex items-center gap-3">
+                            <button onclick="clearAllVisitors()" class="text-xs text-rose-400 hover:text-rose-300 flex items-center gap-1">
+                                <i data-lucide="trash" class="w-3.5 h-3.5"></i>
+                                <span>Tüm Cihazları Temizle</span>
+                            </button>
+                            <button onclick="renderVisitors()" class="text-xs text-gold-400 hover:underline flex items-center gap-1">
+                                <i data-lucide="rotate-cw" class="w-3.5 h-3.5"></i>
+                                <span>Yenile</span>
+                            </button>
+                        </div>
                     </div>
-                    <div class="flex items-center gap-3">
-                        <button onclick="clearAllVisitors()" class="text-xs text-rose-400 hover:text-rose-300 flex items-center gap-1">
-                            <i data-lucide="trash" class="w-3.5 h-3.5"></i>
-                            <span>Tüm Cihazları Temizle</span>
-                        </button>
-                        <button onclick="renderVisitors()" class="text-xs text-gold-400 hover:underline flex items-center gap-1">
-                            <i data-lucide="rotate-cw" class="w-3.5 h-3.5"></i>
-                            <span>Yenile</span>
-                        </button>
-                    </div>
-                </div>
 
-                <div class="overflow-x-auto">
-                    <table class="w-full text-left border-collapse text-xs">
-                        <thead>
-                            <tr class="bg-night-950/80 border-b border-white/5 text-slate-400 uppercase tracking-wider text-[10px]">
-                                <th class="py-3.5 px-4 font-semibold">İlk Giriş Zamanı</th>
-                                <th class="py-3.5 px-4 font-semibold">Konum (Şehir / Ülke)</th>
-                                <th class="py-3.5 px-4 font-semibold">Cihaz Türü</th>
-                                <th class="py-3.5 px-4 font-semibold">IP Adresi</th>
-                                <th class="py-3.5 px-4 font-semibold text-right">İşlem</th>
-                            </tr>
-                        </thead>
-                        <tbody id="visitors-tbody" class="divide-y divide-white/5 text-slate-300">
-                            <!-- JS ile render edilir -->
-                        </tbody>
-                    </table>
-                </div>
-                <div id="visitors-empty" class="p-8 text-center text-slate-500 text-xs hidden">
-                    Henüz kayıtlı ziyaretçi verisi yok.
+                    <div class="overflow-x-auto">
+                        <table class="w-full text-left border-collapse text-xs">
+                            <thead>
+                                <tr class="bg-night-950/80 border-b border-white/5 text-slate-400 uppercase tracking-wider text-[10px]">
+                                    <th class="py-3.5 px-4 font-semibold">İlk Giriş Zamanı</th>
+                                    <th class="py-3.5 px-4 font-semibold">Konum (Şehir / Ülke)</th>
+                                    <th class="py-3.5 px-4 font-semibold">Cihaz Türü</th>
+                                    <th class="py-3.5 px-4 font-semibold">IP Adresi</th>
+                                    <th class="py-3.5 px-4 font-semibold text-right">İşlem</th>
+                                </tr>
+                            </thead>
+                            <tbody id="visitors-tbody" class="divide-y divide-white/5 text-slate-300">
+                                <!-- JS ile render edilir -->
+                            </tbody>
+                        </table>
+                    </div>
+                    <div id="visitors-empty" class="p-8 text-center text-slate-500 text-xs hidden">
+                        Henüz kayıtlı ziyaretçi verisi yok.
+                    </div>
                 </div>
             </div>
 
-            <!-- 4. KAYITLI RESTORAN & KULLANICI HESAPLARI TABLOSU -->
-            <div class="bg-night-900 border border-white/10 rounded-2xl overflow-hidden shadow-xl">
-                <div class="p-5 border-b border-white/10 flex justify-between items-center">
-                    <div>
-                        <h2 class="text-base font-bold text-white flex items-center gap-2">
-                            <i data-lucide="user-check" class="w-4 h-4 text-blue-400"></i>
-                            <span>Kayıt Olan Müşteriler / Restoranlar</span>
-                        </h2>
-                        <p class="text-xs text-slate-400">Sitenizden hesap oluşturan işletmeler. İstediğiniz kullanıcıyı silebilirsiniz.</p>
+            <!-- ================= SEKME 4: KAYITLI İŞLETMELER ================= -->
+            <div id="tab-content-users" class="hidden space-y-6">
+                <div class="bg-night-900 border border-white/10 rounded-2xl overflow-hidden shadow-xl">
+                    <div class="p-5 border-b border-white/10 flex justify-between items-center">
+                        <div>
+                            <h2 class="text-base font-bold text-white flex items-center gap-2">
+                                <i data-lucide="store" class="w-4 h-4 text-blue-400"></i>
+                                <span>Siteden Hesap Açan Restoran & Kafeler</span>
+                            </h2>
+                            <p class="text-xs text-slate-400">Sitenizdeki "Kayıt Ol" formunu dolduran işletme sahiplerinin müşteri portföyü.</p>
+                        </div>
                     </div>
-                </div>
 
-                <div class="overflow-x-auto">
-                    <table class="w-full text-left border-collapse text-xs">
-                        <thead>
-                            <tr class="bg-night-950/80 border-b border-white/5 text-slate-400 uppercase tracking-wider text-[10px]">
-                                <th class="py-3.5 px-4 font-semibold">Kayıt Tarihi</th>
-                                <th class="py-3.5 px-4 font-semibold">Restoran / İşletme</th>
-                                <th class="py-3.5 px-4 font-semibold">Yetkili Kişi</th>
-                                <th class="py-3.5 px-4 font-semibold">WhatsApp Numarası</th>
-                                <th class="py-3.5 px-4 font-semibold">E-Posta</th>
-                                <th class="py-3.5 px-4 font-semibold text-right">İşlem</th>
-                            </tr>
-                        </thead>
-                        <tbody id="users-tbody" class="divide-y divide-white/5 text-slate-300">
-                            <!-- JS ile basılır -->
-                        </tbody>
-                    </table>
-                </div>
-                <div id="users-empty" class="p-8 text-center text-slate-500 text-xs hidden">
-                    Henüz kayıtlı bir restoran hesabı bulunmuyor.
+                    <div class="overflow-x-auto">
+                        <table class="w-full text-left border-collapse text-xs">
+                            <thead>
+                                <tr class="bg-night-950/80 border-b border-white/5 text-slate-400 uppercase tracking-wider text-[10px]">
+                                    <th class="py-3.5 px-4 font-semibold">Kayıt Tarihi</th>
+                                    <th class="py-3.5 px-4 font-semibold">Restoran / İşletme</th>
+                                    <th class="py-3.5 px-4 font-semibold">Yetkili Kişi</th>
+                                    <th class="py-3.5 px-4 font-semibold">WhatsApp Numarası</th>
+                                    <th class="py-3.5 px-4 font-semibold">E-Posta</th>
+                                    <th class="py-3.5 px-4 font-semibold text-right">İşlem</th>
+                                </tr>
+                            </thead>
+                            <tbody id="users-tbody" class="divide-y divide-white/5 text-slate-300">
+                                <!-- JS ile render edilir -->
+                            </tbody>
+                        </table>
+                    </div>
+                    <div id="users-empty" class="p-8 text-center text-slate-500 text-xs hidden">
+                        Henüz kayıtlı bir restoran hesabı bulunmuyor.
+                    </div>
                 </div>
             </div>
 
-            <!-- 5. BANKA HESAP BİLGİSİ KARTI -->
-            <div class="bg-night-900 border border-gold-400/20 rounded-2xl p-6 flex flex-col md:flex-row items-start md:items-center justify-between gap-4">
-                <div class="flex items-center gap-4">
-                    <div class="w-12 h-12 rounded-xl bg-gold-400/10 border border-gold-400/30 flex items-center justify-center text-gold-400">
-                        <i data-lucide="building-2" class="w-6 h-6"></i>
+            <!-- ================= SEKME 5: BANKA & AYARLAR ================= -->
+            <div id="tab-content-settings" class="hidden space-y-6">
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <div class="bg-night-900 border border-gold-400/30 rounded-2xl p-6">
+                        <div class="flex items-center gap-3 mb-4">
+                            <div class="w-10 h-10 rounded-xl bg-gold-400/10 border border-gold-400/30 flex items-center justify-center text-gold-400">
+                                <i data-lucide="building-2" class="w-5 h-5"></i>
+                            </div>
+                            <div>
+                                <h3 class="text-sm font-bold text-white">Vakıflar Bankası FAST Bilgileri</h3>
+                                <p class="text-xs text-slate-400">Müşterilerin sipariş ekranında gördüğü resmi hesap.</p>
+                            </div>
+                        </div>
+
+                        <div class="space-y-3 text-xs">
+                            <div class="p-3 rounded-xl bg-night-950 border border-white/5">
+                                <span class="text-slate-400 block text-[10px]">Hesap Sahibi:</span>
+                                <span class="text-white font-bold text-sm">Fatih Yıldız</span>
+                            </div>
+                            <div class="p-3 rounded-xl bg-night-950 border border-white/5">
+                                <span class="text-slate-400 block text-[10px]">IBAN:</span>
+                                <span class="text-gold-300 font-mono font-bold text-sm tracking-wider">TR96 0001 5001 5800 7300 6566 54</span>
+                            </div>
+                            <div class="p-3 rounded-xl bg-night-950 border border-white/5">
+                                <span class="text-slate-400 block text-[10px]">Resmi İletişim & WhatsApp:</span>
+                                <span class="text-emerald-400 font-mono font-bold text-sm">0544 572 22 03</span>
+                            </div>
+                        </div>
                     </div>
-                    <div>
-                        <h4 class="text-sm font-bold text-white">Vakıflar Bankası FAST Tahsilat Hesabınız</h4>
-                        <p class="text-xs text-gold-300 font-mono mt-0.5">TR96 0001 5001 5800 7300 6566 54 • Fatih Yıldız</p>
+
+                    <div class="bg-night-900 border border-white/10 rounded-2xl p-6 flex flex-col justify-between">
+                        <div>
+                            <div class="flex items-center gap-3 mb-4">
+                                <div class="w-10 h-10 rounded-xl bg-blue-500/10 border border-blue-500/30 flex items-center justify-center text-blue-400">
+                                    <i data-lucide="database" class="w-5 h-5"></i>
+                                </div>
+                                <div>
+                                    <h3 class="text-sm font-bold text-white">Veri Yedekleme & Güvenlik</h3>
+                                    <p class="text-xs text-slate-400">Sipariş ve kullanıcı geçmişini güvene alın.</p>
+                                </div>
+                            </div>
+                            <p class="text-xs text-slate-300 leading-relaxed mb-4">
+                                Tarayıcı çerezleri silindiğinde siparişlerinizin kaybolmaması için veritabanınızı düzenli olarak bilgisayarınıza yedekleyebilirsiniz.
+                            </p>
+                        </div>
+
+                        <div class="space-y-2">
+                            <button onclick="backupAllData()" class="w-full py-2.5 rounded-xl bg-gold-400 text-night-950 text-xs font-bold hover:brightness-110 flex items-center justify-center gap-2 transition-all">
+                                <i data-lucide="download-cloud" class="w-4 h-4"></i>
+                                <span>Veritabanı Yedeğini İndir (JSON)</span>
+                            </button>
+                            <button onclick="changePinPrompt()" class="w-full py-2.5 rounded-xl bg-night-850 hover:bg-night-800 text-slate-300 border border-white/10 text-xs font-semibold flex items-center justify-center gap-2 transition-all">
+                                <i data-lucide="key" class="w-4 h-4"></i>
+                                <span>6 Haneli Yönetici PIN'ini Değiştir</span>
+                            </button>
+                        </div>
                     </div>
-                </div>
-                <div class="text-xs text-slate-400 bg-night-950 px-4 py-2 rounded-xl border border-white/5">
-                    Müşteriler havale yaparken açıklama kısmına <strong>RW- kodlarını</strong> yazmalıdır.
                 </div>
             </div>
 
@@ -357,8 +521,8 @@
                     <div>
                         <label class="block text-slate-400 mb-1">Seçilen Paket</label>
                         <select id="m-package" onchange="autoFillPrice()" class="w-full px-3 py-2 rounded-lg bg-night-950 border border-white/10 text-white focus:outline-none focus:border-gold-400">
-                            <option value="1. Seviye: Butik Vitrin">1. Seviye: Butik Vitrin</option>
-                            <option value="2. Seviye: Klasik Bistro" selected>2. Seviye: Klasik Bistro</option>
+                            <option value="1. Seviye: Hızlı Butik Vitrin">1. Seviye: Hızlı Butik Vitrin</option>
+                            <option value="2. Seviye: Klasik Bistro & Menü" selected>2. Seviye: Klasik Bistro & Menü</option>
                             <option value="3. Seviye: Ultra Lüks Gurme">3. Seviye: Ultra Lüks Gurme</option>
                         </select>
                     </div>
@@ -428,7 +592,7 @@
         </div>
     </div>
 
-    <!-- JAVASCRIPT MOTORU -->
+    <!-- JAVASCRIPT KONSOL MOTORU -->
     <script>
         lucide.createIcons();
 
@@ -437,13 +601,14 @@
         const STORAGE_KEY_VISITORS = "rw_real_visitors";
         const STORAGE_KEY_USERS = "rw_registered_users";
 
+        // 6 HANELİ VARSAYILAN PIN: 123456
         function getStoredPin() {
-            return localStorage.getItem(STORAGE_KEY_PIN) || "1234";
+            return localStorage.getItem(STORAGE_KEY_PIN) || "123456";
         }
 
         function handleLogin(e) {
             e.preventDefault();
-            const pin = document.getElementById('admin-pin-input').value;
+            const pin = document.getElementById('admin-pin-input').value.trim();
             if (pin === getStoredPin()) {
                 document.getElementById('login-modal').classList.add('hidden');
                 document.getElementById('dashboard-app').classList.remove('hidden');
@@ -461,16 +626,35 @@
         }
 
         function changePinPrompt() {
-            const currentPin = prompt("Mevcut PIN kodunuzu girin:");
+            const currentPin = prompt("Mevcut 6 haneli PIN kodunuzu girin:");
             if (currentPin !== getStoredPin()) {
                 alert("Mevcut PIN hatalı!");
                 return;
             }
-            const newPin = prompt("Yeni 4-8 haneli PIN kodunuzu girin:");
-            if (newPin && newPin.trim().length >= 4) {
+            const newPin = prompt("Yeni 6 haneli PIN kodunuzu girin:");
+            if (newPin && newPin.trim().length === 6) {
                 localStorage.setItem(STORAGE_KEY_PIN, newPin.trim());
-                alert("PIN kodunuz başarıyla güncellendi!");
+                alert("6 Haneli PIN kodunuz başarıyla güncellendi: " + newPin.trim());
+            } else {
+                alert("PIN kodu tam olarak 6 haneli olmalıdır!");
             }
+        }
+
+        // SEKME GEÇİŞİ (TABS)
+        function switchTab(tabId) {
+            const tabs = ['overview', 'orders', 'visitors', 'users', 'settings'];
+            tabs.forEach(t => {
+                const btn = document.getElementById(`tab-btn-${t}`);
+                const content = document.getElementById(`tab-content-${t}`);
+                if (t === tabId) {
+                    btn.className = "tab-btn px-4 py-2 rounded-xl bg-gold-400 text-night-950 font-bold flex items-center gap-2 transition-all";
+                    content.classList.remove('hidden');
+                } else {
+                    btn.className = "tab-btn px-4 py-2 rounded-xl bg-night-850 text-slate-300 hover:text-white border border-white/10 flex items-center gap-2 transition-all";
+                    content.classList.add('hidden');
+                }
+            });
+            lucide.createIcons();
         }
 
         function getOrders() {
@@ -493,7 +677,7 @@
                         restaurant: "Moda Roast Coffee",
                         owner: "Murat Korkmaz",
                         phone: "05442223344",
-                        package: "2. Seviye: Klasik Bistro",
+                        package: "2. Seviye: Klasik Bistro & Menü",
                         price: 4490,
                         status: "BEKLIYOR"
                     }
@@ -519,16 +703,28 @@
         }
 
         // ==========================================
-        // 1. SİPARİŞ LİSTESİ & GELİŞMİŞ WHATSAPP BUTONLARI
+        // 1. SİPARİŞ LİSTESİ & CANLI ARAMA & WHATSAPP
         // ==========================================
         function renderOrders() {
             const filter = document.getElementById('filter-status').value;
+            const searchTerm = (document.getElementById('order-search')?.value || '').toLowerCase().trim();
             const orders = getOrders();
             const tbody = document.getElementById('orders-tbody');
             const emptyState = document.getElementById('empty-state');
             tbody.innerHTML = "";
 
-            const filtered = filter === "ALL" ? orders : orders.filter(o => o.status === filter);
+            let filtered = filter === "ALL" ? orders : orders.filter(o => o.status === filter);
+
+            if (searchTerm) {
+                filtered = filtered.filter(o => 
+                    (o.restaurant || '').toLowerCase().includes(searchTerm) ||
+                    (o.code || '').toLowerCase().includes(searchTerm) ||
+                    (o.owner || '').toLowerCase().includes(searchTerm) ||
+                    (o.phone || '').includes(searchTerm)
+                );
+            }
+
+            document.getElementById('tab-badge-orders').innerText = orders.length;
 
             if (filtered.length === 0) {
                 emptyState.classList.remove('hidden');
@@ -552,10 +748,9 @@
                 const cleanPhone = order.phone.replace(/[^0-9]/g, '');
                 const telBase = `https://wa.me/90${cleanPhone.startsWith('0') ? cleanPhone.substring(1) : cleanPhone}?text=`;
 
-                // 3 Hazır WhatsApp Mesaj Şablonu
-                const msgOdeme = encodeURIComponent(`Merhaba ${order.owner}, ${order.restaurant} için ${order.code} kodlu siparişinizin FAST ödemesi hesabımıza ulaşmıştır. 48 saatlik kurulum sürecimiz başlamıştır. Bilginize sunarız.`);
-                const msgMenu = encodeURIComponent(`Merhaba ${order.owner}, ${order.restaurant} web sitenizin tasarımına başladık. Menü listenizi, logonuzu ve varsa öne çıkan yemek fotoğraflarınızı bu sohbetten gönderebilir misiniz?`);
-                const msgYayin = encodeURIComponent(`Müjde ${order.owner}! ${order.restaurant} için hazırladığımız prestijli tanıtım web siteniz yayına alınmıştır. Masalarınız için hediye QR kod baskı tasarımınızı da hazırladık. İncelemek için yazabilirsiniz.`);
+                const msgOdeme = encodeURIComponent(`Merhaba ${order.owner}, ${order.restaurant} için ${order.code} kodlu siparişinizin FAST ödemesi hesabımıza ulaşmıştır. 48 saatlik kurulum sürecimiz başlamıştır.`);
+                const msgMenu = encodeURIComponent(`Merhaba ${order.owner}, ${order.restaurant} web sitenizin tasarımına başladık. Menü listenizi, logonuzu ve öne çıkan yemek fotoğraflarınızı bu sohbetten gönderebilir misiniz?`);
+                const msgYayin = encodeURIComponent(`Müjde ${order.owner}! ${order.restaurant} tanıtım web siteniz yayına alınmıştır. Hediye akrilik QR masa standı baskı dosyanız da hazırlandı.`);
 
                 tr.innerHTML = `
                     <td class="py-3.5 px-4 font-mono">
@@ -564,7 +759,7 @@
                     </td>
                     <td class="py-3.5 px-4 font-semibold text-white">${order.restaurant}</td>
                     <td class="py-3.5 px-4">
-                        <span class="block text-slate-200">${order.owner}</span>
+                        <span class="block text-slate-200 font-medium">${order.owner}</span>
                         <span class="font-mono text-slate-400 text-[11px]">${order.phone}</span>
                     </td>
                     <td class="py-3.5 px-4">
@@ -574,13 +769,13 @@
                     <td class="py-3.5 px-4">${statusBadge}</td>
                     <td class="py-3.5 px-4">
                         <div class="flex items-center gap-1.5 flex-wrap">
-                            <a href="${telBase + msgOdeme}" target="_blank" class="px-2 py-1 rounded-md bg-emerald-500/10 hover:bg-emerald-500/20 text-emerald-400 border border-emerald-500/20 text-[10px] font-semibold" title="Ödeme Geldi Mesajı">
+                            <a href="${telBase + msgOdeme}" target="_blank" class="px-2 py-1 rounded-md bg-emerald-500/10 hover:bg-emerald-500/20 text-emerald-400 border border-emerald-500/20 text-[10px] font-semibold" title="Ödeme Alındı Mesajı">
                                 1. Ödeme Onayı
                             </a>
-                            <a href="${telBase + msgMenu}" target="_blank" class="px-2 py-1 rounded-md bg-blue-500/10 hover:bg-blue-500/20 text-blue-400 border border-blue-500/20 text-[10px] font-semibold" title="Menü / Fotoğraf İsteme">
+                            <a href="${telBase + msgMenu}" target="_blank" class="px-2 py-1 rounded-md bg-blue-500/10 hover:bg-blue-500/20 text-blue-400 border border-blue-500/20 text-[10px] font-semibold" title="Menü İsteme Mesajı">
                                 2. Menü İste
                             </a>
-                            <a href="${telBase + msgYayin}" target="_blank" class="px-2 py-1 rounded-md bg-gold-400/10 hover:bg-gold-400/20 text-gold-300 border border-gold-400/20 text-[10px] font-semibold" title="Site Yayında Bildirimi">
+                            <a href="${telBase + msgYayin}" target="_blank" class="px-2 py-1 rounded-md bg-gold-400/10 hover:bg-gold-400/20 text-gold-300 border border-gold-400/20 text-[10px] font-semibold" title="Canlıda Mesajı">
                                 3. Canlıda!
                             </a>
                         </div>
@@ -618,7 +813,7 @@
         }
 
         function deleteOrder(code) {
-            if (confirm(code + " kodlu siparişi silmek istediğinize emin misiniz?")) {
+            if (confirm(code + " kodlu siparişi kalıcı olarak silmek istediğinize emin misiniz?")) {
                 let orders = getOrders();
                 orders = orders.filter(o => o.code !== code);
                 saveOrders(orders);
@@ -648,7 +843,7 @@
         }
 
         // ==========================================
-        // 3. SİPARİŞLERİ EXCEL / CSV OLARAK İNDİRME
+        // 3. EXCEL / CSV VE JSON VERİTABANI YEDEKLEME
         // ==========================================
         function exportOrdersToCSV() {
             const orders = getOrders();
@@ -683,8 +878,25 @@
             document.body.removeChild(link);
         }
 
+        function backupAllData() {
+            const backup = {
+                date: new Date().toISOString(),
+                orders: getOrders(),
+                visitors: JSON.parse(localStorage.getItem(STORAGE_KEY_VISITORS) || '[]'),
+                users: JSON.parse(localStorage.getItem(STORAGE_KEY_USERS) || '[]')
+            };
+
+            const dataStr = "data:text/json;charset=utf-8," + encodeURIComponent(JSON.stringify(backup, null, 2));
+            const downloadAnchor = document.createElement('a');
+            downloadAnchor.setAttribute("href", dataStr);
+            downloadAnchor.setAttribute("download", `restoranweb_tam_yedek_${new Date().toISOString().slice(0,10)}.json`);
+            document.body.appendChild(downloadAnchor);
+            downloadAnchor.click();
+            downloadAnchor.remove();
+        }
+
         // ==========================================
-        // 4. ZİYARETÇİ / CİHAZ YÖNETİMİ & SİLME
+        // 4. ZİYARETÇİ / CİHAZ YÖNETİMİ
         // ==========================================
         function renderVisitors() {
             const visitors = JSON.parse(localStorage.getItem(STORAGE_KEY_VISITORS) || '[]');
@@ -693,6 +905,7 @@
             tbody.innerHTML = "";
 
             document.getElementById('stat-visitors').innerText = visitors.length;
+            document.getElementById('tab-badge-visitors').innerText = visitors.length;
 
             if (visitors.length === 0) {
                 empty.classList.remove('hidden');
@@ -712,7 +925,7 @@
                     <td class="py-3 px-4">${v.tarayici}</td>
                     <td class="py-3 px-4 font-mono text-[11px] text-slate-500">${v.ip}</td>
                     <td class="py-3 px-4 text-right">
-                        <button onclick="deleteVisitor('${v.deviceId || index}', '${v.ip}')" class="p-1.5 rounded-lg bg-night-850 hover:bg-rose-500 hover:text-white border border-white/10 text-slate-400 transition-colors" title="Bu Cihazı Sil">
+                        <button onclick="deleteVisitor('${v.deviceId || index}', '${v.ip}')" class="p-1.5 rounded-lg bg-night-850 hover:bg-rose-500 hover:text-white border border-white/10 text-slate-400 transition-colors" title="Cihazı Sil">
                             <i data-lucide="trash-2" class="w-3.5 h-3.5"></i>
                         </button>
                     </td>
@@ -739,7 +952,7 @@
         }
 
         // ==========================================
-        // 5. KAYITLI KULLANICI / RESTORAN SİLME
+        // 5. KAYITLI İŞLETMELER YÖNETİMİ
         // ==========================================
         function renderUsers() {
             const users = JSON.parse(localStorage.getItem(STORAGE_KEY_USERS) || '[]');
@@ -748,6 +961,7 @@
             tbody.innerHTML = "";
 
             document.getElementById('stat-users').innerText = users.length;
+            document.getElementById('tab-badge-users').innerText = users.length;
 
             if (users.length === 0) {
                 empty.classList.remove('hidden');
@@ -801,20 +1015,43 @@
             }
         }
 
+        // ==========================================
+        // 6. METRİK VE GRAFİK ÇUBUKLARI HESABI
+        // ==========================================
         function renderStats() {
             const orders = getOrders();
             let totalRevenue = 0;
             let pendingCount = 0;
+            let activeCount = 0;
+
+            let count1 = 0, count2 = 0, count3 = 0;
 
             orders.forEach(o => {
                 if (o.status === 'YAYINDA' || o.status === 'HAZIRLANIYOR') {
                     totalRevenue += Number(o.price);
                 }
                 if (o.status === 'BEKLIYOR') pendingCount++;
+                if (o.status === 'YAYINDA') activeCount++;
+
+                const pkg = (o.package || '');
+                if (pkg.includes('Butik')) count1++;
+                else if (pkg.includes('Bistro')) count2++;
+                else if (pkg.includes('Gurme')) count3++;
             });
 
             document.getElementById('stat-revenue').innerText = totalRevenue.toLocaleString('tr-TR') + " ₺";
             document.getElementById('stat-pending').innerText = pendingCount;
+            document.getElementById('stat-active').innerText = activeCount;
+
+            // Paket Dağılım Çubukları
+            const totalOrders = orders.length || 1;
+            document.getElementById('pkg-count-1').innerText = `${count1} Adet (${Math.round((count1/totalOrders)*100)}%)`;
+            document.getElementById('pkg-count-2').innerText = `${count2} Adet (${Math.round((count2/totalOrders)*100)}%)`;
+            document.getElementById('pkg-count-3').innerText = `${count3} Adet (${Math.round((count3/totalOrders)*100)}%)`;
+
+            document.getElementById('pkg-bar-1').style.width = `${(count1/totalOrders)*100}%`;
+            document.getElementById('pkg-bar-2').style.width = `${(count2/totalOrders)*100}%`;
+            document.getElementById('pkg-bar-3').style.width = `${(count3/totalOrders)*100}%`;
         }
 
         function openNewOrderModal() {
