@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Restoranweb | Restoran & Kafeler İçin Prestijli Dijital Vitrin</title>
-    <meta name="description" content="Komisyonsuz, ödeme karmaşası olmadan restoranınızı ve kafenizi tanıtan prestijli web siteleri. Doğrudan WhatsApp ve telefon araması alın. 48 saatte yayında.">
+    <title>Restoran & Kafe Web Sitesi Yaptırma | Komisyonsuz Dijital Menü Vitrini</title>
+    <meta name="description" content="Kadıköy, Beşiktaş, Nişantaşı ve tüm Türkiye'deki restoran ve kafeler için komisyonsuz, tek tıkla WhatsApp ve arama alan prestijli tanıtım web siteleri. 48 saatte yayında.">
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -13,6 +13,26 @@
     <script src="https://unpkg.com/lucide@latest"></script>
     <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- GOOGLE SEO YAPISAL VERİ (SCHEMA.ORG JSON-LD) -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "ProfessionalService",
+      "name": "Restoranweb",
+      "image": "https://images.unsplash.com/photo-1517248135467-4c7edcad34c4",
+      "description": "Restoran ve kafeler için %0 komisyonlu prestijli tanıtım web siteleri ve dijital menü kurulumu.",
+      "telephone": "+905445722203",
+      "priceRange": "2490₺ - 7490₺",
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "İstanbul",
+        "addressCountry": "TR"
+      },
+      "areaServed": ["Kadıköy", "Beşiktaş", "Şişli", "Nişantaşı", "Bakırköy", "İstanbul", "Türkiye"]
+    }
+    </script>
+
     <script>
         tailwind.config = {
             darkMode: 'class',
@@ -66,7 +86,6 @@
             border-color: rgba(212, 175, 55, 0.38);
             box-shadow: 0 10px 30px -10px rgba(212, 175, 55, 0.15);
         }
-        /* Özel Slider Tasarımı */
         input[type="range"]::-webkit-slider-thumb {
             -webkit-appearance: none;
             height: 24px;
@@ -106,10 +125,10 @@
 
             <nav class="hidden lg:flex items-center gap-8 text-sm font-medium text-slate-300">
                 <a href="#sablonlar" class="hover:text-gold-400 transition-colors">3 Şablon Seviyesi</a>
+                <a href="#yerel-cozumler" class="hover:text-gold-400 transition-colors">Bölgesel Hizmetler</a>
                 <a href="#tasarruf-hesaplayici" class="hover:text-gold-400 transition-colors">Tasarruf Hesapla</a>
-                <a href="#nasil-calisir" class="hover:text-gold-400 transition-colors">Nasıl Çalışır?</a>
-                <a href="#qr-hediye" class="hover:text-gold-400 transition-colors">QR Menü Kartı</a>
                 <a href="#paketler" class="hover:text-gold-400 transition-colors">Fiyatlandırma</a>
+                <a href="#sss" class="hover:text-gold-400 transition-colors">Sıkça Sorulanlar</a>
             </nav>
 
             <div class="flex items-center gap-3">
@@ -201,8 +220,186 @@
         </div>
     </section>
 
-    <!-- KOMİSYON TASARRUF HESAPLAYICISI (YENİ EKLENDİ) -->
-    <section id="tasarruf-hesaplayici" class="py-20 bg-night-900/40 border-y border-white/5 relative">
+    <!-- 3 SEVİYELİ CANLI ŞABLON SİMÜLATÖRÜ -->
+    <section id="sablonlar" class="py-20 bg-night-950 relative">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-10">
+                <span class="text-gold-400 font-semibold text-xs uppercase tracking-widest">Kademeli Tasarım Seçenekleri</span>
+                <h2 class="text-3xl sm:text-5xl font-serif font-bold text-white mt-2">
+                    Basitten En Lükse: 3 Farklı Şablon Mimarisi
+                </h2>
+                <p class="text-slate-300 mt-3 text-sm sm:text-base">
+                    İşletmenizin ölçeğine göre hazırlanan şablonlarımızı canlı olarak test edin. Hem bilgisayarda hem telefonda nasıl durduğunu görmek için görünümü değiştirebilirsiniz.
+                </p>
+            </div>
+
+            <!-- Şablon Butonları -->
+            <div class="flex flex-wrap items-center justify-center gap-3 mb-8">
+                <button onclick="switchTemplate(1)" id="btn-tab-1" class="tab-btn px-6 py-3 rounded-xl text-sm font-bold flex items-center gap-2.5 transition-all duration-300 bg-night-850 text-slate-300 hover:text-white border border-white/10">
+                    <span class="w-6 h-6 rounded-full bg-white/10 flex items-center justify-center text-xs">1</span>
+                    <span>1. Seviye: Hızlı Butik Vitrin</span>
+                </button>
+                <button onclick="switchTemplate(2)" id="btn-tab-2" class="tab-btn px-6 py-3 rounded-xl text-sm font-semibold flex items-center gap-2.5 transition-all duration-300 bg-night-850 text-slate-300 hover:text-white border border-white/10">
+                    <span class="w-6 h-6 rounded-full bg-white/10 flex items-center justify-center text-xs">2</span>
+                    <span>2. Seviye: Klasik Bistro & Menü</span>
+                </button>
+                <button onclick="switchTemplate(3)" id="btn-tab-3" class="tab-btn px-6 py-3 rounded-xl text-sm font-bold flex items-center gap-2.5 transition-all duration-300 bg-gold-400 text-night-950 shadow-lg shadow-gold-400/20">
+                    <span class="w-6 h-6 rounded-full bg-night-950/20 flex items-center justify-center text-xs font-bold">★</span>
+                    <span>3. Seviye: Ultra Lüks Gurme</span>
+                </button>
+            </div>
+
+            <!-- Cihaz Geçiş Butonları -->
+            <div class="flex items-center justify-center gap-2 mb-6">
+                <button onclick="switchDeviceView('desktop')" id="view-btn-desktop" class="px-4 py-2 rounded-xl text-xs font-bold flex items-center gap-2 bg-gold-400 text-night-950 transition-all">
+                    <i data-lucide="monitor" class="w-4 h-4"></i>
+                    <span>Masaüstü Görünümü</span>
+                </button>
+                <button onclick="switchDeviceView('mobile')" id="view-btn-mobile" class="px-4 py-2 rounded-xl text-xs font-semibold flex items-center gap-2 bg-night-900 border border-white/10 text-slate-300 hover:text-white transition-all">
+                    <i data-lucide="smartphone" class="w-4 h-4"></i>
+                    <span>Telefon Görünümü (Mobil)</span>
+                </button>
+            </div>
+
+            <!-- Canlı Çerçeve -->
+            <div class="flex justify-center transition-all duration-500">
+                <div id="sim-frame" class="w-full transition-all duration-500 rounded-2xl luxury-card overflow-hidden gold-glow border border-gold-400/30">
+                    <div class="bg-night-950/90 border-b border-white/10 px-4 py-3 flex items-center justify-between">
+                        <div class="flex items-center gap-2">
+                            <span class="w-3 h-3 rounded-full bg-red-500/80"></span>
+                            <span class="w-3 h-3 rounded-full bg-amber-500/80"></span>
+                            <span class="w-3 h-3 rounded-full bg-emerald-500/80"></span>
+                        </div>
+                        <div id="sim-url" class="bg-night-900 border border-white/10 px-6 py-1 rounded-lg text-xs font-mono text-gold-300 flex items-center gap-2">
+                            <i data-lucide="lock" class="w-3 h-3 text-gold-400"></i>
+                            <span>https://sarayocakbasi.restoranweb.com</span>
+                        </div>
+                        <div class="text-[11px] text-slate-400 font-medium hidden sm:block">
+                            <span id="sim-level-badge" class="px-2 py-0.5 rounded bg-gold-400/10 text-gold-300 border border-gold-400/20 font-bold">3. Seviye VIP & Fotoğraflı</span>
+                        </div>
+                    </div>
+
+                    <div id="template-container" class="p-6 sm:p-10 transition-all duration-500 min-h-[500px]"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ================= 4. ÖZELLİK: ŞEHİR & KATEGORİ BAZLI YEREL SEO BÖLÜMÜ (YENİ EKLENDİ) ================= -->
+    <section id="yerel-cozumler" class="py-20 bg-night-900/60 border-y border-white/5 relative">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-16">
+                <span class="text-gold-400 font-semibold text-xs uppercase tracking-widest">Bölgesel ve Sektörel Uzmanlık</span>
+                <h2 class="text-3xl sm:text-4xl font-serif font-bold text-white mt-2">
+                    Mekanınızın Konseptine & Bölgenize Özel Çözümler
+                </h2>
+                <p class="text-slate-300 mt-3 text-sm">
+                    İster Kadıköy’de bir 3. nesil kafe, ister Beşiktaş’ta bir bistro ya da Florya’da bir ocakbaşı... Mekanınızın hedef kitlesine ve bölgesine özel anahtar teslim web vitrini kuruyoruz.
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <!-- 1. Kadıköy & Moda Kafe Web Tasarım -->
+                <div class="luxury-card p-6 rounded-2xl border border-white/10 hover:border-gold-400/30 transition-all group">
+                    <div class="w-10 h-10 rounded-xl bg-gold-400/10 border border-gold-400/20 flex items-center justify-center text-gold-400 mb-4 group-hover:scale-110 transition-transform">
+                        <i data-lucide="coffee" class="w-5 h-5"></i>
+                    </div>
+                    <span class="text-[11px] font-bold text-gold-400 tracking-wider uppercase">Kadıköy & Moda</span>
+                    <h3 class="text-lg font-bold text-white mt-1">3. Nesil Kafe & Kahveci Web Tasarımı</h3>
+                    <p class="text-xs text-slate-300 mt-2 leading-relaxed">
+                        Kadıköy ve Moda bölgesinde kahve severlerin dikkatini çekecek modern, minimalist ve hızlı menü tasarımları. Çekirdek türleri ve tatlı menünüzü telefon ekranlarına sığdırıyoruz.
+                    </p>
+                    <div class="mt-4 pt-3 border-t border-white/5 flex items-center justify-between text-[11px] text-slate-400">
+                        <span>Tek Tıkla Harita / Konum</span>
+                        <span class="text-gold-400 font-semibold">1. Seviye Butik</span>
+                    </div>
+                </div>
+
+                <!-- 2. Beşiktaş & Nişantaşı Bistro & Pub -->
+                <div class="luxury-card p-6 rounded-2xl border border-gold-400/30 shadow-lg shadow-gold-400/5 group">
+                    <div class="w-10 h-10 rounded-xl bg-gold-400 text-night-950 font-bold flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
+                        <i data-lucide="glass-water" class="w-5 h-5"></i>
+                    </div>
+                    <span class="text-[11px] font-bold text-gold-300 tracking-wider uppercase">Beşiktaş & Nişantaşı</span>
+                    <h3 class="text-lg font-bold text-white mt-1">Bistro, Brasserie & Bar Web Siteleri</h3>
+                    <p class="text-xs text-slate-300 mt-2 leading-relaxed">
+                        Akşam yoğunluğunda telefon trafiğini azaltan, doğrudan WhatsApp'a rezervasyon talebi düşüren şık tasarımlar. Kokteyl ve ana yemek menülerinizi kategorili olarak sergileyin.
+                    </p>
+                    <div class="mt-4 pt-3 border-t border-white/5 flex items-center justify-between text-[11px] text-slate-400">
+                        <span>WhatsApp Rezervasyon</span>
+                        <span class="text-gold-400 font-semibold">2. Seviye Bistro</span>
+                    </div>
+                </div>
+
+                <!-- 3. Florya & Karaköy Ocakbaşı & Steakhouse -->
+                <div class="luxury-card p-6 rounded-2xl border border-white/10 hover:border-gold-400/30 transition-all group">
+                    <div class="w-10 h-10 rounded-xl bg-gold-400/10 border border-gold-400/20 flex items-center justify-center text-gold-400 mb-4 group-hover:scale-110 transition-transform">
+                        <i data-lucide="flame" class="w-5 h-5"></i>
+                    </div>
+                    <span class="text-[11px] font-bold text-gold-400 tracking-wider uppercase">Florya, Karaköy & Boğaz</span>
+                    <h3 class="text-lg font-bold text-white mt-1">Ocakbaşı, Kebapçı & Steakhouse Vitrinleri</h3>
+                    <p class="text-xs text-slate-300 mt-2 leading-relaxed">
+                        Köz ve meşe ateşindeki lezzetlerinizi, VIP salonlarınızı ve şefin tadım masalarını gösteren ultra lüks mekan fotoğraf galerileri. Özel iş yemekleri için doğrudan arama alın.
+                    </p>
+                    <div class="mt-4 pt-3 border-t border-white/5 flex items-center justify-between text-[11px] text-slate-400">
+                        <span>VIP Salon & Foto Galeri</span>
+                        <span class="text-gold-400 font-semibold">3. Seviye Gurme</span>
+                    </div>
+                </div>
+
+                <!-- 4. Bakırköy & Şişli Butik Fırın & Pastane -->
+                <div class="luxury-card p-6 rounded-2xl border border-white/10 hover:border-gold-400/30 transition-all group">
+                    <div class="w-10 h-10 rounded-xl bg-gold-400/10 border border-gold-400/20 flex items-center justify-center text-gold-400 mb-4 group-hover:scale-110 transition-transform">
+                        <i data-lucide="cake" class="w-5 h-5"></i>
+                    </div>
+                    <span class="text-[11px] font-bold text-gold-400 tracking-wider uppercase">Bakırköy & Şişli</span>
+                    <h3 class="text-lg font-bold text-white mt-1">Butik Fırın, Pastane & Tatlıcı Siteleri</h3>
+                    <p class="text-xs text-slate-300 mt-2 leading-relaxed">
+                        Özel gün pastaları, ekşi maya ekmekler ve günlük tatlılar için görsel ağırlıklı, tek tıkla adres yol tarifi başlatan dijital vitrin mimarisi.
+                    </p>
+                    <div class="mt-4 pt-3 border-t border-white/5 flex items-center justify-between text-[11px] text-slate-400">
+                        <span>Hızlı Yol Tarifi (Maps)</span>
+                        <span class="text-gold-400 font-semibold">1. Seviye Butik</span>
+                    </div>
+                </div>
+
+                <!-- 5. Tüm Türkiye Balık & Deniz Ürünleri -->
+                <div class="luxury-card p-6 rounded-2xl border border-white/10 hover:border-gold-400/30 transition-all group">
+                    <div class="w-10 h-10 rounded-xl bg-gold-400/10 border border-gold-400/20 flex items-center justify-center text-gold-400 mb-4 group-hover:scale-110 transition-transform">
+                        <i data-lucide="fish" class="w-5 h-5"></i>
+                    </div>
+                    <span class="text-[11px] font-bold text-gold-400 tracking-wider uppercase">Sahil & Marina Bölgeleri</span>
+                    <h3 class="text-lg font-bold text-white mt-1">Balık & Deniz Mahsulleri Restoranları</h3>
+                    <p class="text-xs text-slate-300 mt-2 leading-relaxed">
+                        Günlük taze deniz balıkları, meze çeşitleri ve manzaralı masa rezervasyonları için şık deniz konseptli dijital vitrin siteleri.
+                    </p>
+                    <div class="mt-4 pt-3 border-t border-white/5 flex items-center justify-between text-[11px] text-slate-400">
+                        <span>Masa Rezervasyonu</span>
+                        <span class="text-gold-400 font-semibold">2. Seviye Bistro</span>
+                    </div>
+                </div>
+
+                <!-- 6. Şube Zincirleri & Çoklu Lokasyon -->
+                <div class="luxury-card p-6 rounded-2xl border border-white/10 hover:border-gold-400/30 transition-all group">
+                    <div class="w-10 h-10 rounded-xl bg-gold-400/10 border border-gold-400/20 flex items-center justify-center text-gold-400 mb-4 group-hover:scale-110 transition-transform">
+                        <i data-lucide="network" class="w-5 h-5"></i>
+                    </div>
+                    <span class="text-[11px] font-bold text-gold-400 tracking-wider uppercase">Zincir & Franchising</span>
+                    <h3 class="text-lg font-bold text-white mt-1">Çok Şubeli Restoran Ağları</h3>
+                    <p class="text-xs text-slate-300 mt-2 leading-relaxed">
+                        Farklı semtlerdeki şubeleriniz için tek tıkla şube seçici, her şubeye özel telefon ve adres haritası entegrasyonu.
+                    </p>
+                    <div class="mt-4 pt-3 border-t border-white/5 flex items-center justify-between text-[11px] text-slate-400">
+                        <span>Çoklu Şube Desteği</span>
+                        <span class="text-gold-400 font-semibold">3. Seviye Gurme</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- KOMİSYON TASARRUF HESAPLAYICISI -->
+    <section id="tasarruf-hesaplayici" class="py-20 bg-night-950 relative">
         <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center max-w-2xl mx-auto mb-12">
                 <span class="text-gold-400 font-semibold text-xs uppercase tracking-widest">Finansal Karşılaştırma</span>
@@ -259,120 +456,8 @@
         </div>
     </section>
 
-    <!-- 3 SEVİYELİ CANLI ŞABLON SİMÜLATÖRÜ (MOBİL/MASAÜSTÜ GEÇİŞİ EKLENDİ) -->
-    <section id="sablonlar" class="py-20 bg-night-950 relative">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="text-center max-w-3xl mx-auto mb-10">
-                <span class="text-gold-400 font-semibold text-xs uppercase tracking-widest">Kademeli Tasarım Seçenekleri</span>
-                <h2 class="text-3xl sm:text-5xl font-serif font-bold text-white mt-2">
-                    Basitten En Lükse: 3 Farklı Şablon Mimarisi
-                </h2>
-                <p class="text-slate-300 mt-3 text-sm sm:text-base">
-                    İşletmenizin ölçeğine göre hazırlanan şablonlarımızı canlı olarak test edin. Hem bilgisayarda hem telefonda nasıl durduğunu görmek için görünümü değiştirebilirsiniz.
-                </p>
-            </div>
-
-            <!-- Şablon Butonları -->
-            <div class="flex flex-wrap items-center justify-center gap-3 mb-8">
-                <button onclick="switchTemplate(1)" id="btn-tab-1" class="tab-btn px-6 py-3 rounded-xl text-sm font-bold flex items-center gap-2.5 transition-all duration-300 bg-night-850 text-slate-300 hover:text-white border border-white/10">
-                    <span class="w-6 h-6 rounded-full bg-white/10 flex items-center justify-center text-xs">1</span>
-                    <span>1. Seviye: Hızlı Butik Vitrin</span>
-                </button>
-                <button onclick="switchTemplate(2)" id="btn-tab-2" class="tab-btn px-6 py-3 rounded-xl text-sm font-semibold flex items-center gap-2.5 transition-all duration-300 bg-night-850 text-slate-300 hover:text-white border border-white/10">
-                    <span class="w-6 h-6 rounded-full bg-white/10 flex items-center justify-center text-xs">2</span>
-                    <span>2. Seviye: Klasik Bistro & Menü</span>
-                </button>
-                <button onclick="switchTemplate(3)" id="btn-tab-3" class="tab-btn px-6 py-3 rounded-xl text-sm font-bold flex items-center gap-2.5 transition-all duration-300 bg-gold-400 text-night-950 shadow-lg shadow-gold-400/20">
-                    <span class="w-6 h-6 rounded-full bg-night-950/20 flex items-center justify-center text-xs font-bold">★</span>
-                    <span>3. Seviye: Ultra Lüks Gurme</span>
-                </button>
-            </div>
-
-            <!-- Cihaz Geçiş Butonları (Masaüstü / Telefon) -->
-            <div class="flex items-center justify-center gap-2 mb-6">
-                <button onclick="switchDeviceView('desktop')" id="view-btn-desktop" class="px-4 py-2 rounded-xl text-xs font-bold flex items-center gap-2 bg-gold-400 text-night-950 transition-all">
-                    <i data-lucide="monitor" class="w-4 h-4"></i>
-                    <span>Masaüstü Görünümü</span>
-                </button>
-                <button onclick="switchDeviceView('mobile')" id="view-btn-mobile" class="px-4 py-2 rounded-xl text-xs font-semibold flex items-center gap-2 bg-night-900 border border-white/10 text-slate-300 hover:text-white transition-all">
-                    <i data-lucide="smartphone" class="w-4 h-4"></i>
-                    <span>Telefon Görünümü (Mobil)</span>
-                </button>
-            </div>
-
-            <!-- Canlı Çerçeve Kapsayıcısı -->
-            <div class="flex justify-center transition-all duration-500">
-                <div id="sim-frame" class="w-full transition-all duration-500 rounded-2xl luxury-card overflow-hidden gold-glow border border-gold-400/30">
-                    <div class="bg-night-950/90 border-b border-white/10 px-4 py-3 flex items-center justify-between">
-                        <div class="flex items-center gap-2">
-                            <span class="w-3 h-3 rounded-full bg-red-500/80"></span>
-                            <span class="w-3 h-3 rounded-full bg-amber-500/80"></span>
-                            <span class="w-3 h-3 rounded-full bg-emerald-500/80"></span>
-                        </div>
-                        <div id="sim-url" class="bg-night-900 border border-white/10 px-6 py-1 rounded-lg text-xs font-mono text-gold-300 flex items-center gap-2">
-                            <i data-lucide="lock" class="w-3 h-3 text-gold-400"></i>
-                            <span>https://sarayocakbasi.restoranweb.com</span>
-                        </div>
-                        <div class="text-[11px] text-slate-400 font-medium hidden sm:block">
-                            <span id="sim-level-badge" class="px-2 py-0.5 rounded bg-gold-400/10 text-gold-300 border border-gold-400/20 font-bold">3. Seviye VIP & Fotoğraflı</span>
-                        </div>
-                    </div>
-
-                    <div id="template-container" class="p-6 sm:p-10 transition-all duration-500 min-h-[500px]"></div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- NASIL ÇALIŞIR? -->
-    <section id="nasil-calisir" class="py-20 bg-night-900/40 border-y border-white/5 relative">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="text-center max-w-3xl mx-auto mb-16">
-                <span class="text-gold-400 font-semibold text-xs uppercase tracking-widest">Zahmetsiz Süreç</span>
-                <h2 class="text-3xl sm:text-4xl font-serif font-bold text-white mt-2">
-                    Siteniz 3 Basit Adımda Nasıl Yayına Girer?
-                </h2>
-                <p class="text-slate-300 mt-3 text-sm">
-                    Teknik detaylarla, sunucularla veya kodlarla uğraşmanıza gerek yok. Her şeyi sizin yerinize biz hazırlıyoruz.
-                </p>
-            </div>
-
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 relative">
-                <div class="luxury-card p-8 rounded-2xl relative border border-white/10 group">
-                    <div class="w-12 h-12 rounded-xl bg-gold-400/10 border border-gold-400/30 flex items-center justify-center text-gold-400 font-bold text-lg mb-6 group-hover:scale-110 transition-transform">
-                        1
-                    </div>
-                    <h3 class="text-lg font-bold text-white mb-2">Paketinizi Seçin & Bilgileri İletin</h3>
-                    <p class="text-xs sm:text-sm text-slate-300 leading-relaxed">
-                        Restoranınızın adını, menü listenizi ve fotoğraflarınızı WhatsApp üzerinden bize gönderin. Size uygun şablonu belirleyelim.
-                    </p>
-                </div>
-
-                <div class="luxury-card p-8 rounded-2xl relative border border-gold-400/30 group shadow-lg shadow-gold-400/5">
-                    <div class="w-12 h-12 rounded-xl bg-gold-400 text-night-950 font-bold text-lg flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
-                        2
-                    </div>
-                    <h3 class="text-lg font-bold text-white mb-2">48 Saatte Özel Canlı Taslak</h3>
-                    <p class="text-xs sm:text-sm text-slate-300 leading-relaxed">
-                        Ekibimiz tasarımınızı 48 saatte tamamlar ve onayınız için size özel gizli bir önizleme linki iletir. İnceleyip onaylarsınız.
-                    </p>
-                </div>
-
-                <div class="luxury-card p-8 rounded-2xl relative border border-white/10 group">
-                    <div class="w-12 h-12 rounded-xl bg-gold-400/10 border border-gold-400/30 flex items-center justify-center text-gold-400 font-bold text-lg mb-6 group-hover:scale-110 transition-transform">
-                        3
-                    </div>
-                    <h3 class="text-lg font-bold text-white mb-2">Kendi Alan Adınızla Canlı Yayın</h3>
-                    <p class="text-xs sm:text-sm text-slate-300 leading-relaxed">
-                        Siteniz `restoraniniz.com` adresi ve SSL güvenlik sertifikasıyla Google'da açılır; doğrudan WhatsApp ve telefon aramaları almaya başlarsınız.
-                    </p>
-                </div>
-            </div>
-        </div>
-    </section>
-
     <!-- MASALARA ÖZEL ŞIK QR KOD HEDİYE BÖLÜMÜ -->
-    <section id="qr-hediye" class="py-20 bg-night-900/60 border-t border-white/5 relative">
+    <section id="qr-hediye" class="py-20 bg-night-900/40 border-t border-white/5 relative">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="luxury-card rounded-3xl p-8 sm:p-12 border border-gold-400/30 flex flex-col lg:flex-row items-center gap-10">
                 <div class="flex-1 space-y-5 text-left">
@@ -392,7 +477,6 @@
                     </ul>
                 </div>
                 
-                <!-- QR Önizleme Kartı -->
                 <div class="w-full sm:w-72 bg-gradient-to-b from-night-900 to-night-950 p-6 rounded-2xl border-2 border-gold-400/40 text-center shadow-2xl relative group transform hover:scale-105 transition-transform duration-300">
                     <div class="w-12 h-12 rounded-xl bg-gold-400 text-night-950 font-serif font-bold flex items-center justify-center mx-auto mb-3 text-lg">
                         R
@@ -641,7 +725,7 @@
                         <span>Benim zaten tescilli bir .com alan adım (domain) var, kullanabilir miyiz?</span>
                         <i id="faq-icon-5" data-lucide="chevron-down" class="w-5 h-5 text-gold-400 transition-transform duration-300"></i>
                     </button>
-                    <div id="faq-ans-4" class="hidden px-5 pb-5 text-xs sm:text-sm text-slate-300 border-t border-white/5 pt-3 leading-relaxed">
+                    <div id="faq-ans-5" class="hidden px-5 pb-5 text-xs sm:text-sm text-slate-300 border-t border-white/5 pt-3 leading-relaxed">
                         Kesinlikle evet! Mevcut alan adınızı ücretsiz olarak yeni sitenize bağlıyoruz ve SSL güvenlik sertifikasını tanımlıyoruz. Yeni bir domain almak zorunda kalmazsınız.
                     </div>
                 </div>
@@ -936,7 +1020,6 @@
             document.getElementById('calc-komisyon-aylik').innerText = Math.round(aylikKomisyon).toLocaleString('tr-TR') + " ₺";
             document.getElementById('calc-komisyon-yillik').innerText = Math.round(yillikKomisyon).toLocaleString('tr-TR') + " ₺";
 
-            // 4.490 TL'lik standart paketin kaç günde amorti edildiği
             const gunlukKomisyon = aylikKomisyon / 30;
             const amortiGun = Math.max(1, Math.ceil(4490 / gunlukKomisyon));
             document.getElementById('calc-amorti-sure').innerText = amortiGun + " Gün";
@@ -953,7 +1036,7 @@
             const btnMob = document.getElementById('view-btn-mobile');
 
             if (view === 'mobile') {
-                frame.style.maxWidth = '390px'; // iPhone 16 Pro genişliği
+                frame.style.maxWidth = '390px';
                 btnMob.className = "px-4 py-2 rounded-xl text-xs font-bold flex items-center gap-2 bg-gold-400 text-night-950 transition-all";
                 btnDesk.className = "px-4 py-2 rounded-xl text-xs font-semibold flex items-center gap-2 bg-night-900 border border-white/10 text-slate-300 hover:text-white transition-all";
             } else {
