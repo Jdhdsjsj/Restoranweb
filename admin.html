@@ -194,7 +194,7 @@
                     </div>
                 </div>
 
-                <!-- Paket Dağılımı (Optimize Fiyatlar) -->
+                <!-- Paket Dağılımı -->
                 <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
                     <div class="lg:col-span-2 bg-night-900 border border-white/10 rounded-2xl p-6">
                         <h4 class="text-sm font-bold text-white mb-1 flex items-center gap-2">
@@ -239,23 +239,23 @@
                     <div class="bg-night-900 border border-white/10 rounded-2xl p-6 flex flex-col justify-between">
                         <div>
                             <h4 class="text-sm font-bold text-white mb-1 flex items-center gap-2">
-                                <i data-lucide="zap" class="w-4 h-4 text-gold-400"></i>
-                                <span>Operasyon Hızı</span>
+                                <i data-lucide="wrench" class="w-4 h-4 text-gold-400"></i>
+                                <span>Bakım & Revizyon SLA</span>
                             </h4>
-                            <p class="text-xs text-slate-400 mb-4">Sipariş teslim taahhüdü ve SLA durumu.</p>
+                            <p class="text-xs text-slate-400 mb-4">Müşteri menü güncelleme ve teknik destek durumu.</p>
                             
                             <div class="p-4 rounded-xl bg-night-950 border border-white/5 space-y-2">
                                 <div class="flex justify-between text-xs">
-                                    <span class="text-slate-400">Ortalama Teslim:</span>
-                                    <span class="text-emerald-400 font-bold">36 Saat</span>
+                                    <span class="text-slate-400">Fiyat Güncelleme:</span>
+                                    <span class="text-emerald-400 font-bold">Aynı Gün</span>
                                 </div>
                                 <div class="flex justify-between text-xs">
-                                    <span class="text-slate-400">Taahhüt:</span>
-                                    <span class="text-slate-200 font-bold">Maksimum 48 Saat</span>
+                                    <span class="text-slate-400">SSL & Hosting:</span>
+                                    <span class="text-slate-200 font-bold">1 Yıl Dahil</span>
                                 </div>
                                 <div class="flex justify-between text-xs">
-                                    <span class="text-slate-400">Komisyon Kesintisi:</span>
-                                    <span class="text-gold-400 font-bold">%0 (Sıfır)</span>
+                                    <span class="text-slate-400">WhatsApp Bakım:</span>
+                                    <span class="text-gold-400 font-bold">Aktif (0544...)</span>
                                 </div>
                             </div>
                         </div>
@@ -269,7 +269,7 @@
                 </div>
             </div>
 
-            <!-- SEKME 2: SİPARİŞ MASASI -->
+            <!-- SEKME 2: SİPARİŞ MASASI (GÜNCELLENMİŞ BAKIM MESAJI İLE) -->
             <div id="tab-content-orders" class="hidden space-y-6">
                 <div class="bg-night-900 border border-white/10 rounded-2xl overflow-hidden shadow-xl">
                     <div class="p-5 border-b border-white/10 flex flex-col md:flex-row md:items-center justify-between gap-4">
@@ -278,7 +278,7 @@
                                 <i data-lucide="receipt" class="w-5 h-5 text-gold-400"></i>
                                 <span>Gelen FAST / Havale Siparişleri</span>
                             </h2>
-                            <p class="text-xs text-slate-400">WhatsApp şablonlarıyla müşterilere anında durum bildirimi gönderin.</p>
+                            <p class="text-xs text-slate-400">Müşterilere kurulum aşaması veya menü güncelleme/bakım mesajları gönderin.</p>
                         </div>
 
                         <div class="flex flex-wrap items-center gap-2.5">
@@ -309,7 +309,7 @@
                                     <th class="py-3.5 px-4 font-semibold">Yetkili & Tel</th>
                                     <th class="py-3.5 px-4 font-semibold">Paket & Tutar</th>
                                     <th class="py-3.5 px-4 font-semibold">Durum</th>
-                                    <th class="py-3.5 px-4 font-semibold">Aşama Bazlı WhatsApp Mesajları</th>
+                                    <th class="py-3.5 px-4 font-semibold">Aşama & Bakım WhatsApp Mesajları</th>
                                     <th class="py-3.5 px-4 font-semibold text-right">Aksiyonlar</th>
                                 </tr>
                             </thead>
@@ -397,7 +397,7 @@
                                 </tr>
                             </thead>
                             <tbody id="users-tbody" class="divide-y divide-white/5 text-slate-300">
-                                <!-- JS ile basılır -->
+                                <!-- JS ile render edilir -->
                             </tbody>
                         </table>
                     </div>
@@ -431,7 +431,7 @@
                                 <span class="text-gold-300 font-mono font-bold text-sm tracking-wider">TR96 0001 5001 5800 7300 6566 54</span>
                             </div>
                             <div class="p-3 rounded-xl bg-night-950 border border-white/5">
-                                <span class="text-slate-400 block text-[10px]">Resmi İletişim & WhatsApp:</span>
+                                <span class="text-slate-400 block text-[10px]">Resmi İletişim & Bakım Destek:</span>
                                 <span class="text-emerald-400 font-mono font-bold text-sm">0544 572 22 03</span>
                             </div>
                         </div>
@@ -743,6 +743,7 @@
                 const msgOdeme = encodeURIComponent(`Merhaba ${order.owner}, ${order.restaurant} için ${order.code} kodlu siparişinizin FAST ödemesi hesabımıza ulaşmıştır. 48 saatlik kurulum sürecimiz başlamıştır.`);
                 const msgMenu = encodeURIComponent(`Merhaba ${order.owner}, ${order.restaurant} web sitenizin tasarımına başladık. Menü listenizi, logonuzu ve öne çıkan yemek fotoğraflarınızı bu sohbetten gönderebilir misiniz?`);
                 const msgYayin = encodeURIComponent(`Müjde ${order.owner}! ${order.restaurant} tanıtım web siteniz yayına alınmıştır. Hediye akrilik QR masa standı baskı dosyanız da hazırlandı.`);
+                const msgBakim = encodeURIComponent(`Merhaba ${order.owner}, ${order.restaurant} web sitenizin menü veya fiyat güncellemeleri için buradayız. Güncellenmesini istediğiniz yeni ürün veya fiyat listenizi bu mesaja iletmeniz yeterlidir.`);
 
                 tr.innerHTML = `
                     <td class="py-3.5 px-4 font-mono">
@@ -769,6 +770,9 @@
                             </a>
                             <a href="${telBase + msgYayin}" target="_blank" class="px-2 py-1 rounded-md bg-gold-400/10 hover:bg-gold-400/20 text-gold-300 border border-gold-400/20 text-[10px] font-semibold" title="Canlıda Mesajı">
                                 3. Canlıda!
+                            </a>
+                            <a href="${telBase + msgBakim}" target="_blank" class="px-2 py-1 rounded-md bg-purple-500/10 hover:bg-purple-500/20 text-purple-300 border border-purple-500/20 text-[10px] font-semibold" title="Bakım / Fiyat Güncelleme Mesajı">
+                                4. Bakım & Güncelleme
                             </a>
                         </div>
                     </td>
@@ -1041,7 +1045,6 @@
             document.getElementById('order-modal').classList.remove('flex');
         }
 
-        // OPTİMİZE EDİLMİŞ MANUEL FİYAT ATAMALARI
         function autoFillPrice() {
             const pkg = document.getElementById('m-package').value;
             const priceInput = document.getElementById('m-price');
