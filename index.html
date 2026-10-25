@@ -159,7 +159,6 @@
             border: 2px solid #070A10;
         }
 
-        /* MOBİL ÖNİZLEME MODU ÖZEL DÜZELTMELERİ (Yazı ve grid çakışmalarını çözer) */
         .is-mobile-frame {
             max-width: 390px !important;
             border-width: 3px !important;
@@ -232,7 +231,7 @@
                     </button>
                 </div>
 
-                <button onclick="openFastModal('Standart Bistro Paketi (2. Seviye Şablon)', '4.490 ₺')" class="hidden sm:inline-flex items-center gap-2 px-5 py-2.5 rounded-xl text-sm font-semibold text-night-950 bg-gradient-to-r from-gold-300 via-gold-400 to-gold-500 hover:brightness-110 shadow-lg shadow-gold-400/20 transition-all duration-300 transform hover:-translate-y-0.5">
+                <button onclick="requestPurchase('Standart Bistro Paketi (2. Seviye Şablon)', '4.490 ₺')" class="hidden sm:inline-flex items-center gap-2 px-5 py-2.5 rounded-xl text-sm font-semibold text-night-950 bg-gradient-to-r from-gold-300 via-gold-400 to-gold-500 hover:brightness-110 shadow-lg shadow-gold-400/20 transition-all duration-300 transform hover:-translate-y-0.5">
                     <i data-lucide="sparkles" class="w-4 h-4"></i>
                     <span>Hemen Başla (FAST/Havale)</span>
                 </button>
@@ -266,10 +265,10 @@
                     <i data-lucide="eye" class="w-5 h-5"></i>
                     <span>Canlı Şablonları İnceleyin</span>
                 </a>
-                <a href="#tasarruf-hesaplayici" class="w-full sm:w-auto inline-flex items-center justify-center gap-3 px-8 py-4 rounded-xl text-base font-semibold text-gold-300 bg-night-900/90 border border-gold-400/30 hover:border-gold-400 hover:bg-night-850 transition-all duration-300">
-                    <i data-lucide="calculator" class="w-5 h-5 text-gold-400"></i>
-                    <span>Komisyon Tasarrufunu Hesapla</span>
-                </a>
+                <button onclick="requestPurchase('Hızlı Butik Vitrin (1. Seviye Şablon)', '2.490 ₺')" class="w-full sm:w-auto inline-flex items-center justify-center gap-3 px-8 py-4 rounded-xl text-base font-semibold text-gold-300 bg-night-900/90 border border-gold-400/30 hover:border-gold-400 hover:bg-night-850 transition-all duration-300">
+                    <i data-lucide="banknote" class="w-5 h-5 text-gold-400"></i>
+                    <span>FAST / Havale İle Sipariş Ver</span>
+                </button>
             </div>
 
             <div class="mt-12 pt-8 border-t border-white/10 grid grid-cols-2 md:grid-cols-4 gap-6 text-left max-w-4xl mx-auto">
@@ -313,7 +312,7 @@
         </div>
     </section>
 
-    <!-- 3 SEVİYELİ CANLI ŞABLON SİMÜLATÖRÜ (MOBİL OPTİMİZE EDİLMİŞ) -->
+    <!-- 3 SEVİYELİ CANLI ŞABLON SİMÜLATÖRÜ -->
     <section id="sablonlar" class="py-20 bg-night-950 relative">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center max-w-3xl mx-auto mb-10">
@@ -363,7 +362,7 @@
                             <span class="w-3 h-3 rounded-full bg-amber-500/80"></span>
                             <span class="w-3 h-3 rounded-full bg-emerald-500/80"></span>
                         </div>
-                        <div id="sim-url" class="bg-night-900 border border-white/10 px-4 py-1 rounded-lg text-xs font-mono text-gold-300 flex items-center gap-2 max-w-[200px] sm:max-w-none truncate">
+                        <div id="sim-url" class="bg-night-900 border border-white/10 px-6 py-1 rounded-lg text-xs font-mono text-gold-300 flex items-center gap-2 max-w-[200px] sm:max-w-none truncate">
                             <i data-lucide="lock" class="w-3 h-3 text-gold-400 shrink-0"></i>
                             <span class="truncate">https://sarayocakbasi.restoranweb.com</span>
                         </div>
@@ -535,7 +534,7 @@
                 </div>
 
                 <div class="mt-8 text-center">
-                    <button onclick="openFastModal('Standart Bistro Paketi (2. Seviye Şablon)', '4.490 ₺')" class="px-8 py-3.5 rounded-xl text-sm font-bold text-night-950 bg-gradient-to-r from-gold-300 via-gold-400 to-gold-500 hover:brightness-110 shadow-lg shadow-gold-400/20 transition-all">
+                    <button onclick="requestPurchase('Standart Bistro Paketi (2. Seviye Şablon)', '4.490 ₺')" class="px-8 py-3.5 rounded-xl text-sm font-bold text-night-950 bg-gradient-to-r from-gold-300 via-gold-400 to-gold-500 hover:brightness-110 shadow-lg shadow-gold-400/20 transition-all">
                         Komisyonsuz Web Sitemi Kurun
                     </button>
                 </div>
@@ -637,7 +636,7 @@
                     </div>
 
                     <div class="mt-8 pt-6 border-t border-white/10">
-                        <button onclick="openFastModal('Hızlı Butik Vitrin (1. Seviye Şablon)', '2.490 ₺')" class="w-full py-3.5 px-4 rounded-xl text-sm font-bold text-white bg-night-850 hover:bg-gold-400 hover:text-night-950 border border-gold-400/30 hover:border-transparent transition-all flex items-center justify-center gap-2">
+                        <button onclick="requestPurchase('Hızlı Butik Vitrin (1. Seviye Şablon)', '2.490 ₺')" class="w-full py-3.5 px-4 rounded-xl text-sm font-bold text-white bg-night-850 hover:bg-gold-400 hover:text-night-950 border border-gold-400/30 hover:border-transparent transition-all flex items-center justify-center gap-2">
                             <i data-lucide="arrow-right" class="w-4 h-4"></i>
                             <span>Bu Paketi Seç (FAST/Havale)</span>
                         </button>
@@ -692,7 +691,7 @@
                     </div>
 
                     <div class="mt-8 pt-6 border-t border-white/10">
-                        <button onclick="openFastModal('Klasik Bistro & Menü Paketi (2. Seviye Şablon)', '4.490 ₺')" class="w-full py-4 px-4 rounded-xl text-sm font-bold text-night-950 bg-gradient-to-r from-gold-300 via-gold-400 to-gold-500 hover:brightness-110 shadow-lg shadow-gold-400/20 transition-all flex items-center justify-center gap-2">
+                        <button onclick="requestPurchase('Klasik Bistro & Menü Paketi (2. Seviye Şablon)', '4.490 ₺')" class="w-full py-4 px-4 rounded-xl text-sm font-bold text-night-950 bg-gradient-to-r from-gold-300 via-gold-400 to-gold-500 hover:brightness-110 shadow-lg shadow-gold-400/20 transition-all flex items-center justify-center gap-2">
                             <i data-lucide="sparkles" class="w-4 h-4"></i>
                             <span>Hemen Başla (FAST/Havale)</span>
                         </button>
@@ -743,7 +742,7 @@
                     </div>
 
                     <div class="mt-8 pt-6 border-t border-white/10">
-                        <button onclick="openFastModal('Ultra Lüks Gurme Paketi (3. Seviye Şablon)', '7.490 ₺')" class="w-full py-3.5 px-4 rounded-xl text-sm font-bold text-white bg-night-850 hover:bg-gold-400 hover:text-night-950 border border-gold-400/30 hover:border-transparent transition-all flex items-center justify-center gap-2">
+                        <button onclick="requestPurchase('Ultra Lüks Gurme Paketi (3. Seviye Şablon)', '7.490 ₺')" class="w-full py-3.5 px-4 rounded-xl text-sm font-bold text-white bg-night-850 hover:bg-gold-400 hover:text-night-950 border border-gold-400/30 hover:border-transparent transition-all flex items-center justify-center gap-2">
                             <i data-lucide="arrow-right" class="w-4 h-4"></i>
                             <span>Bu Paketi Seç (FAST/Havale)</span>
                         </button>
@@ -836,19 +835,19 @@
                     <input type="hidden" name="form_tipi" value="Ucretsiz_Taslak_Talebi">
                     <div>
                         <label class="block text-xs font-semibold text-slate-300 mb-1">Restoran / Kafe Adı</label>
-                        <input type="text" name="restoran_adi" required placeholder="Örn: Lezzet Bistro & Grill" class="w-full px-4 py-3 rounded-xl bg-night-900 border border-white/10 text-white placeholder-slate-500 focus:outline-none focus:border-gold-400 text-sm">
+                        <input type="text" name="restoran_adi" id="lead-restoran-adi" required placeholder="Örn: Lezzet Bistro & Grill" class="w-full px-4 py-3 rounded-xl bg-night-900 border border-white/10 text-white placeholder-slate-500 focus:outline-none focus:border-gold-400 text-sm">
                     </div>
                     <div>
                         <label class="block text-xs font-semibold text-slate-300 mb-1">Yetkili Adı Soyadı</label>
-                        <input type="text" name="yetkili_adi" required placeholder="Adınız Soyadınız" class="w-full px-4 py-3 rounded-xl bg-night-900 border border-white/10 text-white placeholder-slate-500 focus:outline-none focus:border-gold-400 text-sm">
+                        <input type="text" name="yetkili_adi" id="lead-yetkili-adi" required placeholder="Adınız Soyadınız" class="w-full px-4 py-3 rounded-xl bg-night-900 border border-white/10 text-white placeholder-slate-500 focus:outline-none focus:border-gold-400 text-sm">
                     </div>
                     <div>
                         <label class="block text-xs font-semibold text-slate-300 mb-1">WhatsApp Telefon Numarası</label>
-                        <input type="tel" name="telefon" required placeholder="05XX XXX XX XX" class="w-full px-4 py-3 rounded-xl bg-night-900 border border-white/10 text-white placeholder-slate-500 focus:outline-none focus:border-gold-400 text-sm">
+                        <input type="tel" name="telefon" id="lead-telefon" required placeholder="05XX XXX XX XX" class="w-full px-4 py-3 rounded-xl bg-night-900 border border-white/10 text-white placeholder-slate-500 focus:outline-none focus:border-gold-400 text-sm">
                     </div>
                     <div>
                         <label class="block text-xs font-semibold text-slate-300 mb-1">İlgilendiğiniz Şablon Seviyesi</label>
-                        <select name="secilen_sablon" class="w-full px-4 py-3 rounded-xl bg-night-900 border border-white/10 text-white focus:outline-none focus:border-gold-400 text-sm">
+                        <select name="secilen_sablon" id="lead-secilen-sablon" class="w-full px-4 py-3 rounded-xl bg-night-900 border border-white/10 text-white focus:outline-none focus:border-gold-400 text-sm">
                             <option value="1. Seviye: Hızlı Butik Vitrin (2.490 ₺)">1. Seviye: Hızlı Butik Vitrin (2.490 ₺)</option>
                             <option value="2. Seviye: Klasik Bistro & Menü (4.490 ₺)" selected>2. Seviye: Klasik Bistro & Menü (4.490 ₺)</option>
                             <option value="3. Seviye: Ultra Lüks Gurme (7.490 ₺)">3. Seviye: Ultra Lüks Gurme (7.490 ₺)</option>
@@ -1016,12 +1015,18 @@
         </div>
     </div>
 
-    <!-- GİRİŞ / KAYIT OL MODALI -->
+    <!-- GİRİŞ / KAYIT OL MODALI (HESAP ZORUNLULUĞU BİLGİLENDİRME ŞERİDİ DAHİL) -->
     <div id="auth-modal" class="fixed inset-0 z-50 bg-black/85 backdrop-blur-md hidden items-center justify-center p-4">
         <div class="luxury-card rounded-2xl w-full max-w-md border border-gold-400/30 p-6 sm:p-8 relative shadow-2xl">
             <button onclick="closeAuthModal()" class="absolute top-5 right-5 text-slate-400 hover:text-white">
                 <i data-lucide="x" class="w-5 h-5"></i>
             </button>
+
+            <!-- İşlem Zorunluluğu Uyarı Başlığı (Dinamik) -->
+            <div id="auth-intent-banner" class="mb-5 p-3 rounded-xl bg-gold-400/10 border border-gold-400/30 text-xs text-gold-300 flex items-center gap-2.5 hidden">
+                <i data-lucide="shield-alert" class="w-4 h-4 text-gold-400 shrink-0"></i>
+                <span id="auth-intent-text">Devam etmek için lütfen giriş yapın veya ücretsiz hesap oluşturun.</span>
+            </div>
 
             <div class="flex border-b border-white/10 mb-6">
                 <button onclick="switchAuthTab('login')" id="tab-auth-login" class="flex-1 pb-3 text-sm font-bold text-gold-400 border-b-2 border-gold-400 transition-all">Giriş Yap</button>
@@ -1038,7 +1043,7 @@
                     <input type="password" id="login-password" required placeholder="••••••••" class="w-full px-3 py-2.5 rounded-xl bg-night-950 border border-white/10 text-white text-xs focus:outline-none focus:border-gold-400">
                 </div>
                 <button type="submit" class="w-full py-3 rounded-xl text-xs font-bold text-night-950 bg-gradient-to-r from-gold-300 via-gold-400 to-gold-500 hover:brightness-110 shadow-lg shadow-gold-400/20 transition-all">
-                    Giriş Yap
+                    Giriş Yap ve Devam Et
                 </button>
                 <p class="text-[11px] text-center text-slate-400">Hesabınız yok mu? <a href="javascript:void(0)" onclick="switchAuthTab('register')" class="text-gold-400 hover:underline">Hemen Kayıt Olun</a></p>
             </form>
@@ -1065,7 +1070,7 @@
                     <input type="password" id="reg-password" minlength="6" required placeholder="En az 6 karakter" class="w-full px-3 py-2 rounded-xl bg-night-950 border border-white/10 text-white text-xs focus:outline-none focus:border-gold-400">
                 </div>
                 <button type="submit" class="w-full py-3 rounded-xl text-xs font-bold text-night-950 bg-gradient-to-r from-gold-300 via-gold-400 to-gold-500 hover:brightness-110 shadow-lg shadow-gold-400/20 transition-all mt-2">
-                    Hesap Oluştur ve Başla
+                    Hesap Oluştur ve Devam Et
                 </button>
             </form>
         </div>
@@ -1094,48 +1099,9 @@
 
         const FORMSPREE_ENDPOINT = "https://formspree.io/f/xnppjawa";
 
-        // ==========================================
-        // 1. KOMİSYON TASARRUF HESAPLAYICISI
-        // ==========================================
-        function calculateSavings() {
-            const ciro = Number(document.getElementById('ciro-slider').value);
-            document.getElementById('slider-ciro-val').innerText = ciro.toLocaleString('tr-TR') + " ₺";
+        // BEKLEYEN İŞLEM HAFIZASI (Giriş/Kayıttan sonra kaldığı yerden devam etmesi için)
+        let pendingAction = null;
 
-            const aylikKomisyon = ciro * 0.32;
-            const yillikKomisyon = aylikKomisyon * 12;
-
-            document.getElementById('calc-komisyon-aylik').innerText = Math.round(aylikKomisyon).toLocaleString('tr-TR') + " ₺";
-            document.getElementById('calc-komisyon-yillik').innerText = Math.round(yillikKomisyon).toLocaleString('tr-TR') + " ₺";
-
-            const gunlukKomisyon = aylikKomisyon / 30;
-            const amortiGun = Math.max(1, Math.ceil(4490 / gunlukKomisyon));
-            document.getElementById('calc-amorti-sure').innerText = amortiGun + " Gün";
-        }
-
-        calculateSavings();
-
-        // ==========================================
-        // 2. MASAÜSTÜ / MOBİL GÖRÜNÜM GEÇİŞİ (OPTİMİZE EDİLDİ)
-        // ==========================================
-        function switchDeviceView(view) {
-            const frame = document.getElementById('sim-frame');
-            const btnDesk = document.getElementById('view-btn-desktop');
-            const btnMob = document.getElementById('view-btn-mobile');
-
-            if (view === 'mobile') {
-                frame.classList.add('is-mobile-frame');
-                btnMob.className = "px-4 py-2 rounded-xl text-xs font-bold flex items-center gap-2 bg-gold-400 text-night-950 transition-all";
-                btnDesk.className = "px-4 py-2 rounded-xl text-xs font-semibold flex items-center gap-2 bg-night-900 border border-white/10 text-slate-300 hover:text-white transition-all";
-            } else {
-                frame.classList.remove('is-mobile-frame');
-                btnDesk.className = "px-4 py-2 rounded-xl text-xs font-bold flex items-center gap-2 bg-gold-400 text-night-950 transition-all";
-                btnMob.className = "px-4 py-2 rounded-xl text-xs font-semibold flex items-center gap-2 bg-night-900 border border-white/10 text-slate-300 hover:text-white transition-all";
-            }
-        }
-
-        // ==========================================
-        // 3. KULLANICI GİRİŞ & KAYIT SİSTEMİ (AUTH)
-        // ==========================================
         function getAuthUsers() {
             return JSON.parse(localStorage.getItem('rw_registered_users') || '[]');
         }
@@ -1144,6 +1110,76 @@
             return JSON.parse(localStorage.getItem('rw_current_user') || 'null');
         }
 
+        // ==========================================
+        // 1. ZORUNLU HESAP & DEVAM ETME AKIŞI
+        // ==========================================
+
+        // ÖDEME ALIRKEN KONTROL
+        function requestPurchase(packageName, price) {
+            const user = getCurrentUser();
+            if (!user) {
+                pendingAction = { type: 'purchase', packageName, price };
+                openAuthModal('register', 'Ödeme ve kurulum sürecini başlatmak için lütfen önce işletme hesabı oluşturun veya giriş yapın.');
+                return;
+            }
+            openFastModal(packageName, price);
+        }
+
+        // ŞABLON TALEP EDERKEN KONTROL
+        function handleLeadSubmit(e) {
+            e.preventDefault();
+            const form = e.target;
+            const user = getCurrentUser();
+
+            if (!user) {
+                // Formdaki doldurulan verileri hafızaya al
+                pendingAction = {
+                    type: 'lead',
+                    formData: new FormData(form)
+                };
+                openAuthModal('register', 'Ücretsiz taslak talebinizi oluşturmak ve süreci takip edebilmeniz için lütfen hesap açın veya giriş yapın.');
+                return;
+            }
+
+            executeLeadSubmission(new FormData(form));
+        }
+
+        async function executeLeadSubmission(formData) {
+            const btn = document.getElementById('lead-submit-btn');
+            const originalText = btn.innerHTML;
+            btn.innerHTML = `<span>Gönderiliyor...</span>`;
+            btn.disabled = true;
+
+            try {
+                await fetch(FORMSPREE_ENDPOINT, {
+                    method: 'POST',
+                    body: formData,
+                    headers: { 'Accept': 'application/json' }
+                });
+                showToast("Talebiniz e-posta ile bize ulaştı! Taslağınız hazırlanıyor.");
+                document.querySelector('#iletisim form').reset();
+            } catch (error) {
+                showToast("Talebiniz alındı! Restoranınız için ücretsiz taslak hazırlanıyor.");
+            } finally {
+                btn.innerHTML = originalText;
+                btn.disabled = false;
+            }
+        }
+
+        function resumePendingAction() {
+            if (!pendingAction) return;
+
+            if (pendingAction.type === 'purchase') {
+                openFastModal(pendingAction.packageName, pendingAction.price);
+            } else if (pendingAction.type === 'lead') {
+                executeLeadSubmission(pendingAction.formData);
+            }
+            pendingAction = null;
+        }
+
+        // ==========================================
+        // 2. KULLANICI GİRİŞ & KAYIT SİSTEMİ (AUTH)
+        // ==========================================
         function updateNavAuth() {
             const user = getCurrentUser();
             const navArea = document.getElementById('auth-nav-area');
@@ -1159,12 +1195,14 @@
                         </button>
                     </div>
                 `;
-                const pRest = document.getElementById('pay-restoran-adi');
-                const pOwn = document.getElementById('pay-yetkili-adi');
-                const pTel = document.getElementById('pay-telefon');
-                if (pRest && !pRest.value) pRest.value = user.restaurant;
-                if (pOwn && !pOwn.value) pOwn.value = user.owner;
-                if (pTel && !pTel.value) pTel.value = user.phone;
+                // Alanları otomatik doldur
+                if (document.getElementById('pay-restoran-adi')) document.getElementById('pay-restoran-adi').value = user.restaurant;
+                if (document.getElementById('pay-yetkili-adi')) document.getElementById('pay-yetkili-adi').value = user.owner;
+                if (document.getElementById('pay-telefon')) document.getElementById('pay-telefon').value = user.phone;
+
+                if (document.getElementById('lead-restoran-adi')) document.getElementById('lead-restoran-adi').value = user.restaurant;
+                if (document.getElementById('lead-yetkili-adi')) document.getElementById('lead-yetkili-adi').value = user.owner;
+                if (document.getElementById('lead-telefon')) document.getElementById('lead-telefon').value = user.phone;
             } else {
                 navArea.innerHTML = `
                     <button onclick="openAuthModal('login')" class="px-3.5 py-2 rounded-xl text-xs font-semibold text-slate-300 hover:text-white bg-night-900 border border-white/10 hover:border-gold-400/40 flex items-center gap-1.5 transition-all">
@@ -1176,7 +1214,16 @@
             lucide.createIcons();
         }
 
-        function openAuthModal(tab) {
+        function openAuthModal(tab, customMessage = '') {
+            const banner = document.getElementById('auth-intent-banner');
+            const bannerText = document.getElementById('auth-intent-text');
+            if (customMessage) {
+                bannerText.innerText = customMessage;
+                banner.classList.remove('hidden');
+            } else {
+                banner.classList.add('hidden');
+            }
+
             document.getElementById('auth-modal').classList.remove('hidden');
             document.getElementById('auth-modal').classList.add('flex');
             switchAuthTab(tab);
@@ -1236,8 +1283,11 @@
 
             closeAuthModal();
             updateNavAuth();
-            showToast(`Hoş geldiniz, ${restaurant}! Hesabınız oluşturuldu.`);
+            showToast(`Hoş geldiniz, ${restaurant}!`);
             e.target.reset();
+
+            // Bekleyen işlemi (Ödeme veya taslak talebi) hemen aç
+            resumePendingAction();
         }
 
         function handleUserLogin(e) {
@@ -1258,6 +1308,9 @@
             updateNavAuth();
             showToast(`Giriş yapıldı: ${matchedUser.restaurant}`);
             e.target.reset();
+
+            // Bekleyen işlemi hemen devam ettir
+            resumePendingAction();
         }
 
         function handleUserLogout() {
@@ -1268,7 +1321,46 @@
 
         updateNavAuth();
 
-        // 3 ŞABLON VERİSİ (MOBİL VE MASAÜSTÜ İÇİN ÖZEL DÜZENLENMİŞ)
+        // ==========================================
+        // 3. KOMİSYON TASARRUF HESAPLAYICISI
+        // ==========================================
+        function calculateSavings() {
+            const ciro = Number(document.getElementById('ciro-slider').value);
+            document.getElementById('slider-ciro-val').innerText = ciro.toLocaleString('tr-TR') + " ₺";
+
+            const aylikKomisyon = ciro * 0.32;
+            const yillikKomisyon = aylikKomisyon * 12;
+
+            document.getElementById('calc-komisyon-aylik').innerText = Math.round(aylikKomisyon).toLocaleString('tr-TR') + " ₺";
+            document.getElementById('calc-komisyon-yillik').innerText = Math.round(yillikKomisyon).toLocaleString('tr-TR') + " ₺";
+
+            const gunlukKomisyon = aylikKomisyon / 30;
+            const amortiGun = Math.max(1, Math.ceil(4490 / gunlukKomisyon));
+            document.getElementById('calc-amorti-sure').innerText = amortiGun + " Gün";
+        }
+
+        calculateSavings();
+
+        // ==========================================
+        // 4. MASAÜSTÜ / MOBİL GÖRÜNÜM GEÇİŞİ
+        // ==========================================
+        function switchDeviceView(view) {
+            const frame = document.getElementById('sim-frame');
+            const btnDesk = document.getElementById('view-btn-desktop');
+            const btnMob = document.getElementById('view-btn-mobile');
+
+            if (view === 'mobile') {
+                frame.classList.add('is-mobile-frame');
+                btnMob.className = "px-4 py-2 rounded-xl text-xs font-bold flex items-center gap-2 bg-gold-400 text-night-950 transition-all";
+                btnDesk.className = "px-4 py-2 rounded-xl text-xs font-semibold flex items-center gap-2 bg-night-900 border border-white/10 text-slate-300 hover:text-white transition-all";
+            } else {
+                frame.classList.remove('is-mobile-frame');
+                btnDesk.className = "px-4 py-2 rounded-xl text-xs font-bold flex items-center gap-2 bg-gold-400 text-night-950 transition-all";
+                btnMob.className = "px-4 py-2 rounded-xl text-xs font-semibold flex items-center gap-2 bg-night-900 border border-white/10 text-slate-300 hover:text-white transition-all";
+            }
+        }
+
+        // 3 ŞABLON VERİSİ
         const templates = {
             1: {
                 name: "1. Seviye: Hızlı Butik Vitrin",
@@ -1427,7 +1519,6 @@
                             </p>
                         </div>
 
-                        <!-- GALERİ -->
                         <div class="mb-5">
                             <h4 class="text-xs font-bold text-gold-400 uppercase tracking-wider mb-2 flex items-center gap-1.5">
                                 <i data-lucide="camera" class="w-3.5 h-3.5"></i>
@@ -1517,6 +1608,7 @@
             }
         }
 
+        // FAST / HAVALE MODALI AÇMA (Sadece giriş yapılmışsa buraya gelir)
         function openFastModal(packageName, price) {
             document.getElementById('modal-pkg-name').innerText = packageName;
             document.getElementById('modal-pkg-price').innerText = price;
@@ -1603,31 +1695,6 @@
             } catch (error) {
                 closeFastModal();
                 showToast("Sipariş kaydınız alındı, WhatsApp üzerinden teyit edilecektir.");
-            } finally {
-                btn.innerHTML = originalText;
-                btn.disabled = false;
-            }
-        }
-
-        async function handleLeadSubmit(e) {
-            e.preventDefault();
-            const btn = document.getElementById('lead-submit-btn');
-            const originalText = btn.innerHTML;
-            btn.innerHTML = `<span>Gönderiliyor...</span>`;
-            btn.disabled = true;
-
-            const formData = new FormData(e.target);
-
-            try {
-                await fetch(FORMSPREE_ENDPOINT, {
-                    method: 'POST',
-                    body: formData,
-                    headers: { 'Accept': 'application/json' }
-                });
-                showToast("Talebiniz e-posta ile bize ulaştı! Taslağınız hazırlanıyor.");
-                e.target.reset();
-            } catch (error) {
-                showToast("Talebiniz alındı! Restoranınız için ücretsiz taslak hazırlanıyor.");
             } finally {
                 btn.innerHTML = originalText;
                 btn.disabled = false;
