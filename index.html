@@ -8,14 +8,14 @@
     <meta name="robots" content="index, follow">
     <meta name="author" content="Restoranweb">
 
-    <!-- 3. CANONICAL & YEREL COĞRAFİ HEDEFLEME ETİKETLERİ -->
+    <!-- CANONICAL & YEREL COĞRAFİ HEDEFLEME ETİKETLERİ -->
     <link rel="canonical" href="https://restoranweb.com/">
     <meta name="geo.region" content="TR-34">
     <meta name="geo.placename" content="İstanbul">
     <meta name="geo.position" content="41.0082;28.9784">
     <meta name="ICBM" content="41.0082, 28.9784">
 
-    <!-- 5. GOOGLE HIZ & CORE WEB VITALS (FONT DISPLAY SWAP & PRECONNECT) -->
+    <!-- GOOGLE HIZ & CORE WEB VITALS -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Playfair+Display:ital,wght@0,600;0,700;1,600&display=swap" rel="stylesheet">
@@ -25,7 +25,7 @@
     <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
     
-    <!-- 1. GOOGLE SSS (FAQPAGE) VE İŞLETME YAPISAL VERİSİ (SCHEMA.ORG JSON-LD) -->
+    <!-- GOOGLE SSS (FAQPAGE) VE İŞLETME YAPISAL VERİSİ -->
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
@@ -158,6 +158,37 @@
             box-shadow: 0 0 15px rgba(212, 175, 55, 0.6);
             border: 2px solid #070A10;
         }
+
+        /* MOBİL ÖNİZLEME MODU ÖZEL DÜZELTMELERİ (Yazı ve grid çakışmalarını çözer) */
+        .is-mobile-frame {
+            max-width: 390px !important;
+            border-width: 3px !important;
+            border-color: rgba(212, 175, 55, 0.5) !important;
+            border-radius: 36px !important;
+        }
+        .is-mobile-frame #template-container {
+            padding: 16px !important;
+        }
+        .is-mobile-frame .sim-grid {
+            grid-template-columns: 1fr !important;
+            gap: 12px !important;
+        }
+        .is-mobile-frame .sim-title {
+            font-size: 1.25rem !important;
+            line-height: 1.25 !important;
+        }
+        .is-mobile-frame .sim-btn-group {
+            flex-direction: column !important;
+            gap: 8px !important;
+        }
+        .is-mobile-frame .sim-btn-group > * {
+            width: 100% !important;
+        }
+        .is-mobile-frame .sim-card-row {
+            flex-direction: column !important;
+            align-items: flex-start !important;
+            gap: 8px !important;
+        }
     </style>
 </head>
 <body class="bg-night-950 text-slate-200 font-sans selection:bg-gold-400 selection:text-night-950 antialiased overflow-x-hidden">
@@ -282,7 +313,7 @@
         </div>
     </section>
 
-    <!-- 3 SEVİYELİ CANLI ŞABLON SİMÜLATÖRÜ -->
+    <!-- 3 SEVİYELİ CANLI ŞABLON SİMÜLATÖRÜ (MOBİL OPTİMİZE EDİLMİŞ) -->
     <section id="sablonlar" class="py-20 bg-night-950 relative">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center max-w-3xl mx-auto mb-10">
@@ -332,16 +363,16 @@
                             <span class="w-3 h-3 rounded-full bg-amber-500/80"></span>
                             <span class="w-3 h-3 rounded-full bg-emerald-500/80"></span>
                         </div>
-                        <div id="sim-url" class="bg-night-900 border border-white/10 px-6 py-1 rounded-lg text-xs font-mono text-gold-300 flex items-center gap-2">
-                            <i data-lucide="lock" class="w-3 h-3 text-gold-400"></i>
-                            <span>https://sarayocakbasi.restoranweb.com</span>
+                        <div id="sim-url" class="bg-night-900 border border-white/10 px-4 py-1 rounded-lg text-xs font-mono text-gold-300 flex items-center gap-2 max-w-[200px] sm:max-w-none truncate">
+                            <i data-lucide="lock" class="w-3 h-3 text-gold-400 shrink-0"></i>
+                            <span class="truncate">https://sarayocakbasi.restoranweb.com</span>
                         </div>
                         <div class="text-[11px] text-slate-400 font-medium hidden sm:block">
                             <span id="sim-level-badge" class="px-2 py-0.5 rounded bg-gold-400/10 text-gold-300 border border-gold-400/20 font-bold">3. Seviye VIP & Fotoğraflı</span>
                         </div>
                     </div>
 
-                    <div id="template-container" class="p-6 sm:p-10 transition-all duration-500 min-h-[500px]"></div>
+                    <div id="template-container" class="p-4 sm:p-10 transition-all duration-500 min-h-[480px]"></div>
                 </div>
             </div>
         </div>
@@ -361,7 +392,6 @@
             </div>
 
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-                <!-- 1. Kadıköy & Moda Kafe Web Tasarım -->
                 <div class="luxury-card p-6 rounded-2xl border border-white/10 hover:border-gold-400/30 transition-all group">
                     <div class="w-10 h-10 rounded-xl bg-gold-400/10 border border-gold-400/20 flex items-center justify-center text-gold-400 mb-4 group-hover:scale-110 transition-transform">
                         <i data-lucide="coffee" class="w-5 h-5"></i>
@@ -377,7 +407,6 @@
                     </div>
                 </div>
 
-                <!-- 2. Beşiktaş & Nişantaşı Bistro & Pub -->
                 <div class="luxury-card p-6 rounded-2xl border border-gold-400/30 shadow-lg shadow-gold-400/5 group">
                     <div class="w-10 h-10 rounded-xl bg-gold-400 text-night-950 font-bold flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
                         <i data-lucide="glass-water" class="w-5 h-5"></i>
@@ -393,7 +422,6 @@
                     </div>
                 </div>
 
-                <!-- 3. Florya & Karaköy Ocakbaşı & Steakhouse -->
                 <div class="luxury-card p-6 rounded-2xl border border-white/10 hover:border-gold-400/30 transition-all group">
                     <div class="w-10 h-10 rounded-xl bg-gold-400/10 border border-gold-400/20 flex items-center justify-center text-gold-400 mb-4 group-hover:scale-110 transition-transform">
                         <i data-lucide="flame" class="w-5 h-5"></i>
@@ -409,7 +437,6 @@
                     </div>
                 </div>
 
-                <!-- 4. Bakırköy & Şişli Butik Fırın & Pastane -->
                 <div class="luxury-card p-6 rounded-2xl border border-white/10 hover:border-gold-400/30 transition-all group">
                     <div class="w-10 h-10 rounded-xl bg-gold-400/10 border border-gold-400/20 flex items-center justify-center text-gold-400 mb-4 group-hover:scale-110 transition-transform">
                         <i data-lucide="cake" class="w-5 h-5"></i>
@@ -425,7 +452,6 @@
                     </div>
                 </div>
 
-                <!-- 5. Tüm Türkiye Balık & Deniz Ürünleri -->
                 <div class="luxury-card p-6 rounded-2xl border border-white/10 hover:border-gold-400/30 transition-all group">
                     <div class="w-10 h-10 rounded-xl bg-gold-400/10 border border-gold-400/20 flex items-center justify-center text-gold-400 mb-4 group-hover:scale-110 transition-transform">
                         <i data-lucide="fish" class="w-5 h-5"></i>
@@ -441,7 +467,6 @@
                     </div>
                 </div>
 
-                <!-- 6. Şube Zincirleri & Çoklu Lokasyon -->
                 <div class="luxury-card p-6 rounded-2xl border border-white/10 hover:border-gold-400/30 transition-all group">
                     <div class="w-10 h-10 rounded-xl bg-gold-400/10 border border-gold-400/20 flex items-center justify-center text-gold-400 mb-4 group-hover:scale-110 transition-transform">
                         <i data-lucide="network" class="w-5 h-5"></i>
@@ -767,7 +792,7 @@
                         <span>Kendi yemek fotoğraflarımız profesyonel değilse ne olacak?</span>
                         <i id="faq-icon-3" data-lucide="chevron-down" class="w-5 h-5 text-gold-400 transition-transform duration-300"></i>
                     </button>
-                    <div id="faq-ans-2" class="hidden px-5 pb-5 text-xs sm:text-sm text-slate-300 border-t border-white/5 pt-3 leading-relaxed">
+                    <div id="faq-ans-3" class="hidden px-5 pb-5 text-xs sm:text-sm text-slate-300 border-t border-white/5 pt-3 leading-relaxed">
                         Hiç problem değil. Eğer kendi profesyonel çekimleriniz yoksa, menünüzdeki lezzetlerle birebir eşleşen ultra yüksek çözünürlüklü gurme stok fotoğraflarla sitenizin vitrinini ve menüsünü ücretsiz olarak biz zenginleştiriyoruz.
                     </div>
                 </div>
@@ -1090,7 +1115,7 @@
         calculateSavings();
 
         // ==========================================
-        // 2. MASAÜSTÜ / MOBİL GÖRÜNÜM GEÇİŞİ
+        // 2. MASAÜSTÜ / MOBİL GÖRÜNÜM GEÇİŞİ (OPTİMİZE EDİLDİ)
         // ==========================================
         function switchDeviceView(view) {
             const frame = document.getElementById('sim-frame');
@@ -1098,11 +1123,11 @@
             const btnMob = document.getElementById('view-btn-mobile');
 
             if (view === 'mobile') {
-                frame.style.maxWidth = '390px';
+                frame.classList.add('is-mobile-frame');
                 btnMob.className = "px-4 py-2 rounded-xl text-xs font-bold flex items-center gap-2 bg-gold-400 text-night-950 transition-all";
                 btnDesk.className = "px-4 py-2 rounded-xl text-xs font-semibold flex items-center gap-2 bg-night-900 border border-white/10 text-slate-300 hover:text-white transition-all";
             } else {
-                frame.style.maxWidth = '100%';
+                frame.classList.remove('is-mobile-frame');
                 btnDesk.className = "px-4 py-2 rounded-xl text-xs font-bold flex items-center gap-2 bg-gold-400 text-night-950 transition-all";
                 btnMob.className = "px-4 py-2 rounded-xl text-xs font-semibold flex items-center gap-2 bg-night-900 border border-white/10 text-slate-300 hover:text-white transition-all";
             }
@@ -1243,58 +1268,58 @@
 
         updateNavAuth();
 
-        // 3 ŞABLON VERİSİ (4. SEMANTİK VE GÖRSEL SEO ALT ETİKETLERİ DAHİL)
+        // 3 ŞABLON VERİSİ (MOBİL VE MASAÜSTÜ İÇİN ÖZEL DÜZENLENMİŞ)
         const templates = {
             1: {
                 name: "1. Seviye: Hızlı Butik Vitrin",
                 badge: "1. Seviye Minimalist",
                 url: "https://butikkahve.restoranweb.com",
                 html: `
-                    <div class="max-w-2xl mx-auto bg-night-950 rounded-2xl p-6 sm:p-8 border border-white/10">
-                        <div class="text-center pb-6 border-b border-white/10">
-                            <span class="text-xs uppercase tracking-widest text-gold-400 font-semibold">Artisan Kahve & Fırın</span>
-                            <h3 class="text-2xl sm:text-3xl font-serif font-bold text-white mt-1">Roast & Bread Co.</h3>
-                            <p class="text-xs text-slate-400 mt-1 flex items-center justify-center gap-2">
-                                <i data-lucide="map-pin" class="w-3.5 h-3.5 text-gold-400"></i>
-                                Moda Caddesi No:42, Kadıköy / İstanbul
+                    <div class="max-w-2xl mx-auto bg-night-950 rounded-2xl p-4 sm:p-8 border border-white/10">
+                        <div class="text-center pb-5 border-b border-white/10">
+                            <span class="text-[11px] uppercase tracking-widest text-gold-400 font-semibold block">Artisan Kahve & Fırın</span>
+                            <h3 class="sim-title text-xl sm:text-3xl font-serif font-bold text-white mt-1">Roast & Bread Co.</h3>
+                            <p class="text-xs text-slate-400 mt-1 flex items-center justify-center gap-1.5 flex-wrap">
+                                <i data-lucide="map-pin" class="w-3.5 h-3.5 text-gold-400 shrink-0"></i>
+                                <span>Moda Caddesi No:42, Kadıköy / İstanbul</span>
                             </p>
                         </div>
-                        <div class="grid grid-cols-2 gap-3 my-6">
-                            <a href="tel:+905445722203" class="py-3 px-4 rounded-xl bg-gold-400 text-night-950 font-bold text-xs flex items-center justify-center gap-2 hover:brightness-110">
+                        <div class="sim-btn-group flex gap-2.5 my-5">
+                            <a href="tel:+905445722203" class="flex-1 py-2.5 px-3 rounded-xl bg-gold-400 text-night-950 font-bold text-xs flex items-center justify-center gap-2 hover:brightness-110">
                                 <i data-lucide="phone" class="w-4 h-4"></i>
                                 <span>Doğrudan Ara</span>
                             </a>
-                            <a href="https://wa.me/905445722203?text=Merhaba,%20konum%20ve%20men%C3%BC%20bilgisi%20almak%20istiyorum." target="_blank" class="py-3 px-4 rounded-xl bg-emerald-500/20 text-emerald-300 border border-emerald-500/40 font-bold text-xs flex items-center justify-center gap-2 hover:bg-emerald-500/30">
+                            <a href="https://wa.me/905445722203?text=Merhaba,%20konum%20ve%20men%C3%BC%20bilgisi%20almak%20istiyorum." target="_blank" class="flex-1 py-2.5 px-3 rounded-xl bg-emerald-500/20 text-emerald-300 border border-emerald-500/40 font-bold text-xs flex items-center justify-center gap-2 hover:bg-emerald-500/30">
                                 <i data-lucide="message-circle" class="w-4 h-4"></i>
                                 <span>WhatsApp Konum</span>
                             </a>
                         </div>
-                        <div class="space-y-3">
+                        <div class="space-y-2.5">
                             <h4 class="text-xs font-bold text-slate-400 uppercase tracking-wider mb-2">Öne Çıkan İmza Lezzetler</h4>
-                            <div class="flex justify-between items-center p-3 rounded-lg bg-night-900 border border-white/5">
-                                <div>
-                                    <span class="text-sm font-semibold text-white block">Single Origin Flat White</span>
-                                    <span class="text-[11px] text-slate-400">Etiyopya Yirgacheffe çekirdeği ile taze demlenmiş</span>
+                            <div class="p-3 rounded-lg bg-night-900 border border-white/5 flex justify-between items-start gap-2">
+                                <div class="pr-2">
+                                    <span class="text-xs sm:text-sm font-semibold text-white block">Single Origin Flat White</span>
+                                    <span class="text-[10px] sm:text-[11px] text-slate-400 block mt-0.5">Etiyopya Yirgacheffe taze çekirdek</span>
                                 </div>
-                                <span class="text-sm font-bold text-gold-400">110 ₺</span>
+                                <span class="text-xs sm:text-sm font-bold text-gold-400 shrink-0 font-mono">110 ₺</span>
                             </div>
-                            <div class="flex justify-between items-center p-3 rounded-lg bg-night-900 border border-white/5">
-                                <div>
-                                    <span class="text-sm font-semibold text-white block">Tereyağlı Kruvasan</span>
-                                    <span class="text-[11px] text-slate-400">Günlük taze Fransız reçetesi</span>
+                            <div class="p-3 rounded-lg bg-night-900 border border-white/5 flex justify-between items-start gap-2">
+                                <div class="pr-2">
+                                    <span class="text-xs sm:text-sm font-semibold text-white block">Tereyağlı Kruvasan</span>
+                                    <span class="text-[10px] sm:text-[11px] text-slate-400 block mt-0.5">Günlük fırından taze Fransız reçetesi</span>
                                 </div>
-                                <span class="text-sm font-bold text-gold-400">130 ₺</span>
+                                <span class="text-xs sm:text-sm font-bold text-gold-400 shrink-0 font-mono">130 ₺</span>
                             </div>
-                            <div class="flex justify-between items-center p-3 rounded-lg bg-night-900 border border-white/5">
-                                <div>
-                                    <span class="text-sm font-semibold text-white block">San Sebastian Cheesecake</span>
-                                    <span class="text-[11px] text-slate-400">Akışkan Belçika çikolatası eşliğinde</span>
+                            <div class="p-3 rounded-lg bg-night-900 border border-white/5 flex justify-between items-start gap-2">
+                                <div class="pr-2">
+                                    <span class="text-xs sm:text-sm font-semibold text-white block">San Sebastian Cheesecake</span>
+                                    <span class="text-[10px] sm:text-[11px] text-slate-400 block mt-0.5">Akışkan Belçika çikolatası sosu</span>
                                 </div>
-                                <span class="text-sm font-bold text-gold-400">190 ₺</span>
+                                <span class="text-xs sm:text-sm font-bold text-gold-400 shrink-0 font-mono">190 ₺</span>
                             </div>
                         </div>
-                        <div class="mt-6 pt-4 border-t border-white/10 text-center text-xs text-slate-400 flex items-center justify-center gap-4">
-                            <span>Hergün Açık: 08:30 - 23:00</span>
+                        <div class="mt-5 pt-3 border-t border-white/10 text-center text-[11px] text-slate-400 flex items-center justify-center gap-3">
+                            <span>Hergün: 08:30 - 23:00</span>
                             <span>•</span>
                             <span class="text-emerald-400 font-medium">Şu An Açık</span>
                         </div>
@@ -1306,64 +1331,63 @@
                 badge: "2. Seviye Kategori Menülü",
                 url: "https://bistrolezzet.restoranweb.com",
                 html: `
-                    <div class="max-w-4xl mx-auto bg-night-950 rounded-2xl p-6 sm:p-8 border border-white/10">
-                        <div class="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 pb-6 border-b border-white/10">
+                    <div class="max-w-4xl mx-auto bg-night-950 rounded-2xl p-4 sm:p-8 border border-white/10">
+                        <div class="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3 pb-5 border-b border-white/10">
                             <div>
-                                <span class="text-xs uppercase tracking-widest text-gold-400 font-semibold">Şehir Bistrosu & Izgara</span>
-                                <h3 class="text-3xl font-serif font-bold text-white mt-1">Trattoria di Milano</h3>
-                                <p class="text-xs text-slate-400 mt-1">Otantik İtalyan Makarnaları, Taş Fırın Pizza ve Şarap Menüsü</p>
+                                <span class="text-[11px] uppercase tracking-widest text-gold-400 font-semibold block">Şehir Bistrosu & Izgara</span>
+                                <h3 class="sim-title text-xl sm:text-3xl font-serif font-bold text-white mt-1">Trattoria di Milano</h3>
+                                <p class="text-xs text-slate-400 mt-0.5">İtalyan Makarnaları, Taş Fırın Pizza ve Şarap Menüsü</p>
                             </div>
-                            <div class="flex items-center gap-2">
-                                <a href="https://wa.me/905445722203?text=Merhaba,%20masa%20rezervasyonu%20yapt%C4%B1rmak%20istiyorum." target="_blank" class="py-2.5 px-4 rounded-xl bg-gold-400 text-night-950 font-bold text-xs flex items-center gap-2 hover:brightness-110">
-                                    <i data-lucide="calendar" class="w-4 h-4"></i>
+                            <div class="flex items-center gap-2 w-full sm:w-auto">
+                                <a href="https://wa.me/905445722203?text=Merhaba,%20masa%20rezervasyonu%20yapt%C4%B1rmak%20istiyorum." target="_blank" class="flex-1 sm:flex-none text-center py-2 px-3.5 rounded-xl bg-gold-400 text-night-950 font-bold text-xs flex items-center justify-center gap-1.5 hover:brightness-110">
+                                    <i data-lucide="calendar" class="w-3.5 h-3.5"></i>
                                     <span>Masa Ayırt</span>
                                 </a>
-                                <button onclick="showToast('Google Haritalar Navigasyonu Açıldı')" class="py-2.5 px-3 rounded-xl bg-night-900 border border-white/10 text-slate-300 font-bold text-xs hover:text-white">
-                                    <i data-lucide="navigation" class="w-4 h-4"></i>
+                                <button onclick="showToast('Google Haritalar Navigasyonu Açıldı')" class="py-2 px-2.5 rounded-xl bg-night-900 border border-white/10 text-slate-300 font-bold text-xs hover:text-white">
+                                    <i data-lucide="navigation" class="w-3.5 h-3.5"></i>
                                 </button>
                             </div>
                         </div>
 
-                        <div class="flex items-center gap-2 overflow-x-auto py-4 border-b border-white/5 text-xs font-semibold">
-                            <span class="px-3 py-1.5 rounded-lg bg-gold-400/20 text-gold-300 border border-gold-400/30">Tüm Menü</span>
-                            <span class="px-3 py-1.5 rounded-lg bg-night-900 text-slate-400 hover:text-white">Başlangıçlar</span>
-                            <span class="px-3 py-1.5 rounded-lg bg-night-900 text-slate-400 hover:text-white">Makarnalar & Risotto</span>
-                            <span class="px-3 py-1.5 rounded-lg bg-night-900 text-slate-400 hover:text-white">Taş Fırın Pizza</span>
-                            <span class="px-3 py-1.5 rounded-lg bg-night-900 text-slate-400 hover:text-white">Tatlılar</span>
+                        <div class="flex items-center gap-1.5 overflow-x-auto py-3 border-b border-white/5 text-[11px] font-semibold no-scrollbar">
+                            <span class="px-2.5 py-1 rounded-lg bg-gold-400/20 text-gold-300 border border-gold-400/30 whitespace-nowrap">Tümü</span>
+                            <span class="px-2.5 py-1 rounded-lg bg-night-900 text-slate-400 whitespace-nowrap">Başlangıç</span>
+                            <span class="px-2.5 py-1 rounded-lg bg-night-900 text-slate-400 whitespace-nowrap">Makarna</span>
+                            <span class="px-2.5 py-1 rounded-lg bg-night-900 text-slate-400 whitespace-nowrap">Pizza</span>
                         </div>
 
-                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 mt-6">
-                            <div class="p-4 rounded-xl bg-night-900 border border-white/5 flex gap-4 items-center">
-                                <div class="w-16 h-16 rounded-lg bg-amber-500/10 border border-amber-500/20 flex items-center justify-center text-amber-400 shrink-0">
-                                    <i data-lucide="pizza" class="w-8 h-8"></i>
+                        <div class="sim-grid grid grid-cols-1 sm:grid-cols-2 gap-3 mt-4">
+                            <div class="p-3 rounded-xl bg-night-900 border border-white/5 flex gap-3 items-center">
+                                <div class="w-12 h-12 rounded-lg bg-amber-500/10 border border-amber-500/20 flex items-center justify-center text-amber-400 shrink-0">
+                                    <i data-lucide="pizza" class="w-6 h-6"></i>
                                 </div>
-                                <div class="flex-1">
-                                    <div class="flex justify-between items-center">
-                                        <h5 class="text-sm font-bold text-white">Pizza Margherita DOP</h5>
-                                        <span class="text-xs font-bold text-gold-400">340 ₺</span>
+                                <div class="flex-1 min-w-0">
+                                    <div class="flex justify-between items-center gap-1">
+                                        <h5 class="text-xs sm:text-sm font-bold text-white truncate">Pizza Margherita DOP</h5>
+                                        <span class="text-xs font-bold text-gold-400 shrink-0">340 ₺</span>
                                     </div>
-                                    <p class="text-[11px] text-slate-400 mt-1">San Marzano domates sosu, bufalo mozzarella, fesleğen</p>
+                                    <p class="text-[10px] text-slate-400 mt-0.5 truncate">San Marzano sos, bufalo mozzarella</p>
                                 </div>
                             </div>
 
-                            <div class="p-4 rounded-xl bg-night-900 border border-white/5 flex gap-4 items-center">
-                                <div class="w-16 h-16 rounded-lg bg-orange-500/10 border border-orange-500/20 flex items-center justify-center text-orange-400 shrink-0">
-                                    <i data-lucide="utensils-crossed" class="w-8 h-8"></i>
+                            <div class="p-3 rounded-xl bg-night-900 border border-white/5 flex gap-3 items-center">
+                                <div class="w-12 h-12 rounded-lg bg-orange-500/10 border border-orange-500/20 flex items-center justify-center text-orange-400 shrink-0">
+                                    <i data-lucide="utensils-crossed" class="w-6 h-6"></i>
                                 </div>
-                                <div class="flex-1">
-                                    <div class="flex justify-between items-center">
-                                        <h5 class="text-sm font-bold text-white">Trüflü Tagliolini</h5>
-                                        <span class="text-xs font-bold text-gold-400">420 ₺</span>
+                                <div class="flex-1 min-w-0">
+                                    <div class="flex justify-between items-center gap-1">
+                                        <h5 class="text-xs sm:text-sm font-bold text-white truncate">Trüflü Tagliolini</h5>
+                                        <span class="text-xs font-bold text-gold-400 shrink-0">420 ₺</span>
                                     </div>
-                                    <p class="text-[11px] text-slate-400 mt-1">Taze el yapımı makarna, kara trüf mantarı, parmesan tekeri</p>
+                                    <p class="text-[10px] text-slate-400 mt-0.5 truncate">El yapımı makarna, kara trüf</p>
                                 </div>
                             </div>
                         </div>
 
-                        <div class="mt-8 pt-6 border-t border-white/10 flex items-center justify-between text-xs text-slate-400">
-                            <span class="flex items-center gap-2 text-white font-medium">
-                                <i data-lucide="instagram" class="w-4 h-4 text-pink-500"></i>
-                                @trattoriadimilano (Canlı Fotoğraflar)
+                        <div class="mt-5 pt-4 border-t border-white/10 flex items-center justify-between text-[11px] text-slate-400">
+                            <span class="flex items-center gap-1 text-white font-medium">
+                                <i data-lucide="instagram" class="w-3.5 h-3.5 text-pink-500"></i>
+                                <span>@trattoriadimilano</span>
                             </span>
                             <span>Nişantaşı / İstanbul</span>
                         </div>
@@ -1375,112 +1399,83 @@
                 badge: "3. Seviye VIP & Fotoğraf Galerili",
                 url: "https://sarayocakbasi.restoranweb.com",
                 html: `
-                    <div class="max-w-5xl mx-auto bg-night-950 rounded-2xl p-6 sm:p-10 border border-gold-400/30">
-                        <div class="flex flex-wrap items-center justify-between gap-3 pb-6 border-b border-gold-400/20">
+                    <div class="max-w-5xl mx-auto bg-night-950 rounded-2xl p-4 sm:p-10 border border-gold-400/30">
+                        <div class="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3 pb-5 border-b border-gold-400/20">
                             <div class="flex items-center gap-2">
-                                <span class="text-xs text-slate-400">Aktif Şube:</span>
-                                <div class="inline-flex rounded-lg bg-night-900 p-1 border border-white/10 text-xs">
-                                    <button class="px-3 py-1 rounded bg-gold-400 text-night-950 font-bold">Nişantaşı (Merkez)</button>
-                                    <button class="px-3 py-1 rounded text-slate-400 hover:text-white">Bodrum Marina</button>
-                                    <button class="px-3 py-1 rounded text-slate-400 hover:text-white">Karaköy</button>
+                                <span class="text-[10px] sm:text-xs text-slate-400">Şube:</span>
+                                <div class="inline-flex rounded-lg bg-night-900 p-0.5 border border-white/10 text-[10px]">
+                                    <button class="px-2 py-0.5 rounded bg-gold-400 text-night-950 font-bold">Nişantaşı</button>
+                                    <button class="px-2 py-0.5 rounded text-slate-400 hover:text-white">Bodrum</button>
                                 </div>
                             </div>
-                            <div class="flex items-center gap-3">
-                                <button onclick="showToast('360° Sanal Tur Yükleniyor...')" class="text-xs text-gold-300 flex items-center gap-1.5 hover:underline">
-                                    <i data-lucide="video" class="w-4 h-4"></i>
-                                    <span>360° Mekan Turu</span>
+                            <div class="flex items-center gap-2 w-full sm:w-auto">
+                                <button onclick="showToast('360° Tur Yükleniyor...')" class="text-[11px] text-gold-300 flex items-center gap-1 hover:underline">
+                                    <i data-lucide="video" class="w-3.5 h-3.5"></i>
+                                    <span>360° Tur</span>
                                 </button>
-                                <a href="https://wa.me/905445722203?text=Merhaba,%20VIP%20Salon%20rezervasyonu%20hakk%C4%B1nda%20g%C3%B6r%C3%BC%C5%9Fmek%20istiyorum." target="_blank" class="py-2 px-4 rounded-xl bg-gradient-to-r from-gold-300 to-gold-500 text-night-950 font-bold text-xs flex items-center gap-2 hover:brightness-110">
-                                    <i data-lucide="crown" class="w-4 h-4"></i>
-                                    <span>VIP Salon Ayırt</span>
+                                <a href="https://wa.me/905445722203?text=Merhaba,%20VIP%20Salon%20rezervasyonu%20hakk%C4%B1nda%20g%C3%B6r%C3%BC%C5%9Fmek%20istiyorum." target="_blank" class="flex-1 sm:flex-none text-center py-1.5 px-3 rounded-xl bg-gradient-to-r from-gold-300 to-gold-500 text-night-950 font-bold text-xs hover:brightness-110">
+                                    VIP Salon
                                 </a>
                             </div>
                         </div>
 
-                        <div class="grid grid-cols-1 lg:grid-cols-3 gap-6 my-8 items-center">
-                            <div class="lg:col-span-2">
-                                <span class="text-xs uppercase tracking-widest text-gold-400 font-semibold">Geleneksel Kömür Ateşi & Fine Dining</span>
-                                <h3 class="text-3xl sm:text-4xl font-serif font-bold text-white mt-1">Sultanahmet Ocakbaşı & Steak</h3>
-                                <p class="text-xs sm:text-sm text-slate-300 mt-3 leading-relaxed">
-                                    1984'ten bu yana Balıkesir kıvırcık kuzu etleri, 28 gün kuru dinlendirilmiş (dry-aged) antrikotlar ve şefimizin gizli baharat harmanıyla hazırlanan eşsiz bir ziyafet deneyimi.
-                                </p>
-                            </div>
-                            <div class="p-4 rounded-xl bg-night-900 border border-gold-400/20 text-center">
-                                <span class="text-xs text-gold-300 block mb-1">Şefin Masası Rezervasyonu</span>
-                                <span class="text-lg font-serif font-bold text-white">Her Akşam 2 Oturum</span>
-                                <span class="text-[11px] text-slate-400 block mt-1">Sadece 12 Kişilik Özel Kapasite</span>
-                            </div>
+                        <div class="my-5">
+                            <span class="text-[10px] uppercase tracking-widest text-gold-400 font-semibold block">Fine Dining & Kömür Ateşi</span>
+                            <h3 class="sim-title text-xl sm:text-4xl font-serif font-bold text-white mt-1">Sultanahmet Ocakbaşı & Steak</h3>
+                            <p class="text-xs text-slate-300 mt-2 leading-relaxed">
+                                Balıkesir kıvırcık kuzu etleri ve 28 gün dry-aged antrikotlarla hazırlanan özel bir lezzet mirası.
+                            </p>
                         </div>
 
-                        <!-- 4. GÖRSEL SEO VE LAZY LOADING -->
-                        <div class="mb-10">
-                            <div class="flex items-center justify-between mb-4">
-                                <h4 class="text-xs font-bold text-gold-400 uppercase tracking-wider flex items-center gap-2">
-                                    <i data-lucide="camera" class="w-4 h-4 text-gold-400"></i>
-                                    <span>Mekan & Atmosfer Galerisi</span>
-                                </h4>
-                                <span class="text-[11px] text-slate-400">Müşterilerinize mekanınızı tüm ihtişamıyla gösterin</span>
-                            </div>
+                        <!-- GALERİ -->
+                        <div class="mb-5">
+                            <h4 class="text-xs font-bold text-gold-400 uppercase tracking-wider mb-2 flex items-center gap-1.5">
+                                <i data-lucide="camera" class="w-3.5 h-3.5"></i>
+                                <span>Mekan Atmosferi</span>
+                            </h4>
                             
-                            <div class="grid grid-cols-1 sm:grid-cols-3 gap-3">
-                                <div class="group relative rounded-xl overflow-hidden border border-gold-400/20 h-44 bg-night-900">
-                                    <img src="https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?auto=format&fit=crop&w=800&q=80" alt="Lüks restoran ana yemek salonu ve mum ışığı masaları" loading="lazy" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
-                                    <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent flex flex-col justify-end p-3">
-                                        <span class="text-xs font-bold text-white">Ana Yemek Salonu</span>
-                                        <span class="text-[10px] text-gold-300">Mum Işığında Akşam Yemeği</span>
+                            <div class="sim-grid grid grid-cols-1 sm:grid-cols-3 gap-2.5">
+                                <div class="group relative rounded-xl overflow-hidden border border-gold-400/20 h-32 sm:h-44 bg-night-900">
+                                    <img src="https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?auto=format&fit=crop&w=800&q=80" alt="Lüks restoran ana yemek salonu" loading="lazy" class="w-full h-full object-cover">
+                                    <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent flex flex-col justify-end p-2.5">
+                                        <span class="text-xs font-bold text-white">Ana Salon</span>
                                     </div>
                                 </div>
-
-                                <div class="group relative rounded-xl overflow-hidden border border-gold-400/20 h-44 bg-night-900">
-                                    <img src="https://images.unsplash.com/photo-1555396273-367ea4eb4db5?auto=format&fit=crop&w=800&q=80" alt="Ocakbaşı restoran şefin açık mutfağı ve ızgara köz ateşi" loading="lazy" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
-                                    <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent flex flex-col justify-end p-3">
-                                        <span class="text-xs font-bold text-white">Şefin Açık Mutfağı</span>
-                                        <span class="text-[10px] text-gold-300">Köz & Meşe Ateşi Deneyimi</span>
+                                <div class="group relative rounded-xl overflow-hidden border border-gold-400/20 h-32 sm:h-44 bg-night-900">
+                                    <img src="https://images.unsplash.com/photo-1555396273-367ea4eb4db5?auto=format&fit=crop&w=800&q=80" alt="Ocakbaşı açık mutfağı" loading="lazy" class="w-full h-full object-cover">
+                                    <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent flex flex-col justify-end p-2.5">
+                                        <span class="text-xs font-bold text-white">Köz Mutfağı</span>
                                     </div>
                                 </div>
-
-                                <div class="group relative rounded-xl overflow-hidden border border-gold-400/20 h-44 bg-night-900">
-                                    <img src="https://images.unsplash.com/photo-1543007630-9710e4a00a20?auto=format&fit=crop&w=800&q=80" alt="Restoran VIP özel toplantı salonu ve şarap mahzeni" loading="lazy" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
-                                    <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent flex flex-col justify-end p-3">
-                                        <span class="text-xs font-bold text-white">VIP Salon & Mahzen</span>
-                                        <span class="text-[10px] text-gold-300">Özel Toplantı & Davetler</span>
+                                <div class="group relative rounded-xl overflow-hidden border border-gold-400/20 h-32 sm:h-44 bg-night-900">
+                                    <img src="https://images.unsplash.com/photo-1543007630-9710e4a00a20?auto=format&fit=crop&w=800&q=80" alt="VIP toplantı salonu" loading="lazy" class="w-full h-full object-cover">
+                                    <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent flex flex-col justify-end p-2.5">
+                                        <span class="text-xs font-bold text-white">VIP Mahzen</span>
                                     </div>
                                 </div>
                             </div>
                         </div>
 
-                        <div class="space-y-3">
-                            <h4 class="text-xs font-bold text-gold-400 uppercase tracking-wider mb-2">Şefin Tadım Menüsü</h4>
-                            <div class="p-4 rounded-xl bg-night-900 border border-white/5 flex flex-col sm:flex-row justify-between items-start sm:items-center gap-3">
-                                <div>
-                                    <div class="flex items-center gap-2">
-                                        <span class="text-sm font-bold text-white">Kuzu Sırtı & Trüflü Firik Pilavı</span>
-                                        <span class="px-2 py-0.5 rounded text-[10px] font-bold bg-gold-400/20 text-gold-300 border border-gold-400/30">İmza Lezzet</span>
-                                        <span class="px-2 py-0.5 rounded text-[10px] font-bold bg-white/5 text-slate-400">Glutensiz</span>
-                                    </div>
-                                    <p class="text-[11px] text-slate-400 mt-1">Meşe kömüründe 6 saat ağır pişirilmiş kuzu sırtı, Antakya firik buğdayı</p>
+                        <div class="space-y-2.5">
+                            <div class="p-3 rounded-xl bg-night-900 border border-white/5 flex justify-between items-start gap-2">
+                                <div class="pr-2">
+                                    <span class="text-xs sm:text-sm font-bold text-white block">Kuzu Sırtı & Trüflü Firik</span>
+                                    <p class="text-[10px] text-slate-400 mt-0.5">Meşe kömüründe 6 saat ağır pişirilmiş</p>
                                 </div>
-                                <span class="text-base font-bold text-gold-400 shrink-0">890 ₺</span>
+                                <span class="text-xs sm:text-sm font-bold text-gold-400 shrink-0 font-mono">890 ₺</span>
                             </div>
-
-                            <div class="p-4 rounded-xl bg-night-900 border border-white/5 flex flex-col sm:flex-row justify-between items-start sm:items-center gap-3">
-                                <div>
-                                    <div class="flex items-center gap-2">
-                                        <span class="text-sm font-bold text-white">Dry-Aged T-Bone Steak (600gr)</span>
-                                        <span class="px-2 py-0.5 rounded text-[10px] font-bold bg-emerald-500/20 text-emerald-300">28 Gün Dinlendirilmiş</span>
-                                    </div>
-                                    <p class="text-[11px] text-slate-400 mt-1">Kaya tuzu yatağında dinlendirilmiş yerli dana eti, fırınlanmış sarımsak tereyağı ile</p>
+                            <div class="p-3 rounded-xl bg-night-900 border border-white/5 flex justify-between items-start gap-2">
+                                <div class="pr-2">
+                                    <span class="text-xs sm:text-sm font-bold text-white block">Dry-Aged T-Bone Steak</span>
+                                    <p class="text-[10px] text-slate-400 mt-0.5">28 Gün dinlendirilmiş yerli dana eti</p>
                                 </div>
-                                <span class="text-base font-bold text-gold-400 shrink-0">1.450 ₺</span>
+                                <span class="text-xs sm:text-sm font-bold text-gold-400 shrink-0 font-mono">1.450 ₺</span>
                             </div>
                         </div>
 
-                        <div class="mt-8 pt-6 border-t border-white/10 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs">
-                            <span class="text-slate-400">Vale Hizmeti Mevcuttur • Özel Otopark</span>
-                            <a href="tel:+905445722203" class="text-gold-300 font-bold flex items-center gap-2 hover:underline">
-                                <i data-lucide="phone-call" class="w-4 h-4"></i>
-                                <span>Konsiyerj & Destek: 0544 572 22 03</span>
-                            </a>
+                        <div class="mt-5 pt-3 border-t border-white/10 flex items-center justify-between text-[11px]">
+                            <span class="text-slate-400">Vale Park Mevcut</span>
+                            <a href="tel:+905445722203" class="text-gold-300 font-bold hover:underline">0544 572 22 03</a>
                         </div>
                     </div>
                 `
@@ -1500,7 +1495,7 @@
             const container = document.getElementById('template-container');
             const data = templates[level];
             
-            document.getElementById('sim-url').innerHTML = `<i data-lucide="lock" class="w-3 h-3 text-gold-400"></i><span>${data.url}</span>`;
+            document.getElementById('sim-url').innerHTML = `<i data-lucide="lock" class="w-3 h-3 text-gold-400 shrink-0"></i><span class="truncate">${data.url}</span>`;
             document.getElementById('sim-level-badge').innerText = data.badge;
 
             container.innerHTML = data.html;
