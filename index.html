@@ -217,10 +217,13 @@
 
             <nav class="hidden lg:flex items-center gap-8 text-sm font-medium text-slate-300">
                 <a href="#sablonlar" class="hover:text-gold-400 transition-colors">3 Şablon Seviyesi</a>
+                <a href="demo.html" target="_blank" class="text-gold-300 hover:text-gold-400 flex items-center gap-1 font-semibold">
+                    <i data-lucide="external-link" class="w-3.5 h-3.5"></i>
+                    <span>Canlı Demo</span>
+                </a>
                 <a href="#yerel-cozumler" class="hover:text-gold-400 transition-colors">Bölgesel Hizmetler</a>
                 <a href="#tasarruf-hesaplayici" class="hover:text-gold-400 transition-colors">Tasarruf Hesapla</a>
                 <a href="#paketler" class="hover:text-gold-400 transition-colors">Fiyatlandırma</a>
-                <a href="#sss" class="hover:text-gold-400 transition-colors">Sıkça Sorulanlar</a>
             </nav>
 
             <div class="flex items-center gap-3">
@@ -265,10 +268,10 @@
                     <i data-lucide="eye" class="w-5 h-5"></i>
                     <span>Canlı Şablonları İnceleyin</span>
                 </a>
-                <button onclick="requestPurchase('Hızlı Butik Vitrin (1. Seviye Şablon)', '2.490 ₺')" class="w-full sm:w-auto inline-flex items-center justify-center gap-3 px-8 py-4 rounded-xl text-base font-semibold text-gold-300 bg-night-900/90 border border-gold-400/30 hover:border-gold-400 hover:bg-night-850 transition-all duration-300">
-                    <i data-lucide="banknote" class="w-5 h-5 text-gold-400"></i>
-                    <span>FAST / Havale İle Sipariş Ver</span>
-                </button>
+                <a href="demo.html" target="_blank" class="w-full sm:w-auto inline-flex items-center justify-center gap-3 px-8 py-4 rounded-xl text-base font-semibold text-gold-300 bg-night-900/90 border border-gold-400/30 hover:border-gold-400 hover:bg-night-850 transition-all duration-300">
+                    <i data-lucide="external-link" class="w-5 h-5 text-gold-400"></i>
+                    <span>Tam Ekran Canlı Demo Gör</span>
+                </a>
             </div>
 
             <div class="mt-12 pt-8 border-t border-white/10 grid grid-cols-2 md:grid-cols-4 gap-6 text-left max-w-4xl mx-auto">
@@ -312,7 +315,7 @@
         </div>
     </section>
 
-    <!-- 3 SEVİYELİ CANLI ŞABLON SİMÜLATÖRÜ -->
+    <!-- 3 SEVİYELİ CANLI ŞABLON SİMÜLATÖRÜ (CANLI DEMO BUTONU DAHİL) -->
     <section id="sablonlar" class="py-20 bg-night-950 relative">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center max-w-3xl mx-auto mb-10">
@@ -321,7 +324,7 @@
                     Basitten En Lükse: 3 Farklı Şablon Mimarisi
                 </h2>
                 <p class="text-slate-300 mt-3 text-sm sm:text-base">
-                    İşletmenizin ölçeğine göre hazırlanan şablonlarımızı canlı olarak test edin. Hem bilgisayarda hem telefonda nasıl durduğunu görmek için görünümü değiştirebilirsiniz.
+                    İşletmenizin ölçeğine göre hazırlanan şablonlarımızı canlı olarak test edin. Hem bilgisayarda hem telefonda nasıl durduğunu görmek için görünümü değiştirebilir veya doğrudan tam ekran demo açabilirsiniz.
                 </p>
             </div>
 
@@ -341,8 +344,8 @@
                 </button>
             </div>
 
-            <!-- Cihaz Geçiş Butonları -->
-            <div class="flex items-center justify-center gap-2 mb-6">
+            <!-- Cihaz Geçiş Butonları & Tam Ekran Canlı Demo Gör Butonu -->
+            <div class="flex flex-wrap items-center justify-center gap-2.5 mb-6">
                 <button onclick="switchDeviceView('desktop')" id="view-btn-desktop" class="px-4 py-2 rounded-xl text-xs font-bold flex items-center gap-2 bg-gold-400 text-night-950 transition-all">
                     <i data-lucide="monitor" class="w-4 h-4"></i>
                     <span>Masaüstü Görünümü</span>
@@ -351,6 +354,10 @@
                     <i data-lucide="smartphone" class="w-4 h-4"></i>
                     <span>Telefon Görünümü (Mobil)</span>
                 </button>
+                <a href="demo.html" target="_blank" class="px-4 py-2 rounded-xl text-xs font-bold flex items-center gap-2 bg-gradient-to-r from-emerald-500 to-emerald-600 hover:brightness-110 text-white shadow-md shadow-emerald-500/20 transition-all">
+                    <i data-lucide="external-link" class="w-4 h-4"></i>
+                    <span>Tam Ekran Canlı Demo Gör</span>
+                </a>
             </div>
 
             <!-- Canlı Çerçeve -->
@@ -362,7 +369,7 @@
                             <span class="w-3 h-3 rounded-full bg-amber-500/80"></span>
                             <span class="w-3 h-3 rounded-full bg-emerald-500/80"></span>
                         </div>
-                        <div id="sim-url" class="bg-night-900 border border-white/10 px-6 py-1 rounded-lg text-xs font-mono text-gold-300 flex items-center gap-2 max-w-[200px] sm:max-w-none truncate">
+                        <div id="sim-url" class="bg-night-900 border border-white/10 px-4 py-1 rounded-lg text-xs font-mono text-gold-300 flex items-center gap-2 max-w-[200px] sm:max-w-none truncate">
                             <i data-lucide="lock" class="w-3 h-3 text-gold-400 shrink-0"></i>
                             <span class="truncate">https://sarayocakbasi.restoranweb.com</span>
                         </div>
@@ -782,7 +789,7 @@
                         <i id="faq-icon-2" data-lucide="chevron-down" class="w-5 h-5 text-gold-400 transition-transform duration-300"></i>
                     </button>
                     <div id="faq-ans-2" class="hidden px-5 pb-5 text-xs sm:text-sm text-slate-300 border-t border-white/5 pt-3 leading-relaxed">
-                        Evet! Sitenizi doğrudan Google Haritalar (Google İşletme) profilinizdeki "Web Sitesi" alanına entegre ediyoruz. Bölgenizde arama yapan veya yol tarifi alan müşteriler Google Haritalar üzerinden tek tıkla sitenize ve menünüze yönlendirilir.
+                        Evet! Sitenizi doğrudan Google Haritalar (Google İşletme) profilinizdeki 'Web Sitesi' alanına entegre ediyoruz. Bölgenizde arama yapan veya yol tarifi alan müşteriler Google Haritalar üzerinden tek tıkla sitenize ve menünüze yönlendirilir.
                     </div>
                 </div>
 
@@ -1015,14 +1022,14 @@
         </div>
     </div>
 
-    <!-- GİRİŞ / KAYIT OL MODALI (HESAP ZORUNLULUĞU BİLGİLENDİRME ŞERİDİ DAHİL) -->
+    <!-- GİRİŞ / KAYIT OL MODALI -->
     <div id="auth-modal" class="fixed inset-0 z-50 bg-black/85 backdrop-blur-md hidden items-center justify-center p-4">
         <div class="luxury-card rounded-2xl w-full max-w-md border border-gold-400/30 p-6 sm:p-8 relative shadow-2xl">
             <button onclick="closeAuthModal()" class="absolute top-5 right-5 text-slate-400 hover:text-white">
                 <i data-lucide="x" class="w-5 h-5"></i>
             </button>
 
-            <!-- İşlem Zorunluluğu Uyarı Başlığı (Dinamik) -->
+            <!-- Dinamik İşlem Şeridi -->
             <div id="auth-intent-banner" class="mb-5 p-3 rounded-xl bg-gold-400/10 border border-gold-400/30 text-xs text-gold-300 flex items-center gap-2.5 hidden">
                 <i data-lucide="shield-alert" class="w-4 h-4 text-gold-400 shrink-0"></i>
                 <span id="auth-intent-text">Devam etmek için lütfen giriş yapın veya ücretsiz hesap oluşturun.</span>
@@ -1099,7 +1106,6 @@
 
         const FORMSPREE_ENDPOINT = "https://formspree.io/f/xnppjawa";
 
-        // BEKLEYEN İŞLEM HAFIZASI (Giriş/Kayıttan sonra kaldığı yerden devam etmesi için)
         let pendingAction = null;
 
         function getAuthUsers() {
@@ -1109,10 +1115,6 @@
         function getCurrentUser() {
             return JSON.parse(localStorage.getItem('rw_current_user') || 'null');
         }
-
-        // ==========================================
-        // 1. ZORUNLU HESAP & DEVAM ETME AKIŞI
-        // ==========================================
 
         // ÖDEME ALIRKEN KONTROL
         function requestPurchase(packageName, price) {
@@ -1132,7 +1134,6 @@
             const user = getCurrentUser();
 
             if (!user) {
-                // Formdaki doldurulan verileri hafızaya al
                 pendingAction = {
                     type: 'lead',
                     formData: new FormData(form)
@@ -1177,9 +1178,6 @@
             pendingAction = null;
         }
 
-        // ==========================================
-        // 2. KULLANICI GİRİŞ & KAYIT SİSTEMİ (AUTH)
-        // ==========================================
         function updateNavAuth() {
             const user = getCurrentUser();
             const navArea = document.getElementById('auth-nav-area');
@@ -1195,7 +1193,6 @@
                         </button>
                     </div>
                 `;
-                // Alanları otomatik doldur
                 if (document.getElementById('pay-restoran-adi')) document.getElementById('pay-restoran-adi').value = user.restaurant;
                 if (document.getElementById('pay-yetkili-adi')) document.getElementById('pay-yetkili-adi').value = user.owner;
                 if (document.getElementById('pay-telefon')) document.getElementById('pay-telefon').value = user.phone;
@@ -1286,7 +1283,6 @@
             showToast(`Hoş geldiniz, ${restaurant}!`);
             e.target.reset();
 
-            // Bekleyen işlemi (Ödeme veya taslak talebi) hemen aç
             resumePendingAction();
         }
 
@@ -1309,7 +1305,6 @@
             showToast(`Giriş yapıldı: ${matchedUser.restaurant}`);
             e.target.reset();
 
-            // Bekleyen işlemi hemen devam ettir
             resumePendingAction();
         }
 
@@ -1321,9 +1316,6 @@
 
         updateNavAuth();
 
-        // ==========================================
-        // 3. KOMİSYON TASARRUF HESAPLAYICISI
-        // ==========================================
         function calculateSavings() {
             const ciro = Number(document.getElementById('ciro-slider').value);
             document.getElementById('slider-ciro-val').innerText = ciro.toLocaleString('tr-TR') + " ₺";
@@ -1341,9 +1333,6 @@
 
         calculateSavings();
 
-        // ==========================================
-        // 4. MASAÜSTÜ / MOBİL GÖRÜNÜM GEÇİŞİ
-        // ==========================================
         function switchDeviceView(view) {
             const frame = document.getElementById('sim-frame');
             const btnDesk = document.getElementById('view-btn-desktop');
@@ -1360,7 +1349,6 @@
             }
         }
 
-        // 3 ŞABLON VERİSİ
         const templates = {
             1: {
                 name: "1. Seviye: Hızlı Butik Vitrin",
@@ -1608,7 +1596,6 @@
             }
         }
 
-        // FAST / HAVALE MODALI AÇMA (Sadece giriş yapılmışsa buraya gelir)
         function openFastModal(packageName, price) {
             document.getElementById('modal-pkg-name').innerText = packageName;
             document.getElementById('modal-pkg-price').innerText = price;
