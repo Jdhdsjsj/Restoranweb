@@ -50,7 +50,7 @@
 </head>
 <body class="bg-night-950 text-slate-200 font-sans antialiased selection:bg-gold-400 selection:text-night-950 min-h-screen">
 
-    <!-- ================= 6 HANELİ GİRİŞ / PIN KİLİT EKRANI ================= -->
+    <!-- 6 HANELİ GİRİŞ / PIN KİLİT EKRANI -->
     <div id="login-modal" class="fixed inset-0 z-50 bg-night-950 flex items-center justify-center p-4">
         <div class="bg-night-900 border border-gold-400/30 rounded-2xl p-8 max-w-sm w-full text-center shadow-2xl gold-glow">
             <div class="w-14 h-14 rounded-2xl bg-gold-400/10 border border-gold-400/30 flex items-center justify-center text-gold-400 mx-auto mb-4">
@@ -70,7 +70,7 @@
         </div>
     </div>
 
-    <!-- ================= ANA DASHBOARD KONSOLU ================= -->
+    <!-- ANA DASHBOARD KONSOLU -->
     <div id="dashboard-app" class="hidden min-h-screen flex flex-col">
         
         <!-- ÜST ÇUBUK -->
@@ -89,7 +89,6 @@
                     </div>
                 </div>
 
-                <!-- Hızlı Aksiyon Araçları -->
                 <div class="flex items-center gap-2 sm:gap-3">
                     <button onclick="openNewOrderModal()" class="px-3.5 sm:px-4 py-2.5 rounded-xl bg-gold-400 text-night-950 text-xs font-bold hover:brightness-110 flex items-center gap-1.5 transition-all shadow-md shadow-gold-400/10">
                         <i data-lucide="plus-circle" class="w-4 h-4"></i>
@@ -107,7 +106,7 @@
                 </div>
             </div>
 
-            <!-- KONSOL SEKMELERİ (NAVIGATION TABS) -->
+            <!-- KONSOL SEKMELERİ -->
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center gap-2 overflow-x-auto text-xs font-semibold py-2.5 border-t border-white/5">
                 <button onclick="switchTab('overview')" id="tab-btn-overview" class="tab-btn px-4 py-2 rounded-xl bg-gold-400 text-night-950 font-bold flex items-center gap-2 transition-all">
                     <i data-lucide="layout-dashboard" class="w-4 h-4"></i>
@@ -135,9 +134,8 @@
         <!-- İÇERİK ALANI -->
         <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 flex-1 space-y-8 w-full">
             
-            <!-- ================= SEKME 1: GENEL BAKIŞ & FİNANS ================= -->
+            <!-- SEKME 1: GENEL BAKIŞ & FİNANS -->
             <div id="tab-content-overview" class="space-y-8">
-                <!-- 4 Temel Metrik Kartı -->
                 <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
                     <div class="bg-night-900 border border-white/10 rounded-2xl p-5">
                         <div class="flex justify-between items-start">
@@ -196,7 +194,7 @@
                     </div>
                 </div>
 
-                <!-- Paket Dağılımı & Hızlı İstatistik Kartı -->
+                <!-- Paket Dağılımı (Optimize Fiyatlar) -->
                 <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
                     <div class="lg:col-span-2 bg-night-900 border border-white/10 rounded-2xl p-6">
                         <h4 class="text-sm font-bold text-white mb-1 flex items-center gap-2">
@@ -208,7 +206,7 @@
                         <div class="space-y-4">
                             <div>
                                 <div class="flex justify-between text-xs mb-1.5 font-medium">
-                                    <span class="text-slate-300">1. Seviye: Hızlı Butik Vitrin (2.490 ₺)</span>
+                                    <span class="text-slate-300">1. Seviye: Hızlı Butik Vitrin (3.490 ₺)</span>
                                     <span id="pkg-count-1" class="text-gold-400 font-mono font-bold">0 Adet</span>
                                 </div>
                                 <div class="w-full bg-night-950 h-2.5 rounded-full overflow-hidden border border-white/5">
@@ -218,7 +216,7 @@
 
                             <div>
                                 <div class="flex justify-between text-xs mb-1.5 font-medium">
-                                    <span class="text-slate-300">2. Seviye: Klasik Bistro & Menü (4.490 ₺)</span>
+                                    <span class="text-slate-300">2. Seviye: Klasik Bistro & Menü (5.990 ₺)</span>
                                     <span id="pkg-count-2" class="text-gold-400 font-mono font-bold">0 Adet</span>
                                 </div>
                                 <div class="w-full bg-night-950 h-2.5 rounded-full overflow-hidden border border-white/5">
@@ -228,7 +226,7 @@
 
                             <div>
                                 <div class="flex justify-between text-xs mb-1.5 font-medium">
-                                    <span class="text-slate-300">3. Seviye: Ultra Lüks Gurme (7.490 ₺)</span>
+                                    <span class="text-slate-300">3. Seviye: Ultra Lüks Gurme (9.990 ₺)</span>
                                     <span id="pkg-count-3" class="text-gold-400 font-mono font-bold">0 Adet</span>
                                 </div>
                                 <div class="w-full bg-night-950 h-2.5 rounded-full overflow-hidden border border-white/5">
@@ -271,7 +269,7 @@
                 </div>
             </div>
 
-            <!-- ================= SEKME 2: SİPARİŞ MASASI ================= -->
+            <!-- SEKME 2: SİPARİŞ MASASI -->
             <div id="tab-content-orders" class="hidden space-y-6">
                 <div class="bg-night-900 border border-white/10 rounded-2xl overflow-hidden shadow-xl">
                     <div class="p-5 border-b border-white/10 flex flex-col md:flex-row md:items-center justify-between gap-4">
@@ -284,7 +282,6 @@
                         </div>
 
                         <div class="flex flex-wrap items-center gap-2.5">
-                            <!-- Canlı Arama Inputu -->
                             <div class="relative">
                                 <i data-lucide="search" class="w-3.5 h-3.5 absolute left-3 top-1/2 -translate-y-1/2 text-slate-500"></i>
                                 <input type="text" id="order-search" oninput="renderOrders()" placeholder="Restoran, kod veya tel ara..." class="pl-8 pr-3 py-2 rounded-xl bg-night-950 border border-white/10 text-xs text-white placeholder-slate-500 focus:outline-none focus:border-gold-400 w-44 sm:w-56">
@@ -329,7 +326,7 @@
                 </div>
             </div>
 
-            <!-- ================= SEKME 3: ZİYARETÇİLER & CİHAZLAR ================= -->
+            <!-- SEKME 3: ZİYARETÇİLER & CİHAZLAR -->
             <div id="tab-content-visitors" class="hidden space-y-6">
                 <div class="bg-night-900 border border-white/10 rounded-2xl overflow-hidden shadow-xl">
                     <div class="p-5 border-b border-white/10 flex flex-col sm:flex-row sm:items-center justify-between gap-3">
@@ -374,7 +371,7 @@
                 </div>
             </div>
 
-            <!-- ================= SEKME 4: KAYITLI İŞLETMELER ================= -->
+            <!-- SEKME 4: KAYITLI İŞLETMELER -->
             <div id="tab-content-users" class="hidden space-y-6">
                 <div class="bg-night-900 border border-white/10 rounded-2xl overflow-hidden shadow-xl">
                     <div class="p-5 border-b border-white/10 flex justify-between items-center">
@@ -400,7 +397,7 @@
                                 </tr>
                             </thead>
                             <tbody id="users-tbody" class="divide-y divide-white/5 text-slate-300">
-                                <!-- JS ile render edilir -->
+                                <!-- JS ile basılır -->
                             </tbody>
                         </table>
                     </div>
@@ -410,7 +407,7 @@
                 </div>
             </div>
 
-            <!-- ================= SEKME 5: BANKA & AYARLAR ================= -->
+            <!-- SEKME 5: BANKA & AYARLAR -->
             <div id="tab-content-settings" class="hidden space-y-6">
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
                     <div class="bg-night-900 border border-gold-400/30 rounded-2xl p-6">
@@ -528,7 +525,7 @@
                     </div>
                     <div>
                         <label class="block text-slate-400 mb-1">Tutar (₺)</label>
-                        <input type="number" id="m-price" required value="4490" class="w-full px-3 py-2 rounded-lg bg-night-950 border border-white/10 text-white font-bold focus:outline-none focus:border-gold-400">
+                        <input type="number" id="m-price" required value="5990" class="w-full px-3 py-2 rounded-lg bg-night-950 border border-white/10 text-white font-bold focus:outline-none focus:border-gold-400">
                     </div>
                 </div>
 
@@ -601,7 +598,6 @@
         const STORAGE_KEY_VISITORS = "rw_real_visitors";
         const STORAGE_KEY_USERS = "rw_registered_users";
 
-        // 6 HANELİ VARSAYILAN PIN: 123456
         function getStoredPin() {
             return localStorage.getItem(STORAGE_KEY_PIN) || "123456";
         }
@@ -640,7 +636,6 @@
             }
         }
 
-        // SEKME GEÇİŞİ (TABS)
         function switchTab(tabId) {
             const tabs = ['overview', 'orders', 'visitors', 'users', 'settings'];
             tabs.forEach(t => {
@@ -668,7 +663,7 @@
                         owner: "Hasan Özdemir",
                         phone: "05321112233",
                         package: "3. Seviye: Ultra Lüks Gurme",
-                        price: 7490,
+                        price: 9990,
                         status: "YAYINDA"
                     },
                     {
@@ -678,7 +673,7 @@
                         owner: "Murat Korkmaz",
                         phone: "05442223344",
                         package: "2. Seviye: Klasik Bistro & Menü",
-                        price: 4490,
+                        price: 5990,
                         status: "BEKLIYOR"
                     }
                 ];
@@ -702,9 +697,6 @@
             lucide.createIcons();
         }
 
-        // ==========================================
-        // 1. SİPARİŞ LİSTESİ & CANLI ARAMA & WHATSAPP
-        // ==========================================
         function renderOrders() {
             const filter = document.getElementById('filter-status').value;
             const searchTerm = (document.getElementById('order-search')?.value || '').toLowerCase().trim();
@@ -820,9 +812,6 @@
             }
         }
 
-        // ==========================================
-        // 2. FİŞ YAZDIRMA (PRINT / PDF)
-        // ==========================================
         function printOrderInvoice(code) {
             const orders = getOrders();
             const order = orders.find(o => o.code === code);
@@ -842,9 +831,6 @@
             printArea.classList.add('hidden');
         }
 
-        // ==========================================
-        // 3. EXCEL / CSV VE JSON VERİTABANI YEDEKLEME
-        // ==========================================
         function exportOrdersToCSV() {
             const orders = getOrders();
             if (orders.length === 0) {
@@ -895,9 +881,6 @@
             downloadAnchor.remove();
         }
 
-        // ==========================================
-        // 4. ZİYARETÇİ / CİHAZ YÖNETİMİ
-        // ==========================================
         function renderVisitors() {
             const visitors = JSON.parse(localStorage.getItem(STORAGE_KEY_VISITORS) || '[]');
             const tbody = document.getElementById('visitors-tbody');
@@ -951,9 +934,6 @@
             }
         }
 
-        // ==========================================
-        // 5. KAYITLI İŞLETMELER YÖNETİMİ
-        // ==========================================
         function renderUsers() {
             const users = JSON.parse(localStorage.getItem(STORAGE_KEY_USERS) || '[]');
             const tbody = document.getElementById('users-tbody');
@@ -1015,9 +995,6 @@
             }
         }
 
-        // ==========================================
-        // 6. METRİK VE GRAFİK ÇUBUKLARI HESABI
-        // ==========================================
         function renderStats() {
             const orders = getOrders();
             let totalRevenue = 0;
@@ -1043,7 +1020,6 @@
             document.getElementById('stat-pending').innerText = pendingCount;
             document.getElementById('stat-active').innerText = activeCount;
 
-            // Paket Dağılım Çubukları
             const totalOrders = orders.length || 1;
             document.getElementById('pkg-count-1').innerText = `${count1} Adet (${Math.round((count1/totalOrders)*100)}%)`;
             document.getElementById('pkg-count-2').innerText = `${count2} Adet (${Math.round((count2/totalOrders)*100)}%)`;
@@ -1065,12 +1041,13 @@
             document.getElementById('order-modal').classList.remove('flex');
         }
 
+        // OPTİMİZE EDİLMİŞ MANUEL FİYAT ATAMALARI
         function autoFillPrice() {
             const pkg = document.getElementById('m-package').value;
             const priceInput = document.getElementById('m-price');
-            if (pkg.includes('Butik')) priceInput.value = 2490;
-            else if (pkg.includes('Bistro')) priceInput.value = 4490;
-            else priceInput.value = 7490;
+            if (pkg.includes('Butik')) priceInput.value = 3490;
+            else if (pkg.includes('Bistro')) priceInput.value = 5990;
+            else priceInput.value = 9990;
         }
 
         function handleSaveOrder(e) {
